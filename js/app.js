@@ -64,7 +64,9 @@
           if (unit.status === "SOLD" || unit.status === "HOLD") {
             const tag = document.createElement("span");
             tag.className = "mp-unit__tag";
-            tag.textContent = unit.status === "SOLD" ? "SOLD" : "RC";
+            tag.textContent = unit.status === "SOLD"
+              ? "SOLD"
+              : (unit.statusLabel === "BELUM DIJUAL" ? "-" : "RC");
             cell.appendChild(tag);
           }
 

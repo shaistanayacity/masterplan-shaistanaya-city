@@ -68,17 +68,20 @@ def label_sequence(n):
 
 def make_block(block_id, cluster, box_px, count, direction, type_key,
                 available=None, hold=None, hold_label="RUMAH CONTOH",
-                overrides=None, street="", skip_four=False):
+                hold_labels=None, overrides=None, street="", skip_four=False):
     """
     direction: 'rtl' (01 at right, N at left) | 'ltr' (01 at left)
                 'btt' (01 at bottom, N at top) | 'ttb' (01 at top)
     available: set of unit numbers that are TERSEDIA (default: all)
     hold: set of unit numbers that are HOLD/RC
+    hold_label: default popup label for any HOLD unit in this block
+    hold_labels: {unit_no: label} to override hold_label for specific units
     overrides: {unit_no: type_key} for hook units with special price
     skip_four: use label_sequence() instead of a plain 1..count run
     """
     available = available or set()
     hold = hold or set()
+    hold_labels = hold_labels or {}
     overrides = overrides or {}
     orientation = "row" if direction in ("rtl", "ltr") else "col"
     order = label_sequence(count) if skip_four else list(range(1, count + 1))
@@ -103,7 +106,7 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
             "lt": t["lt"],
             "price": t["price"],
             "status": status,
-            "statusLabel": hold_label if status == "HOLD" else None,
+            "statusLabel": hold_labels.get(n, hold_label) if status == "HOLD" else None,
         })
 
     return {
@@ -150,7 +153,8 @@ BLOCKS.append(make_block(
 
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): tersedia sisa 12,11,09/RC,06,05,03,01 -- lainnya SOLD.
-    "E3", "sierra", (895, 868, 1365, 1007), 12, "rtl",
+    # No unit "04" in this block either -- 11 real lots, not 12.
+    "E3", "sierra", (895, 868, 1365, 1007), 11, "rtl", skip_four=True,
     type_key="BIANCA_GARDEN",
     available={1, 3, 5, 6, 11, 12},
     hold={9},
@@ -160,21 +164,28 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): E7 dan E8 sebelumnya kegabung jadi satu blok -- sekarang dipisah.
-    # E7 tersedia sisa unit 05 (RC). Tipe/harga E7 belum ada di pricelist.
-    # No block in this project has a unit "04" (numbering skips 3 -> 5), so this is 9 real
-    # lots labeled 01,02,03,05,06,07,08,09,10 -- not 10 lots with a phantom "04".
+    # Revisi (1 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
+    # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis -- yang "buka" (berwarna di
+    # gambar, bukan putih kosong) cuma unit 06 (tersedia) dan 05 (RC/rumah contoh). Sisanya
+    # masih putih polos di gambar sumber, artinya belum dijual/diputuskan -- HOLD, bukan
+    # SOLD. Tipe/harga E7 belum ada di pricelist manapun.
     "E7", "sierra", (811, 1337, 1210, 1432), 9, "rtl", skip_four=True,
     type_key="E7_TBD",
-    hold={5},
+    available={6},
+    hold={1, 2, 3, 5, 7, 8, 9, 10},
+    hold_label="BELUM DIJUAL",
+    hold_labels={5: "RUMAH CONTOH"},
     street="JL. SIERRA E7",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): E8 tersedia sisa 10, 09, 06 -- lainnya SOLD. 9 lots, no unit "04".
+    # Revisi (1 Sep 2026, dikoreksi lagi): E8 tersedia sisa 10, 09, 06. Unit 01 berwarna
+    # putih di gambar sumber (belum dijual/diputuskan) -- HOLD, bukan SOLD.
     "E8", "sierra", (811, 1432, 1210, 1542), 9, "rtl", skip_four=True,
     type_key="ARNICA_GARDEN_E8",
     available={6, 9, 10},
+    hold={1},
+    hold_label="BELUM DIJUAL",
     overrides={10: "ARNICA_GARDEN_E8_HOOK"},
     street="JL. SIERRA E8",
 ))
@@ -284,47 +295,61 @@ BLOCKS.append(make_block(
 ))
 
 # ---------------- Ruko (Blok A) ----------------
-# Revisi (1 Sep 2026): seluruh unit Ruko/A sudah SOLD. The row sits on a diagonal road, so
-# instead of slicing one rectangle evenly (imprecise on a tilted row), each of the 14 units
-# below is its own precisely color-detected box (see scripts/README notes / session log).
-RUKO_BOXES = [
+# Revisi (2 Sep 2026): seluruh unit Ruko/A sudah SOLD, dan numbering dikoreksi ulang --
+# dari kanan ke kiri (A1, A2, A3, ...), dengan A4, A13, A14 tidak ada. Urutan fisik dari
+# kanan (dekat gerbang ROW 19) ke kiri:
+#   4 unit di kavling pojok kanan gerbang
+#   14 unit di baris diagonal utama (masing-masing kotak sendiri, presisi, karena
+#      barisnya diagonal -- lihat RUKO_MAIN_BOXES, dideteksi dari warna per unit)
+#   4 unit di kavling pojok kiri gerbang
+# = 22 unit total. Catatan: pemilik data sempat menyebut totalnya "A21" -- kemungkinan
+# menghitung salah satu kavling pojok sebagai 3 (bukan 4) unit. Di sini kedua pojok dibuat
+# simetris 4 unit (sesuai instruksi eksplisit "harusnya 4 unit 4 label"), dan baris utama
+# tetap 14 unit (setiap unitnya sudah dikonfirmasi sebagai kotak warna terpisah di gambar
+# sumber, jadi tidak ada yang dihapus tanpa bukti) -- kalau total yang benar memang 21,
+# tinggal hapus satu unit di sini dan sesuaikan RUKO_LABELS di bawah.
+RUKO_LABELS = [n for n in range(1, 26) if n not in (4, 13, 14)]  # 22 labels, tops out at 25
+assert len(RUKO_LABELS) == 22
+
+# 14 boxes for the main diagonal row, precisely color-detected per unit, in ascending-x
+# (leftmost-first) order.
+RUKO_MAIN_BOXES_LTR = [
     (876, 844, 916, 926), (911, 840, 952, 922), (945, 835, 986, 917),
     (979, 830, 1021, 913), (1014, 827, 1056, 909), (1048, 821, 1090, 904),
     (1081, 817, 1125, 899), (1116, 813, 1157, 895), (1150, 808, 1193, 891),
     (1187, 803, 1227, 886), (1221, 799, 1262, 881), (1255, 795, 1295, 877),
     (1288, 790, 1330, 873), (1323, 784, 1365, 868),
 ]
-for i, box in enumerate(reversed(RUKO_BOXES), start=1):
-    # reversed so unit 01 = rightmost box, matching the numbering convention used elsewhere
-    BLOCKS.append(make_single_unit_block(
-        f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
-    ))
+RUKO_MAIN_BOXES = list(reversed(RUKO_MAIN_BOXES_LTR))  # rightmost first
 
-# Small corner extension near ROW 19, left of the gate: 4 more Ruko-dimensioned lots (only
-# 2 of them -- "05" and "03" -- are numbered on the source PDF; the row above them is the
-# same size lots left unlabeled on the drawing). Per the 1 Sep 2026 correction, all 4 are
-# SOLD, same as the rest of Blok A.
-CORNER_A_BOX = (1362, 692, 1435, 798)
-cx1, cy1, cx2, cy2 = CORNER_A_BOX
-cxm, cym = (cx1 + cx2) // 2, (cy1 + cy2) // 2
-CORNER_A_QUADS = [
-    (cx1, cy1, cxm, cym), (cxm, cy1, cx2, cym),   # top-left, top-right (unlabeled row)
-    (cx1, cym, cxm, cy2), (cxm, cym, cx2, cy2),   # bottom-left "05", bottom-right "03"
+# Corner extension left of the gate: 2x2 grid of 4 lots ("05"/"03" numbered on the source
+# PDF, the row above them left unlabeled on the drawing but same size lots).
+CORNER_LEFT_BOX = (1362, 692, 1435, 798)
+clx1, cly1, clx2, cly2 = CORNER_LEFT_BOX
+clxm, clym = (clx1 + clx2) // 2, (cly1 + cly2) // 2
+CORNER_LEFT_BOXES = [
+    (clx1, cly1, clxm, clym), (clxm, cly1, clx2, clym),   # top-left, top-right
+    (clx1, clym, clxm, cly2), (clxm, clym, clx2, cly2),   # bottom-left "05", bottom-right "03"
 ]
-for i, box in enumerate(CORNER_A_QUADS, start=15):
-    BLOCKS.append(make_single_unit_block(
-        f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
-    ))
 
-# Mirrored corner on the right side of the ROW 19 gate: "02"/"01" plus one more lot above
-# them (3 lots total). unit_stock.pdf confirms Blok A/Ruko has 0 units ready -- so these are
-# SOLD too, same as the rest of the block.
-CORNER_A2_TOP = (1565, 702, 1635, 735)
-CORNER_A2_BL = (1565, 735, 1600, 842)   # "02"
-CORNER_A2_BR = (1600, 735, 1635, 842)   # "01"
-for i, box in enumerate((CORNER_A2_TOP, CORNER_A2_BL, CORNER_A2_BR), start=19):
+# Mirrored corner extension right of the gate: also a 2x2 grid of 4 lots ("02"/"01"
+# numbered, the row above them unlabeled) -- previously modeled as only 3 lots (one wide
+# unlabeled cell instead of two), corrected to match the left corner's 2x2 pattern.
+CORNER_RIGHT_BOX = (1565, 702, 1635, 842)
+crx1, cry1, crx2, cry2 = CORNER_RIGHT_BOX
+crxm, crym = (crx1 + crx2) // 2, (cry1 + cry2) // 2
+CORNER_RIGHT_BOXES = [
+    (crx1, cry1, crxm, crym), (crxm, cry1, crx2, crym),   # top-left, top-right
+    (crx1, crym, crxm, cry2), (crxm, crym, crx2, cry2),   # bottom-left "02", bottom-right "01"
+]
+
+# Right-to-left physical order: right corner, then main row, then left corner.
+RUKO_ALL_BOXES = list(reversed(CORNER_RIGHT_BOXES)) + RUKO_MAIN_BOXES + CORNER_LEFT_BOXES
+assert len(RUKO_ALL_BOXES) == 22
+
+for label, box in zip(RUKO_LABELS, RUKO_ALL_BOXES):
     BLOCKS.append(make_single_unit_block(
-        f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
+        f"A-{label:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(label), street="JL. RUKO A",
     ))
 
 # ---------------- Tahap 1 (older grey/uncolored kavling columns, sold out) ----------------
