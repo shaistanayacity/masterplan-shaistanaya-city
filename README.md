@@ -38,15 +38,14 @@ cukup ubah angka `box.left/top/width/height` (persen dari gambar) di
 Pengecualian: baris **Ruko (Blok A)** ada di jalan yang miring/diagonal,
 jadi tidak bisa dipotong rata sebagai satu persegi panjang tanpa jadi tidak
 presisi. Untuk blok itu, semua unitnya (14 di baris diagonal utama + 4 di
-kavling pojok kiri dekat gerbang ROW 19 + 4 di kavling pojok kanannya =
-22 unit) masing-masing dideteksi sebagai kotak sendiri-sendiri (per-unit,
-bukan per-blok) lewat `make_single_unit_block()` di
-`scripts/generate_data.py`, jadi setiap unit menempel pas mengikuti
-kemiringan/posisi aslinya di gambar. Nomornya A1, A2, A3, A5, A6, ... dari
-kanan ke kiri (A4, A13, A14 sengaja tidak ada, sesuai koreksi pemilik
-data) — total **22 unit**, bukan 21 seperti yang sempat disebutkan; lihat
-komentar di atas `RUKO_LABELS` di `scripts/generate_data.py` untuk detail
-dan cara menyesuaikannya kalau total yang benar memang 21.
+kavling pojok kanan gerbang ROW 19 = **18 unit**) masing-masing dideteksi
+sebagai kotak sendiri-sendiri (per-unit, bukan per-blok) lewat
+`make_single_unit_block()` di `scripts/generate_data.py`, jadi setiap unit
+menempel pas mengikuti kemiringan/posisi aslinya di gambar. Nomornya A1,
+A2, A3, A5, A6, ... dari kanan ke kiri (A4, A13, A14 sengaja tidak ada,
+sesuai koreksi pemilik data), nomor tertinggi A21. Kavling pojok **kiri**
+gerbang ("05"/"03") **bukan** bagian dari hitungan ini — dibiarkan tanpa
+overlay sama sekali, sama seperti E5/E6/E9-E11.
 
 ## Cakupan data
 
@@ -56,8 +55,8 @@ per-unit, yaitu:
 - **Cluster Sierra**: E1, E3, E7, E8 (tipe Bianca & Arnica)
 - **Cluster Montana**: F1, F2, F3, F5, F6, F7, F8, F9, F10, F11, F12, F15, F16
   (tipe Gwen, New Gwen, Darlene, Angeline)
-- **Ruko (Blok A)**: 22 unit ruko (14 di baris diagonal utama + 4 + 4 di
-  dua kavling pojok dekat gerbang ROW 19) — semua **SOLD** (tidak ada data
+- **Ruko (Blok A)**: 18 unit ruko (14 di baris diagonal utama + 4 di
+  kavling pojok kanan gerbang ROW 19) — semua **SOLD** (tidak ada data
   harga, jadi popup-nya cuma tampilkan status).
 - **Tahap 1 (Sold Out)**: B1, B2, C1, C2, D1, D2 — dua kolom kavling
   abu-abu di sisi timur site (tidak berwarna di legenda PDF, tidak ada di
@@ -68,12 +67,15 @@ per-unit, yaitu:
   deteksi otomatis.
 
 E7 sekarang juga interaktif, tapi **bukan** blok yang sudah habis terjual:
-cuma unit 06 yang TERSEDIA dan unit 05 yang RC (rumah contoh) — sisanya
-masih putih/kosong di gambar sumber (belum dijual/belum diputuskan), jadi
-ditandai **HOLD** (bukan SOLD) dengan label "Belum Dijual". Tipe dan
-harganya belum ada di pricelist manapun, jadi popup-nya hanya menampilkan
-nama generik "ARNICA (E7)" tanpa harga. E8 juga punya 1 unit "belum
-dijual" (unit 01), sisanya campuran TERSEDIA/SOLD seperti biasa.
+cuma unit 05 yang RC (rumah contoh) dan unit 06 yang SOLD — sisanya masih
+putih/kosong di gambar sumber (belum dijual/belum diputuskan). Unit
+"Belum Dijual" ini (status HOLD, label "Belum Dijual") dirender **tanpa
+overlay/nomor/popup sama sekali** — persis seperti area kosong lain di
+gambar (E2, dst.), bukan ditandai warna seperti unit RC. Tipe dan
+harganya belum ada di pricelist manapun, jadi kalaupun ada popup (unit
+05/06) hanya menampilkan nama generik "ARNICA (E7)" tanpa harga. E8 juga
+punya 1 unit "belum dijual" dengan perlakuan sama (unit 01), sisanya
+campuran TERSEDIA/SOLD seperti biasa.
 
 Blok abu-abu lain yang belum ada di pricelist maupun belum dikonfirmasi
 statusnya (E5, E6, E9, E10, E11) sengaja **tidak** dibuat per-unit karena

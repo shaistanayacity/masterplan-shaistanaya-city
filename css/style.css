@@ -175,11 +175,14 @@ body {
   height: 55%;
 }
 
-/* "Belum Dijual" units: plain/blank like the source drawing, not amber like a real RC */
+/* "Belum Dijual" units: fully inert, no overlay/number/popup -- reads exactly like an
+   untouched part of the source drawing (e.g. E2), not a marked, clickable unit. */
 .mp-unit--unreleased {
-  background: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  border-color: transparent;
 }
-.mp-unit--unreleased .mp-unit__no { display: block; }
+.mp-unit--unreleased:hover { filter: none; }
+.mp-unit--unreleased .mp-unit__no { display: none; }
 .mp-unit--unreleased .mp-unit__tag { display: none; }
 
 .mp-unit--tersedia {

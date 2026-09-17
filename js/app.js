@@ -58,10 +58,12 @@
           cell.className = "mp-unit " + statusClass;
           cell.title = `${block.id}-${unit.no} · ${unit.type} · ${unit.status}`;
 
-          const noSpan = document.createElement("span");
-          noSpan.className = "mp-unit__no";
-          noSpan.textContent = unit.no;
-          cell.appendChild(noSpan);
+          if (!isUnreleased) {
+            const noSpan = document.createElement("span");
+            noSpan.className = "mp-unit__no";
+            noSpan.textContent = unit.no;
+            cell.appendChild(noSpan);
+          }
 
           if (unit.status === "SOLD" || (unit.status === "HOLD" && !isUnreleased)) {
             const tag = document.createElement("span");
@@ -70,7 +72,12 @@
             cell.appendChild(tag);
           }
 
-          cell.addEventListener("click", () => openPopup(block, unit));
+          if (!isUnreleased) {
+            cell.addEventListener("click", () => openPopup(block, unit));
+            cell.style.cursor = "pointer";
+          } else {
+            cell.style.cursor = "default";
+          }
           el.appendChild(cell);
         });
 

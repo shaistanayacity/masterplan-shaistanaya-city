@@ -294,21 +294,16 @@ BLOCKS.append(make_block(
 ))
 
 # ---------------- Ruko (Blok A) ----------------
-# Revisi (2 Sep 2026): seluruh unit Ruko/A sudah SOLD, dan numbering dikoreksi ulang --
-# dari kanan ke kiri (A1, A2, A3, ...), dengan A4, A13, A14 tidak ada. Urutan fisik dari
-# kanan (dekat gerbang ROW 19) ke kiri:
-#   4 unit di kavling pojok kanan gerbang
+# Revisi (2 Sep 2026, dikoreksi lagi): total Ruko = 18 unit, bukan 22. Owner: "4 di bagian
+# kanan dimulai dari A1,A2,A3 dst tapi A4,A13,A14 gaada, jadi nnt total A21" -- artinya
+# nomor tertinggi = 21, tapi 3 nomor (4,13,14) dilewati, jadi 21-3 = 18 unit riil. Tidak ada
+# kavling pojok KIRI gerbang ROW 19 sama sekali dalam hitungan ini -- cuma pojok kanan (4
+# unit) + baris diagonal utama (14 unit). Urutan fisik dari kanan (dekat gerbang) ke kiri:
+#   4 unit di kavling pojok kanan gerbang -> label A1, A2, A3, A5
 #   14 unit di baris diagonal utama (masing-masing kotak sendiri, presisi, karena
-#      barisnya diagonal -- lihat RUKO_MAIN_BOXES, dideteksi dari warna per unit)
-#   4 unit di kavling pojok kiri gerbang
-# = 22 unit total. Catatan: pemilik data sempat menyebut totalnya "A21" -- kemungkinan
-# menghitung salah satu kavling pojok sebagai 3 (bukan 4) unit. Di sini kedua pojok dibuat
-# simetris 4 unit (sesuai instruksi eksplisit "harusnya 4 unit 4 label"), dan baris utama
-# tetap 14 unit (setiap unitnya sudah dikonfirmasi sebagai kotak warna terpisah di gambar
-# sumber, jadi tidak ada yang dihapus tanpa bukti) -- kalau total yang benar memang 21,
-# tinggal hapus satu unit di sini dan sesuaikan RUKO_LABELS di bawah.
-RUKO_LABELS = [n for n in range(1, 26) if n not in (4, 13, 14)]  # 22 labels, tops out at 25
-assert len(RUKO_LABELS) == 22
+#      barisnya diagonal) -> label A6..A12, A15..A21
+RUKO_LABELS = [n for n in range(1, 22) if n not in (4, 13, 14)]  # 18 labels, tops out at 21
+assert len(RUKO_LABELS) == 18
 
 # 14 boxes for the main diagonal row, precisely color-detected per unit, in ascending-x
 # (leftmost-first) order.
@@ -321,19 +316,8 @@ RUKO_MAIN_BOXES_LTR = [
 ]
 RUKO_MAIN_BOXES = list(reversed(RUKO_MAIN_BOXES_LTR))  # rightmost first
 
-# Corner extension left of the gate: 2x2 grid of 4 lots ("05"/"03" numbered on the source
+# Corner extension right of the gate: 2x2 grid of 4 lots ("02"/"01" numbered on the source
 # PDF, the row above them left unlabeled on the drawing but same size lots).
-CORNER_LEFT_BOX = (1362, 692, 1435, 798)
-clx1, cly1, clx2, cly2 = CORNER_LEFT_BOX
-clxm, clym = (clx1 + clx2) // 2, (cly1 + cly2) // 2
-CORNER_LEFT_BOXES = [
-    (clx1, cly1, clxm, clym), (clxm, cly1, clx2, clym),   # top-left, top-right
-    (clx1, clym, clxm, cly2), (clxm, clym, clx2, cly2),   # bottom-left "05", bottom-right "03"
-]
-
-# Mirrored corner extension right of the gate: also a 2x2 grid of 4 lots ("02"/"01"
-# numbered, the row above them unlabeled) -- previously modeled as only 3 lots (one wide
-# unlabeled cell instead of two), corrected to match the left corner's 2x2 pattern.
 CORNER_RIGHT_BOX = (1565, 702, 1635, 842)
 crx1, cry1, crx2, cry2 = CORNER_RIGHT_BOX
 crxm, crym = (crx1 + crx2) // 2, (cry1 + cry2) // 2
@@ -342,9 +326,12 @@ CORNER_RIGHT_BOXES = [
     (crx1, crym, crxm, cry2), (crxm, crym, crx2, cry2),   # bottom-left "02", bottom-right "01"
 ]
 
-# Right-to-left physical order: right corner, then main row, then left corner.
-RUKO_ALL_BOXES = list(reversed(CORNER_RIGHT_BOXES)) + RUKO_MAIN_BOXES + CORNER_LEFT_BOXES
-assert len(RUKO_ALL_BOXES) == 22
+# The mirrored corner LEFT of the gate ("05"/"03") is NOT part of Ruko's 18-unit count per
+# this correction, so it's left with no overlay at all (like scripts/ E5/E6/E9-E11).
+
+# Right-to-left physical order: right corner, then main row.
+RUKO_ALL_BOXES = list(reversed(CORNER_RIGHT_BOXES)) + RUKO_MAIN_BOXES
+assert len(RUKO_ALL_BOXES) == 18
 
 for label, box in zip(RUKO_LABELS, RUKO_ALL_BOXES):
     BLOCKS.append(make_single_unit_block(
