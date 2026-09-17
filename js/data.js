@@ -2305,16 +2305,6 @@ const MASTERPLAN_DATA = {
           "price": null,
           "status": "SOLD",
           "statusLabel": null
-        },
-        {
-          "no": "09",
-          "cell": 8,
-          "type": "Kavling Tahap 1",
-          "lb": null,
-          "lt": null,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
         }
       ]
     },
@@ -2509,6 +2499,86 @@ const MASTERPLAN_DATA = {
           "price": null,
           "status": "SOLD",
           "statusLabel": null
+        },
+        {
+          "no": "19",
+          "cell": 18,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "20",
+          "cell": 19,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "21",
+          "cell": 20,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "22",
+          "cell": 21,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "23",
+          "cell": 22,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "24",
+          "cell": 23,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "25",
+          "cell": 24,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "26",
+          "cell": 25,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
         }
       ]
     },
@@ -2633,6 +2703,56 @@ const MASTERPLAN_DATA = {
           "price": null,
           "status": "SOLD",
           "statusLabel": null
+        },
+        {
+          "no": "12",
+          "cell": 11,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "13",
+          "cell": 12,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "14",
+          "cell": 13,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "15",
+          "cell": 14,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "16",
+          "cell": 15,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
         }
       ]
     },
@@ -2691,46 +2811,6 @@ const MASTERPLAN_DATA = {
         {
           "no": "05",
           "cell": 4,
-          "type": "Kavling Tahap 1",
-          "lb": null,
-          "lt": null,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
-          "no": "06",
-          "cell": 5,
-          "type": "Kavling Tahap 1",
-          "lb": null,
-          "lt": null,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
-          "no": "07",
-          "cell": 6,
-          "type": "Kavling Tahap 1",
-          "lb": null,
-          "lt": null,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
-          "no": "08",
-          "cell": 7,
-          "type": "Kavling Tahap 1",
-          "lb": null,
-          "lt": null,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
-          "no": "09",
-          "cell": 8,
           "type": "Kavling Tahap 1",
           "lb": null,
           "lt": null,
@@ -2941,6 +3021,86 @@ const MASTERPLAN_DATA = {
           "price": null,
           "status": "SOLD",
           "statusLabel": null
+        },
+        {
+          "no": "20",
+          "cell": 19,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "21",
+          "cell": 20,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "22",
+          "cell": 21,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "23",
+          "cell": 22,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "24",
+          "cell": 23,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "25",
+          "cell": 24,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "26",
+          "cell": 25,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "27",
+          "cell": 26,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
         }
       ]
     },
@@ -3069,6 +3229,46 @@ const MASTERPLAN_DATA = {
         {
           "no": "12",
           "cell": 11,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "13",
+          "cell": 12,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "14",
+          "cell": 13,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "15",
+          "cell": 14,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "16",
+          "cell": 15,
           "type": "Kavling Tahap 1",
           "lb": null,
           "lt": null,
