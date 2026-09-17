@@ -327,7 +327,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": null,
           "price": null,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {

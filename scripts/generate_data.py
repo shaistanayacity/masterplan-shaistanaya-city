@@ -164,14 +164,13 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
-    # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis -- yang "buka" (berwarna di
-    # gambar, bukan putih kosong) cuma unit 06 (tersedia) dan 05 (RC/rumah contoh). Sisanya
-    # masih putih polos di gambar sumber, artinya belum dijual/diputuskan -- HOLD, bukan
-    # SOLD. Tipe/harga E7 belum ada di pricelist manapun.
+    # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
+    # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang RC (rumah
+    # contoh); unit 06 ternyata SOLD (bukan tersedia). Sisanya masih putih polos di gambar
+    # sumber, artinya belum dijual/diputuskan -- HOLD "Belum Dijual" (tampil putih polos,
+    # bukan SOLD/RC). Tipe/harga E7 belum ada di pricelist manapun.
     "E7", "sierra", (811, 1337, 1210, 1432), 9, "rtl", skip_four=True,
     type_key="E7_TBD",
-    available={6},
     hold={1, 2, 3, 5, 7, 8, 9, 10},
     hold_label="BELUM DIJUAL",
     hold_labels={5: "RUMAH CONTOH"},

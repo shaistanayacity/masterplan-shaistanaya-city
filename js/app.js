@@ -50,8 +50,10 @@
         .sort((a, b) => a.cell - b.cell)
         .forEach((unit) => {
           const cell = document.createElement("div");
+          const isUnreleased = unit.status === "HOLD" && unit.statusLabel === "BELUM DIJUAL";
           const statusClass =
             unit.status === "SOLD" ? "mp-unit--sold" :
+            isUnreleased ? "mp-unit--unreleased" :
             unit.status === "HOLD" ? "mp-unit--hold" : "mp-unit--tersedia";
           cell.className = "mp-unit " + statusClass;
           cell.title = `${block.id}-${unit.no} · ${unit.type} · ${unit.status}`;
@@ -61,12 +63,10 @@
           noSpan.textContent = unit.no;
           cell.appendChild(noSpan);
 
-          if (unit.status === "SOLD" || unit.status === "HOLD") {
+          if (unit.status === "SOLD" || (unit.status === "HOLD" && !isUnreleased)) {
             const tag = document.createElement("span");
             tag.className = "mp-unit__tag";
-            tag.textContent = unit.status === "SOLD"
-              ? "SOLD"
-              : (unit.statusLabel === "BELUM DIJUAL" ? "-" : "RC");
+            tag.textContent = unit.status === "SOLD" ? "SOLD" : "RC";
             cell.appendChild(tag);
           }
 

@@ -175,6 +175,13 @@ body {
   height: 55%;
 }
 
+/* "Belum Dijual" units: plain/blank like the source drawing, not amber like a real RC */
+.mp-unit--unreleased {
+  background: rgba(255, 255, 255, 0.55);
+}
+.mp-unit--unreleased .mp-unit__no { display: block; }
+.mp-unit--unreleased .mp-unit__tag { display: none; }
+
 .mp-unit--tersedia {
   background: rgba(52, 211, 153, 0.28);
 }
