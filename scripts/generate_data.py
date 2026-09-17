@@ -317,13 +317,13 @@ RUKO_MAIN_BOXES_LTR = [
 RUKO_MAIN_BOXES = list(reversed(RUKO_MAIN_BOXES_LTR))  # rightmost first
 
 # 2 lots right of the gate ("02" left cell, "01" right cell on the source PDF).
-CORNER_RIGHT_BOX = (1565, 735, 1635, 842)
+CORNER_RIGHT_BOX = (1565, 735, 1635, 834)
 crx1, cry1, crx2, cry2 = CORNER_RIGHT_BOX
 crxm = (crx1 + crx2) // 2
 CORNER_RIGHT_BOXES_RTOL = [(crxm, cry1, crx2, cry2), (crx1, cry1, crxm, cry2)]  # "01","02"
 
 # 2 lots left of the gate ("05" left cell, "03" right cell on the source PDF).
-CORNER_LEFT_BOX = (1362, 745, 1435, 798)
+CORNER_LEFT_BOX = (1364, 735, 1430, 850)
 clx1, cly1, clx2, cly2 = CORNER_LEFT_BOX
 clxm = (clx1 + clx2) // 2
 CORNER_LEFT_BOXES_RTOL = [(clxm, cly1, clx2, cly2), (clx1, cly1, clxm, cly2)]  # "03","05"
