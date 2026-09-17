@@ -2218,9 +2218,9 @@ const MASTERPLAN_DATA = {
       "id": "B2",
       "cluster": "tahap1",
       "box": {
-        "left": 54.641,
+        "left": 57.455,
         "top": 25.831,
-        "width": 6.804,
+        "width": 3.612,
         "height": 11.817
       },
       "orientation": "col",
@@ -2322,9 +2322,9 @@ const MASTERPLAN_DATA = {
       "id": "C2",
       "cluster": "tahap1",
       "box": {
-        "left": 55.439,
+        "left": 57.707,
         "top": 39.786,
-        "width": 6.678,
+        "width": 4.2,
         "height": 32.363
       },
       "orientation": "col",
@@ -2516,9 +2516,9 @@ const MASTERPLAN_DATA = {
       "id": "D2",
       "cluster": "tahap1",
       "box": {
-        "left": 58.085,
+        "left": 59.723,
         "top": 75.238,
-        "width": 4.074,
+        "width": 2.226,
         "height": 19.448
       },
       "orientation": "col",
@@ -2640,9 +2640,9 @@ const MASTERPLAN_DATA = {
       "id": "B1",
       "cluster": "tahap1",
       "box": {
-        "left": 64.931,
+        "left": 65.309,
         "top": 23.011,
-        "width": 3.78,
+        "width": 3.234,
         "height": 14.786
       },
       "orientation": "col",
@@ -2744,9 +2744,9 @@ const MASTERPLAN_DATA = {
       "id": "C1",
       "cluster": "tahap1",
       "box": {
-        "left": 65.267,
+        "left": 65.309,
         "top": 39.43,
-        "width": 3.444,
+        "width": 3.234,
         "height": 33.551
       },
       "orientation": "col",
@@ -2948,9 +2948,9 @@ const MASTERPLAN_DATA = {
       "id": "D1",
       "cluster": "tahap1",
       "box": {
-        "left": 65.099,
+        "left": 65.309,
         "top": 75.119,
-        "width": 3.612,
+        "width": 3.234,
         "height": 20.724
       },
       "orientation": "col",

@@ -288,27 +288,27 @@ for i, box in enumerate(reversed(RUKO_BOXES), start=1):
 # current pricelist and neither has a legend color on the source PDF -- per user confirmation
 # these were an earlier phase ("Tahap 1") that is fully sold out, so every unit here is SOLD.
 BLOCKS.append(make_block(
-    "B2", "tahap1", (1301, 870, 1463, 1268), 9, "ttb",
+    "B2", "tahap1", (1368, 870, 1454, 1268), 9, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 B2",
 ))
 BLOCKS.append(make_block(
-    "C2", "tahap1", (1320, 1340, 1479, 2430), 18, "ttb",
+    "C2", "tahap1", (1374, 1340, 1474, 2430), 18, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 C2",
 ))
 BLOCKS.append(make_block(
-    "D2", "tahap1", (1383, 2534, 1480, 3189), 11, "ttb",
+    "D2", "tahap1", (1422, 2534, 1475, 3189), 11, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 D2",
 ))
 BLOCKS.append(make_block(
-    "B1", "tahap1", (1546, 775, 1636, 1273), 9, "ttb",
+    "B1", "tahap1", (1555, 775, 1632, 1273), 9, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 B1",
 ))
 BLOCKS.append(make_block(
-    "C1", "tahap1", (1554, 1328, 1636, 2458), 19, "ttb",
+    "C1", "tahap1", (1555, 1328, 1632, 2458), 19, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 C1",
 ))
 BLOCKS.append(make_block(
-    "D1", "tahap1", (1550, 2530, 1636, 3228), 12, "ttb",
+    "D1", "tahap1", (1555, 2530, 1632, 3228), 12, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 D1",
 ))
 
