@@ -565,7 +565,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -689,8 +689,8 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "status": "SOLD",
+          "statusLabel": null
         },
         {
           "no": "12",
@@ -1201,11 +1201,11 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 9,
-          "type": "ANGELINE (Hook)",
+          "type": "ANGELINE",
           "lb": 45,
           "lt": 133,
-          "price": 950000000,
-          "status": "TERSEDIA",
+          "price": null,
+          "status": "SOLD",
           "statusLabel": null
         }
       ]
@@ -1309,8 +1309,8 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 133,
           "price": null,
-          "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "status": "SOLD",
+          "statusLabel": null
         }
       ]
     },
@@ -1487,7 +1487,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1497,8 +1497,8 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "status": "TERSEDIA",
+          "statusLabel": null
         }
       ]
     },
@@ -1591,7 +1591,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         }
       ]
@@ -2311,6 +2311,78 @@ const MASTERPLAN_DATA = {
       ]
     },
     {
+      "id": "A-19",
+      "cluster": "ruko",
+      "box": {
+        "left": 65.729,
+        "top": 20.843,
+        "width": 2.94,
+        "height": 0.98
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "19",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-20",
+      "cluster": "ruko",
+      "box": {
+        "left": 65.729,
+        "top": 21.823,
+        "width": 1.47,
+        "height": 3.177
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "20",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-21",
+      "cluster": "ruko",
+      "box": {
+        "left": 67.199,
+        "top": 21.823,
+        "width": 1.47,
+        "height": 3.177
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "21",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
       "id": "B2",
       "cluster": "tahap1",
       "box": {
@@ -2857,9 +2929,9 @@ const MASTERPLAN_DATA = {
       "cluster": "tahap1",
       "box": {
         "left": 65.309,
-        "top": 25.03,
+        "top": 25.089,
         "width": 3.234,
-        "height": 12.767
+        "height": 12.708
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 B1",

@@ -166,16 +166,16 @@ BLOCKS.append(make_block(
 
 # ---------------- Cluster Montana ----------------
 BLOCKS.append(make_block(
+    # unit_stock.pdf (1 Sep 2026): F1 Ready = 0 -- semua SOLD.
     "F1", "montana", (1277, 2110, 1372, 2431), 9, "btt",
     type_key="DARLENE",
-    available={5},
     street="JL. MONTANA F1",
 ))
 
 BLOCKS.append(make_block(
+    # unit_stock.pdf (1 Sep 2026): F2 Ready = 0 -- semua SOLD.
     "F2", "montana", (1285, 2560, 1379, 3249), 19, "btt",
     type_key="DARLENE",
-    hold={13},
     street="JL. MONTANA F2",
 ))
 
@@ -203,22 +203,21 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
+    # unit_stock.pdf (1 Sep 2026): F7 Ready = 0 -- semua SOLD (termasuk unit hook 01).
     "F7", "montana", (824, 2328, 1211, 2440), 10, "rtl",
     type_key="ANGELINE",
-    available={1},
-    overrides={1: "ANGELINE_HOOK"},
     street="JL. MONTANA F7",
 ))
 
 BLOCKS.append(make_block(
+    # unit_stock.pdf (1 Sep 2026): F8 Ready = 0 -- semua SOLD.
     "F8", "montana", (825, 2425, 1211, 2534), 9, "rtl",
     type_key="ANGELINE",
-    hold={1},
     street="JL. MONTANA F8",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F9 tersedia sisa 08,07,06,05,03,01/RC -- lainnya (02,04) SOLD.
+    # unit_stock.pdf (1 Sep 2026): F9 tersedia 08,07,06,05,03,01/RC -- lainnya (02,04) SOLD.
     "F9", "montana", (886, 2599, 1219, 2685), 8, "rtl",
     type_key="GWEN",
     available={3, 5, 6, 7, 8},
@@ -227,17 +226,18 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F10 tersedia sisa 08,07,06,05,03,01/RC -- lainnya (02,04) SOLD.
+    # unit_stock.pdf (1 Sep 2026): F10 tersedia 08,07,06,05,03,02,01 (7 unit, tanpa RC).
     "F10", "montana", (886, 2678, 1219, 2763), 8, "rtl",
     type_key="GWEN",
-    available={3, 5, 6, 7, 8},
-    hold={1},
+    available={1, 2, 3, 5, 6, 7, 8},
     street="JL. MONTANA F10",
 ))
 
 BLOCKS.append(make_block(
+    # unit_stock.pdf (1 Sep 2026): F11 tersedia 01.
     "F11", "montana", (868, 2823, 1220, 2910), 8, "rtl",
     type_key="GWEN",
+    available={1},
     street="JL. MONTANA F11",
 ))
 
@@ -298,9 +298,17 @@ for i, box in enumerate(CORNER_A_QUADS, start=15):
     BLOCKS.append(make_single_unit_block(
         f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
     ))
-# The mirrored corner on the right side of the ROW 19 gate ("02"/"01" + one more lot above
-# them, 3 lots total) is NOT for sale per the same correction -- left with no overlay/label
-# at all, and B1's box (below) starts right after it so it doesn't swallow these lots.
+
+# Mirrored corner on the right side of the ROW 19 gate: "02"/"01" plus one more lot above
+# them (3 lots total). unit_stock.pdf confirms Blok A/Ruko has 0 units ready -- so these are
+# SOLD too, same as the rest of the block.
+CORNER_A2_TOP = (1565, 702, 1635, 735)
+CORNER_A2_BL = (1565, 735, 1600, 842)   # "02"
+CORNER_A2_BR = (1600, 735, 1635, 842)   # "01"
+for i, box in enumerate((CORNER_A2_TOP, CORNER_A2_BL, CORNER_A2_BR), start=19):
+    BLOCKS.append(make_single_unit_block(
+        f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
+    ))
 
 # ---------------- Tahap 1 (older grey/uncolored kavling columns, sold out) ----------------
 # B2/C2/D2 = inner column, B1/C1/D1 = outer (road-side) column. Neither is priced in the
@@ -321,7 +329,7 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 D2",
 ))
 BLOCKS.append(make_block(
-    "B1", "tahap1", (1555, 843, 1632, 1273), 5, "ttb",
+    "B1", "tahap1", (1555, 845, 1632, 1273), 5, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 B1",
 ))
 BLOCKS.append(make_block(

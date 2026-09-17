@@ -37,10 +37,12 @@ cukup ubah angka `box.left/top/width/height` (persen dari gambar) di
 
 Pengecualian: baris **Ruko (Blok A)** ada di jalan yang miring/diagonal,
 jadi tidak bisa dipotong rata sebagai satu persegi panjang tanpa jadi tidak
-presisi. Untuk blok itu, ke-14 unitnya masing-masing dideteksi sebagai
-kotak sendiri-sendiri (per-unit, bukan per-blok) lewat
-`make_single_unit_block()` di `scripts/generate_data.py`, jadi setiap unit
-menempel pas mengikuti kemiringan barisnya.
+presisi. Untuk blok itu, semua unitnya (14 di baris diagonal utama + 4 di
+kavling pojok kiri dekat gerbang ROW 19 + 3 di kavling pojok kanannya =
+21 unit) masing-masing dideteksi sebagai kotak sendiri-sendiri (per-unit,
+bukan per-blok) lewat `make_single_unit_block()` di
+`scripts/generate_data.py`, jadi setiap unit menempel pas mengikuti
+kemiringan/posisi aslinya di gambar.
 
 ## Cakupan data
 
@@ -50,8 +52,9 @@ per-unit, yaitu:
 - **Cluster Sierra**: E1, E3, E7, E8 (tipe Bianca & Arnica)
 - **Cluster Montana**: F1, F2, F3, F5, F6, F7, F8, F9, F10, F11, F12, F15, F16
   (tipe Gwen, New Gwen, Darlene, Angeline)
-- **Ruko (Blok A)**: 14 unit ruko di baris diagonal atas — semua **SOLD**
-  (tidak ada data harga, jadi popup-nya cuma tampilkan status).
+- **Ruko (Blok A)**: 21 unit ruko (14 di baris diagonal utama + 4 + 3 di
+  dua kavling pojok dekat gerbang ROW 19) — semua **SOLD** (tidak ada data
+  harga, jadi popup-nya cuma tampilkan status).
 - **Tahap 1 (Sold Out)**: B1, B2, C1, C2, D1, D2 — dua kolom kavling
   abu-abu di sisi timur site (tidak berwarna di legenda PDF, tidak ada di
   pricelist). Ini tahap penjualan lama yang **sudah terjual semua**, jadi
@@ -78,14 +81,16 @@ Sumber data:
   dan dari deteksi warna blok pada gambarnya (lihat bagian "Posisi blok" di atas).
 - **Tipe, LB/LT, harga jual**: dari `Pricelist_Semua_Tipe_Shaistanaya_City.docx`
   (periode September 2026, harga sebelum diskon).
-- **Status TERSEDIA/SOLD/HOLD per unit**: per revisi tertulis dari pemilik
-  data (1 September 2026) yang mendaftar persis nomor unit yang masih
-  tersedia per blok — bukan lagi hasil tebakan dari pola pricelist. Revisi
-  ini menimpa E1/E3/E7/E8 (Sierra), F1/F2/F3/F5/F6/F7/F8/F9/F10/F11/F12/
-  F15/F16 (Montana), Ruko/Blok A (semua sold), dan Tahap 1 (semua sold).
-  Setiap blok yang kena revisi ditandai komentar `# Revisi (1 Sep 2026): ...`
-  di `scripts/generate_data.py` persis di atas definisinya, supaya mudah
-  dilacak balik ke sumbernya.
+- **Status TERSEDIA/SOLD/HOLD per unit**: sumber terakhir & paling otoritatif
+  adalah `unit_stock.pdf` (tabel "Blok / Tipe / Ready / Nomor Unit Ready",
+  per 1 September 2026) — setiap unit yang nomornya tercantum di kolom
+  "Nomor Unit Ready" = **TERSEDIA**, yang ditandai `/RC` = **HOLD** (rumah
+  contoh), sisanya = **SOLD**. Blok yang tidak ada di tabel itu (E1, B1/B2)
+  memakai status dari revisi tertulis sebelumnya (1 September 2026) atau,
+  kalau juga tidak disebut di situ, pola pricelist lama (lihat di bawah).
+  Setiap blok yang datanya berasal dari `unit_stock.pdf` ditandai komentar
+  `# unit_stock.pdf (1 Sep 2026): ...` persis di atas definisinya di
+  `scripts/generate_data.py`, supaya mudah dilacak balik ke sumbernya.
 
 Kalau ada blok yang **belum pernah direvisi** (tidak disebut di atas) dan
 statusnya masih terasa tidak pas, kemungkinan itu peninggalan dugaan lama
