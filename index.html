@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Master Plan Interaktif — Shaistanaya City</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__title">
+      <span class="topbar__eyebrow">Master Plan Interaktif</span>
+      <h1>Shaistanaya City</h1>
+    </div>
+    <div class="topbar__actions">
+      <button id="btn-legend" class="chip-btn" type="button">Legenda</button>
+      <a class="chip-btn chip-btn--muted" href="README.md">Tentang data ini</a>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <div class="stage__inner" id="stage-inner">
+      <img id="mp-image" class="mp-image" src="assets/masterplan.jpg" alt="Master Plan Shaistanaya City" draggable="false" />
+      <div class="mp-overlay" id="mp-overlay"></div>
+    </div>
+
+    <aside class="summary-panels" id="summary-panels"></aside>
+
+    <div class="legend-panel" id="legend-panel">
+      <div class="legend-panel__section">
+        <h3>Legenda Tipe</h3>
+        <div id="legend-types" class="legend-list"></div>
+      </div>
+      <div class="legend-panel__section">
+        <h3>Keterangan</h3>
+        <div class="legend-list">
+          <div class="legend-row"><span class="dot dot--sold"></span> Terjual</div>
+          <div class="legend-row"><span class="dot dot--hold"></span> Rumah Contoh / Hold</div>
+          <div class="legend-row"><span class="dot dot--ready"></span> Tersedia</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="unit-popup" id="unit-popup" hidden>
+    <button class="unit-popup__close" id="unit-popup-close" type="button" aria-label="Tutup">&times;</button>
+    <div class="unit-popup__head">
+      <div>
+        <div class="unit-popup__code" id="up-code">—</div>
+        <div class="unit-popup__cluster" id="up-cluster">—</div>
+      </div>
+      <span class="status-badge" id="up-status">—</span>
+    </div>
+    <div class="unit-popup__type" id="up-type">—</div>
+    <div class="unit-popup__addr" id="up-addr">—</div>
+    <div class="unit-popup__prices" id="up-prices"></div>
+  </div>
+  <div class="unit-popup__backdrop" id="unit-popup-backdrop" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
