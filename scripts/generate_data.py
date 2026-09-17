@@ -54,21 +54,34 @@ TYPES = {
 def unit_no(n):
     return f"{n:02d}"
 
+def label_sequence(n):
+    """First n positive integers, skipping 4 -- no block in this project has a unit
+    numbered 4 (numbering goes ...,03,05,...). Confirmed by the owner for the blocks
+    that pass skip_four=True to make_block()."""
+    seq = []
+    k = 1
+    while len(seq) < n:
+        if k != 4:
+            seq.append(k)
+        k += 1
+    return seq
+
 def make_block(block_id, cluster, box_px, count, direction, type_key,
                 available=None, hold=None, hold_label="RUMAH CONTOH",
-                overrides=None, street=""):
+                overrides=None, street="", skip_four=False):
     """
     direction: 'rtl' (01 at right, N at left) | 'ltr' (01 at left)
                 'btt' (01 at bottom, N at top) | 'ttb' (01 at top)
     available: set of unit numbers that are TERSEDIA (default: all)
     hold: set of unit numbers that are HOLD/RC
     overrides: {unit_no: type_key} for hook units with special price
+    skip_four: use label_sequence() instead of a plain 1..count run
     """
     available = available or set()
     hold = hold or set()
     overrides = overrides or {}
     orientation = "row" if direction in ("rtl", "ltr") else "col"
-    order = list(range(1, count + 1))
+    order = label_sequence(count) if skip_four else list(range(1, count + 1))
     if direction in ("rtl", "btt"):
         order = list(reversed(order))  # cell 0 (visually first/left-or-top) gets the highest number
 
@@ -149,15 +162,17 @@ BLOCKS.append(make_block(
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): E7 dan E8 sebelumnya kegabung jadi satu blok -- sekarang dipisah.
     # E7 tersedia sisa unit 05 (RC). Tipe/harga E7 belum ada di pricelist.
-    "E7", "sierra", (811, 1337, 1210, 1432), 10, "rtl",
+    # No block in this project has a unit "04" (numbering skips 3 -> 5), so this is 9 real
+    # lots labeled 01,02,03,05,06,07,08,09,10 -- not 10 lots with a phantom "04".
+    "E7", "sierra", (811, 1337, 1210, 1432), 9, "rtl", skip_four=True,
     type_key="E7_TBD",
     hold={5},
     street="JL. SIERRA E7",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): E8 tersedia sisa 10, 09, 06 -- lainnya SOLD.
-    "E8", "sierra", (811, 1432, 1210, 1542), 10, "rtl",
+    # Revisi (1 Sep 2026): E8 tersedia sisa 10, 09, 06 -- lainnya SOLD. 9 lots, no unit "04".
+    "E8", "sierra", (811, 1432, 1210, 1542), 9, "rtl", skip_four=True,
     type_key="ARNICA_GARDEN_E8",
     available={6, 9, 10},
     overrides={10: "ARNICA_GARDEN_E8_HOOK"},
@@ -165,9 +180,11 @@ BLOCKS.append(make_block(
 ))
 
 # ---------------- Cluster Montana ----------------
+# None of the Montana row blocks below have a unit "04" either (skip_four=True everywhere
+# in this section) -- an 8-unit-looking row is really 7 real lots labeled ...,03,05,...,08.
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F1 Ready = 0 -- semua SOLD.
-    "F1", "montana", (1277, 2110, 1372, 2431), 9, "btt",
+    "F1", "montana", (1277, 2110, 1372, 2431), 8, "btt", skip_four=True,
     type_key="DARLENE",
     street="JL. MONTANA F1",
 ))
@@ -180,16 +197,16 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F3 tersedia sisa 06, 05, 02 -- lainnya SOLD.
-    "F3", "montana", (903, 1936, 1192, 2017), 8, "rtl",
+    # Revisi (1 Sep 2026): F3 tersedia sisa 06, 05, 02 -- lainnya SOLD. 7 lots, no unit "04".
+    "F3", "montana", (903, 1936, 1192, 2017), 7, "rtl", skip_four=True,
     type_key="NEW_GWEN",
     available={2, 5, 6},
     street="JL. MONTANA F3",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F5 tersedia sisa 08, 06, 03, 02 -- lainnya SOLD.
-    "F5", "montana", (879, 2079, 1212, 2160), 8, "rtl",
+    # Revisi (1 Sep 2026): F5 tersedia sisa 08, 06, 03, 02 -- lainnya SOLD. 7 lots.
+    "F5", "montana", (879, 2079, 1212, 2160), 7, "rtl", skip_four=True,
     type_key="NEW_GWEN",
     available={2, 3, 6, 8},
     overrides={1: "NEW_GWEN_HOOK1", 8: "NEW_GWEN_HOOK8"},
@@ -197,28 +214,28 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    "F6", "montana", (879, 2162, 1212, 2264), 8, "rtl",
+    "F6", "montana", (879, 2162, 1212, 2264), 7, "rtl", skip_four=True,
     type_key="ANGELINE",
     street="JL. MONTANA F6",
 ))
 
 BLOCKS.append(make_block(
-    # unit_stock.pdf (1 Sep 2026): F7 Ready = 0 -- semua SOLD (termasuk unit hook 01).
-    "F7", "montana", (824, 2328, 1211, 2440), 10, "rtl",
+    # unit_stock.pdf (1 Sep 2026): F7 Ready = 0 -- semua SOLD (termasuk unit hook 01). 9 lots.
+    "F7", "montana", (824, 2328, 1211, 2440), 9, "rtl", skip_four=True,
     type_key="ANGELINE",
     street="JL. MONTANA F7",
 ))
 
 BLOCKS.append(make_block(
-    # unit_stock.pdf (1 Sep 2026): F8 Ready = 0 -- semua SOLD.
-    "F8", "montana", (825, 2425, 1211, 2534), 9, "rtl",
+    # unit_stock.pdf (1 Sep 2026): F8 Ready = 0 -- semua SOLD. 8 lots.
+    "F8", "montana", (825, 2425, 1211, 2534), 8, "rtl", skip_four=True,
     type_key="ANGELINE",
     street="JL. MONTANA F8",
 ))
 
 BLOCKS.append(make_block(
-    # unit_stock.pdf (1 Sep 2026): F9 tersedia 08,07,06,05,03,01/RC -- lainnya (02,04) SOLD.
-    "F9", "montana", (886, 2599, 1219, 2685), 8, "rtl",
+    # unit_stock.pdf (1 Sep 2026): F9 tersedia 08,07,06,05,03,01/RC -- lainnya (02) SOLD. 7 lots.
+    "F9", "montana", (886, 2599, 1219, 2685), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={3, 5, 6, 7, 8},
     hold={1},
@@ -226,32 +243,32 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # unit_stock.pdf (1 Sep 2026): F10 tersedia 08,07,06,05,03,02,01 (7 unit, tanpa RC).
-    "F10", "montana", (886, 2678, 1219, 2763), 8, "rtl",
+    # unit_stock.pdf (1 Sep 2026): F10 tersedia 08,07,06,05,03,02,01 -- semua 7 lot tersedia.
+    "F10", "montana", (886, 2678, 1219, 2763), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1, 2, 3, 5, 6, 7, 8},
     street="JL. MONTANA F10",
 ))
 
 BLOCKS.append(make_block(
-    # unit_stock.pdf (1 Sep 2026): F11 tersedia 01.
-    "F11", "montana", (868, 2823, 1220, 2910), 8, "rtl",
+    # unit_stock.pdf (1 Sep 2026): F11 tersedia 01. 7 lots.
+    "F11", "montana", (868, 2823, 1220, 2910), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1},
     street="JL. MONTANA F11",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F12 01 masih tersedia (tambahan dari 02, 05, 07).
-    "F12", "montana", (868, 2900, 1220, 2988), 8, "rtl",
+    # Revisi (1 Sep 2026): F12 01 masih tersedia (tambahan dari 02, 05, 07). 7 lots.
+    "F12", "montana", (868, 2900, 1220, 2988), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1, 2, 5, 7},
     street="JL. MONTANA F12",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F15 tersedia 3 unit -- 08, 05, 01.
-    "F15", "montana", (889, 3050, 1219, 3135), 8, "rtl",
+    # Revisi (1 Sep 2026): F15 tersedia 3 unit -- 08, 05, 01. 7 lots.
+    "F15", "montana", (889, 3050, 1219, 3135), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1, 5, 8},
     overrides={8: "GWEN_HOOK"},
@@ -259,8 +276,8 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F16 ada 1 tersedia, no unit 01.
-    "F16", "montana", (889, 3125, 1219, 3213), 8, "rtl",
+    # Revisi (1 Sep 2026): F16 ada 1 tersedia, no unit 01. 7 lots.
+    "F16", "montana", (889, 3125, 1219, 3213), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1},
     street="JL. MONTANA F16",

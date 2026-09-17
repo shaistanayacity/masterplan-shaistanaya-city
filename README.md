@@ -92,6 +92,20 @@ Sumber data:
   `# unit_stock.pdf (1 Sep 2026): ...` persis di atas definisinya di
   `scripts/generate_data.py`, supaya mudah dilacak balik ke sumbernya.
 
+**Tidak ada blok yang punya unit nomor 04** (penomoran loncat dari 03
+langsung ke 05) — dikonfirmasi pemilik data. Blok-blok yang terbukti
+mengikuti pola ini dari pembacaan gambar + `unit_stock.pdf` (E7, E8, F1,
+F3, F5, F6, F7, F8, F9, F10, F11, F12, F15, F16) dibuat dengan
+`skip_four=True` di `make_block()`, yang menghasilkan nomor unit
+01,02,03,05,06,... (bukan 01,02,03,04,05,...) — jadi jumlah unit
+riilnya **satu lebih sedikit** dari yang kelihatan di gambar kalau cuma
+menghitung nomor tertinggi (mis. baris yang nomornya sampai "08" itu
+isinya cuma 7 unit, bukan 8). E1, E3, F2, Ruko, dan Tahap 1 **belum**
+diubah ke `skip_four=True` karena belum ada bukti/konfirmasi eksplisit
+untuk blok-blok itu — kalau ternyata sama, tinggal tambahkan
+`skip_four=True` dan sesuaikan `count`-nya (kurangi 1) di panggilan
+`make_block()` masing-masing.
+
 Kalau ada blok yang **belum pernah direvisi** (tidak disebut di atas) dan
 statusnya masih terasa tidak pas, kemungkinan itu peninggalan dugaan lama
 saya — sebelum revisi tertulis di atas ada, status unit disimpulkan dari

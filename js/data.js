@@ -351,7 +351,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": "RUMAH CONTOH"
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 6,
           "type": "ARNICA (E7)",
           "lb": null,
@@ -361,7 +361,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 7,
           "type": "ARNICA (E7)",
           "lb": null,
@@ -371,18 +371,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 8,
-          "type": "ARNICA (E7)",
-          "lb": null,
-          "lt": null,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 9,
+          "cell": 8,
           "type": "ARNICA (E7)",
           "lb": null,
           "lt": null,
@@ -465,7 +455,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 6,
           "type": "ARNICA Garden",
           "lb": 70,
@@ -475,7 +465,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 7,
           "type": "ARNICA Garden",
           "lb": 70,
@@ -485,18 +475,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 8,
-          "type": "ARNICA Garden",
-          "lb": 70,
-          "lt": 90,
-          "price": 1010000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 9,
+          "cell": 8,
           "type": "ARNICA Garden",
           "lb": 70,
           "lt": 90,
@@ -569,7 +549,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 5,
           "type": "DARLENE",
           "lb": 45,
@@ -579,7 +559,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 6,
           "type": "DARLENE",
           "lb": 45,
@@ -589,18 +569,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 7,
-          "type": "DARLENE",
-          "lb": 45,
-          "lt": 91,
-          "price": 795000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 8,
+          "cell": 7,
           "type": "DARLENE",
           "lb": 45,
           "lt": 91,
@@ -867,7 +837,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 4,
           "type": "NEW GWEN",
           "lb": 42,
@@ -877,18 +847,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
-          "cell": 5,
-          "type": "NEW GWEN",
-          "lb": 42,
-          "lt": 72,
-          "price": 675000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "02",
-          "cell": 6,
+          "cell": 5,
           "type": "NEW GWEN",
           "lb": 42,
           "lt": 72,
@@ -898,7 +858,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "NEW GWEN",
           "lb": 42,
           "lt": 72,
@@ -961,18 +921,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
-          "cell": 4,
-          "type": "NEW GWEN",
-          "lb": 42,
-          "lt": 72,
-          "price": 675000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "03",
-          "cell": 5,
+          "cell": 4,
           "type": "NEW GWEN",
           "lb": 42,
           "lt": 72,
@@ -982,7 +932,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "02",
-          "cell": 6,
+          "cell": 5,
           "type": "NEW GWEN",
           "lb": 42,
           "lt": 72,
@@ -992,7 +942,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "NEW GWEN (Hook)",
           "lb": 42,
           "lt": 106,
@@ -1055,7 +1005,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 4,
           "type": "ANGELINE",
           "lb": 45,
@@ -1065,7 +1015,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 5,
           "type": "ANGELINE",
           "lb": 45,
@@ -1075,18 +1025,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 6,
-          "type": "ANGELINE",
-          "lb": 45,
-          "lt": 133,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "ANGELINE",
           "lb": 45,
           "lt": 133,
@@ -1169,7 +1109,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 6,
           "type": "ANGELINE",
           "lb": 45,
@@ -1179,7 +1119,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 7,
           "type": "ANGELINE",
           "lb": 45,
@@ -1189,18 +1129,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 8,
-          "type": "ANGELINE",
-          "lb": 45,
-          "lt": 133,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 9,
+          "cell": 8,
           "type": "ANGELINE",
           "lb": 45,
           "lt": 133,
@@ -1273,7 +1203,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 5,
           "type": "ANGELINE",
           "lb": 45,
@@ -1283,7 +1213,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 6,
           "type": "ANGELINE",
           "lb": 45,
@@ -1293,18 +1223,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 7,
-          "type": "ANGELINE",
-          "lb": 45,
-          "lt": 133,
-          "price": null,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 8,
+          "cell": 7,
           "type": "ANGELINE",
           "lb": 45,
           "lt": 133,
@@ -1367,18 +1287,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
-          "cell": 4,
-          "type": "GWEN",
-          "lb": 38,
-          "lt": 72,
-          "price": 660000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "03",
-          "cell": 5,
+          "cell": 4,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1388,7 +1298,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "02",
-          "cell": 6,
+          "cell": 5,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1398,7 +1308,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1461,18 +1371,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
-          "cell": 4,
-          "type": "GWEN",
-          "lb": 38,
-          "lt": 72,
-          "price": 660000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "03",
-          "cell": 5,
+          "cell": 4,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1482,7 +1382,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "02",
-          "cell": 6,
+          "cell": 5,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1492,7 +1392,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1555,7 +1455,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 4,
           "type": "GWEN",
           "lb": 38,
@@ -1565,7 +1465,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 5,
           "type": "GWEN",
           "lb": 38,
@@ -1575,18 +1475,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 6,
-          "type": "GWEN",
-          "lb": 38,
-          "lt": 72,
-          "price": 660000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1649,7 +1539,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 4,
           "type": "GWEN",
           "lb": 38,
@@ -1659,18 +1549,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
-          "cell": 5,
-          "type": "GWEN",
-          "lb": 38,
-          "lt": 72,
-          "price": 660000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "02",
-          "cell": 6,
+          "cell": 5,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1680,7 +1560,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1743,7 +1623,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 4,
           "type": "GWEN",
           "lb": 38,
@@ -1753,7 +1633,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 5,
           "type": "GWEN",
           "lb": 38,
@@ -1763,18 +1643,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 6,
-          "type": "GWEN",
-          "lb": 38,
-          "lt": 72,
-          "price": 660000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1837,7 +1707,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "03",
           "cell": 4,
           "type": "GWEN",
           "lb": 38,
@@ -1847,7 +1717,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "02",
           "cell": 5,
           "type": "GWEN",
           "lb": 38,
@@ -1857,18 +1727,8 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
-          "cell": 6,
-          "type": "GWEN",
-          "lb": 38,
-          "lt": 72,
-          "price": 660000000,
-          "status": "SOLD",
-          "statusLabel": null
-        },
-        {
           "no": "01",
-          "cell": 7,
+          "cell": 6,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
