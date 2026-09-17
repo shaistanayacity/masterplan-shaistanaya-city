@@ -2215,6 +2215,102 @@ const MASTERPLAN_DATA = {
       ]
     },
     {
+      "id": "A-15",
+      "cluster": "ruko",
+      "box": {
+        "left": 57.203,
+        "top": 20.546,
+        "width": 1.512,
+        "height": 1.574
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "15",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-16",
+      "cluster": "ruko",
+      "box": {
+        "left": 58.715,
+        "top": 20.546,
+        "width": 1.554,
+        "height": 1.574
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "16",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-17",
+      "cluster": "ruko",
+      "box": {
+        "left": 57.203,
+        "top": 22.12,
+        "width": 1.512,
+        "height": 1.574
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "17",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-18",
+      "cluster": "ruko",
+      "box": {
+        "left": 58.715,
+        "top": 22.12,
+        "width": 1.554,
+        "height": 1.574
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "18",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
       "id": "B2",
       "cluster": "tahap1",
       "box": {
@@ -2761,9 +2857,9 @@ const MASTERPLAN_DATA = {
       "cluster": "tahap1",
       "box": {
         "left": 65.309,
-        "top": 23.011,
+        "top": 25.03,
         "width": 3.234,
-        "height": 14.786
+        "height": 12.767
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 B1",

@@ -283,6 +283,25 @@ for i, box in enumerate(reversed(RUKO_BOXES), start=1):
         f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
     ))
 
+# Small corner extension near ROW 19, left of the gate: 4 more Ruko-dimensioned lots (only
+# 2 of them -- "05" and "03" -- are numbered on the source PDF; the row above them is the
+# same size lots left unlabeled on the drawing). Per the 1 Sep 2026 correction, all 4 are
+# SOLD, same as the rest of Blok A.
+CORNER_A_BOX = (1362, 692, 1435, 798)
+cx1, cy1, cx2, cy2 = CORNER_A_BOX
+cxm, cym = (cx1 + cx2) // 2, (cy1 + cy2) // 2
+CORNER_A_QUADS = [
+    (cx1, cy1, cxm, cym), (cxm, cy1, cx2, cym),   # top-left, top-right (unlabeled row)
+    (cx1, cym, cxm, cy2), (cxm, cym, cx2, cy2),   # bottom-left "05", bottom-right "03"
+]
+for i, box in enumerate(CORNER_A_QUADS, start=15):
+    BLOCKS.append(make_single_unit_block(
+        f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
+    ))
+# The mirrored corner on the right side of the ROW 19 gate ("02"/"01" + one more lot above
+# them, 3 lots total) is NOT for sale per the same correction -- left with no overlay/label
+# at all, and B1's box (below) starts right after it so it doesn't swallow these lots.
+
 # ---------------- Tahap 1 (older grey/uncolored kavling columns, sold out) ----------------
 # B2/C2/D2 = inner column, B1/C1/D1 = outer (road-side) column. Neither is priced in the
 # current pricelist and neither has a legend color on the source PDF -- per user confirmation
@@ -302,7 +321,7 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 D2",
 ))
 BLOCKS.append(make_block(
-    "B1", "tahap1", (1555, 775, 1632, 1273), 5, "ttb",
+    "B1", "tahap1", (1555, 843, 1632, 1273), 5, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 B1",
 ))
 BLOCKS.append(make_block(
