@@ -37,15 +37,15 @@ cukup ubah angka `box.left/top/width/height` (persen dari gambar) di
 
 Pengecualian: baris **Ruko (Blok A)** ada di jalan yang miring/diagonal,
 jadi tidak bisa dipotong rata sebagai satu persegi panjang tanpa jadi tidak
-presisi. Untuk blok itu, semua unitnya (14 di baris diagonal utama + 4 di
-kavling pojok kanan gerbang ROW 19 = **18 unit**) masing-masing dideteksi
-sebagai kotak sendiri-sendiri (per-unit, bukan per-blok) lewat
-`make_single_unit_block()` di `scripts/generate_data.py`, jadi setiap unit
-menempel pas mengikuti kemiringan/posisi aslinya di gambar. Nomornya A1,
-A2, A3, A5, A6, ... dari kanan ke kiri (A4, A13, A14 sengaja tidak ada,
-sesuai koreksi pemilik data), nomor tertinggi A21. Kavling pojok **kiri**
-gerbang ("05"/"03") **bukan** bagian dari hitungan ini — dibiarkan tanpa
-overlay sama sekali, sama seperti E5/E6/E9-E11.
+presisi. Untuk blok itu, semua unitnya (14 di baris diagonal utama + 2 di
+kavling KANAN gerbang + 2 di kavling KIRI gerbang ROW 19 = **18 unit**)
+masing-masing dideteksi sebagai kotak sendiri-sendiri (per-unit, bukan
+per-blok) lewat `make_single_unit_block()` di `scripts/generate_data.py`,
+jadi setiap unit menempel pas mengikuti kemiringan/posisi aslinya di
+gambar. Nomornya dari kanan ke kiri: **A1, A2** (kavling kanan gerbang,
+"01"/"02" di gambar sumber) → **A3, A5** (kavling kiri gerbang, "03"/"05"
+di gambar sumber — A4 sengaja dilewati) → **A6..A21** (baris diagonal
+utama, A13/A14 juga dilewati).
 
 ## Cakupan data
 

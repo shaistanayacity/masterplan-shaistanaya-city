@@ -1733,9 +1733,9 @@ const MASTERPLAN_DATA = {
       "cluster": "ruko",
       "box": {
         "left": 67.199,
-        "top": 22.922,
+        "top": 21.823,
         "width": 1.47,
-        "height": 2.078
+        "height": 3.177
       },
       "orientation": "row",
       "street": "JL. RUKO A",
@@ -1757,9 +1757,9 @@ const MASTERPLAN_DATA = {
       "cluster": "ruko",
       "box": {
         "left": 65.729,
-        "top": 22.922,
+        "top": 21.823,
         "width": 1.47,
-        "height": 2.078
+        "height": 3.177
       },
       "orientation": "row",
       "street": "JL. RUKO A",
@@ -1780,10 +1780,10 @@ const MASTERPLAN_DATA = {
       "id": "A-03",
       "cluster": "ruko",
       "box": {
-        "left": 67.199,
-        "top": 20.843,
-        "width": 1.47,
-        "height": 2.078
+        "left": 58.715,
+        "top": 22.12,
+        "width": 1.554,
+        "height": 1.574
       },
       "orientation": "row",
       "street": "JL. RUKO A",
@@ -1804,10 +1804,10 @@ const MASTERPLAN_DATA = {
       "id": "A-05",
       "cluster": "ruko",
       "box": {
-        "left": 65.729,
-        "top": 20.843,
-        "width": 1.47,
-        "height": 2.078
+        "left": 57.203,
+        "top": 22.12,
+        "width": 1.512,
+        "height": 1.574
       },
       "orientation": "row",
       "street": "JL. RUKO A",
