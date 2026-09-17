@@ -21,6 +21,7 @@
   const CLUSTER_LABEL = {
     montana: "Cluster Montana",
     sierra: "Cluster Sierra",
+    tahap1: "Tahap 1 (Sold Out)",
   };
 
   function fmtRupiah(n) {
@@ -88,7 +89,9 @@
       unit.status === "HOLD" ? "status-badge--hold" : "status-badge--tersedia"
     );
 
-    upType.textContent = `${unit.type} · LB ${fmtLT(unit.lb)}/LT ${fmtLT(unit.lt)} m²`;
+    upType.textContent = (unit.lb && unit.lt)
+      ? `${unit.type} · LB ${fmtLT(unit.lb)}/LT ${fmtLT(unit.lt)} m²`
+      : unit.type;
     upAddr.textContent = `${block.street || ("Blok " + block.id)} No. ${unit.no} — Shaistanaya City`;
 
     upPrices.innerHTML = "";
@@ -100,6 +103,11 @@
       const note = document.createElement("div");
       note.className = "price-box__note";
       note.textContent = "Harga list sebelum diskon — periode " + (data.periode || "");
+      upPrices.appendChild(note);
+    } else if (unit.status === "SOLD") {
+      const note = document.createElement("div");
+      note.className = "price-box__note";
+      note.textContent = "Unit ini sudah terjual (Tahap 1).";
       upPrices.appendChild(note);
     } else {
       const note = document.createElement("div");

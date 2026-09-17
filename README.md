@@ -43,12 +43,21 @@ per-unit, yaitu:
 - **Cluster Sierra**: E1, E3, E8 (tipe Bianca & Arnica)
 - **Cluster Montana**: F1, F2, F3, F5, F6, F7, F8, F9, F10, F11, F12, F15, F16
   (tipe Gwen, New Gwen, Darlene, Angeline)
+- **Tahap 1 (Sold Out)**: B1, B2, C1, C2, D1, D2 — dua kolom kavling
+  abu-abu di sisi timur site (tidak berwarna di legenda PDF, tidak ada di
+  pricelist). Per konfirmasi pemilik data, blok-blok ini adalah tahap
+  penjualan lama yang **sudah terjual semua**, jadi seluruh unitnya
+  ditandai SOLD tanpa harga (lihat `TYPES.TAHAP1` di
+  `scripts/generate_data.py`). Jumlah unit per kolom (B2=9, C2=18, D2=11,
+  B1=9, C1=19, D1=12) dihitung dari tinggi blok hasil deteksi warna dibagi
+  tinggi rata-rata satu unit — bukan hasil hitung manual satu-satu, jadi
+  bisa meleset 1-2 unit per kolom.
 
-Blok Ruko (A) dan blok abu-abu yang belum ada di pricelist (B1, B2, C1, C2,
-D1, D2, E5, E6, E7, E9, E10, E11) sengaja **tidak** dibuat per-unit karena
-tidak ada data tipe/harga untuk unit-unit itu — blok-blok itu tetap tampil
-apa adanya di gambar master plan (tanpa overlay), supaya tidak menampilkan
-harga/status yang dikarang.
+Blok Ruko (A) dan blok abu-abu lain yang belum ada di pricelist maupun
+belum dikonfirmasi statusnya (E5, E6, E7, E9, E10, E11) sengaja **tidak**
+dibuat per-unit karena tidak ada data tipe/harga/status untuk unit-unit
+itu — blok-blok itu tetap tampil apa adanya di gambar master plan (tanpa
+overlay), supaya tidak menampilkan harga/status yang dikarang.
 
 ## Sumber & asumsi status unit (PENTING — mohon divalidasi)
 

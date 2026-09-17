@@ -46,6 +46,7 @@ TYPES = {
     "ARNICA_POOL_E1_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=160, price=1_520_000_000, color="#d8b4a0"),
     "ARNICA_GARDEN_E8_HOOK": dict(name="ARNICA Garden (Hook)", cluster="sierra", lb=82, lt=105.3, price=1_155_000_000, color="#d8b4a0"),
     "ARNICA_POOL_E8_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=105.3, price=1_325_000_000, color="#d8b4a0"),
+    "TAHAP1":          dict(name="Kavling Tahap 1",      cluster="tahap1",  lb=None, lt=None, price=None, color="#c2beb8"),
 }
 
 def unit_no(n):
@@ -220,9 +221,39 @@ BLOCKS.append(make_block(
     street="JL. MONTANA F16",
 ))
 
+# ---------------- Tahap 1 (older grey/uncolored kavling columns, sold out) ----------------
+# B2/C2/D2 = inner column, B1/C1/D1 = outer (road-side) column. Neither is priced in the
+# current pricelist and neither has a legend color on the source PDF -- per user confirmation
+# these were an earlier phase ("Tahap 1") that is fully sold out, so every unit here is SOLD.
+BLOCKS.append(make_block(
+    "B2", "tahap1", (1322, 736, 1463, 1268), 9, "ttb",
+    type_key="TAHAP1", street="JL. TAHAP 1 B2",
+))
+BLOCKS.append(make_block(
+    "C2", "tahap1", (1320, 1340, 1479, 2430), 18, "ttb",
+    type_key="TAHAP1", street="JL. TAHAP 1 C2",
+))
+BLOCKS.append(make_block(
+    "D2", "tahap1", (1383, 2534, 1480, 3189), 11, "ttb",
+    type_key="TAHAP1", street="JL. TAHAP 1 D2",
+))
+BLOCKS.append(make_block(
+    "B1", "tahap1", (1550, 737, 1636, 1271), 9, "ttb",
+    type_key="TAHAP1", street="JL. TAHAP 1 B1",
+))
+BLOCKS.append(make_block(
+    "C1", "tahap1", (1554, 1328, 1636, 2458), 19, "ttb",
+    type_key="TAHAP1", street="JL. TAHAP 1 C1",
+))
+BLOCKS.append(make_block(
+    "D1", "tahap1", (1550, 2530, 1636, 3228), 12, "ttb",
+    type_key="TAHAP1", street="JL. TAHAP 1 D1",
+))
+
 CLUSTERS = {
     "montana": {"name": "Cluster Montana", "legendTitle": "LEGENDA"},
     "sierra": {"name": "Cluster Sierra", "legendTitle": "LEGENDA"},
+    "tahap1": {"name": "Tahap 1 (Sold Out)", "legendTitle": "LEGENDA"},
 }
 
 LEGEND = [
@@ -233,6 +264,7 @@ LEGEND = [
     {"key": "new_gwen", "label": "NEW GWEN", "color": "#fb923c"},
     {"key": "arnica", "label": "ARNICA", "color": "#d8b4a0"},
     {"key": "bianca", "label": "BIANCA", "color": "#fde68a"},
+    {"key": "tahap1", "label": "TAHAP 1 (SOLD OUT)", "color": "#c2beb8"},
 ]
 
 data = {
@@ -255,7 +287,7 @@ with open(REPO_ROOT / "js" / "data.js", "w") as f:
 
 # quick sanity summary
 total = sum(len(b["units"]) for b in BLOCKS)
-for cl in ("montana", "sierra"):
+for cl in ("montana", "sierra", "tahap1"):
     ready = sum(1 for b in BLOCKS if b["cluster"] == cl for u in b["units"] if u["status"] == "TERSEDIA")
     sold = sum(1 for b in BLOCKS if b["cluster"] == cl for u in b["units"] if u["status"] == "SOLD")
     hold = sum(1 for b in BLOCKS if b["cluster"] == cl for u in b["units"] if u["status"] == "HOLD")

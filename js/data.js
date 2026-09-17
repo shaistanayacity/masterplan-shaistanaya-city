@@ -17,6 +17,10 @@ const MASTERPLAN_DATA = {
     "sierra": {
       "name": "Cluster Sierra",
       "legendTitle": "LEGENDA"
+    },
+    "tahap1": {
+      "name": "Tahap 1 (Sold Out)",
+      "legendTitle": "LEGENDA"
     }
   },
   "legend": [
@@ -54,6 +58,11 @@ const MASTERPLAN_DATA = {
       "key": "bianca",
       "label": "BIANCA",
       "color": "#fde68a"
+    },
+    {
+      "key": "tahap1",
+      "label": "TAHAP 1 (SOLD OUT)",
+      "color": "#c2beb8"
     }
   ],
   "blocks": [
@@ -1746,6 +1755,870 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "cluster": "tahap1",
+      "box": {
+        "left": 55.523,
+        "top": 21.853,
+        "width": 5.922,
+        "height": 15.796
+      },
+      "orientation": "col",
+      "street": "JL. TAHAP 1 B2",
+      "units": [
+        {
+          "no": "01",
+          "cell": 0,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "02",
+          "cell": 1,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "03",
+          "cell": 2,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "04",
+          "cell": 3,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "05",
+          "cell": 4,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "06",
+          "cell": 5,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 6,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 7,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 8,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "cluster": "tahap1",
+      "box": {
+        "left": 55.439,
+        "top": 39.786,
+        "width": 6.678,
+        "height": 32.363
+      },
+      "orientation": "col",
+      "street": "JL. TAHAP 1 C2",
+      "units": [
+        {
+          "no": "01",
+          "cell": 0,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "02",
+          "cell": 1,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "03",
+          "cell": 2,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "04",
+          "cell": 3,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "05",
+          "cell": 4,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "06",
+          "cell": 5,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 6,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 7,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 8,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "10",
+          "cell": 9,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "11",
+          "cell": 10,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "12",
+          "cell": 11,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "13",
+          "cell": 12,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "14",
+          "cell": 13,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "15",
+          "cell": 14,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "16",
+          "cell": 15,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "17",
+          "cell": 16,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "18",
+          "cell": 17,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "cluster": "tahap1",
+      "box": {
+        "left": 58.085,
+        "top": 75.238,
+        "width": 4.074,
+        "height": 19.448
+      },
+      "orientation": "col",
+      "street": "JL. TAHAP 1 D2",
+      "units": [
+        {
+          "no": "01",
+          "cell": 0,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "02",
+          "cell": 1,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "03",
+          "cell": 2,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "04",
+          "cell": 3,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "05",
+          "cell": 4,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "06",
+          "cell": 5,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 6,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 7,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 8,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "10",
+          "cell": 9,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "11",
+          "cell": 10,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "cluster": "tahap1",
+      "box": {
+        "left": 65.099,
+        "top": 21.882,
+        "width": 3.612,
+        "height": 15.855
+      },
+      "orientation": "col",
+      "street": "JL. TAHAP 1 B1",
+      "units": [
+        {
+          "no": "01",
+          "cell": 0,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "02",
+          "cell": 1,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "03",
+          "cell": 2,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "04",
+          "cell": 3,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "05",
+          "cell": 4,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "06",
+          "cell": 5,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 6,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 7,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 8,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "cluster": "tahap1",
+      "box": {
+        "left": 65.267,
+        "top": 39.43,
+        "width": 3.444,
+        "height": 33.551
+      },
+      "orientation": "col",
+      "street": "JL. TAHAP 1 C1",
+      "units": [
+        {
+          "no": "01",
+          "cell": 0,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "02",
+          "cell": 1,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "03",
+          "cell": 2,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "04",
+          "cell": 3,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "05",
+          "cell": 4,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "06",
+          "cell": 5,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 6,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 7,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 8,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "10",
+          "cell": 9,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "11",
+          "cell": 10,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "12",
+          "cell": 11,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "13",
+          "cell": 12,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "14",
+          "cell": 13,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "15",
+          "cell": 14,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "16",
+          "cell": 15,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "17",
+          "cell": 16,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "18",
+          "cell": 17,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "19",
+          "cell": 18,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "cluster": "tahap1",
+      "box": {
+        "left": 65.099,
+        "top": 75.119,
+        "width": 3.612,
+        "height": 20.724
+      },
+      "orientation": "col",
+      "street": "JL. TAHAP 1 D1",
+      "units": [
+        {
+          "no": "01",
+          "cell": 0,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "02",
+          "cell": 1,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "03",
+          "cell": 2,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "04",
+          "cell": 3,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "05",
+          "cell": 4,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "06",
+          "cell": 5,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 6,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 7,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 8,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "10",
+          "cell": 9,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "11",
+          "cell": 10,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "12",
+          "cell": 11,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
           "status": "SOLD",
           "statusLabel": null
         }
