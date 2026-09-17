@@ -35,62 +35,65 @@ digitasi manual per-persil** — kalau ada blok yang terasa sedikit geser,
 cukup ubah angka `box.left/top/width/height` (persen dari gambar) di
 `js/data.js` atau sesuaikan window deteksi warna.
 
+Pengecualian: baris **Ruko (Blok A)** ada di jalan yang miring/diagonal,
+jadi tidak bisa dipotong rata sebagai satu persegi panjang tanpa jadi tidak
+presisi. Untuk blok itu, ke-14 unitnya masing-masing dideteksi sebagai
+kotak sendiri-sendiri (per-unit, bukan per-blok) lewat
+`make_single_unit_block()` di `scripts/generate_data.py`, jadi setiap unit
+menempel pas mengikuti kemiringan barisnya.
+
 ## Cakupan data
 
 Hanya blok yang **ada harga resminya di pricelist** yang dibuat interaktif
 per-unit, yaitu:
 
-- **Cluster Sierra**: E1, E3, E8 (tipe Bianca & Arnica)
+- **Cluster Sierra**: E1, E3, E7, E8 (tipe Bianca & Arnica)
 - **Cluster Montana**: F1, F2, F3, F5, F6, F7, F8, F9, F10, F11, F12, F15, F16
   (tipe Gwen, New Gwen, Darlene, Angeline)
+- **Ruko (Blok A)**: 14 unit ruko di baris diagonal atas — semua **SOLD**
+  (tidak ada data harga, jadi popup-nya cuma tampilkan status).
 - **Tahap 1 (Sold Out)**: B1, B2, C1, C2, D1, D2 — dua kolom kavling
   abu-abu di sisi timur site (tidak berwarna di legenda PDF, tidak ada di
-  pricelist). Per konfirmasi pemilik data, blok-blok ini adalah tahap
-  penjualan lama yang **sudah terjual semua**, jadi seluruh unitnya
-  ditandai SOLD tanpa harga (lihat `TYPES.TAHAP1` di
+  pricelist). Ini tahap penjualan lama yang **sudah terjual semua**, jadi
+  seluruh unitnya ditandai SOLD tanpa harga (lihat `TYPES.TAHAP1` di
   `scripts/generate_data.py`). Jumlah unit per kolom (B2=9, C2=18, D2=11,
   B1=9, C1=19, D1=12) dihitung dari tinggi blok hasil deteksi warna dibagi
   tinggi rata-rata satu unit — bukan hasil hitung manual satu-satu, jadi
   bisa meleset 1-2 unit per kolom.
 
-Blok Ruko (A) dan blok abu-abu lain yang belum ada di pricelist maupun
-belum dikonfirmasi statusnya (E5, E6, E7, E9, E10, E11) sengaja **tidak**
-dibuat per-unit karena tidak ada data tipe/harga/status untuk unit-unit
-itu — blok-blok itu tetap tampil apa adanya di gambar master plan (tanpa
-overlay), supaya tidak menampilkan harga/status yang dikarang.
+E7 sekarang juga interaktif (unit 05 = hold/RC, sisanya SOLD) tapi tipe dan
+harganya belum ada di pricelist manapun, jadi popup-nya hanya menampilkan
+nama generik "ARNICA (E7)" tanpa harga.
 
-## Sumber & asumsi status unit (PENTING — mohon divalidasi)
+Blok abu-abu lain yang belum ada di pricelist maupun belum dikonfirmasi
+statusnya (E5, E6, E9, E10, E11) sengaja **tidak** dibuat per-unit karena
+tidak ada data tipe/harga/status untuk unit-unit itu — blok-blok itu tetap
+tampil apa adanya di gambar master plan (tanpa overlay), supaya tidak
+menampilkan harga/status yang dikarang.
+
+## Sumber & status unit
 
 Sumber data:
-- **Tata letak blok & jumlah persil per blok**: dibaca dari `SC_MASTERPLAN.pdf`.
+- **Tata letak blok & jumlah persil per blok**: dibaca dari `SC_MASTERPLAN.pdf`,
+  dan dari deteksi warna blok pada gambarnya (lihat bagian "Posisi blok" di atas).
 - **Tipe, LB/LT, harga jual**: dari `Pricelist_Semua_Tipe_Shaistanaya_City.docx`
   (periode September 2026, harga sebelum diskon).
+- **Status TERSEDIA/SOLD/HOLD per unit**: per revisi tertulis dari pemilik
+  data (1 September 2026) yang mendaftar persis nomor unit yang masih
+  tersedia per blok — bukan lagi hasil tebakan dari pola pricelist. Revisi
+  ini menimpa E1/E3/E7/E8 (Sierra), F1/F2/F3/F5/F6/F7/F8/F9/F10/F11/F12/
+  F15/F16 (Montana), Ruko/Blok A (semua sold), dan Tahap 1 (semua sold).
+  Setiap blok yang kena revisi ditandai komentar `# Revisi (1 Sep 2026): ...`
+  di `scripts/generate_data.py` persis di atas definisinya, supaya mudah
+  dilacak balik ke sumbernya.
 
-Dokumen pricelist **tidak** berisi kolom status per unit (Sold/Ready/Hold)
-secara eksplisit — hanya daftar unit yang *masih tersedia* per blok. Status
-tiap unit pada halaman ini disimpulkan dengan aturan berikut:
-
-1. Kalau nomor unit **tercantum** di kolom "No Unit" pricelist → **TERSEDIA**.
-2. Kalau blok tersebut di pricelist tercantum sebagai **rentang penuh**
-   (mis. `F3: 01-08`, `NEW GWEN F5: 02-07` + 2 unit hook) → unit lain di blok
-   itu yang tidak disebut dianggap **HOLD** (rumah contoh / kavling kantor
-   pemasaran), bukan sold — karena pola penyebutan rentang penuh menandakan
-   blok itu baru rilis dan seluruh unitnya masih dipasarkan.
-3. Kalau blok tersebut di pricelist hanya menyebut **sebagian kecil/nomor
-   acak** (mis. `F1: 05`, `F12: 02,05,07`, `F15: 05`) atau **tidak disebut
-   sama sekali** (F2, F6, F8, F9, F10, F11, F16 — semua tipe Darlene/
-   Angeline/Gwen tanpa baris "tersedia") → unit yang tidak disebut dianggap
-   **SOLD**, karena pola ini menandakan blok tersebut sudah lama dipasarkan
-   dan mayoritas sudah terjual.
-4. Unit dengan tag **"RC"** pada gambar PDF (rumah contoh) ditandai **HOLD**
-   dengan label "RUMAH CONTOH" di kartu popup — posisi persisnya dibaca
-   manual dari gambar dan bisa saja meleset satu-dua nomor unit.
-
-**Ini adalah inferensi berdasarkan pola dokumen, bukan data status transaksi
-yang sebenarnya.** Sebelum dipakai untuk marketing/website resmi, tolong
-cross-check status SOLD/HOLD/TERSEDIA di `js/data.js` dengan data inventory
-tim sales yang sebenarnya. Field yang relevan per unit: `no`, `status`
-(`"TERSEDIA" | "SOLD" | "HOLD"`), `price`, `lb`, `lt`, `type`.
+Kalau ada blok yang **belum pernah direvisi** (tidak disebut di atas) dan
+statusnya masih terasa tidak pas, kemungkinan itu peninggalan dugaan lama
+saya — sebelum revisi tertulis di atas ada, status unit disimpulkan dari
+pola pricelist (rentang penuh = mayoritas masih tersedia, nomor acak/tidak
+disebut = mayoritas sudah terjual). Field yang relevan per unit di
+`js/data.js`: `no`, `status` (`"TERSEDIA" | "SOLD" | "HOLD"`), `price`,
+`lb`, `lt`, `type`.
 
 Harga yang ditampilkan hanya **satu angka "Harga Jual"** (sesuai dokumen
 sumber) — bukan tiga skema Cash/Inhouse/KPR seperti contoh Java Residence,

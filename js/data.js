@@ -18,6 +18,10 @@ const MASTERPLAN_DATA = {
       "name": "Cluster Sierra",
       "legendTitle": "LEGENDA"
     },
+    "ruko": {
+      "name": "Ruko (Sold Out)",
+      "legendTitle": "LEGENDA"
+    },
     "tahap1": {
       "name": "Tahap 1 (Sold Out)",
       "legendTitle": "LEGENDA"
@@ -179,7 +183,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -199,8 +203,8 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "status": "SOLD",
+          "statusLabel": null
         },
         {
           "no": "07",
@@ -209,7 +213,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -239,7 +243,7 @@ const MASTERPLAN_DATA = {
           "lb": 55,
           "lt": 72,
           "price": 840000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -259,7 +263,7 @@ const MASTERPLAN_DATA = {
           "lb": 55,
           "lt": 72,
           "price": 840000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -275,13 +279,127 @@ const MASTERPLAN_DATA = {
       ]
     },
     {
+      "id": "E7",
+      "cluster": "sierra",
+      "box": {
+        "left": 34.061,
+        "top": 39.697,
+        "width": 16.758,
+        "height": 2.821
+      },
+      "orientation": "row",
+      "street": "JL. SIERRA E7",
+      "units": [
+        {
+          "no": "10",
+          "cell": 0,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 1,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 2,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 3,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "06",
+          "cell": 4,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "05",
+          "cell": 5,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "HOLD",
+          "statusLabel": "RUMAH CONTOH"
+        },
+        {
+          "no": "04",
+          "cell": 6,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "03",
+          "cell": 7,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "02",
+          "cell": 8,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "01",
+          "cell": 9,
+          "type": "ARNICA (E7)",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
       "id": "E8",
       "cluster": "sierra",
       "box": {
-        "left": 34.103,
-        "top": 39.697,
-        "width": 10.836,
-        "height": 6.087
+        "left": 34.061,
+        "top": 42.518,
+        "width": 16.758,
+        "height": 3.266
       },
       "orientation": "row",
       "street": "JL. SIERRA E8",
@@ -313,7 +431,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -323,7 +441,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -343,7 +461,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -353,7 +471,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -363,7 +481,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -373,8 +491,8 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "status": "SOLD",
+          "statusLabel": null
         },
         {
           "no": "01",
@@ -383,8 +501,8 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "status": "SOLD",
+          "statusLabel": null
         }
       ]
     },
@@ -715,7 +833,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -725,7 +843,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -755,7 +873,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -765,7 +883,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -785,7 +903,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         }
       ]
@@ -819,7 +937,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -839,7 +957,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -849,7 +967,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 72,
           "price": 675000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         },
         {
@@ -879,7 +997,7 @@ const MASTERPLAN_DATA = {
           "lb": 42,
           "lt": 106,
           "price": 840000000,
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         }
       ]
@@ -1215,7 +1333,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1225,7 +1343,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1235,7 +1353,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1245,7 +1363,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1265,7 +1383,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1309,7 +1427,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1319,7 +1437,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1329,7 +1447,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1339,7 +1457,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1359,7 +1477,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -1379,8 +1497,8 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
-          "statusLabel": null
+          "status": "HOLD",
+          "statusLabel": "RUMAH CONTOH"
         }
       ]
     },
@@ -1567,7 +1685,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         }
       ]
@@ -1661,7 +1779,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         }
       ]
@@ -1755,6 +1873,342 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
+          "status": "TERSEDIA",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-01",
+      "cluster": "ruko",
+      "box": {
+        "left": 55.565,
+        "top": 23.278,
+        "width": 1.764,
+        "height": 2.494
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "01",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-02",
+      "cluster": "ruko",
+      "box": {
+        "left": 54.095,
+        "top": 23.456,
+        "width": 1.764,
+        "height": 2.464
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "02",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-03",
+      "cluster": "ruko",
+      "box": {
+        "left": 52.709,
+        "top": 23.605,
+        "width": 1.68,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "03",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-04",
+      "cluster": "ruko",
+      "box": {
+        "left": 51.281,
+        "top": 23.723,
+        "width": 1.722,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "04",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-05",
+      "cluster": "ruko",
+      "box": {
+        "left": 49.853,
+        "top": 23.842,
+        "width": 1.68,
+        "height": 2.464
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "05",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-06",
+      "cluster": "ruko",
+      "box": {
+        "left": 48.299,
+        "top": 23.99,
+        "width": 1.806,
+        "height": 2.464
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "06",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-07",
+      "cluster": "ruko",
+      "box": {
+        "left": 46.871,
+        "top": 24.139,
+        "width": 1.722,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "07",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-08",
+      "cluster": "ruko",
+      "box": {
+        "left": 45.401,
+        "top": 24.258,
+        "width": 1.848,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "08",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-09",
+      "cluster": "ruko",
+      "box": {
+        "left": 44.015,
+        "top": 24.376,
+        "width": 1.764,
+        "height": 2.464
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "09",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-10",
+      "cluster": "ruko",
+      "box": {
+        "left": 42.587,
+        "top": 24.555,
+        "width": 1.764,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "10",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-11",
+      "cluster": "ruko",
+      "box": {
+        "left": 41.117,
+        "top": 24.644,
+        "width": 1.764,
+        "height": 2.464
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "11",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-12",
+      "cluster": "ruko",
+      "box": {
+        "left": 39.689,
+        "top": 24.792,
+        "width": 1.722,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "12",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-13",
+      "cluster": "ruko",
+      "box": {
+        "left": 38.261,
+        "top": 24.941,
+        "width": 1.722,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "13",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "A-14",
+      "cluster": "ruko",
+      "box": {
+        "left": 36.791,
+        "top": 25.059,
+        "width": 1.68,
+        "height": 2.435
+      },
+      "orientation": "row",
+      "street": "JL. RUKO A",
+      "units": [
+        {
+          "no": "14",
+          "cell": 0,
+          "type": "RUKO",
+          "lb": 60,
+          "lt": 12,
+          "price": null,
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1764,10 +2218,10 @@ const MASTERPLAN_DATA = {
       "id": "B2",
       "cluster": "tahap1",
       "box": {
-        "left": 55.523,
-        "top": 21.853,
-        "width": 5.922,
-        "height": 15.796
+        "left": 54.641,
+        "top": 25.831,
+        "width": 6.804,
+        "height": 11.817
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 B2",
@@ -2186,10 +2640,10 @@ const MASTERPLAN_DATA = {
       "id": "B1",
       "cluster": "tahap1",
       "box": {
-        "left": 65.099,
-        "top": 21.882,
-        "width": 3.612,
-        "height": 15.855
+        "left": 64.931,
+        "top": 23.011,
+        "width": 3.78,
+        "height": 14.786
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 B1",

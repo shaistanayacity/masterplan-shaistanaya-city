@@ -21,6 +21,7 @@
   const CLUSTER_LABEL = {
     montana: "Cluster Montana",
     sierra: "Cluster Sierra",
+    ruko: "Ruko (Sold Out)",
     tahap1: "Tahap 1 (Sold Out)",
   };
 
@@ -107,7 +108,7 @@
     } else if (unit.status === "SOLD") {
       const note = document.createElement("div");
       note.className = "price-box__note";
-      note.textContent = "Unit ini sudah terjual (Tahap 1).";
+      note.textContent = "Unit ini sudah terjual.";
       upPrices.appendChild(note);
     } else {
       const note = document.createElement("div");

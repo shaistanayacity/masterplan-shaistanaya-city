@@ -47,6 +47,8 @@ TYPES = {
     "ARNICA_GARDEN_E8_HOOK": dict(name="ARNICA Garden (Hook)", cluster="sierra", lb=82, lt=105.3, price=1_155_000_000, color="#d8b4a0"),
     "ARNICA_POOL_E8_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=105.3, price=1_325_000_000, color="#d8b4a0"),
     "TAHAP1":          dict(name="Kavling Tahap 1",      cluster="tahap1",  lb=None, lt=None, price=None, color="#c2beb8"),
+    "RUKO":            dict(name="RUKO",                 cluster="ruko",    lb=60, lt=12, price=None, color="#8b8ce0"),
+    "E7_TBD":          dict(name="ARNICA (E7)",           cluster="sierra",  lb=None, lt=None, price=None, color="#d8b4a0"),
 }
 
 def unit_no(n):
@@ -100,6 +102,28 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
         "units": units,
     }
 
+def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01", street="", hold_label="RUMAH CONTOH"):
+    """One physical lot = one block with a single precisely-placed unit. Used for the
+    tilted Ruko row, where units aren't uniform rectangles that can be sliced evenly."""
+    t = TYPES[type_key]
+    return {
+        "id": block_id,
+        "cluster": cluster,
+        "box": pct_box(*box_px),
+        "orientation": "row",
+        "street": street,
+        "units": [{
+            "no": no,
+            "cell": 0,
+            "type": t["name"],
+            "lb": t["lb"],
+            "lt": t["lt"],
+            "price": t["price"],
+            "status": status,
+            "statusLabel": hold_label if status == "HOLD" else None,
+        }],
+    }
+
 BLOCKS = []
 
 # ---------------- Cluster Sierra ----------------
@@ -112,20 +136,30 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): tersedia sisa 12,11,09/RC,06,05,03,01 -- lainnya SOLD.
     "E3", "sierra", (895, 868, 1365, 1007), 12, "rtl",
     type_key="BIANCA_GARDEN",
-    available={1,2,3,4,5,6,7,10,11,12},
-    hold={8, 9},
+    available={1, 3, 5, 6, 11, 12},
+    hold={9},
     overrides={1: "BIANCA_DELUXE_HOOK", 7: "BIANCA_DELUXE", 8: "BIANCA_DELUXE",
                9: "BIANCA_DELUXE", 10: "BIANCA_DELUXE", 11: "BIANCA_DELUXE", 12: "BIANCA_DELUXE"},
     street="JL. SIERRA E3",
 ))
 
 BLOCKS.append(make_block(
-    "E8", "sierra", (812, 1337, 1070, 1542), 10, "rtl",
+    # Revisi (1 Sep 2026): E7 dan E8 sebelumnya kegabung jadi satu blok -- sekarang dipisah.
+    # E7 tersedia sisa unit 05 (RC). Tipe/harga E7 belum ada di pricelist.
+    "E7", "sierra", (811, 1337, 1210, 1432), 10, "rtl",
+    type_key="E7_TBD",
+    hold={5},
+    street="JL. SIERRA E7",
+))
+
+BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): E8 tersedia sisa 10, 09, 06 -- lainnya SOLD.
+    "E8", "sierra", (811, 1432, 1210, 1542), 10, "rtl",
     type_key="ARNICA_GARDEN_E8",
-    available={3,4,5,6,7,8,9,10},
-    hold={1, 2},
+    available={6, 9, 10},
     overrides={10: "ARNICA_GARDEN_E8_HOOK"},
     street="JL. SIERRA E8",
 ))
@@ -146,16 +180,18 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): F3 tersedia sisa 06, 05, 02 -- lainnya SOLD.
     "F3", "montana", (903, 1936, 1192, 2017), 8, "rtl",
     type_key="NEW_GWEN",
-    available={1,2,3,4,5,6,7,8},
+    available={2, 5, 6},
     street="JL. MONTANA F3",
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): F5 tersedia sisa 08, 06, 03, 02 -- lainnya SOLD.
     "F5", "montana", (879, 2079, 1212, 2160), 8, "rtl",
     type_key="NEW_GWEN",
-    available={1,2,3,4,5,6,7,8},
+    available={2, 3, 6, 8},
     overrides={1: "NEW_GWEN_HOOK1", 8: "NEW_GWEN_HOOK8"},
     street="JL. MONTANA F5",
 ))
@@ -182,15 +218,20 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): F9 tersedia sisa 08,07,06,05,03,01/RC -- lainnya (02,04) SOLD.
     "F9", "montana", (886, 2599, 1219, 2685), 8, "rtl",
     type_key="GWEN",
+    available={3, 5, 6, 7, 8},
     hold={1},
     street="JL. MONTANA F9",
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): F10 tersedia sisa 08,07,06,05,03,01/RC -- lainnya (02,04) SOLD.
     "F10", "montana", (886, 2678, 1219, 2763), 8, "rtl",
     type_key="GWEN",
+    available={3, 5, 6, 7, 8},
+    hold={1},
     street="JL. MONTANA F10",
 ))
 
@@ -201,32 +242,53 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): F12 01 masih tersedia (tambahan dari 02, 05, 07).
     "F12", "montana", (868, 2900, 1220, 2988), 8, "rtl",
     type_key="GWEN",
-    available={2,5,7},
+    available={1, 2, 5, 7},
     street="JL. MONTANA F12",
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): F15 tersedia 3 unit -- 08, 05, 01.
     "F15", "montana", (889, 3050, 1219, 3135), 8, "rtl",
     type_key="GWEN",
-    available={5,8},
+    available={1, 5, 8},
     overrides={8: "GWEN_HOOK"},
     street="JL. MONTANA F15",
 ))
 
 BLOCKS.append(make_block(
+    # Revisi (1 Sep 2026): F16 ada 1 tersedia, no unit 01.
     "F16", "montana", (889, 3125, 1219, 3213), 8, "rtl",
     type_key="GWEN",
+    available={1},
     street="JL. MONTANA F16",
 ))
+
+# ---------------- Ruko (Blok A) ----------------
+# Revisi (1 Sep 2026): seluruh unit Ruko/A sudah SOLD. The row sits on a diagonal road, so
+# instead of slicing one rectangle evenly (imprecise on a tilted row), each of the 14 units
+# below is its own precisely color-detected box (see scripts/README notes / session log).
+RUKO_BOXES = [
+    (876, 844, 916, 926), (911, 840, 952, 922), (945, 835, 986, 917),
+    (979, 830, 1021, 913), (1014, 827, 1056, 909), (1048, 821, 1090, 904),
+    (1081, 817, 1125, 899), (1116, 813, 1157, 895), (1150, 808, 1193, 891),
+    (1187, 803, 1227, 886), (1221, 799, 1262, 881), (1255, 795, 1295, 877),
+    (1288, 790, 1330, 873), (1323, 784, 1365, 868),
+]
+for i, box in enumerate(reversed(RUKO_BOXES), start=1):
+    # reversed so unit 01 = rightmost box, matching the numbering convention used elsewhere
+    BLOCKS.append(make_single_unit_block(
+        f"A-{i:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(i), street="JL. RUKO A",
+    ))
 
 # ---------------- Tahap 1 (older grey/uncolored kavling columns, sold out) ----------------
 # B2/C2/D2 = inner column, B1/C1/D1 = outer (road-side) column. Neither is priced in the
 # current pricelist and neither has a legend color on the source PDF -- per user confirmation
 # these were an earlier phase ("Tahap 1") that is fully sold out, so every unit here is SOLD.
 BLOCKS.append(make_block(
-    "B2", "tahap1", (1322, 736, 1463, 1268), 9, "ttb",
+    "B2", "tahap1", (1301, 870, 1463, 1268), 9, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 B2",
 ))
 BLOCKS.append(make_block(
@@ -238,7 +300,7 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 D2",
 ))
 BLOCKS.append(make_block(
-    "B1", "tahap1", (1550, 737, 1636, 1271), 9, "ttb",
+    "B1", "tahap1", (1546, 775, 1636, 1273), 9, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 B1",
 ))
 BLOCKS.append(make_block(
@@ -253,6 +315,7 @@ BLOCKS.append(make_block(
 CLUSTERS = {
     "montana": {"name": "Cluster Montana", "legendTitle": "LEGENDA"},
     "sierra": {"name": "Cluster Sierra", "legendTitle": "LEGENDA"},
+    "ruko": {"name": "Ruko (Sold Out)", "legendTitle": "LEGENDA"},
     "tahap1": {"name": "Tahap 1 (Sold Out)", "legendTitle": "LEGENDA"},
 }
 
@@ -287,7 +350,7 @@ with open(REPO_ROOT / "js" / "data.js", "w") as f:
 
 # quick sanity summary
 total = sum(len(b["units"]) for b in BLOCKS)
-for cl in ("montana", "sierra", "tahap1"):
+for cl in ("montana", "sierra", "ruko", "tahap1"):
     ready = sum(1 for b in BLOCKS if b["cluster"] == cl for u in b["units"] if u["status"] == "TERSEDIA")
     sold = sum(1 for b in BLOCKS if b["cluster"] == cl for u in b["units"] if u["status"] == "SOLD")
     hold = sum(1 for b in BLOCKS if b["cluster"] == cl for u in b["units"] if u["status"] == "HOLD")

@@ -119,6 +119,7 @@ body {
   transition: filter 0.12s ease, transform 0.12s ease;
   display: flex;
   align-items: center;
+  overflow: hidden;
   justify-content: center;
 }
 
@@ -149,6 +150,8 @@ body {
   letter-spacing: 0.02em;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .mp-unit--sold {
