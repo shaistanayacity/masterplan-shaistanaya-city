@@ -191,6 +191,12 @@
     legendPanel.classList.toggle("is-hidden");
   });
 
+  // On narrow screens the legend is a large inline block (not a floating panel), so start
+  // it collapsed -- the "Legenda" button still opens it the same way as on desktop.
+  if (window.matchMedia("(max-width: 860px)").matches) {
+    legendPanel.classList.add("is-hidden");
+  }
+
   renderBlocks();
   renderSummary();
   renderLegend();
