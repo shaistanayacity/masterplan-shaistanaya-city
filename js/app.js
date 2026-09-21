@@ -72,7 +72,7 @@
           if (unit.status === "SOLD" || (unit.status === "HOLD" && !isUnreleased)) {
             const tag = document.createElement("span");
             tag.className = "mp-unit__tag";
-            tag.textContent = unit.status === "SOLD" ? "SOLD" : "RC";
+            tag.textContent = unit.status === "SOLD" ? "SOLD" : "SU";
             cell.appendChild(tag);
           }
 
@@ -105,6 +105,8 @@
 
     upType.textContent = (unit.lb && unit.lt)
       ? `${unit.type} · LB ${fmtLT(unit.lb)}/LT ${fmtLT(unit.lt)} m²`
+      : unit.lt
+      ? `${unit.type} · LT ${fmtLT(unit.lt)} m²`
       : unit.type;
     upAddr.textContent = `${block.street || ("Blok " + block.id)} No. ${unit.no} — Shaistanaya City`;
 

@@ -194,7 +194,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 880000000,
           "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "statusLabel": "SHOW UNIT"
         },
         {
           "no": "08",
@@ -285,7 +285,7 @@ const MASTERPLAN_DATA = {
           "cell": 0,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
@@ -295,7 +295,7 @@ const MASTERPLAN_DATA = {
           "cell": 1,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
@@ -305,7 +305,7 @@ const MASTERPLAN_DATA = {
           "cell": 2,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
@@ -315,7 +315,7 @@ const MASTERPLAN_DATA = {
           "cell": 3,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
@@ -325,7 +325,7 @@ const MASTERPLAN_DATA = {
           "cell": 4,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -335,17 +335,17 @@ const MASTERPLAN_DATA = {
           "cell": 5,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "statusLabel": "SHOW UNIT"
         },
         {
           "no": "03",
           "cell": 6,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
@@ -355,7 +355,7 @@ const MASTERPLAN_DATA = {
           "cell": 7,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
@@ -365,7 +365,7 @@ const MASTERPLAN_DATA = {
           "cell": 8,
           "type": "ARNICA (E7)",
           "lb": null,
-          "lt": null,
+          "lt": 90,
           "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
@@ -467,10 +467,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 8,
-          "type": "ARNICA Garden",
-          "lb": 70,
-          "lt": 90,
-          "price": 1010000000,
+          "type": "ARNICA (E8)",
+          "lb": null,
+          "lt": 133.1,
+          "price": null,
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         }
@@ -875,7 +875,7 @@ const MASTERPLAN_DATA = {
           "cell": 0,
           "type": "NEW GWEN (Hook)",
           "lb": 45,
-          "lt": 112,
+          "lt": 112.1,
           "price": 880000000,
           "status": "TERSEDIA",
           "statusLabel": null
@@ -935,7 +935,7 @@ const MASTERPLAN_DATA = {
           "cell": 6,
           "type": "NEW GWEN (Hook)",
           "lb": 42,
-          "lt": 106,
+          "lt": 106.1,
           "price": 840000000,
           "status": "SOLD",
           "statusLabel": null
@@ -957,10 +957,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "08",
           "cell": 0,
-          "type": "ANGELINE",
+          "type": "ANGELINE (Hook)",
           "lb": 45,
-          "lt": 133,
-          "price": null,
+          "lt": 124.1,
+          "price": 950000000,
           "status": "SOLD",
           "statusLabel": null
         },
@@ -969,7 +969,7 @@ const MASTERPLAN_DATA = {
           "cell": 1,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -979,7 +979,7 @@ const MASTERPLAN_DATA = {
           "cell": 2,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -989,7 +989,7 @@ const MASTERPLAN_DATA = {
           "cell": 3,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -999,7 +999,7 @@ const MASTERPLAN_DATA = {
           "cell": 4,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1009,7 +1009,7 @@ const MASTERPLAN_DATA = {
           "cell": 5,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1017,10 +1017,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 6,
-          "type": "ANGELINE",
+          "type": "ANGELINE (Hook)",
           "lb": 45,
-          "lt": 133,
-          "price": null,
+          "lt": 133.1,
+          "price": 950000000,
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1041,10 +1041,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "10",
           "cell": 0,
-          "type": "ANGELINE",
+          "type": "ANGELINE (Hook)",
           "lb": 45,
-          "lt": 133,
-          "price": null,
+          "lt": 79.9,
+          "price": 950000000,
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1053,7 +1053,7 @@ const MASTERPLAN_DATA = {
           "cell": 1,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1063,7 +1063,7 @@ const MASTERPLAN_DATA = {
           "cell": 2,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1073,7 +1073,7 @@ const MASTERPLAN_DATA = {
           "cell": 3,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1083,7 +1083,7 @@ const MASTERPLAN_DATA = {
           "cell": 4,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1093,7 +1093,7 @@ const MASTERPLAN_DATA = {
           "cell": 5,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1103,7 +1103,7 @@ const MASTERPLAN_DATA = {
           "cell": 6,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1113,7 +1113,7 @@ const MASTERPLAN_DATA = {
           "cell": 7,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1121,10 +1121,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 8,
-          "type": "ANGELINE",
+          "type": "ANGELINE (Hook)",
           "lb": 45,
-          "lt": 133,
-          "price": null,
+          "lt": 133.1,
+          "price": 950000000,
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1143,82 +1143,92 @@ const MASTERPLAN_DATA = {
       "street": "JL. MONTANA F8",
       "units": [
         {
-          "no": "09",
+          "no": "10",
           "cell": 0,
+          "type": "ANGELINE (Hook)",
+          "lb": 45,
+          "lt": 77,
+          "price": 950000000,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 1,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
         },
         {
           "no": "08",
-          "cell": 1,
+          "cell": 2,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
         },
         {
           "no": "07",
-          "cell": 2,
+          "cell": 3,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
         },
         {
           "no": "06",
-          "cell": 3,
+          "cell": 4,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
         },
         {
           "no": "05",
-          "cell": 4,
+          "cell": 5,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
         },
         {
           "no": "03",
-          "cell": 5,
+          "cell": 6,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
         },
         {
           "no": "02",
-          "cell": 6,
+          "cell": 7,
           "type": "ANGELINE",
           "lb": 45,
-          "lt": 133,
+          "lt": 90,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
         },
         {
           "no": "01",
-          "cell": 7,
-          "type": "ANGELINE",
+          "cell": 8,
+          "type": "ANGELINE (Hook)",
           "lb": 45,
-          "lt": 133,
-          "price": null,
+          "lt": 133.1,
+          "price": 950000000,
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1239,10 +1249,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "08",
           "cell": 0,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 112.1,
+          "price": 840000000,
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1299,12 +1309,12 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 6,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 106.1,
+          "price": 800000000,
           "status": "HOLD",
-          "statusLabel": "RUMAH CONTOH"
+          "statusLabel": "SHOW UNIT"
         }
       ]
     },
@@ -1323,10 +1333,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "08",
           "cell": 0,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 112.1,
+          "price": 840000000,
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1383,10 +1393,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 6,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 106.1,
+          "price": 800000000,
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1477,10 +1487,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 7,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 106.1,
+          "price": 800000000,
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1571,10 +1581,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 7,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 106.1,
+          "price": 800000000,
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1597,7 +1607,7 @@ const MASTERPLAN_DATA = {
           "cell": 0,
           "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 106,
+          "lt": 106.1,
           "price": 800000000,
           "status": "TERSEDIA",
           "statusLabel": null
@@ -1655,10 +1665,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 6,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 106.1,
+          "price": 800000000,
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1679,10 +1689,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "08",
           "cell": 0,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 106.1,
+          "price": 800000000,
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1739,10 +1749,10 @@ const MASTERPLAN_DATA = {
         {
           "no": "01",
           "cell": 6,
-          "type": "GWEN",
+          "type": "GWEN (Hook)",
           "lb": 38,
-          "lt": 72,
-          "price": 660000000,
+          "lt": 106.1,
+          "price": 800000000,
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1765,8 +1775,8 @@ const MASTERPLAN_DATA = {
           "no": "01",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1790,8 +1800,8 @@ const MASTERPLAN_DATA = {
           "no": "02",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1815,8 +1825,8 @@ const MASTERPLAN_DATA = {
           "no": "03",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1840,8 +1850,8 @@ const MASTERPLAN_DATA = {
           "no": "05",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1882,8 +1892,8 @@ const MASTERPLAN_DATA = {
           "no": "06",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1924,8 +1934,8 @@ const MASTERPLAN_DATA = {
           "no": "07",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -1966,8 +1976,8 @@ const MASTERPLAN_DATA = {
           "no": "08",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2008,8 +2018,8 @@ const MASTERPLAN_DATA = {
           "no": "09",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2050,8 +2060,8 @@ const MASTERPLAN_DATA = {
           "no": "10",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2092,8 +2102,8 @@ const MASTERPLAN_DATA = {
           "no": "11",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2134,8 +2144,8 @@ const MASTERPLAN_DATA = {
           "no": "12",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2176,8 +2186,8 @@ const MASTERPLAN_DATA = {
           "no": "15",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2218,8 +2228,8 @@ const MASTERPLAN_DATA = {
           "no": "16",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2260,8 +2270,8 @@ const MASTERPLAN_DATA = {
           "no": "17",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2302,8 +2312,8 @@ const MASTERPLAN_DATA = {
           "no": "18",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2344,8 +2354,8 @@ const MASTERPLAN_DATA = {
           "no": "19",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2386,8 +2396,8 @@ const MASTERPLAN_DATA = {
           "no": "20",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null
@@ -2428,8 +2438,8 @@ const MASTERPLAN_DATA = {
           "no": "21",
           "cell": 0,
           "type": "RUKO",
-          "lb": 60,
-          "lt": 12,
+          "lb": null,
+          "lt": 60,
           "price": null,
           "status": "SOLD",
           "statusLabel": null

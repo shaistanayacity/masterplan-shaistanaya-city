@@ -160,6 +160,50 @@ lewat field `type` di popup — silakan sesuaikan kalau tim ingin tampilan
   kiri dekat LAPANGAN) yang sebelumnya kepotong dari kotak blok — sekarang
   8 unit per blok, bukan 7.
 
+## Perbaikan LB/LT per unit (21 Sep 2026)
+
+Sebelumnya banyak blok memakai satu angka LT (luas tanah) yang sama untuk
+semua unit di blok itu, padahal unit di **ujung/pojok baris (hook)**
+punya LT lebih besar dan berbeda-beda dibanding unit di tengah. Angka LT
+di bawah ini diambil langsung dari tiap persil di gambar master plan
+sumber (`tools_masterplan.pdf`/`tools_masterplan_1.pdf`), bukan digeneralisir per tipe:
+
+- **ANGELINE** (F6/F7/F8): unit tengah LT **90** (sebelumnya salah pakai
+  133). Ujung kanan tiap blok (unit 01) LT **133,1** (tipe `ANGELINE_HOOK`).
+  Ujung kiri beda-beda per blok: F6 unit 08 = **124,1**, F7 unit 10 =
+  **79,9**, F8 unit 10 = **77** — masing-masing dapat entri TYPES sendiri
+  (`ANGELINE_HOOK_F6/F7/F8`).
+- **F8 ternyata 9 unit**, bukan 8 — ada unit "10" di ujung kiri yang
+  sebelumnya belum dihitung (sama seperti kasus F11/F12 sebelumnya).
+- **GWEN** (F9/F10/F11/F12/F15/F16): unit tengah tetap LT 72. Ujung kanan
+  (unit 01) di semua blok itu LT **106,1** (`GWEN_HOOK`). Ujung kiri hanya
+  hook di F9/F10 (unit 08, LT **112,1**, tipe baru `GWEN_HOOK8`) dan F15/F16
+  (unit 08, LT 106,1 juga) — F11/F12 unit 09 di ujung kiri (sebelah
+  LAPANGAN) BUKAN hook, tetap LT 72 biasa.
+- **RUKO**: LT dibenarkan jadi **60** (lebar x panjang persil, sebelumnya
+  salah pakai 12 yang sebenarnya cuma salah satu sisi kotaknya). Luas
+  bangunan (LB) ruko bertingkat belum ada datanya, jadi dikosongkan
+  (popup cuma menampilkan LT, bukan angka LB yang dikarang).
+- **E7**: dua unit yang datanya diketahui (05 Show Unit, 06 SOLD)
+  sekarang tercatat LT 90 (ukuran standar), sisanya tetap tanpa data.
+- **E8** unit 01 (HOLD/belum dijual, jadi tidak pernah muncul di popup)
+  tetap dibenarkan datanya jadi LT 133,1 untuk konsistensi.
+- Popup sekarang bisa menampilkan **LT saja** (tanpa LB) kalau cuma LT
+  yang diketahui, bukan disembunyikan total — lihat `upType` di `js/app.js`.
+
+Untuk beberapa varian hook yang baru dipecah (mis. `GWEN_HOOK8`, tiga
+`ANGELINE_HOOK_F6/F7/F8`) belum ada harga resmi tersendiri di pricelist,
+jadi sementara memakai harga dari tipe "Hook" resmi terdekat di keluarga
+yang sama (bukan angka karangan baru) — perlu dikonfirmasi ulang kalau
+ada pricelist yang lebih detail per persil.
+
+## Show Unit (dulu "Rumah Contoh"/RC)
+
+Label unit contoh yang bisa dilihat langsung sekarang disebut **"Show
+Unit"** di semua tempat (badge status di popup, legenda, dan label kecil
+di peta) — sebelumnya "Rumah Contoh"/"RC". Cuma soal penyebutan, tidak
+mengubah status data (`HOLD` + `statusLabel` tetap sama).
+
 ## Mengedit data
 
 `js/data.js` adalah file yang di-generate. Untuk mengubah data (status unit,

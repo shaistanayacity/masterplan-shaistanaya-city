@@ -26,15 +26,35 @@ def rp(n):
     return "Rp" + f"{n:,}".replace(",", ".")
 
 # ---- Type catalog (from Pricelist_Semua_Tipe_Shaistanaya_City.docx) ----
+# LT (luas tanah) per tipe di bawah sudah dicocokkan ke angka yang tertulis
+# langsung di setiap persil pada gambar master plan (tools_masterplan.pdf) --
+# bukan cuma satu angka "khas hook" yang digeneralisir ke semua unit hook di
+# suatu blok. Unit pojok/hook yang ukurannya beda-beda per blok (mis. ujung
+# kiri F6/F7/F8, atau ujung kiri F9/F10) masing-masing dapat entri TYPES
+# sendiri (lihat komentar di tiap entri) supaya LT yang tampil di popup sama
+# persis dengan yang tertulis di gambar. Untuk varian yang harganya belum
+# ada di pricelist manapun (semua hook ANGELINE selain yang sudah official,
+# dan GWEN_HOOK8), harga dipakai dari tipe "hook" resmi terdekat dalam
+# keluarga yang sama (harga per m2 hook biasanya satu tarif per blok,
+# terlepas dari sedikit selisih LT antar persil pojok) -- bukan angka
+# karangan baru.
 TYPES = {
     "GWEN":            dict(name="GWEN",            cluster="montana", lb=38, lt=72,  price=660_000_000, color="#f472b6"),
-    "GWEN_HOOK":       dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=106, price=800_000_000, color="#f472b6"),
+    "GWEN_HOOK":       dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=106.1, price=800_000_000, color="#f472b6"),
+    # Ujung kiri F9/F10 -- satu-satunya sisi GWEN yang ukurannya 112,1, bukan 106,1.
+    "GWEN_HOOK8":      dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=112.1, price=840_000_000, color="#f472b6"),
     "NEW_GWEN":        dict(name="NEW GWEN",         cluster="montana", lb=42, lt=72,  price=675_000_000, color="#fb923c"),
-    "NEW_GWEN_HOOK1":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=42, lt=106, price=840_000_000, color="#fb923c"),
-    "NEW_GWEN_HOOK8":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=45, lt=112, price=880_000_000, color="#fb923c"),
+    "NEW_GWEN_HOOK1":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=42, lt=106.1, price=840_000_000, color="#fb923c"),
+    "NEW_GWEN_HOOK8":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=45, lt=112.1, price=880_000_000, color="#fb923c"),
     "DARLENE":         dict(name="DARLENE",          cluster="montana", lb=45, lt=91,  price=795_000_000, color="#f87171"),
-    "ANGELINE":        dict(name="ANGELINE",         cluster="montana", lb=45, lt=133, price=None,        color="#86efac"),
-    "ANGELINE_HOOK":   dict(name="ANGELINE (Hook)",  cluster="montana", lb=45, lt=133, price=950_000_000, color="#86efac"),
+    # ANGELINE reguler (unit tengah) LT-nya 90, BUKAN 133 -- 133,1 itu ukuran unit
+    # hook di ujung kanan (F6/F7/F8 unit 01), sebelumnya salah dipakai untuk semua unit.
+    "ANGELINE":        dict(name="ANGELINE",         cluster="montana", lb=45, lt=90,  price=None,        color="#86efac"),
+    "ANGELINE_HOOK":   dict(name="ANGELINE (Hook)",  cluster="montana", lb=45, lt=133.1, price=950_000_000, color="#86efac"),
+    # Ujung kiri F6/F7/F8 masing-masing punya LT unik (bukan hook yang sama seperti unit 01).
+    "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=124.1, price=950_000_000, color="#86efac"),
+    "ANGELINE_HOOK_F7": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=79.9,  price=950_000_000, color="#86efac"),
+    "ANGELINE_HOOK_F8": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=77,    price=950_000_000, color="#86efac"),
     "BIANCA_GARDEN":   dict(name="BIANCA Garden",    cluster="sierra",  lb=55, lt=72,  price=840_000_000, color="#fde68a"),
     "BIANCA_DELUXE":   dict(name="BIANCA Deluxe",    cluster="sierra",  lb=65, lt=72,  price=880_000_000, color="#fde68a"),
     "BIANCA_DELUXE_HOOK": dict(name="BIANCA Deluxe (Hook)", cluster="sierra", lb=87, lt=95.7, price=1_150_000_000, color="#fde68a"),
@@ -46,9 +66,18 @@ TYPES = {
     "ARNICA_POOL_E1_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=160, price=1_520_000_000, color="#d8b4a0"),
     "ARNICA_GARDEN_E8_HOOK": dict(name="ARNICA Garden (Hook)", cluster="sierra", lb=82, lt=105.3, price=1_155_000_000, color="#d8b4a0"),
     "ARNICA_POOL_E8_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=105.3, price=1_325_000_000, color="#d8b4a0"),
+    # Ujung kanan E8 (unit 01, HOLD/belum dijual -- tidak muncul di popup manapun,
+    # tapi datanya tetap dibenarkan supaya konsisten dengan gambar sumber).
+    "ARNICA_E8_HOOK_R": dict(name="ARNICA (E8)",     cluster="sierra",  lb=None, lt=133.1, price=None, color="#d8b4a0"),
     "TAHAP1":          dict(name="Kavling Tahap 1",      cluster="tahap1",  lb=None, lt=None, price=None, color="#c2beb8"),
-    "RUKO":            dict(name="RUKO",                 cluster="ruko",    lb=60, lt=12, price=None, color="#8b8ce0"),
-    "E7_TBD":          dict(name="ARNICA (E7)",           cluster="sierra",  lb=None, lt=None, price=None, color="#d8b4a0"),
+    # LT Ruko = lebar x panjang persil (mis. 5 x 12 = 60), bukan 12 -- itu cuma
+    # salah satu sisi kotaknya. Belum ada data resmi luas bangunan (LB) ruko
+    # bertingkat ini, jadi lb dikosongkan (None) daripada menampilkan angka
+    # yang salah.
+    "RUKO":            dict(name="RUKO",                 cluster="ruko",    lb=None, lt=60, price=None, color="#8b8ce0"),
+    # Dua unit yang datanya ada di gambar (05 RC/Show Unit, 06 SOLD) sama-sama
+    # persil ukuran standar 90; sisanya tetap tidak berharga/tidak bertipe pasti.
+    "E7_TBD":          dict(name="ARNICA (E7)",           cluster="sierra",  lb=None, lt=90, price=None, color="#d8b4a0"),
 }
 
 def unit_no(n):
@@ -67,13 +96,13 @@ def label_sequence(n):
     return seq
 
 def make_block(block_id, cluster, box_px, count, direction, type_key,
-                available=None, hold=None, hold_label="RUMAH CONTOH",
+                available=None, hold=None, hold_label="SHOW UNIT",
                 hold_labels=None, overrides=None, street="", skip_four=False):
     """
     direction: 'rtl' (01 at right, N at left) | 'ltr' (01 at left)
                 'btt' (01 at bottom, N at top) | 'ttb' (01 at top)
     available: set of unit numbers that are TERSEDIA (default: all)
-    hold: set of unit numbers that are HOLD/RC
+    hold: set of unit numbers that are HOLD/show unit
     hold_label: default popup label for any HOLD unit in this block
     hold_labels: {unit_no: label} to override hold_label for specific units
     overrides: {unit_no: type_key} for hook units with special price
@@ -119,7 +148,7 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
     }
 
 def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01", street="",
-                             hold_label="RUMAH CONTOH", polygon_px=None):
+                             hold_label="SHOW UNIT", polygon_px=None):
     """One physical lot = one block with a single precisely-placed unit. Used for the
     tilted Ruko row, where units aren't uniform rectangles that can be sliced evenly.
 
@@ -182,27 +211,28 @@ BLOCKS.append(make_block(
 
 BLOCKS.append(make_block(
     # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
-    # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang RC (rumah
-    # contoh); unit 06 ternyata SOLD (bukan tersedia). Sisanya masih putih polos di gambar
+    # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang Show Unit;
+    # unit 06 ternyata SOLD (bukan tersedia). Sisanya masih putih polos di gambar
     # sumber, artinya belum dijual/diputuskan -- HOLD "Belum Dijual" (tampil putih polos,
-    # bukan SOLD/RC). Tipe/harga E7 belum ada di pricelist manapun.
+    # bukan SOLD/Show Unit). Tipe/harga E7 belum ada di pricelist manapun.
     "E7", "sierra", (811, 1337, 1210, 1432), 9, "rtl", skip_four=True,
     type_key="E7_TBD",
     hold={1, 2, 3, 5, 7, 8, 9, 10},
     hold_label="BELUM DIJUAL",
-    hold_labels={5: "RUMAH CONTOH"},
+    hold_labels={5: "SHOW UNIT"},
     street="JL. SIERRA E7",
 ))
 
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026, dikoreksi lagi): E8 tersedia sisa 10, 09, 06. Unit 01 berwarna
-    # putih di gambar sumber (belum dijual/diputuskan) -- HOLD, bukan SOLD.
+    # putih di gambar sumber (belum dijual/diputuskan) -- HOLD, bukan SOLD. Unit 01 juga
+    # persil hook (LT 133,1) di ujung kanan, sama seperti pola E7/ANGELINE.
     "E8", "sierra", (811, 1432, 1210, 1542), 9, "rtl", skip_four=True,
     type_key="ARNICA_GARDEN_E8",
     available={6, 9, 10},
     hold={1},
     hold_label="BELUM DIJUAL",
-    overrides={10: "ARNICA_GARDEN_E8_HOOK"},
+    overrides={1: "ARNICA_E8_HOOK_R", 10: "ARNICA_GARDEN_E8_HOOK"},
     street="JL. SIERRA E8",
 ))
 
@@ -241,74 +271,92 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
+    # Ujung kiri (unit 08) LT 124,1, ujung kanan (unit 01) LT 133,1 -- keduanya hook,
+    # beda ukuran, sebelumnya dua-duanya salah dianggap unit reguler biasa.
     "F6", "montana", (879, 2162, 1212, 2264), 7, "rtl", skip_four=True,
     type_key="ANGELINE",
+    overrides={1: "ANGELINE_HOOK", 8: "ANGELINE_HOOK_F6"},
     street="JL. MONTANA F6",
 ))
 
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F7 Ready = 0 -- semua SOLD (termasuk unit hook 01). 9 lots.
+    # Ujung kiri (unit 10) LT 79,9, ujung kanan (unit 01) LT 133,1.
     "F7", "montana", (824, 2328, 1211, 2440), 9, "rtl", skip_four=True,
     type_key="ANGELINE",
+    overrides={1: "ANGELINE_HOOK", 10: "ANGELINE_HOOK_F7"},
     street="JL. MONTANA F7",
 ))
 
 BLOCKS.append(make_block(
-    # unit_stock.pdf (1 Sep 2026): F8 Ready = 0 -- semua SOLD. 8 lots.
-    "F8", "montana", (825, 2425, 1211, 2534), 8, "rtl", skip_four=True,
+    # Revisi (21 Sep 2026): F8 sebenarnya 9 lot (10,09,08,07,06,05,03,02,01), bukan 8 --
+    # sebelumnya kelewat unit "10" di ujung kiri. Ujung kiri (unit 10) LT 77, ujung
+    # kanan (unit 01) LT 133,1 -- keduanya hook.
+    "F8", "montana", (825, 2425, 1211, 2534), 9, "rtl", skip_four=True,
     type_key="ANGELINE",
+    overrides={1: "ANGELINE_HOOK", 10: "ANGELINE_HOOK_F8"},
     street="JL. MONTANA F8",
 ))
 
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F9 tersedia 08,07,06,05,03,01/RC -- lainnya (02) SOLD. 7 lots.
+    # Ujung kiri (unit 08) LT 112,1, ujung kanan (unit 01) LT 106,1 -- dua ukuran hook beda.
     "F9", "montana", (886, 2599, 1219, 2685), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={3, 5, 6, 7, 8},
     hold={1},
+    overrides={1: "GWEN_HOOK", 8: "GWEN_HOOK8"},
     street="JL. MONTANA F9",
 ))
 
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F10 tersedia 08,07,06,05,03,02,01 -- semua 7 lot tersedia.
+    # Sama seperti F9: ujung kiri (08) LT 112,1, ujung kanan (01) LT 106,1.
     "F10", "montana", (886, 2678, 1219, 2763), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1, 2, 3, 5, 6, 7, 8},
+    overrides={1: "GWEN_HOOK", 8: "GWEN_HOOK8"},
     street="JL. MONTANA F10",
 ))
 
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F11 tersedia 01. 8 lots -- ada unit 09 di ujung kiri
-    # (sebelah LAPANGAN) yang sebelumnya kepotong dari kotak blok.
+    # (sebelah LAPANGAN) yang sebelumnya kepotong dari kotak blok. Unit 09 LT tetap 72
+    # (bukan hook), hanya ujung kanan (01) yang hook, LT 106,1.
     "F11", "montana", (868, 2823, 1220, 2910), 8, "rtl", skip_four=True,
     type_key="GWEN",
     available={1},
+    overrides={1: "GWEN_HOOK"},
     street="JL. MONTANA F11",
 ))
 
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): F12 01 masih tersedia (tambahan dari 02, 05, 07). 8 lots -- unit
-    # 09 di ujung kiri (sebelah LAPANGAN), sama seperti F11.
+    # 09 di ujung kiri (sebelah LAPANGAN), sama seperti F11 (bukan hook, LT 72).
     "F12", "montana", (868, 2900, 1220, 2988), 8, "rtl", skip_four=True,
     type_key="GWEN",
     available={1, 2, 5, 7},
+    overrides={1: "GWEN_HOOK"},
     street="JL. MONTANA F12",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F15 tersedia 3 unit -- 08, 05, 01. 7 lots.
+    # Revisi (1 Sep 2026): F15 tersedia 3 unit -- 08, 05, 01. 7 lots. Kedua ujung (08 dan
+    # 01) hook LT 106,1 -- sebelumnya cuma unit 08 yang dibenarkan, unit 01 belum.
     "F15", "montana", (889, 3050, 1219, 3135), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1, 5, 8},
-    overrides={8: "GWEN_HOOK"},
+    overrides={1: "GWEN_HOOK", 8: "GWEN_HOOK"},
     street="JL. MONTANA F15",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F16 ada 1 tersedia, no unit 01. 7 lots.
+    # Revisi (1 Sep 2026): F16 ada 1 tersedia, no unit 01. 7 lots. Kedua ujung (08 dan 01)
+    # hook LT 106,1, sama seperti F15.
     "F16", "montana", (889, 3125, 1219, 3213), 7, "rtl", skip_four=True,
     type_key="GWEN",
     available={1},
+    overrides={1: "GWEN_HOOK", 8: "GWEN_HOOK"},
     street="JL. MONTANA F16",
 ))
 
