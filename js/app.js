@@ -44,6 +44,10 @@
       el.style.top = block.box.top + "%";
       el.style.width = block.box.width + "%";
       el.style.height = block.box.height + "%";
+      if (block.clipPath) {
+        const poly = block.clipPath.map((p) => `${p[0]}% ${p[1]}%`).join(", ");
+        el.style.clipPath = `polygon(${poly})`;
+      }
 
       block.units
         .slice()
@@ -167,8 +171,6 @@
           <span class="summary-row__value ready">${s.ready}<span class="summary-row__pct">(${pct(s.ready)})</span></span></div>
         <div class="summary-row"><span class="summary-row__label">Unit Sold</span>
           <span class="summary-row__value sold">${s.sold}<span class="summary-row__pct">(${pct(s.sold)})</span></span></div>
-        <div class="summary-row"><span class="summary-row__label">Unit Hold</span>
-          <span class="summary-row__value hold">${s.hold}<span class="summary-row__pct">(${pct(s.hold)})</span></span></div>
       `;
       summaryPanels.appendChild(card);
     });

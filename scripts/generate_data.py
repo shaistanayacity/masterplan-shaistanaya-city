@@ -118,16 +118,33 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
         "units": units,
     }
 
-def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01", street="", hold_label="RUMAH CONTOH"):
+def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01", street="",
+                             hold_label="RUMAH CONTOH", polygon_px=None):
     """One physical lot = one block with a single precisely-placed unit. Used for the
-    tilted Ruko row, where units aren't uniform rectangles that can be sliced evenly."""
+    tilted Ruko row, where units aren't uniform rectangles that can be sliced evenly.
+
+    polygon_px: optional list of (x, y) corners (full-image pixel space) for a rotated
+    lot -- e.g. from cv2.minAreaRect. When given, box_px is only used loosely (pass the
+    polygon's own bounding box); the polygon is re-expressed as % of that box and applied
+    as a CSS clip-path, so the colored overlay follows the lot's true tilted shape instead
+    of its axis-aligned bounding rectangle.
+    """
     t = TYPES[type_key]
+    clip_path = None
+    if polygon_px:
+        bx1, by1, bx2, by2 = box_px
+        bw, bh = (bx2 - bx1), (by2 - by1)
+        clip_path = [
+            (round((x - bx1) / bw * 100, 2), round((y - by1) / bh * 100, 2))
+            for x, y in polygon_px
+        ]
     return {
         "id": block_id,
         "cluster": cluster,
         "box": pct_box(*box_px),
         "orientation": "row",
         "street": street,
+        "clipPath": clip_path,
         "units": [{
             "no": no,
             "cell": 0,
@@ -261,16 +278,18 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # unit_stock.pdf (1 Sep 2026): F11 tersedia 01. 7 lots.
-    "F11", "montana", (868, 2823, 1220, 2910), 7, "rtl", skip_four=True,
+    # unit_stock.pdf (1 Sep 2026): F11 tersedia 01. 8 lots -- ada unit 09 di ujung kiri
+    # (sebelah LAPANGAN) yang sebelumnya kepotong dari kotak blok.
+    "F11", "montana", (868, 2823, 1220, 2910), 8, "rtl", skip_four=True,
     type_key="GWEN",
     available={1},
     street="JL. MONTANA F11",
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F12 01 masih tersedia (tambahan dari 02, 05, 07). 7 lots.
-    "F12", "montana", (868, 2900, 1220, 2988), 7, "rtl", skip_four=True,
+    # Revisi (1 Sep 2026): F12 01 masih tersedia (tambahan dari 02, 05, 07). 8 lots -- unit
+    # 09 di ujung kiri (sebelah LAPANGAN), sama seperti F11.
+    "F12", "montana", (868, 2900, 1220, 2988), 8, "rtl", skip_four=True,
     type_key="GWEN",
     available={1, 2, 5, 7},
     street="JL. MONTANA F12",
@@ -305,36 +324,58 @@ BLOCKS.append(make_block(
 RUKO_LABELS = [n for n in range(1, 22) if n not in (4, 13, 14)]  # 18 labels, tops out at 21
 assert len(RUKO_LABELS) == 18
 
-# 14 boxes for the main diagonal row, precisely color-detected per unit, in ascending-x
-# (leftmost-first) order.
-RUKO_MAIN_BOXES_LTR = [
-    (876, 844, 916, 926), (911, 840, 952, 922), (945, 835, 986, 917),
-    (979, 830, 1021, 913), (1014, 827, 1056, 909), (1048, 821, 1090, 904),
-    (1081, 817, 1125, 899), (1116, 813, 1157, 895), (1150, 808, 1193, 891),
-    (1187, 803, 1227, 886), (1221, 799, 1262, 881), (1255, 795, 1295, 877),
-    (1288, 790, 1330, 873), (1323, 784, 1365, 868),
+# 14 rotated quadrilaterals for the main diagonal row (each unit's true tilted shape, via
+# cv2.minAreaRect on its own color blob -- NOT an axis-aligned box), in ascending-x
+# (leftmost-first) order. Using the real 4 corners (rendered as a CSS clip-path) instead of
+# a bounding rectangle keeps the SOLD tag from overlapping into the neighboring unit, which
+# an axis-aligned box can't avoid on a tilted row.
+RUKO_MAIN_POLYGONS_LTR = [
+    [(886.5, 926.6), (875.3, 847.1), (907.0, 842.6), (918.2, 922.2)],
+    [(919.6, 922.1), (909.5, 842.6), (941.7, 838.5), (951.8, 918.0)],
+    [(954.5, 917.9), (944.2, 838.1), (975.9, 834.0), (986.2, 913.8)],
+    [(988.3, 913.1), (978.3, 833.5), (1010.4, 829.4), (1020.4, 909.1)],
+    [(1023.9, 909.3), (1011.8, 829.3), (1044.0, 824.5), (1056.1, 904.4)],
+    [(1058.1, 904.0), (1047.5, 824.5), (1078.9, 820.3), (1089.5, 899.8)],
+    [(1092.0, 900.0), (1080.6, 820.5), (1112.8, 815.9), (1124.2, 895.4)],
+    [(1126.7, 895.4), (1115.7, 815.7), (1147.7, 811.3), (1158.7, 890.9)],
+    [(1160.4, 891.0), (1149.7, 811.1), (1181.7, 806.8), (1192.4, 886.8)],
+    [(1195.1, 886.2), (1184.4, 806.6), (1216.4, 802.3), (1227.1, 881.9)],
+    [(1229.7, 881.7), (1219.3, 801.7), (1250.9, 797.6), (1261.3, 877.6)],
+    [(1264.0, 877.3), (1253.3, 797.9), (1284.8, 793.7), (1295.5, 873.1)],
+    [(1298.1, 872.6), (1287.7, 792.7), (1319.6, 788.5), (1330.1, 868.5)],
+    [(1331.0, 868.1), (1322.1, 787.9), (1363.9, 783.2), (1372.8, 863.5)],
 ]
-RUKO_MAIN_BOXES = list(reversed(RUKO_MAIN_BOXES_LTR))  # rightmost first
+RUKO_MAIN_POLYGONS = list(reversed(RUKO_MAIN_POLYGONS_LTR))  # rightmost first
+
+
+def _bbox(points):
+    xs = [p[0] for p in points]
+    ys = [p[1] for p in points]
+    return (min(xs), min(ys), max(xs), max(ys))
+
+
+RUKO_MAIN_ENTRIES = [(_bbox(poly), poly) for poly in RUKO_MAIN_POLYGONS]
 
 # 2 lots right of the gate ("02" left cell, "01" right cell on the source PDF).
 CORNER_RIGHT_BOX = (1565, 735, 1635, 834)
 crx1, cry1, crx2, cry2 = CORNER_RIGHT_BOX
 crxm = (crx1 + crx2) // 2
-CORNER_RIGHT_BOXES_RTOL = [(crxm, cry1, crx2, cry2), (crx1, cry1, crxm, cry2)]  # "01","02"
+CORNER_RIGHT_ENTRIES = [((crxm, cry1, crx2, cry2), None), ((crx1, cry1, crxm, cry2), None)]  # "01","02"
 
 # 2 lots left of the gate ("05" left cell, "03" right cell on the source PDF).
 CORNER_LEFT_BOX = (1364, 735, 1430, 850)
 clx1, cly1, clx2, cly2 = CORNER_LEFT_BOX
 clxm = (clx1 + clx2) // 2
-CORNER_LEFT_BOXES_RTOL = [(clxm, cly1, clx2, cly2), (clx1, cly1, clxm, cly2)]  # "03","05"
+CORNER_LEFT_ENTRIES = [((clxm, cly1, clx2, cly2), None), ((clx1, cly1, clxm, cly2), None)]  # "03","05"
 
 # Right-to-left physical order: right-of-gate corner, left-of-gate corner, then main row.
-RUKO_ALL_BOXES = CORNER_RIGHT_BOXES_RTOL + CORNER_LEFT_BOXES_RTOL + RUKO_MAIN_BOXES
-assert len(RUKO_ALL_BOXES) == 18
+RUKO_ALL_ENTRIES = CORNER_RIGHT_ENTRIES + CORNER_LEFT_ENTRIES + RUKO_MAIN_ENTRIES
+assert len(RUKO_ALL_ENTRIES) == 18
 
-for label, box in zip(RUKO_LABELS, RUKO_ALL_BOXES):
+for label, (box, polygon) in zip(RUKO_LABELS, RUKO_ALL_ENTRIES):
     BLOCKS.append(make_single_unit_block(
         f"A-{label:02d}", "ruko", box, "RUKO", "SOLD", no=unit_no(label), street="JL. RUKO A",
+        polygon_px=polygon,
     ))
 
 # ---------------- Tahap 1 (older grey/uncolored kavling columns, sold out) ----------------

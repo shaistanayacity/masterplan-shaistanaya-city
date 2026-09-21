@@ -1405,7 +1405,7 @@ const MASTERPLAN_DATA = {
       "street": "JL. MONTANA F11",
       "units": [
         {
-          "no": "08",
+          "no": "09",
           "cell": 0,
           "type": "GWEN",
           "lb": 38,
@@ -1415,7 +1415,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "07",
+          "no": "08",
           "cell": 1,
           "type": "GWEN",
           "lb": 38,
@@ -1425,7 +1425,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "06",
+          "no": "07",
           "cell": 2,
           "type": "GWEN",
           "lb": 38,
@@ -1435,7 +1435,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "05",
+          "no": "06",
           "cell": 3,
           "type": "GWEN",
           "lb": 38,
@@ -1445,7 +1445,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "03",
+          "no": "05",
           "cell": 4,
           "type": "GWEN",
           "lb": 38,
@@ -1455,7 +1455,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "02",
+          "no": "03",
           "cell": 5,
           "type": "GWEN",
           "lb": 38,
@@ -1465,8 +1465,18 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "01",
+          "no": "02",
           "cell": 6,
+          "type": "GWEN",
+          "lb": 38,
+          "lt": 72,
+          "price": 660000000,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "01",
+          "cell": 7,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1489,7 +1499,7 @@ const MASTERPLAN_DATA = {
       "street": "JL. MONTANA F12",
       "units": [
         {
-          "no": "08",
+          "no": "09",
           "cell": 0,
           "type": "GWEN",
           "lb": 38,
@@ -1499,8 +1509,18 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "07",
+          "no": "08",
           "cell": 1,
+          "type": "GWEN",
+          "lb": 38,
+          "lt": 72,
+          "price": 660000000,
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 2,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1510,7 +1530,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "06",
-          "cell": 2,
+          "cell": 3,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1520,7 +1540,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "05",
-          "cell": 3,
+          "cell": 4,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1530,7 +1550,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "03",
-          "cell": 4,
+          "cell": 5,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1540,7 +1560,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "02",
-          "cell": 5,
+          "cell": 6,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1550,7 +1570,7 @@ const MASTERPLAN_DATA = {
         },
         {
           "no": "01",
-          "cell": 6,
+          "cell": 7,
           "type": "GWEN",
           "lb": 38,
           "lt": 72,
@@ -1739,6 +1759,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": null,
       "units": [
         {
           "no": "01",
@@ -1763,6 +1784,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": null,
       "units": [
         {
           "no": "02",
@@ -1787,6 +1809,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": null,
       "units": [
         {
           "no": "03",
@@ -1811,6 +1834,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": null,
       "units": [
         {
           "no": "05",
@@ -1828,13 +1852,31 @@ const MASTERPLAN_DATA = {
       "id": "A-06",
       "cluster": "ruko",
       "box": {
-        "left": 55.565,
-        "top": 23.278,
-        "width": 1.764,
-        "height": 2.494
+        "left": 55.527,
+        "top": 23.254,
+        "width": 2.129,
+        "height": 2.521
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          17.55,
+          100.0
+        ],
+        [
+          0.0,
+          5.54
+        ],
+        [
+          82.45,
+          0.0
+        ],
+        [
+          100.0,
+          94.58
+        ]
+      ],
       "units": [
         {
           "no": "06",
@@ -1852,13 +1894,31 @@ const MASTERPLAN_DATA = {
       "id": "A-07",
       "cluster": "ruko",
       "box": {
-        "left": 54.095,
-        "top": 23.456,
-        "width": 1.764,
-        "height": 2.464
+        "left": 54.082,
+        "top": 23.412,
+        "width": 1.781,
+        "height": 2.497
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          24.53,
+          100.0
+        ],
+        [
+          0.0,
+          4.99
+        ],
+        [
+          75.24,
+          0.0
+        ],
+        [
+          100.0,
+          95.12
+        ]
+      ],
       "units": [
         {
           "no": "07",
@@ -1876,13 +1936,31 @@ const MASTERPLAN_DATA = {
       "id": "A-08",
       "cluster": "ruko",
       "box": {
-        "left": 52.709,
-        "top": 23.605,
-        "width": 1.68,
-        "height": 2.435
+        "left": 52.638,
+        "top": 23.566,
+        "width": 1.772,
+        "height": 2.482
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          25.36,
+          100.0
+        ],
+        [
+          0.0,
+          5.02
+        ],
+        [
+          74.64,
+          0.0
+        ],
+        [
+          100.0,
+          94.98
+        ]
+      ],
       "units": [
         {
           "no": "08",
@@ -1900,13 +1978,31 @@ const MASTERPLAN_DATA = {
       "id": "A-09",
       "cluster": "ruko",
       "box": {
-        "left": 51.281,
-        "top": 23.723,
-        "width": 1.722,
-        "height": 2.435
+        "left": 51.21,
+        "top": 23.682,
+        "width": 1.764,
+        "height": 2.497
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          24.76,
+          100.0
+        ],
+        [
+          0.0,
+          4.88
+        ],
+        [
+          75.24,
+          0.0
+        ],
+        [
+          100.0,
+          95.12
+        ]
+      ],
       "units": [
         {
           "no": "09",
@@ -1924,13 +2020,31 @@ const MASTERPLAN_DATA = {
       "id": "A-10",
       "cluster": "ruko",
       "box": {
-        "left": 49.853,
-        "top": 23.842,
-        "width": 1.68,
-        "height": 2.464
+        "left": 49.744,
+        "top": 23.821,
+        "width": 1.793,
+        "height": 2.491
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          25.06,
+          100.0
+        ],
+        [
+          0.0,
+          5.13
+        ],
+        [
+          74.94,
+          0.0
+        ],
+        [
+          100.0,
+          94.87
+        ]
+      ],
       "units": [
         {
           "no": "10",
@@ -1948,13 +2062,31 @@ const MASTERPLAN_DATA = {
       "id": "A-11",
       "cluster": "ruko",
       "box": {
-        "left": 48.299,
-        "top": 23.99,
-        "width": 1.806,
-        "height": 2.464
+        "left": 48.286,
+        "top": 23.955,
+        "width": 1.793,
+        "height": 2.5
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          25.06,
+          100.0
+        ],
+        [
+          0.0,
+          5.11
+        ],
+        [
+          74.94,
+          0.0
+        ],
+        [
+          100.0,
+          95.01
+        ]
+      ],
       "units": [
         {
           "no": "11",
@@ -1972,13 +2104,31 @@ const MASTERPLAN_DATA = {
       "id": "A-12",
       "cluster": "ruko",
       "box": {
-        "left": 46.871,
-        "top": 24.139,
-        "width": 1.722,
-        "height": 2.435
+        "left": 46.858,
+        "top": 24.088,
+        "width": 1.806,
+        "height": 2.497
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          25.58,
+          100.0
+        ],
+        [
+          0.0,
+          5.23
+        ],
+        [
+          74.42,
+          0.0
+        ],
+        [
+          100.0,
+          94.65
+        ]
+      ],
       "units": [
         {
           "no": "12",
@@ -1996,13 +2146,31 @@ const MASTERPLAN_DATA = {
       "id": "A-15",
       "cluster": "ruko",
       "box": {
-        "left": 45.401,
-        "top": 24.258,
-        "width": 1.848,
-        "height": 2.435
+        "left": 45.384,
+        "top": 24.225,
+        "width": 1.831,
+        "height": 2.497
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          26.15,
+          100.0
+        ],
+        [
+          0.0,
+          5.47
+        ],
+        [
+          73.85,
+          0.0
+        ],
+        [
+          100.0,
+          94.53
+        ]
+      ],
       "units": [
         {
           "no": "15",
@@ -2020,13 +2188,31 @@ const MASTERPLAN_DATA = {
       "id": "A-16",
       "cluster": "ruko",
       "box": {
-        "left": 44.015,
-        "top": 24.376,
+        "left": 43.994,
+        "top": 24.356,
         "width": 1.764,
-        "height": 2.464
+        "height": 2.485
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          25.24,
+          100.0
+        ],
+        [
+          0.0,
+          5.02
+        ],
+        [
+          74.76,
+          0.0
+        ],
+        [
+          100.0,
+          94.98
+        ]
+      ],
       "units": [
         {
           "no": "16",
@@ -2044,13 +2230,31 @@ const MASTERPLAN_DATA = {
       "id": "A-17",
       "cluster": "ruko",
       "box": {
-        "left": 42.587,
-        "top": 24.555,
-        "width": 1.764,
-        "height": 2.435
+        "left": 42.495,
+        "top": 24.48,
+        "width": 1.861,
+        "height": 2.518
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          27.31,
+          100.0
+        ],
+        [
+          0.0,
+          5.66
+        ],
+        [
+          72.69,
+          0.0
+        ],
+        [
+          100.0,
+          94.22
+        ]
+      ],
       "units": [
         {
           "no": "17",
@@ -2068,13 +2272,31 @@ const MASTERPLAN_DATA = {
       "id": "A-18",
       "cluster": "ruko",
       "box": {
-        "left": 41.117,
-        "top": 24.644,
-        "width": 1.764,
-        "height": 2.464
+        "left": 41.088,
+        "top": 24.626,
+        "width": 1.768,
+        "height": 2.485
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          23.75,
+          100.0
+        ],
+        [
+          0.0,
+          4.9
+        ],
+        [
+          76.25,
+          0.0
+        ],
+        [
+          100.0,
+          95.22
+        ]
+      ],
       "units": [
         {
           "no": "18",
@@ -2092,13 +2314,31 @@ const MASTERPLAN_DATA = {
       "id": "A-19",
       "cluster": "ruko",
       "box": {
-        "left": 39.689,
-        "top": 24.792,
-        "width": 1.722,
-        "height": 2.435
+        "left": 39.656,
+        "top": 24.762,
+        "width": 1.764,
+        "height": 2.491
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          24.52,
+          100.0
+        ],
+        [
+          0.0,
+          4.89
+        ],
+        [
+          75.48,
+          0.0
+        ],
+        [
+          100.0,
+          95.11
+        ]
+      ],
       "units": [
         {
           "no": "19",
@@ -2116,13 +2356,31 @@ const MASTERPLAN_DATA = {
       "id": "A-20",
       "cluster": "ruko",
       "box": {
-        "left": 38.261,
-        "top": 24.941,
-        "width": 1.722,
-        "height": 2.435
+        "left": 38.198,
+        "top": 24.896,
+        "width": 1.777,
+        "height": 2.482
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          23.88,
+          100.0
+        ],
+        [
+          0.0,
+          4.9
+        ],
+        [
+          76.12,
+          0.0
+        ],
+        [
+          100.0,
+          95.1
+        ]
+      ],
       "units": [
         {
           "no": "20",
@@ -2140,13 +2398,31 @@ const MASTERPLAN_DATA = {
       "id": "A-21",
       "cluster": "ruko",
       "box": {
-        "left": 36.791,
-        "top": 25.059,
-        "width": 1.68,
-        "height": 2.435
+        "left": 36.762,
+        "top": 25.018,
+        "width": 1.802,
+        "height": 2.494
       },
       "orientation": "row",
       "street": "JL. RUKO A",
+      "clipPath": [
+        [
+          26.11,
+          100.0
+        ],
+        [
+          0.0,
+          5.36
+        ],
+        [
+          73.89,
+          0.0
+        ],
+        [
+          100.0,
+          94.76
+        ]
+      ],
       "units": [
         {
           "no": "21",

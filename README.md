@@ -47,6 +47,16 @@ gambar. Nomornya dari kanan ke kiri: **A1, A2** (kavling kanan gerbang,
 di gambar sumber — A4 sengaja dilewati) → **A6..A21** (baris diagonal
 utama, A13/A14 juga dilewati).
 
+Ke-14 unit baris diagonal utama itu juga bukan cuma kotak lurus biasa —
+posisinya dideteksi sebagai *rotated rectangle* (`cv2.minAreaRect` atas
+tiap gumpalan warna unit, lihat `RUKO_MAIN_POLYGONS_LTR` di
+`scripts/generate_data.py`) lalu digambar dengan CSS `clip-path: polygon(...)`
+supaya warna & label SOLD-nya benar-benar mengikuti bentuk jajar genjang
+persil yang miring, bukan kotak lurus yang jadi tumpang tindih dengan
+tetangganya. Kalau mau menambah blok lain yang juga miring, field `clipPath`
+di `js/data.js` (dihasilkan lewat parameter `polygon_px` di
+`make_single_unit_block()`) bisa dipakai ulang.
+
 ## Cakupan data
 
 Hanya blok yang **ada harga resminya di pricelist** yang dibuat interaktif
@@ -130,6 +140,25 @@ itu. Untuk tipe ARNICA (E1/E8), dua pilihan desain (Garden/Pool) pada
 persil yang sama masing-masing dibuatkan unit kode berbeda secara implisit
 lewat field `type` di popup — silakan sesuaikan kalau tim ingin tampilan
 "pilih Garden atau Pool" dalam satu popup.
+
+## Perubahan tampilan lain (2 Sep 2026)
+
+- Baris **"Unit Hold"** di panel ringkasan (kanan atas) dihapus atas
+  permintaan — panel sekarang cuma menampilkan Ready/Sold. Angka hold tetap
+  ada di data (`js/data.js`), cuma tidak ditampilkan di panel itu.
+- Tombol **"Tentang data ini"** di header dihapus.
+- Legenda (`Keterangan`, panel kiri bawah) sekarang punya 4 baris terpisah:
+  Terjual (merah), Rumah Contoh (kuning/amber), **Hold / Belum Dijual
+  (putih, baru)**, dan Tersedia (hijau) — sebelumnya "Rumah Contoh" dan
+  "Hold" digabung jadi satu baris kuning.
+- Legenda/keterangan bawaan yang tercetak di gambar master plan asli
+  (kotak "LEGENDA" + "KETERANGAN" di area rumput kiri atas) sudah
+  dihapus dari `assets/masterplan.jpg` (ditambal dengan warna rumput di
+  sekitarnya, lihat catatan di bagian "Posisi blok") supaya tidak dobel
+  dengan legenda yang di-render halaman ini.
+- F11 dan F12 masing-masing dapat **1 unit tambahan** (unit 09, di ujung
+  kiri dekat LAPANGAN) yang sebelumnya kepotong dari kotak blok — sekarang
+  8 unit per blok, bukan 7.
 
 ## Mengedit data
 
