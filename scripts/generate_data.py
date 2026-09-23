@@ -405,13 +405,21 @@ def _bbox(points):
 RUKO_MAIN_ENTRIES = [(_bbox(poly), poly) for poly in RUKO_MAIN_POLYGONS]
 
 # 2 lots right of the gate ("02" left cell, "01" right cell on the source PDF).
-CORNER_RIGHT_BOX = (1565, 735, 1635, 834)
+# Top y (750) fixed 21 Sep 2026: was 735, which reached above the lot's actual
+# color fill into the empty gate-canopy area above it -- harmless at the old 55%
+# tag height, but once the SOLD tag was made taller (90%) the red box visibly
+# overflowed into that empty area. Confirmed by sampling the source image's fill
+# color column-by-column: the taupe lot color only starts at y=750.
+CORNER_RIGHT_BOX = (1565, 750, 1635, 834)
 crx1, cry1, crx2, cry2 = CORNER_RIGHT_BOX
 crxm = (crx1 + crx2) // 2
 CORNER_RIGHT_ENTRIES = [((crxm, cry1, crx2, cry2), None), ((crx1, cry1, crxm, cry2), None)]  # "01","02"
 
 # 2 lots left of the gate ("05" left cell, "03" right cell on the source PDF).
-CORNER_LEFT_BOX = (1364, 735, 1430, 850)
+# Top y (783) fixed 21 Sep 2026, same reason as CORNER_RIGHT_BOX above -- was 735,
+# the lot's actual color fill only starts at y=783 (confirmed by color sampling,
+# and matches the adjacent main-row polygon's own top y values closely).
+CORNER_LEFT_BOX = (1364, 783, 1430, 850)
 clx1, cly1, clx2, cly2 = CORNER_LEFT_BOX
 clxm = (clx1 + clx2) // 2
 CORNER_LEFT_ENTRIES = [((clxm, cly1, clx2, cly2), None), ((clx1, cly1, clxm, cly2), None)]  # "03","05"
