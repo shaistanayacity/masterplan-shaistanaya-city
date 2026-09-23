@@ -40,7 +40,6 @@
       const el = document.createElement("div");
       el.className = "mp-block";
       el.dataset.orientation = block.orientation;
-      el.dataset.cluster = block.cluster;
       el.style.left = block.box.left + "%";
       el.style.top = block.box.top + "%";
       el.style.width = block.box.width + "%";
