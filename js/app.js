@@ -71,8 +71,11 @@
 
           if (unit.status === "SOLD" || (unit.status === "HOLD" && !isUnreleased)) {
             const tag = document.createElement("span");
-            tag.className = "mp-unit__tag";
-            tag.textContent = unit.status === "SOLD" ? "SOLD" : "SU";
+            // SOLD uses a stamped image asset (bold, crisp at any size) instead of
+            // rendered text -- see .mp-unit--sold .mp-unit__tag in style.css. Hold
+            // units keep the short text label since there's no equivalent asset.
+            tag.className = "mp-unit__tag" + (unit.status === "SOLD" ? " mp-unit__tag--img" : "");
+            tag.textContent = unit.status === "SOLD" ? "" : "SU";
             cell.appendChild(tag);
           }
 
