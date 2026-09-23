@@ -167,7 +167,7 @@ body {
   font-size: 5.5px;
   background: rgba(185, 28, 28, 0.92);
   width: 100%;
-  height: 55%;
+  height: 90%;
   align-self: center;
 }
 
@@ -178,7 +178,7 @@ body {
   font-size: 5px;
   background: rgba(180, 120, 6, 0.92);
   width: 100%;
-  height: 55%;
+  height: 90%;
 }
 
 /* "Belum Dijual" units: fully inert, no overlay/number/popup -- reads exactly like an
