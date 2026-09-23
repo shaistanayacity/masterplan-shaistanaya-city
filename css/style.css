@@ -181,6 +181,27 @@ body {
   height: 90%;
 }
 
+/* Tahap 1 columns (B1/B2/C1/C2/D1/D2) are only as wide as the lot itself, which
+   leaves a lot of empty road margin next to the tag with nothing else nearby to
+   collide with (unlike the Montana/Sierra column blocks, which sit right next to
+   other blocks) -- so let the tag spill further left into that margin for a
+   bolder, fuller-looking label. Scoped to this cluster specifically, not just
+   orientation="col" in general: F1/F2 are column blocks too but sit close enough
+   to their neighbors that the same bleed would overlap them. */
+.mp-block[data-cluster="tahap1"] .mp-unit {
+  /* NB: don't mix visible/hidden between the two axes here -- a UA computes a
+     "visible" x paired with a non-visible y as "auto" (CSS Overflow spec), which
+     turns this into a scroll container clipped at its default scroll position
+     instead of a plain bleed. Nothing in this cell ever exceeds its height, so
+     plain "visible" is safe for both axes. */
+  overflow: visible;
+}
+.mp-block[data-cluster="tahap1"] .mp-unit--sold .mp-unit__tag,
+.mp-block[data-cluster="tahap1"] .mp-unit--hold .mp-unit__tag {
+  width: 180%;
+  left: -80%;
+}
+
 /* "Belum Dijual" units: fully inert, no overlay/number/popup -- reads exactly like an
    untouched part of the source drawing (e.g. E2), not a marked, clickable unit. */
 .mp-unit--unreleased {
