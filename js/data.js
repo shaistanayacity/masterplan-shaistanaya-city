@@ -939,7 +939,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
