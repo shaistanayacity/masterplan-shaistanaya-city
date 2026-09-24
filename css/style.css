@@ -369,6 +369,12 @@ body {
   width: calc(100% + 36px);
   height: 170px;
   object-fit: cover;
+  /* Bias the crop toward the top: the source photos are portrait-ish (roofline
+     near the top, driveway/cars as filler at the bottom), and object-fit's
+     default center crop was cutting into the 2nd floor to make room for the
+     wide-short popup frame. Cropping from the bottom (driveway/foreground)
+     instead keeps the whole house facade in frame. */
+  object-position: top;
   margin: -18px -18px 14px;
   border-radius: 14px 14px 0 0;
 }
