@@ -580,7 +580,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -591,7 +591,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -602,7 +602,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -613,7 +613,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -624,7 +624,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -635,7 +635,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -646,7 +646,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -657,7 +657,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -682,7 +682,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -693,7 +693,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -704,7 +704,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -715,7 +715,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -726,7 +726,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -737,7 +737,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -748,7 +748,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -759,7 +759,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -770,7 +770,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -781,7 +781,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -792,7 +792,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -803,7 +803,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -814,7 +814,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -825,7 +825,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -836,7 +836,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -847,7 +847,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -858,7 +858,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -869,7 +869,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -880,7 +880,7 @@ const MASTERPLAN_DATA = {
           "lb": 45,
           "lt": 91,
           "price": 795000000,
-          "render": null,
+          "render": "assets/renders/darlene.jpg",
           "status": "SOLD",
           "statusLabel": null
         }

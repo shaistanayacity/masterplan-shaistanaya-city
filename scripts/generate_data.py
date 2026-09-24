@@ -46,7 +46,7 @@ TYPES = {
     "NEW_GWEN":        dict(name="NEW GWEN",         cluster="montana", lb=42, lt=72,  price=675_000_000, color="#fb923c"),
     "NEW_GWEN_HOOK1":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=42, lt=106.1, price=840_000_000, color="#fb923c"),
     "NEW_GWEN_HOOK8":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=45, lt=112.1, price=880_000_000, color="#fb923c"),
-    "DARLENE":         dict(name="DARLENE",          cluster="montana", lb=45, lt=91,  price=795_000_000, color="#f87171"),
+    "DARLENE":         dict(name="DARLENE",          cluster="montana", lb=45, lt=91,  price=795_000_000, color="#f87171", render="assets/renders/darlene.jpg"),
     # ANGELINE reguler (unit tengah) LT-nya 90, BUKAN 133 -- 133,1 itu ukuran unit
     # hook di ujung kanan (F6/F7/F8 unit 01), sebelumnya salah dipakai untuk semua unit.
     # "render" = foto render tampak depan (sama untuk semua varian dengan bentuk
