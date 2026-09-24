@@ -354,7 +354,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -365,7 +365,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -376,7 +376,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -387,7 +387,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -398,7 +398,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -409,7 +409,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "SHOW UNIT"
         },
@@ -420,7 +420,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -431,7 +431,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -442,7 +442,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 90,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-e7.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         }

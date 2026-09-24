@@ -85,7 +85,7 @@ TYPES = {
     "RUKO":            dict(name="RUKO",                 cluster="ruko",    lb=None, lt=60, price=None, color="#8b8ce0"),
     # Dua unit yang datanya ada di gambar (05 RC/Show Unit, 06 SOLD) sama-sama
     # persil ukuran standar 90; sisanya tetap tidak berharga/tidak bertipe pasti.
-    "E7_TBD":          dict(name="ARNICA (E7)",           cluster="sierra",  lb=None, lt=90, price=None, color="#d8b4a0"),
+    "E7_TBD":          dict(name="ARNICA (E7)",           cluster="sierra",  lb=None, lt=90, price=None, color="#d8b4a0", render="assets/renders/arnica-e7.jpg"),
 }
 
 def unit_no(n):
