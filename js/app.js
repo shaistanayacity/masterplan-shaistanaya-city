@@ -34,6 +34,12 @@
     return (typeof v === "number" && v % 1 !== 0) ? v.toFixed(1).replace(".", ",") : v;
   }
 
+  function hexToRgba(hex, alpha) {
+    const n = parseInt(hex.slice(1), 16);
+    const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
   // ---------- Render unit overlays ----------
   function renderBlocks() {
     data.blocks.forEach((block) => {
@@ -61,6 +67,14 @@
             unit.status === "HOLD" ? "mp-unit--hold" : "mp-unit--tersedia";
           cell.className = "mp-unit " + statusClass;
           cell.title = `${block.id}-${unit.no} · ${unit.type} · ${unit.status}`;
+
+          // Fill with the unit's own type color (matching the legend) instead of a
+          // flat status tint, so the site plan reads by type/cluster like the
+          // reference master plan -- status is shown via the small SOLD/Show Unit
+          // tag on top, not by recoloring the whole cell.
+          if (!isUnreleased && unit.color) {
+            cell.style.background = hexToRgba(unit.color, 0.62);
+          }
 
           if (!isUnreleased) {
             const noSpan = document.createElement("span");

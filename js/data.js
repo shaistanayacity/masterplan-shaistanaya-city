@@ -91,6 +91,7 @@ const MASTERPLAN_DATA = {
           "lt": 160,
           "price": 1350000000,
           "render": "assets/renders/arnica-hook.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -117,6 +118,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 990000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -143,6 +145,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 990000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -169,6 +172,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 990000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -195,6 +199,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 990000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -220,6 +225,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 880000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -231,6 +237,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 880000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -242,6 +249,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 880000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -253,6 +261,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 880000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "HOLD",
           "statusLabel": "SHOW UNIT"
         },
@@ -264,6 +273,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 880000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -275,6 +285,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 880000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -286,6 +297,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 840000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -297,6 +309,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 840000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -308,6 +321,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 840000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -319,6 +333,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 840000000,
           "render": "assets/renders/bianca.jpg",
+          "color": "#fde68a",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -330,6 +345,7 @@ const MASTERPLAN_DATA = {
           "lt": 95.7,
           "price": 1150000000,
           "render": "assets/renders/bianca-hook.jpg",
+          "color": "#fde68a",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -355,6 +371,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -366,6 +383,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -377,6 +395,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -388,6 +407,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -399,6 +419,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -410,6 +431,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "SHOW UNIT"
         },
@@ -421,6 +443,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -432,6 +455,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         },
@@ -443,6 +467,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/arnica-e7.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         }
@@ -468,6 +493,7 @@ const MASTERPLAN_DATA = {
           "lt": 105.3,
           "price": 1155000000,
           "render": "assets/renders/arnica-hook.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -479,6 +505,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -490,6 +517,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -501,6 +529,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -512,6 +541,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -523,6 +553,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -534,6 +565,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -545,6 +577,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
+          "color": "#d8b4a0",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -556,6 +589,7 @@ const MASTERPLAN_DATA = {
           "lt": 133.1,
           "price": null,
           "render": "assets/renders/arnica-hook.jpg",
+          "color": "#d8b4a0",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         }
@@ -581,6 +615,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -592,6 +627,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -603,6 +639,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -614,6 +651,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -625,6 +663,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -636,6 +675,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -647,6 +687,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -658,6 +699,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -683,6 +725,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -694,6 +737,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -705,6 +749,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -716,6 +761,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -727,6 +773,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -738,6 +785,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -749,6 +797,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -760,6 +809,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -771,6 +821,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -782,6 +833,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -793,6 +845,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -804,6 +857,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -815,6 +869,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -826,6 +881,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -837,6 +893,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -848,6 +905,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -859,6 +917,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -870,6 +929,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -881,6 +941,7 @@ const MASTERPLAN_DATA = {
           "lt": 91,
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -906,6 +967,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -917,6 +979,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -928,6 +991,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -939,6 +1003,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -950,6 +1015,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -961,6 +1027,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -972,6 +1039,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -997,6 +1065,7 @@ const MASTERPLAN_DATA = {
           "lt": 112.1,
           "price": 880000000,
           "render": "assets/renders/new-gwen-hook.jpg",
+          "color": "#fb923c",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1008,6 +1077,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1019,6 +1089,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1030,6 +1101,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1041,6 +1113,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1052,6 +1125,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
+          "color": "#fb923c",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1063,6 +1137,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 840000000,
           "render": "assets/renders/new-gwen-hook.jpg",
+          "color": "#fb923c",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1088,6 +1163,7 @@ const MASTERPLAN_DATA = {
           "lt": 124.1,
           "price": 950000000,
           "render": "assets/renders/angeline-hook.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1099,6 +1175,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1110,6 +1187,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1121,6 +1199,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1132,6 +1211,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1143,6 +1223,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1154,6 +1235,7 @@ const MASTERPLAN_DATA = {
           "lt": 133.1,
           "price": 950000000,
           "render": "assets/renders/angeline-hook.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1179,6 +1261,7 @@ const MASTERPLAN_DATA = {
           "lt": 79.9,
           "price": 950000000,
           "render": "assets/renders/angeline-hook.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1190,6 +1273,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1201,6 +1285,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1212,6 +1297,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1223,6 +1309,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1234,6 +1321,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1245,6 +1333,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1256,6 +1345,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1267,6 +1357,7 @@ const MASTERPLAN_DATA = {
           "lt": 133.1,
           "price": 950000000,
           "render": "assets/renders/angeline-hook.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1292,6 +1383,7 @@ const MASTERPLAN_DATA = {
           "lt": 77,
           "price": 950000000,
           "render": "assets/renders/angeline-hook.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1303,6 +1395,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1314,6 +1407,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1325,6 +1419,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1336,6 +1431,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1347,6 +1443,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1358,6 +1455,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1369,6 +1467,7 @@ const MASTERPLAN_DATA = {
           "lt": 90,
           "price": null,
           "render": "assets/renders/angeline.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1380,6 +1479,7 @@ const MASTERPLAN_DATA = {
           "lt": 133.1,
           "price": 950000000,
           "render": "assets/renders/angeline-hook.jpg",
+          "color": "#86efac",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -1405,6 +1505,7 @@ const MASTERPLAN_DATA = {
           "lt": 112.1,
           "price": 840000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1416,6 +1517,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1427,6 +1529,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1438,6 +1541,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1449,6 +1553,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1460,6 +1565,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1471,6 +1577,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "HOLD",
           "statusLabel": "SHOW UNIT"
         }
@@ -1496,6 +1603,7 @@ const MASTERPLAN_DATA = {
           "lt": 112.1,
           "price": 840000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1507,6 +1615,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1518,6 +1627,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1529,6 +1639,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1540,6 +1651,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1551,6 +1663,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1562,6 +1675,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1587,6 +1701,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1598,6 +1713,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1609,6 +1725,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1620,6 +1737,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1631,6 +1749,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1642,6 +1761,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1653,6 +1773,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1664,6 +1785,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1689,6 +1811,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1700,6 +1823,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1711,6 +1835,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1722,6 +1847,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1733,6 +1859,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1744,6 +1871,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1755,6 +1883,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1766,6 +1895,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1791,6 +1921,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1802,6 +1933,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1813,6 +1945,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1824,6 +1957,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1835,6 +1969,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1846,6 +1981,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1857,6 +1993,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1882,6 +2019,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1893,6 +2031,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1904,6 +2043,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1915,6 +2055,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1926,6 +2067,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1937,6 +2079,7 @@ const MASTERPLAN_DATA = {
           "lt": 72,
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
+          "color": "#f472b6",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1948,6 +2091,7 @@ const MASTERPLAN_DATA = {
           "lt": 106.1,
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
+          "color": "#f472b6",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1974,6 +2118,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2000,6 +2145,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2026,6 +2172,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2052,6 +2199,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2095,6 +2243,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2138,6 +2287,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2181,6 +2331,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2224,6 +2375,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2267,6 +2419,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2310,6 +2463,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2353,6 +2507,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2396,6 +2551,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2439,6 +2595,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2482,6 +2639,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2525,6 +2683,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2568,6 +2727,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2611,6 +2771,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2654,6 +2815,7 @@ const MASTERPLAN_DATA = {
           "lt": 60,
           "price": null,
           "render": null,
+          "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2679,6 +2841,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2690,6 +2853,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2701,6 +2865,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2712,6 +2877,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2723,6 +2889,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2734,6 +2901,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2745,6 +2913,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2756,6 +2925,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -2781,6 +2951,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2792,6 +2963,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2803,6 +2975,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2814,6 +2987,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2825,6 +2999,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2836,6 +3011,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2847,6 +3023,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2858,6 +3035,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2869,6 +3047,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2880,6 +3059,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2891,6 +3071,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2902,6 +3083,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2913,6 +3095,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2924,6 +3107,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2935,6 +3119,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2946,6 +3131,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2957,6 +3143,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2968,6 +3155,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2979,6 +3167,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -2990,6 +3179,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3001,6 +3191,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3012,6 +3203,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3023,6 +3215,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3034,6 +3227,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3045,6 +3239,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3056,6 +3251,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -3081,6 +3277,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3092,6 +3289,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3103,6 +3301,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3114,6 +3313,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3125,6 +3325,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3136,6 +3337,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3147,6 +3349,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3158,6 +3361,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3169,6 +3373,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3180,6 +3385,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3191,6 +3397,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3202,6 +3409,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3213,6 +3421,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3224,6 +3433,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3235,6 +3445,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3246,6 +3457,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -3271,6 +3483,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3282,6 +3495,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3293,6 +3507,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3304,6 +3519,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3315,6 +3531,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -3340,6 +3557,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3351,6 +3569,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3362,6 +3581,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3373,6 +3593,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3384,6 +3605,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3395,6 +3617,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3406,6 +3629,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3417,6 +3641,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3428,6 +3653,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3439,6 +3665,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3450,6 +3677,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3461,6 +3689,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3472,6 +3701,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3483,6 +3713,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3494,6 +3725,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3505,6 +3737,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3516,6 +3749,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3527,6 +3761,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3538,6 +3773,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3549,6 +3785,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3560,6 +3797,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3571,6 +3809,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3582,6 +3821,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3593,6 +3833,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3604,6 +3845,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3615,6 +3857,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3626,6 +3869,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         }
@@ -3651,6 +3895,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3662,6 +3907,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3673,6 +3919,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3684,6 +3931,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3695,6 +3943,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3706,6 +3955,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3717,6 +3967,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3728,6 +3979,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3739,6 +3991,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3750,6 +4003,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3761,6 +4015,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3772,6 +4027,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3783,6 +4039,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3794,6 +4051,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3805,6 +4063,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -3816,6 +4075,7 @@ const MASTERPLAN_DATA = {
           "lt": null,
           "price": null,
           "render": null,
+          "color": "#c2beb8",
           "status": "SOLD",
           "statusLabel": null
         }
