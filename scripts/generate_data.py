@@ -189,13 +189,28 @@ def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01",
 BLOCKS = []
 
 # ---------------- Cluster Sierra ----------------
-BLOCKS.append(make_block(
-    "E1", "sierra", (1263, 1007, 1365, 1253), 6, "ttb",
-    type_key="ARNICA_GARDEN_E1",
-    available={1,2,3,4,5,6},
-    overrides={6: "ARNICA_GARDEN_E1_HOOK"},
-    street="JL. SIERRA E1",
-))
+# E1 cuma 5 lot riil (01,02,03,05,06 -- tidak ada 04, sama seperti blok lain),
+# bukan 6 nomor berurutan. Arahnya juga kebalik dari yang dikira sebelumnya: 06
+# (unit hook, LT 160) ada di ATAS blok, 01 di paling BAWAH -- kode sebelumnya
+# menaruh 01 di atas (direction "ttb"), jadi klik unit pojok atas malah
+# nampilin data unit 01 (LT 90) padahal seharusnya unit 06 (LT 160). Unit 06
+# juga secara fisik ~1,8x lebih tinggi dari unit lainnya (match LT 160 vs 90),
+# jadi dipotong manual per-unit (bukan 5 potongan sama rata via make_block)
+# supaya kotaknya pas mengikuti garis petak asli di gambar, bukan cuma
+# proporsi tebakan.
+E1_X1, E1_X2 = 1263, 1365
+E1_ROWS = [
+    ("06", 1007, 1082, "ARNICA_GARDEN_E1_HOOK"),
+    ("05", 1082, 1125, "ARNICA_GARDEN_E1"),
+    ("03", 1125, 1168, "ARNICA_GARDEN_E1"),
+    ("02", 1168, 1211, "ARNICA_GARDEN_E1"),
+    ("01", 1211, 1253, "ARNICA_GARDEN_E1"),
+]
+for no, ry1, ry2, tkey in E1_ROWS:
+    BLOCKS.append(make_single_unit_block(
+        "E1", "sierra", (E1_X1, ry1, E1_X2, ry2), tkey, "TERSEDIA", no=no,
+        street="JL. SIERRA E1",
+    ))
 
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): tersedia sisa 12,11,09/RC,06,05,03,01 -- lainnya SOLD.

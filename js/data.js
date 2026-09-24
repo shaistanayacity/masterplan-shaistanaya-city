@@ -77,10 +77,111 @@ const MASTERPLAN_DATA = {
         "left": 53.045,
         "top": 29.899,
         "width": 4.284,
-        "height": 7.304
+        "height": 2.227
       },
-      "orientation": "col",
+      "orientation": "row",
       "street": "JL. SIERRA E1",
+      "clipPath": null,
+      "units": [
+        {
+          "no": "06",
+          "cell": 0,
+          "type": "ARNICA Garden (Hook)",
+          "lb": 70,
+          "lt": 160,
+          "price": 1350000000,
+          "status": "TERSEDIA",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "cluster": "sierra",
+      "box": {
+        "left": 53.045,
+        "top": 32.126,
+        "width": 4.284,
+        "height": 1.277
+      },
+      "orientation": "row",
+      "street": "JL. SIERRA E1",
+      "clipPath": null,
+      "units": [
+        {
+          "no": "05",
+          "cell": 0,
+          "type": "ARNICA Garden",
+          "lb": 70,
+          "lt": 90,
+          "price": 990000000,
+          "status": "TERSEDIA",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "cluster": "sierra",
+      "box": {
+        "left": 53.045,
+        "top": 33.403,
+        "width": 4.284,
+        "height": 1.277
+      },
+      "orientation": "row",
+      "street": "JL. SIERRA E1",
+      "clipPath": null,
+      "units": [
+        {
+          "no": "03",
+          "cell": 0,
+          "type": "ARNICA Garden",
+          "lb": 70,
+          "lt": 90,
+          "price": 990000000,
+          "status": "TERSEDIA",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "cluster": "sierra",
+      "box": {
+        "left": 53.045,
+        "top": 34.679,
+        "width": 4.284,
+        "height": 1.277
+      },
+      "orientation": "row",
+      "street": "JL. SIERRA E1",
+      "clipPath": null,
+      "units": [
+        {
+          "no": "02",
+          "cell": 0,
+          "type": "ARNICA Garden",
+          "lb": 70,
+          "lt": 90,
+          "price": 990000000,
+          "status": "TERSEDIA",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "cluster": "sierra",
+      "box": {
+        "left": 53.045,
+        "top": 35.956,
+        "width": 4.284,
+        "height": 1.247
+      },
+      "orientation": "row",
+      "street": "JL. SIERRA E1",
+      "clipPath": null,
       "units": [
         {
           "no": "01",
@@ -89,56 +190,6 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 990000000,
-          "status": "TERSEDIA",
-          "statusLabel": null
-        },
-        {
-          "no": "02",
-          "cell": 1,
-          "type": "ARNICA Garden",
-          "lb": 70,
-          "lt": 90,
-          "price": 990000000,
-          "status": "TERSEDIA",
-          "statusLabel": null
-        },
-        {
-          "no": "03",
-          "cell": 2,
-          "type": "ARNICA Garden",
-          "lb": 70,
-          "lt": 90,
-          "price": 990000000,
-          "status": "TERSEDIA",
-          "statusLabel": null
-        },
-        {
-          "no": "04",
-          "cell": 3,
-          "type": "ARNICA Garden",
-          "lb": 70,
-          "lt": 90,
-          "price": 990000000,
-          "status": "TERSEDIA",
-          "statusLabel": null
-        },
-        {
-          "no": "05",
-          "cell": 4,
-          "type": "ARNICA Garden",
-          "lb": 70,
-          "lt": 90,
-          "price": 990000000,
-          "status": "TERSEDIA",
-          "statusLabel": null
-        },
-        {
-          "no": "06",
-          "cell": 5,
-          "type": "ARNICA Garden (Hook)",
-          "lb": 70,
-          "lt": 160,
-          "price": 1350000000,
           "status": "TERSEDIA",
           "statusLabel": null
         }
