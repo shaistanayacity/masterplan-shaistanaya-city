@@ -90,7 +90,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 160,
           "price": 1350000000,
-          "render": null,
+          "render": "assets/renders/arnica-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -116,7 +116,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 990000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -142,7 +142,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 990000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -168,7 +168,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 990000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -194,7 +194,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 990000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -467,7 +467,7 @@ const MASTERPLAN_DATA = {
           "lb": 82,
           "lt": 105.3,
           "price": 1155000000,
-          "render": null,
+          "render": "assets/renders/arnica-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -478,7 +478,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -489,7 +489,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -500,7 +500,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -511,7 +511,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -522,7 +522,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -533,7 +533,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -544,7 +544,7 @@ const MASTERPLAN_DATA = {
           "lb": 70,
           "lt": 90,
           "price": 1010000000,
-          "render": null,
+          "render": "assets/renders/arnica.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -555,7 +555,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 133.1,
           "price": null,
-          "render": null,
+          "render": "assets/renders/arnica-hook.jpg",
           "status": "HOLD",
           "statusLabel": "BELUM DIJUAL"
         }

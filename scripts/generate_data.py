@@ -62,17 +62,19 @@ TYPES = {
     "BIANCA_GARDEN":   dict(name="BIANCA Garden",    cluster="sierra",  lb=55, lt=72,  price=840_000_000, color="#fde68a"),
     "BIANCA_DELUXE":   dict(name="BIANCA Deluxe",    cluster="sierra",  lb=65, lt=72,  price=880_000_000, color="#fde68a"),
     "BIANCA_DELUXE_HOOK": dict(name="BIANCA Deluxe (Hook)", cluster="sierra", lb=87, lt=95.7, price=1_150_000_000, color="#fde68a"),
-    "ARNICA_GARDEN_E1":  dict(name="ARNICA Garden",  cluster="sierra",  lb=70, lt=90,  price=990_000_000,  color="#d8b4a0"),
-    "ARNICA_POOL_E1":    dict(name="ARNICA Pool",    cluster="sierra",  lb=91, lt=90,  price=1_160_000_000, color="#d8b4a0"),
-    "ARNICA_GARDEN_E8":  dict(name="ARNICA Garden",  cluster="sierra",  lb=70, lt=90,  price=1_010_000_000, color="#d8b4a0"),
-    "ARNICA_POOL_E8":    dict(name="ARNICA Pool",    cluster="sierra",  lb=91, lt=90,  price=1_180_000_000, color="#d8b4a0"),
-    "ARNICA_GARDEN_E1_HOOK": dict(name="ARNICA Garden (Hook)", cluster="sierra", lb=70, lt=160, price=1_350_000_000, color="#d8b4a0"),
-    "ARNICA_POOL_E1_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=160, price=1_520_000_000, color="#d8b4a0"),
-    "ARNICA_GARDEN_E8_HOOK": dict(name="ARNICA Garden (Hook)", cluster="sierra", lb=82, lt=105.3, price=1_155_000_000, color="#d8b4a0"),
-    "ARNICA_POOL_E8_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=105.3, price=1_325_000_000, color="#d8b4a0"),
+    # Render ARNICA sama untuk Garden dan Pool -- bedanya cuma hook atau bukan
+    # (per instruksi pemilik data), bukan Garden vs Pool.
+    "ARNICA_GARDEN_E1":  dict(name="ARNICA Garden",  cluster="sierra",  lb=70, lt=90,  price=990_000_000,  color="#d8b4a0", render="assets/renders/arnica.jpg"),
+    "ARNICA_POOL_E1":    dict(name="ARNICA Pool",    cluster="sierra",  lb=91, lt=90,  price=1_160_000_000, color="#d8b4a0", render="assets/renders/arnica.jpg"),
+    "ARNICA_GARDEN_E8":  dict(name="ARNICA Garden",  cluster="sierra",  lb=70, lt=90,  price=1_010_000_000, color="#d8b4a0", render="assets/renders/arnica.jpg"),
+    "ARNICA_POOL_E8":    dict(name="ARNICA Pool",    cluster="sierra",  lb=91, lt=90,  price=1_180_000_000, color="#d8b4a0", render="assets/renders/arnica.jpg"),
+    "ARNICA_GARDEN_E1_HOOK": dict(name="ARNICA Garden (Hook)", cluster="sierra", lb=70, lt=160, price=1_350_000_000, color="#d8b4a0", render="assets/renders/arnica-hook.jpg"),
+    "ARNICA_POOL_E1_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=160, price=1_520_000_000, color="#d8b4a0", render="assets/renders/arnica-hook.jpg"),
+    "ARNICA_GARDEN_E8_HOOK": dict(name="ARNICA Garden (Hook)", cluster="sierra", lb=82, lt=105.3, price=1_155_000_000, color="#d8b4a0", render="assets/renders/arnica-hook.jpg"),
+    "ARNICA_POOL_E8_HOOK":   dict(name="ARNICA Pool (Hook)",   cluster="sierra", lb=91, lt=105.3, price=1_325_000_000, color="#d8b4a0", render="assets/renders/arnica-hook.jpg"),
     # Ujung kanan E8 (unit 01, HOLD/belum dijual -- tidak muncul di popup manapun,
     # tapi datanya tetap dibenarkan supaya konsisten dengan gambar sumber).
-    "ARNICA_E8_HOOK_R": dict(name="ARNICA (E8)",     cluster="sierra",  lb=None, lt=133.1, price=None, color="#d8b4a0"),
+    "ARNICA_E8_HOOK_R": dict(name="ARNICA (E8)",     cluster="sierra",  lb=None, lt=133.1, price=None, color="#d8b4a0", render="assets/renders/arnica-hook.jpg"),
     "TAHAP1":          dict(name="Kavling Tahap 1",      cluster="tahap1",  lb=None, lt=None, price=None, color="#c2beb8"),
     # LT Ruko = lebar x panjang persil (mis. 5 x 12 = 60), bukan 12 -- itu cuma
     # salah satu sisi kotaknya. Belum ada data resmi luas bangunan (LB) ruko
