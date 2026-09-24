@@ -49,12 +49,14 @@ TYPES = {
     "DARLENE":         dict(name="DARLENE",          cluster="montana", lb=45, lt=91,  price=795_000_000, color="#f87171"),
     # ANGELINE reguler (unit tengah) LT-nya 90, BUKAN 133 -- 133,1 itu ukuran unit
     # hook di ujung kanan (F6/F7/F8 unit 01), sebelumnya salah dipakai untuk semua unit.
-    "ANGELINE":        dict(name="ANGELINE",         cluster="montana", lb=45, lt=90,  price=None,        color="#86efac"),
-    "ANGELINE_HOOK":   dict(name="ANGELINE (Hook)",  cluster="montana", lb=45, lt=133.1, price=950_000_000, color="#86efac"),
+    # "render" = foto render tampak depan (sama untuk semua varian dengan bentuk
+    # rumah yang sama -- hook cuma beda ukuran tanah/posisi pojok, bukan beda desain).
+    "ANGELINE":        dict(name="ANGELINE",         cluster="montana", lb=45, lt=90,  price=None,        color="#86efac", render="assets/renders/angeline.jpg"),
+    "ANGELINE_HOOK":   dict(name="ANGELINE (Hook)",  cluster="montana", lb=45, lt=133.1, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     # Ujung kiri F6/F7/F8 masing-masing punya LT unik (bukan hook yang sama seperti unit 01).
-    "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=124.1, price=950_000_000, color="#86efac"),
-    "ANGELINE_HOOK_F7": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=79.9,  price=950_000_000, color="#86efac"),
-    "ANGELINE_HOOK_F8": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=77,    price=950_000_000, color="#86efac"),
+    "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=124.1, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
+    "ANGELINE_HOOK_F7": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=79.9,  price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
+    "ANGELINE_HOOK_F8": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=77,    price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     "BIANCA_GARDEN":   dict(name="BIANCA Garden",    cluster="sierra",  lb=55, lt=72,  price=840_000_000, color="#fde68a"),
     "BIANCA_DELUXE":   dict(name="BIANCA Deluxe",    cluster="sierra",  lb=65, lt=72,  price=880_000_000, color="#fde68a"),
     "BIANCA_DELUXE_HOOK": dict(name="BIANCA Deluxe (Hook)", cluster="sierra", lb=87, lt=95.7, price=1_150_000_000, color="#fde68a"),
@@ -134,6 +136,7 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
             "lb": t["lb"],
             "lt": t["lt"],
             "price": t["price"],
+            "render": t.get("render"),
             "status": status,
             "statusLabel": hold_labels.get(n, hold_label) if status == "HOLD" else None,
         })
@@ -181,6 +184,7 @@ def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01",
             "lb": t["lb"],
             "lt": t["lt"],
             "price": t["price"],
+            "render": t.get("render"),
             "status": status,
             "statusLabel": hold_label if status == "HOLD" else None,
         }],

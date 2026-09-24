@@ -204,6 +204,24 @@ Unit"** di semua tempat (badge status di popup, legenda, dan label kecil
 di peta) — sebelumnya "Rumah Contoh"/"RC". Cuma soal penyebutan, tidak
 mengubah status data (`HOLD` + `statusLabel` tetap sama).
 
+## Foto render tampak depan unit
+
+Popup bisa menampilkan foto render tampak depan di bagian atas kartu, kalau
+tipe unit itu punya foto. Ini opsional per **tipe rumah**, bukan per unit
+fisik — semua unit dengan tipe yang sama (termasuk varian hook, yang cuma
+beda ukuran tanah, bukan beda desain) otomatis pakai foto yang sama, jadi
+tidak perlu ratusan foto terpisah. Sejauh ini baru **ANGELINE** yang punya
+foto (`assets/renders/angeline.jpg` untuk unit reguler,
+`assets/renders/angeline-hook.jpg` untuk semua varian hook-nya).
+
+Untuk menambah foto tipe lain: taruh file gambarnya di `assets/renders/`
+(disarankan sudah di-crop/dikompres ke lebar ~900px, JPG quality ~80 —
+cukup untuk ditampilkan di kartu popup selebar ~320px, dan ukurannya kecil,
+~100-150KB per foto), lalu tambahkan field `render="assets/renders/nama.jpg"`
+di entri `TYPES` yang sesuai di `scripts/generate_data.py`, lalu jalankan
+ulang generator-nya. Tipe tanpa field `render` (default) popup-nya tetap
+tampil seperti biasa tanpa foto.
+
 ## Mengedit data
 
 `js/data.js` adalah file yang di-generate. Untuk mengubah data (status unit,

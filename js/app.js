@@ -17,6 +17,7 @@
   const upType = document.getElementById("up-type");
   const upAddr = document.getElementById("up-addr");
   const upPrices = document.getElementById("up-prices");
+  const upRender = document.getElementById("up-render");
 
   const CLUSTER_LABEL = {
     montana: "Cluster Montana",
@@ -96,6 +97,15 @@
   function openPopup(block, unit) {
     const code = `SC-${block.id}-${unit.no}`;
     upCode.textContent = code;
+
+    if (unit.render) {
+      upRender.src = unit.render;
+      upRender.alt = unit.type;
+      upRender.hidden = false;
+    } else {
+      upRender.hidden = true;
+      upRender.removeAttribute("src");
+    }
     upCluster.textContent = CLUSTER_LABEL[block.cluster] || block.cluster;
 
     upStatus.textContent =

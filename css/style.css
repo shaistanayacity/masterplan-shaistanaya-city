@@ -355,6 +355,8 @@ body {
   transform: translate(-50%, -50%);
   width: 320px;
   max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
   background: #ffffff;
   color: #1c2420;
   border-radius: 14px;
@@ -362,16 +364,33 @@ body {
   box-shadow: 0 24px 60px rgba(0,0,0,0.5);
 }
 
+.unit-popup__render {
+  display: block;
+  width: calc(100% + 36px);
+  height: 170px;
+  object-fit: cover;
+  margin: -18px -18px 14px;
+  border-radius: 14px 14px 0 0;
+}
+.unit-popup__render[hidden] { display: none; }
+
 .unit-popup__close {
   position: absolute;
   top: 10px;
   right: 12px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  background: transparent;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  color: #8a958e;
+  color: #4a544e;
 }
 
 .unit-popup__head {
@@ -379,6 +398,10 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
+  /* Room for the close button, which floats top-right (position:absolute) --
+     without this the status badge runs underneath it when there's no render
+     image pushing the header down. */
+  padding-right: 26px;
   margin-bottom: 6px;
 }
 
