@@ -1,4 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 147">
-  <rect width="400" height="147" fill="#e61e28"/>
-  <text x="200" y="103" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="96" fill="#ffffff" letter-spacing="2">SOLD</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 242">
+  <defs>
+    <linearGradient id="soldFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ee3a35"/>
+      <stop offset="100%" stop-color="#c8171c"/>
+    </linearGradient>
+    <filter id="soldShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="4" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#soldShadow)">
+    <g transform="rotate(-12 200 121)">
+      <rect x="35" y="71" width="330" height="100" rx="18" fill="url(#soldFill)"/>
+      <text x="200" y="141" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="66" fill="#ffffff" letter-spacing="2">SOLD</text>
+    </g>
+  </g>
 </svg>

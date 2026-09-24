@@ -178,30 +178,30 @@ body {
      unit's type color (set inline per-unit from data), and the point of this
      redesign is to keep that color clearly visible with just a small SOLD
      marker on top, like the reference master plan's small "terjual" dot. */
-  width: 60%;
-  height: 42%;
+  width: 62%;
+  height: 46%;
   align-self: center;
-  border-radius: 2px;
 }
-/* Stamped "SOLD" image asset (assets/sold-tag.png, cropped from a reference sticker
-   sheet) instead of rendered text -- reads clearly at any size, including the very
-   small unit cells on mobile, where 5-6px CSS text got too thin/cramped to read. */
+/* Stamped "SOLD" image asset instead of rendered text -- reads clearly at any
+   size, including the very small unit cells on mobile, where 5-6px CSS text
+   got too thin/cramped to read. */
 .mp-unit__tag--img {
-  /* SVG (not the raster PNG originally cropped from the reference sticker sheet)
-     -- a bitmap downscaled to these very small cell sizes (some units render at
-     under 20px) aliased unpredictably, making "SOLD" garble into noise on some
-     cells depending on sub-pixel alignment. A vector redraw of the same design
-     (bold white "SOLD" on solid red) stays crisp at any size. */
+  /* SVG (not a raster crop of the reference sticker) -- a bitmap downscaled to
+     these very small cell sizes (some units render at under 20px) aliased
+     unpredictably, making "SOLD" garble into noise on some cells depending on
+     sub-pixel alignment. A vector redraw of the same tilted-stamp design (bold
+     white "SOLD" on a red rounded rect, drop shadow, transparent margins)
+     stays crisp at any size. */
   background-image: url("../assets/sold-tag.svg");
   background-repeat: no-repeat;
   background-position: center;
-  /* "contain" (not stretched to 100% 100%) -- the source is a fixed landscape
-     banner, and stretching it to fill narrow/tall cells squashed the text into
-     an unreadable vertical smear. Keeping its own aspect ratio and matching the
-     surrounding fill to its own red means it still reads as one continuous
-     label even where it doesn't fill the whole cell. */
+  /* "contain" (not stretched to 100% 100%) -- the source has a fixed aspect
+     ratio, and stretching it to fill narrow/tall cells would squash the text.
+     No background-color fallback here (unlike the old flat design): the
+     stamp's own background is transparent outside the tilted rect, so the
+     unit's type color underneath shows through around it, same as the
+     reference sticker sitting on top of a colored lot. */
   background-size: contain;
-  background-color: #e61e28;
 }
 
 .mp-unit--hold .mp-unit__tag {
