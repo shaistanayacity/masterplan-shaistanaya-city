@@ -3,7 +3,6 @@
 
   const data = MASTERPLAN_DATA;
   const overlay = document.getElementById("mp-overlay");
-  const summaryPanels = document.getElementById("summary-panels");
   const legendTypesEl = document.getElementById("legend-types");
   const legendPanel = document.getElementById("legend-panel");
   const btnLegend = document.getElementById("btn-legend");
@@ -160,37 +159,6 @@
     if (e.key === "Escape") closePopup();
   });
 
-  // ---------- Summary panels ----------
-  function renderSummary() {
-    const byCluster = {};
-    data.blocks.forEach((block) => {
-      const bucket = (byCluster[block.cluster] = byCluster[block.cluster] || { ready: 0, sold: 0, hold: 0 });
-      block.units.forEach((u) => {
-        if (u.status === "TERSEDIA") bucket.ready++;
-        else if (u.status === "SOLD") bucket.sold++;
-        else bucket.hold++;
-      });
-    });
-
-    summaryPanels.innerHTML = "";
-    Object.keys(byCluster).forEach((clusterId) => {
-      const s = byCluster[clusterId];
-      const total = s.ready + s.sold + s.hold || 1;
-      const pct = (n) => ((n / total) * 100).toFixed(2) + "%";
-
-      const card = document.createElement("div");
-      card.className = "summary-card";
-      card.innerHTML = `
-        <div class="summary-card__title">${CLUSTER_LABEL[clusterId] || clusterId}</div>
-        <div class="summary-row"><span class="summary-row__label">Unit Ready</span>
-          <span class="summary-row__value ready">${s.ready}<span class="summary-row__pct">(${pct(s.ready)})</span></span></div>
-        <div class="summary-row"><span class="summary-row__label">Unit Sold</span>
-          <span class="summary-row__value sold">${s.sold}<span class="summary-row__pct">(${pct(s.sold)})</span></span></div>
-      `;
-      summaryPanels.appendChild(card);
-    });
-  }
-
   // ---------- Legend ----------
   function renderLegend() {
     legendTypesEl.innerHTML = "";
@@ -213,6 +181,5 @@
   }
 
   renderBlocks();
-  renderSummary();
   renderLegend();
 })();

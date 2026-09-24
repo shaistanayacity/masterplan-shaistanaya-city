@@ -229,55 +229,6 @@ body {
 .mp-block[data-orientation="row"] .mp-unit { border-top: none; border-bottom: none; }
 .mp-block[data-orientation="col"] .mp-unit { border-left: none; border-right: none; }
 
-/* Summary panels, top-right like the reference screenshots.
-   position: fixed (not absolute) so it stays on screen while the page/map is
-   scrolled, instead of scrolling away with the rest of the content. */
-.summary-panels {
-  position: fixed;
-  top: 90px;
-  right: max(24px, calc(50% - 550px + 24px));
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 20;
-  pointer-events: none;
-}
-
-.summary-card {
-  pointer-events: auto;
-  background: var(--panel-bg);
-  border: 1px solid var(--panel-border);
-  border-radius: var(--radius);
-  padding: 10px 14px;
-  min-width: 220px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-}
-
-.summary-card__title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 6px;
-}
-
-.summary-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 12.5px;
-  padding: 2px 0;
-}
-
-.summary-row__label { color: var(--muted); }
-.summary-row__value { font-weight: 700; }
-.summary-row__value.ready { color: var(--ready); }
-.summary-row__value.sold { color: var(--sold); }
-.summary-row__value.hold { color: var(--hold); }
-.summary-row__pct { color: var(--muted); font-weight: 400; margin-left: 4px; font-size: 11px; }
-
 /* Legend panel */
 .legend-panel {
   position: fixed;
@@ -512,26 +463,6 @@ body {
     -webkit-overflow-scrolling: touch;
     padding-right: 12px;
   }
-
-  /* Sticky (not static) so the summary cards stay visible right below the
-     topbar while the map/legend below are scrolled, instead of scrolling
-     out of view. */
-  .summary-panels {
-    position: sticky;
-    top: 66px;
-    order: -1;
-    padding: 8px 12px 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    background: var(--bg);
-    z-index: 25;
-    box-shadow: 0 6px 10px -6px rgba(0, 0, 0, 0.5);
-  }
-  .summary-card { min-width: 0; padding: 8px 10px; }
-  .summary-card__title { font-size: 10.5px; margin-bottom: 4px; }
-  .summary-row { font-size: 11.5px; }
-  .summary-row__pct { font-size: 10px; }
 
   .legend-panel {
     position: static;
