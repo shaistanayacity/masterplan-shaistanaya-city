@@ -1404,7 +1404,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 112.1,
           "price": 840000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1415,7 +1415,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1426,7 +1426,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1437,7 +1437,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1448,7 +1448,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1459,7 +1459,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1470,7 +1470,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "HOLD",
           "statusLabel": "SHOW UNIT"
         }
@@ -1495,7 +1495,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 112.1,
           "price": 840000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1506,7 +1506,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1517,7 +1517,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1528,7 +1528,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1539,7 +1539,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1550,7 +1550,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1561,7 +1561,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1586,7 +1586,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1597,7 +1597,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1608,7 +1608,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1619,7 +1619,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1630,7 +1630,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1641,7 +1641,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1652,7 +1652,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1663,7 +1663,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1688,7 +1688,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1699,7 +1699,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1710,7 +1710,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1721,7 +1721,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1732,7 +1732,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1743,7 +1743,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1754,7 +1754,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1765,7 +1765,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1790,7 +1790,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1801,7 +1801,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1812,7 +1812,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1823,7 +1823,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -1834,7 +1834,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1845,7 +1845,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1856,7 +1856,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }
@@ -1881,7 +1881,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1892,7 +1892,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1903,7 +1903,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1914,7 +1914,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1925,7 +1925,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1936,7 +1936,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 72,
           "price": 660000000,
-          "render": null,
+          "render": "assets/renders/gwen.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -1947,7 +1947,7 @@ const MASTERPLAN_DATA = {
           "lb": 38,
           "lt": 106.1,
           "price": 800000000,
-          "render": null,
+          "render": "assets/renders/gwen-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }

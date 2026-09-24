@@ -39,10 +39,10 @@ def rp(n):
 # terlepas dari sedikit selisih LT antar persil pojok) -- bukan angka
 # karangan baru.
 TYPES = {
-    "GWEN":            dict(name="GWEN",            cluster="montana", lb=38, lt=72,  price=660_000_000, color="#f472b6"),
-    "GWEN_HOOK":       dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=106.1, price=800_000_000, color="#f472b6"),
+    "GWEN":            dict(name="GWEN",            cluster="montana", lb=38, lt=72,  price=660_000_000, color="#f472b6", render="assets/renders/gwen.jpg"),
+    "GWEN_HOOK":       dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=106.1, price=800_000_000, color="#f472b6", render="assets/renders/gwen-hook.jpg"),
     # Ujung kiri F9/F10 -- satu-satunya sisi GWEN yang ukurannya 112,1, bukan 106,1.
-    "GWEN_HOOK8":      dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=112.1, price=840_000_000, color="#f472b6"),
+    "GWEN_HOOK8":      dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=112.1, price=840_000_000, color="#f472b6", render="assets/renders/gwen-hook.jpg"),
     "NEW_GWEN":        dict(name="NEW GWEN",         cluster="montana", lb=42, lt=72,  price=675_000_000, color="#fb923c"),
     "NEW_GWEN_HOOK1":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=42, lt=106.1, price=840_000_000, color="#fb923c"),
     "NEW_GWEN_HOOK8":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=45, lt=112.1, price=880_000_000, color="#fb923c"),
