@@ -219,7 +219,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -230,7 +230,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -241,7 +241,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -252,7 +252,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "HOLD",
           "statusLabel": "SHOW UNIT"
         },
@@ -263,7 +263,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -274,7 +274,7 @@ const MASTERPLAN_DATA = {
           "lb": 65,
           "lt": 72,
           "price": 880000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -285,7 +285,7 @@ const MASTERPLAN_DATA = {
           "lb": 55,
           "lt": 72,
           "price": 840000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -296,7 +296,7 @@ const MASTERPLAN_DATA = {
           "lb": 55,
           "lt": 72,
           "price": 840000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -307,7 +307,7 @@ const MASTERPLAN_DATA = {
           "lb": 55,
           "lt": 72,
           "price": 840000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         },
@@ -318,7 +318,7 @@ const MASTERPLAN_DATA = {
           "lb": 55,
           "lt": 72,
           "price": 840000000,
-          "render": null,
+          "render": "assets/renders/bianca.jpg",
           "status": "SOLD",
           "statusLabel": null
         },
@@ -329,7 +329,7 @@ const MASTERPLAN_DATA = {
           "lb": 87,
           "lt": 95.7,
           "price": 1150000000,
-          "render": null,
+          "render": "assets/renders/bianca-hook.jpg",
           "status": "TERSEDIA",
           "statusLabel": null
         }

@@ -59,9 +59,11 @@ TYPES = {
     "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=124.1, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     "ANGELINE_HOOK_F7": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=79.9,  price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     "ANGELINE_HOOK_F8": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=77,    price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
-    "BIANCA_GARDEN":   dict(name="BIANCA Garden",    cluster="sierra",  lb=55, lt=72,  price=840_000_000, color="#fde68a"),
-    "BIANCA_DELUXE":   dict(name="BIANCA Deluxe",    cluster="sierra",  lb=65, lt=72,  price=880_000_000, color="#fde68a"),
-    "BIANCA_DELUXE_HOOK": dict(name="BIANCA Deluxe (Hook)", cluster="sierra", lb=87, lt=95.7, price=1_150_000_000, color="#fde68a"),
+    # Render BIANCA sama untuk Garden dan Deluxe -- bedanya cuma hook atau bukan
+    # (sama seperti ARNICA), bukan Garden vs Deluxe.
+    "BIANCA_GARDEN":   dict(name="BIANCA Garden",    cluster="sierra",  lb=55, lt=72,  price=840_000_000, color="#fde68a", render="assets/renders/bianca.jpg"),
+    "BIANCA_DELUXE":   dict(name="BIANCA Deluxe",    cluster="sierra",  lb=65, lt=72,  price=880_000_000, color="#fde68a", render="assets/renders/bianca.jpg"),
+    "BIANCA_DELUXE_HOOK": dict(name="BIANCA Deluxe (Hook)", cluster="sierra", lb=87, lt=95.7, price=1_150_000_000, color="#fde68a", render="assets/renders/bianca-hook.jpg"),
     # Render ARNICA sama untuk Garden dan Pool -- bedanya cuma hook atau bukan
     # (per instruksi pemilik data), bukan Garden vs Pool.
     "ARNICA_GARDEN_E1":  dict(name="ARNICA Garden",  cluster="sierra",  lb=70, lt=90,  price=990_000_000,  color="#d8b4a0", render="assets/renders/arnica.jpg"),
