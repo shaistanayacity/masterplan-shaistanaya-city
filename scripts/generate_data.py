@@ -43,9 +43,11 @@ TYPES = {
     "GWEN_HOOK":       dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=106.1, price=800_000_000, color="#f472b6", render="assets/renders/gwen-hook.jpg"),
     # Ujung kiri F9/F10 -- satu-satunya sisi GWEN yang ukurannya 112,1, bukan 106,1.
     "GWEN_HOOK8":      dict(name="GWEN (Hook)",      cluster="montana", lb=38, lt=112.1, price=840_000_000, color="#f472b6", render="assets/renders/gwen-hook.jpg"),
-    "NEW_GWEN":        dict(name="NEW GWEN",         cluster="montana", lb=42, lt=72,  price=675_000_000, color="#fb923c"),
-    "NEW_GWEN_HOOK1":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=42, lt=106.1, price=840_000_000, color="#fb923c"),
-    "NEW_GWEN_HOOK8":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=45, lt=112.1, price=880_000_000, color="#fb923c"),
+    # Render reguler NEW GWEN sama persis dengan foto yang dipakai DARLENE (dikirim
+    # dua kali oleh pemilik data) -- dipakai ulang, bukan disimpan dobel.
+    "NEW_GWEN":        dict(name="NEW GWEN",         cluster="montana", lb=42, lt=72,  price=675_000_000, color="#fb923c", render="assets/renders/darlene.jpg"),
+    "NEW_GWEN_HOOK1":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=42, lt=106.1, price=840_000_000, color="#fb923c", render="assets/renders/new-gwen-hook.jpg"),
+    "NEW_GWEN_HOOK8":  dict(name="NEW GWEN (Hook)",  cluster="montana", lb=45, lt=112.1, price=880_000_000, color="#fb923c", render="assets/renders/new-gwen-hook.jpg"),
     "DARLENE":         dict(name="DARLENE",          cluster="montana", lb=45, lt=91,  price=795_000_000, color="#f87171", render="assets/renders/darlene.jpg"),
     # ANGELINE reguler (unit tengah) LT-nya 90, BUKAN 133 -- 133,1 itu ukuran unit
     # hook di ujung kanan (F6/F7/F8 unit 01), sebelumnya salah dipakai untuk semua unit.
