@@ -174,12 +174,13 @@ body {
 }
 
 .mp-unit--sold .mp-unit__tag {
-  /* Small badge (not filling the cell) -- the cell's own background is now the
+  /* Badge (not filling the cell) -- the cell's own background is now the
      unit's type color (set inline per-unit from data), and the point of this
-     redesign is to keep that color clearly visible with just a small SOLD
-     marker on top, like the reference master plan's small "terjual" dot. */
-  width: 62%;
-  height: 46%;
+     redesign is to keep that color visible with a SOLD marker on top, like
+     the reference master plan's small "terjual" dot -- just sized up a
+     little from the original small badge per feedback. */
+  width: 80%;
+  height: 60%;
   align-self: center;
 }
 /* Stamped "SOLD" image asset instead of rendered text -- reads clearly at any
