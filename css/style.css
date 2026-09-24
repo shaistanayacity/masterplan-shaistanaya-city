@@ -33,6 +33,19 @@ body {
   z-index: 40;
 }
 
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.topbar__logo {
+  flex: none;
+  height: 40px;
+  width: auto;
+}
+
 .topbar__eyebrow {
   display: block;
   font-size: 11px;
