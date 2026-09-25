@@ -369,20 +369,22 @@ BLOCKS.append(make_block(
 
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F2 Ready = 0 -- semua SOLD.
-    "F2", "montana", (1285, 2560, 1379, 3249), 19, "btt",
+    # Revisi (25 Sep 2026): kode sebelumnya salah di tiga hal sekaligus, dikonfirmasi
+    # ulang oleh pemilik (SC-F2-01 di paling ATAS, SC-F2-19 di paling BAWAH) dan oleh
+    # sampling piksel gambar sumber:
+    #  1) direction seharusnya "ttb" (01 di atas), bukan "btt" -- kode lama menaruh
+    #     nomor terbesar (19) di atas, kebalik dari gambar aslinya.
+    #  2) skip_four seharusnya True (tidak ada unit "04") -- kode lama memberi label
+    #     rata 1-19 tanpa skip, sehingga tiap unit dari baris ke-4 dst kegeser satu
+    #     nomor dari yang tertulis di gambar.
+    #  3) top-y seharusnya 2530, bukan 2560 -- baris paling atas (tercetak "01"/RC di
+    #     gambar sumber) sebelumnya sama sekali tidak ke-cover blok manapun (bukan cuma
+    #     kegeser dikit kayak F1), makanya sempat ditambah manual sebagai "F2-20" di
+    #     commit sebelumnya. Sekarang digabung jadi satu definisi blok yang benar (18
+    #     unit fisik: 01,02,03,05,06,...,19) supaya tidak ada lagi baris yatim/nomor
+    #     yang kegeser.
+    "F2", "montana", (1285, 2530, 1379, 3249), 18, "ttb", skip_four=True,
     type_key="DARLENE",
-    street="JL. MONTANA F2",
-))
-
-# F2's own top-y (2560) was one row too low -- confirmed by sampling the source image's
-# fill color: the true top of F2's column starts at y=2530, ~30px above where the
-# coded block began. That top row (printed "01"/"RC" on the source image) was never
-# covered by any block, so it rendered with no color, no number and no SOLD tag at all
-# -- not a contrast issue like F1-09, a genuinely missing lot. Added here as its own
-# single-unit block (labeled "20" to avoid colliding with F2's existing 1-19 numbering)
-# rather than reshuffling F2's already-correct 19 units.
-BLOCKS.append(make_single_unit_block(
-    "F2", "montana", (1285, 2530, 1379, 2560), "DARLENE", "SOLD", no="20",
     street="JL. MONTANA F2",
 ))
 
