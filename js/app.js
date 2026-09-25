@@ -127,7 +127,7 @@
 
   function openFacilityPopup(fac) {
     upCode.textContent = fac.name;
-    upCluster.textContent = "Fasilitas Umum";
+    upCluster.hidden = true;
     upStatus.hidden = true;
 
     if (fac.render) {
@@ -153,6 +153,7 @@
     upCode.textContent = code;
     upStatus.hidden = false;
     upAddr.hidden = false;
+    upCluster.hidden = false;
 
     if (unit.render) {
       upRender.src = unit.render;
