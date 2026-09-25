@@ -226,6 +226,22 @@ body {
 .mp-block[data-orientation="row"] .mp-unit { border-top: none; border-bottom: none; }
 .mp-block[data-orientation="col"] .mp-unit { border-left: none; border-right: none; }
 
+/* Community facility marker (mosque, etc.) -- transparent by default so the printed
+   building label/roofline on the base image stays readable, with a soft gold highlight
+   on hover/tap to show it's clickable. clip-path (set inline from data) follows the
+   building's real footprint, not its bounding box. */
+.mp-facility {
+  position: absolute;
+  cursor: pointer;
+  background: rgba(216, 180, 106, 0);
+  transition: background 0.12s ease, filter 0.12s ease;
+}
+.mp-facility:hover,
+.mp-facility:active {
+  background: rgba(216, 180, 106, 0.32);
+  filter: brightness(1.1);
+}
+
 /* Legend panel */
 .legend-panel {
   position: fixed;

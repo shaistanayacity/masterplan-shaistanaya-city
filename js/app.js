@@ -106,10 +106,53 @@
     });
   }
 
+  // ---------- Facility markers (mosque, etc.) ----------
+  function renderFacilities() {
+    (data.facilities || []).forEach((fac) => {
+      const el = document.createElement("div");
+      el.className = "mp-facility";
+      el.title = fac.name;
+      el.style.left = fac.box.left + "%";
+      el.style.top = fac.box.top + "%";
+      el.style.width = fac.box.width + "%";
+      el.style.height = fac.box.height + "%";
+      if (fac.clipPath) {
+        const poly = fac.clipPath.map((p) => `${p[0]}% ${p[1]}%`).join(", ");
+        el.style.clipPath = `polygon(${poly})`;
+      }
+      el.addEventListener("click", () => openFacilityPopup(fac));
+      overlay.appendChild(el);
+    });
+  }
+
+  function openFacilityPopup(fac) {
+    upCode.textContent = fac.name;
+    upCluster.textContent = "Fasilitas Umum";
+    upStatus.hidden = true;
+
+    if (fac.render) {
+      upRender.src = fac.render;
+      upRender.alt = fac.name;
+      upRender.hidden = false;
+    } else {
+      upRender.hidden = true;
+      upRender.removeAttribute("src");
+    }
+
+    upType.textContent = fac.desc || "";
+    upAddr.hidden = true;
+    upPrices.innerHTML = "";
+
+    popup.hidden = false;
+    popupBackdrop.hidden = false;
+  }
+
   // ---------- Popup ----------
   function openPopup(block, unit) {
     const code = `SC-${block.id}-${unit.no}`;
     upCode.textContent = code;
+    upStatus.hidden = false;
+    upAddr.hidden = false;
 
     if (unit.render) {
       upRender.src = unit.render;
@@ -195,5 +238,6 @@
   }
 
   renderBlocks();
+  renderFacilities();
   renderLegend();
 })();

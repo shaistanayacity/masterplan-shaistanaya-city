@@ -198,6 +198,30 @@ def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01",
         }],
     }
 
+def make_facility(facility_id, name, box_px, polygon_px=None, desc="", render=None):
+    """A clickable community-facility marker (mosque, clubhouse, etc.) -- has no
+    price/LB/LT/status, just a name + optional photo popup. polygon_px works exactly
+    like make_single_unit_block's: full-image pixel corners, re-expressed as a
+    CSS clip-path so the clickable shape follows the building's real footprint
+    instead of its plain bounding box."""
+    clip_path = None
+    if polygon_px:
+        bx1, by1, bx2, by2 = box_px
+        bw, bh = (bx2 - bx1), (by2 - by1)
+        clip_path = [
+            (round((x - bx1) / bw * 100, 2), round((y - by1) / bh * 100, 2))
+            for x, y in polygon_px
+        ]
+    return {
+        "id": facility_id,
+        "name": name,
+        "desc": desc,
+        "render": render,
+        "box": pct_box(*box_px),
+        "clipPath": clip_path,
+    }
+
+FACILITIES = []
 BLOCKS = []
 
 # ---------------- Cluster Sierra ----------------
@@ -238,6 +262,25 @@ BLOCKS.append(make_block(
     overrides={1: "BIANCA_DELUXE_HOOK", 7: "BIANCA_DELUXE", 8: "BIANCA_DELUXE",
                9: "BIANCA_DELUXE", 10: "BIANCA_DELUXE", 11: "BIANCA_DELUXE", 12: "BIANCA_DELUXE"},
     street="JL. SIERRA E3",
+))
+
+# Masjid An-Nur -- community facility building between E11/F3 and the C2 road grid.
+# Polygon corners traced from the source image via color-threshold contour detection
+# (isolating the building's white fill from the surrounding grey pavement) so the
+# clickable area follows the actual roofline instead of a box that would spill onto
+# the road/sidewalk -- or onto neighboring F3 -- around it.
+FACILITIES.append(make_facility(
+    "MASJID", "Masjid An-Nur Shaistanaya City",
+    box_px=(1181, 1863, 1371, 2000),
+    polygon_px=[
+        (1210, 1863), (1195, 1933), (1198, 1963), (1231, 1956),
+        (1250, 1972), (1250, 1993), (1308, 2000), (1314, 1960),
+        (1371, 1959), (1362, 1933), (1319, 1927), (1323, 1886),
+        (1265, 1875), (1260, 1898), (1223, 1893), (1192, 1907),
+        (1182, 1896), (1183, 1865),
+    ],
+    desc="Luas bangunan 298,74 m²",
+    render="assets/renders/masjid-an-nur.jpg",
 ))
 
 BLOCKS.append(make_block(
@@ -522,6 +565,7 @@ data = {
     "clusters": CLUSTERS,
     "legend": LEGEND,
     "blocks": BLOCKS,
+    "facilities": FACILITIES,
 }
 
 with open(REPO_ROOT / "js" / "data.js", "w") as f:
