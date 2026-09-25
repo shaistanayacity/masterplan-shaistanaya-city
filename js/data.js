@@ -600,9 +600,9 @@ const MASTERPLAN_DATA = {
       "cluster": "montana",
       "box": {
         "left": 53.633,
-        "top": 62.648,
+        "top": 61.55,
         "width": 3.99,
-        "height": 9.531
+        "height": 10.629
       },
       "orientation": "col",
       "street": "JL. MONTANA F1",

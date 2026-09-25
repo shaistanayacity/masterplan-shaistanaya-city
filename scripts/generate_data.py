@@ -357,7 +357,12 @@ BLOCKS.append(make_block(
 # in this section) -- an 8-unit-looking row is really 7 real lots labeled ...,03,05,...,08.
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F1 Ready = 0 -- semua SOLD.
-    "F1", "montana", (1277, 2110, 1372, 2431), 8, "btt", skip_four=True,
+    # Top-y fixed 25 Sep 2026: was 2110, which sampling the source image's fill color
+    # shows starts ~25px (orig scale) too low -- the true top is y=2073, which makes
+    # the 8 equal-height cells line up exactly with the real row lines (30px/unit at
+    # orig scale) instead of drifting further off with each row down the column, which
+    # is what made the SOLD tags look misaligned from the actual unit boundaries.
+    "F1", "montana", (1277, 2073, 1372, 2431), 8, "btt", skip_four=True,
     type_key="DARLENE",
     street="JL. MONTANA F1",
 ))
