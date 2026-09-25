@@ -210,9 +210,9 @@ const MASTERPLAN_DATA = {
       "cluster": "sierra",
       "box": {
         "left": 37.589,
-        "top": 25.772,
+        "top": 27.138,
         "width": 19.74,
-        "height": 4.127
+        "height": 2.583
       },
       "orientation": "row",
       "street": "JL. SIERRA E3",

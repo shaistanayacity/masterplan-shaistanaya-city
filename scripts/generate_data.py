@@ -227,7 +227,11 @@ for no, ry1, ry2, tkey in E1_ROWS:
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): tersedia sisa 12,11,09/RC,06,05,03,01 -- lainnya SOLD.
     # No unit "04" in this block either -- 11 real lots, not 12.
-    "E3", "sierra", (895, 868, 1365, 1007), 11, "rtl", skip_four=True,
+    # Revisi (25 Sep 2026): top-y sebelumnya (868) kepotong masuk ke baris blok "A" di
+    # atasnya (baris biru, bukan bagian E3) -- sampling piksel gambar sumber menunjukkan
+    # baris kuning E3 baru mulai di y=914, jadi warna kuning & tag SOLD-nya numpuk ke
+    # baris atas yang bukan miliknya. Diperbaiki jadi 914-1001 (pas di baris kuningnya).
+    "E3", "sierra", (895, 914, 1365, 1001), 11, "rtl", skip_four=True,
     type_key="BIANCA_GARDEN",
     available={1, 3, 5, 6, 11, 12},
     hold={9},
