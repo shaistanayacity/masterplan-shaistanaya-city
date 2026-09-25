@@ -3472,7 +3472,7 @@ const MASTERPLAN_DATA = {
           "price": null,
           "render": null,
           "color": "#c2beb8",
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -3484,7 +3484,7 @@ const MASTERPLAN_DATA = {
           "price": null,
           "render": null,
           "color": "#c2beb8",
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
@@ -3496,11 +3496,11 @@ const MASTERPLAN_DATA = {
           "price": null,
           "render": null,
           "color": "#c2beb8",
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "05",
           "cell": 3,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -3512,7 +3512,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "05",
+          "no": "06",
           "cell": 4,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -3521,6 +3521,42 @@ const MASTERPLAN_DATA = {
           "render": null,
           "color": "#c2beb8",
           "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "07",
+          "cell": 5,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "render": null,
+          "color": "#c2beb8",
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "08",
+          "cell": 6,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "render": null,
+          "color": "#c2beb8",
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "09",
+          "cell": 7,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "render": null,
+          "color": "#c2beb8",
+          "status": "TERSEDIA",
           "statusLabel": null
         }
       ]

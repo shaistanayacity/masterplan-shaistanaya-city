@@ -599,7 +599,12 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 D2",
 ))
 BLOCKS.append(make_block(
-    "B1", "tahap1", (1555, 845, 1632, 1273), 5, "ttb",
+    # Revisi (25 Sep 2026): B1 sebenarnya 8 unit (01,02,03,05,06,07,08,09 -- skip
+    # "04"), bukan 5 rata. Dikonfirmasi owner: 01,02,03,09 masih TERSEDIA (putih,
+    # tanpa tanda di gambar sumber), 05,06,07,08 SOLD (ada titik merah di gambar
+    # sumber).
+    "B1", "tahap1", (1555, 845, 1632, 1273), 8, "ttb", skip_four=True,
+    available={1, 2, 3, 9},
     type_key="TAHAP1", street="JL. TAHAP 1 B1",
 ))
 BLOCKS.append(make_block(
