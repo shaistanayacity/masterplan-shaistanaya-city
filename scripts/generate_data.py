@@ -303,6 +303,16 @@ FACILITIES.append(make_facility(
     render="assets/renders/outdoor-gym.jpg",
 ))
 
+# Kids playground -- yellow bench-row icon + tan paved plaza next to the C1 tahap1
+# column, further down ROW 14. Whole square (tan pavement + yellow icon + green
+# border), matching how the GYM facility's hotspot was widened above.
+FACILITIES.append(make_facility(
+    "PLAYGROUND", "Kids Playground",
+    box_px=(1545, 2456, 1638, 2530),
+    desc="Taman bermain anak warga",
+    render="assets/renders/kids-playground.jpg",
+))
+
 BLOCKS.append(make_block(
     # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
     # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang Show Unit;

@@ -4194,6 +4194,19 @@ const MASTERPLAN_DATA = {
         "height": 2.524
       },
       "clipPath": null
+    },
+    {
+      "id": "PLAYGROUND",
+      "name": "Kids Playground",
+      "desc": "Taman bermain anak warga",
+      "render": "assets/renders/kids-playground.jpg",
+      "box": {
+        "left": 64.889,
+        "top": 72.922,
+        "width": 3.906,
+        "height": 2.197
+      },
+      "clipPath": null
     }
   ]
 };
