@@ -4210,8 +4210,8 @@ const MASTERPLAN_DATA = {
     },
     {
       "id": "GERBANG_SIERRA",
-      "name": "Cluster Sierra",
-      "desc": "Gerbang Cluster Sierra",
+      "name": "Gate Cluster Sierra",
+      "desc": "",
       "render": "assets/renders/gerbang-sierra.jpg",
       "box": {
         "left": 53.633,
