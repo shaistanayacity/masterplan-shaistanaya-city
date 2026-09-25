@@ -607,7 +607,9 @@ BLOCKS.append(make_block(
     # (1475, the road-side boundary) and grown leftward, instead of growing rightward
     # off the original left edge -- growing right had pushed the cells into the
     # road/tree strip on D2's right side.
-    "D2", "tahap1", (1381, 2534, 1475, 3173), 16, "ttb",
+    # Revisi (25 Sep 2026): dikonfirmasi owner -- D2 nomornya 1-19 tapi skip "04" dan
+    # "14", jadi 17 unit fisik, bukan 16 rata 1-16.
+    "D2", "tahap1", (1381, 2534, 1475, 3173), 17, "ttb", skip_numbers={4, 14},
     type_key="TAHAP1", street="JL. TAHAP 1 D2",
 ))
 BLOCKS.append(make_block(
