@@ -2117,7 +2117,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2144,7 +2144,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2171,7 +2171,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2198,7 +2198,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2242,7 +2242,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2286,7 +2286,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2330,7 +2330,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2374,7 +2374,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2418,7 +2418,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2462,7 +2462,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2506,7 +2506,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2550,7 +2550,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2594,7 +2594,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2638,7 +2638,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2682,7 +2682,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2726,7 +2726,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2770,7 +2770,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
@@ -2814,7 +2814,7 @@ const MASTERPLAN_DATA = {
           "lb": null,
           "lt": 60,
           "price": null,
-          "render": null,
+          "render": "assets/renders/ruko.jpg",
           "color": "#8b8ce0",
           "status": "SOLD",
           "statusLabel": null
