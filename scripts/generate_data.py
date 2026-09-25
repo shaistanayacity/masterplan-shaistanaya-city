@@ -369,6 +369,18 @@ BLOCKS.append(make_block(
     street="JL. MONTANA F2",
 ))
 
+# F2's own top-y (2560) was one row too low -- confirmed by sampling the source image's
+# fill color: the true top of F2's column starts at y=2530, ~30px above where the
+# coded block began. That top row (printed "01"/"RC" on the source image) was never
+# covered by any block, so it rendered with no color, no number and no SOLD tag at all
+# -- not a contrast issue like F1-09, a genuinely missing lot. Added here as its own
+# single-unit block (labeled "20" to avoid colliding with F2's existing 1-19 numbering)
+# rather than reshuffling F2's already-correct 19 units.
+BLOCKS.append(make_single_unit_block(
+    "F2", "montana", (1285, 2530, 1379, 2560), "DARLENE", "SOLD", no="20",
+    street="JL. MONTANA F2",
+))
+
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): F3 tersedia sisa 06, 05, 02 -- lainnya SOLD. 7 lots, no unit "04".
     "F3", "montana", (903, 1936, 1192, 2017), 7, "rtl", skip_four=True,

@@ -948,6 +948,33 @@ const MASTERPLAN_DATA = {
       ]
     },
     {
+      "id": "F2",
+      "cluster": "montana",
+      "box": {
+        "left": 53.969,
+        "top": 75.119,
+        "width": 3.948,
+        "height": 0.891
+      },
+      "orientation": "row",
+      "street": "JL. MONTANA F2",
+      "clipPath": null,
+      "units": [
+        {
+          "no": "20",
+          "cell": 0,
+          "type": "DARLENE",
+          "lb": 45,
+          "lt": 91,
+          "price": 795000000,
+          "render": "assets/renders/darlene.jpg",
+          "color": "#f87171",
+          "status": "SOLD",
+          "statusLabel": null
+        }
+      ]
+    },
+    {
       "id": "F3",
       "cluster": "montana",
       "box": {
