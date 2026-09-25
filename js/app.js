@@ -305,6 +305,10 @@
       zoomTarget.style.width = (baseW * scale) + "px";
       zoomTarget.style.height = (baseH * scale) + "px";
       zoomTarget.style.transform = `translate(${tx}px, ${ty}px)`;
+      // At rest (1x) a one-finger drag should scroll the page like normal, since
+      // there's nothing to pan yet -- switch to "none" only once zoomed in, so a
+      // drag then moves the map instead of the page scrolling underneath it.
+      stageInner.style.touchAction = scale > MIN_SCALE ? "none" : "pan-y";
     }
 
     function clamp() {
@@ -371,9 +375,13 @@
     }
 
     stageInner.addEventListener("pointerdown", (e) => {
+      // Reset before the zoom-controls early-return below -- otherwise a real drag
+      // gesture's dragOccurred=true would leak into the very next tap on a zoom
+      // button and get silently swallowed by the click-suppression listener further
+      // down, since that tap's own pointerdown never reaches the line that clears it.
+      dragOccurred = false;
       if (e.target.closest(".zoom-controls")) return;
       pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-      dragOccurred = false;
       if (pointers.size === 1) {
         panStart = { x: e.clientX, y: e.clientY, tx, ty, pointerId: e.pointerId, captured: false };
         pinchStart = null;

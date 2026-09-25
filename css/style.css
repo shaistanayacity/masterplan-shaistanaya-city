@@ -106,10 +106,14 @@ body {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  /* We drive pan/pinch-zoom ourselves via Pointer Events (see js/app.js) --
-     touch-action:none stops the browser's own touch scroll/pinch-zoom from
-     fighting our JS for the same gesture. */
-  touch-action: none;
+  /* We drive pan/pinch-zoom ourselves via Pointer Events (see js/app.js). This
+     starts as pan-y (a finger dragging the map at rest scrolls the PAGE
+     normally, since there's nothing to pan yet at 1x) and js/app.js switches it
+     to none once zoomed in past 1x, so a drag then pans the map instead of
+     scrolling the page underneath it. Native pinch-zoom is excluded either way
+     (neither value grants "pinch-zoom"), so pinch always reaches our own
+     zoom handler instead of the browser's page zoom. */
+  touch-action: pan-y;
   cursor: grab;
   user-select: none;
 }
