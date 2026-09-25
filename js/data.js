@@ -216,6 +216,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. SIERRA E3",
+      "tagRotate": -7,
       "units": [
         {
           "no": "12",
@@ -362,6 +363,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. SIERRA E7",
+      "tagRotate": null,
       "units": [
         {
           "no": "10",
@@ -484,6 +486,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. SIERRA E8",
+      "tagRotate": null,
       "units": [
         {
           "no": "10",
@@ -606,6 +609,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. MONTANA F1",
+      "tagRotate": null,
       "units": [
         {
           "no": "09",
@@ -716,6 +720,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. MONTANA F2",
+      "tagRotate": null,
       "units": [
         {
           "no": "01",
@@ -946,6 +951,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F3",
+      "tagRotate": null,
       "units": [
         {
           "no": "08",
@@ -1044,6 +1050,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F5",
+      "tagRotate": null,
       "units": [
         {
           "no": "08",
@@ -1142,6 +1149,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F6",
+      "tagRotate": null,
       "units": [
         {
           "no": "08",
@@ -1240,6 +1248,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F7",
+      "tagRotate": null,
       "units": [
         {
           "no": "10",
@@ -1362,6 +1371,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F8",
+      "tagRotate": null,
       "units": [
         {
           "no": "10",
@@ -1484,6 +1494,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F9",
+      "tagRotate": null,
       "units": [
         {
           "no": "08",
@@ -1582,6 +1593,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F10",
+      "tagRotate": null,
       "units": [
         {
           "no": "08",
@@ -1680,6 +1692,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F11",
+      "tagRotate": null,
       "units": [
         {
           "no": "09",
@@ -1790,6 +1803,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F12",
+      "tagRotate": null,
       "units": [
         {
           "no": "09",
@@ -1900,6 +1914,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F15",
+      "tagRotate": null,
       "units": [
         {
           "no": "08",
@@ -1998,6 +2013,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "row",
       "street": "JL. MONTANA F16",
+      "tagRotate": null,
       "units": [
         {
           "no": "08",
@@ -2820,6 +2836,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 B2",
+      "tagRotate": null,
       "units": [
         {
           "no": "01",
@@ -2930,6 +2947,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 C2",
+      "tagRotate": null,
       "units": [
         {
           "no": "01",
@@ -3268,6 +3286,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 D2",
+      "tagRotate": null,
       "units": [
         {
           "no": "01",
@@ -3486,6 +3505,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 B1",
+      "tagRotate": null,
       "units": [
         {
           "no": "01",
@@ -3596,6 +3616,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 C1",
+      "tagRotate": null,
       "units": [
         {
           "no": "01",
@@ -3946,6 +3967,7 @@ const MASTERPLAN_DATA = {
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 D1",
+      "tagRotate": null,
       "units": [
         {
           "no": "01",

@@ -98,6 +98,12 @@
             // units keep the short text label since there's no equivalent asset.
             tag.className = "mp-unit__tag" + (unit.status === "SOLD" ? " mp-unit__tag--img" : "");
             tag.textContent = unit.status === "SOLD" ? "" : "SU";
+            // Some blocks (e.g. E3) sit on the diagonal boundary road, visibly
+            // tilted -- rotate the "SU" tag to match instead of sitting axis-aligned
+            // against a slanted cell. Doesn't touch the SOLD stamp's own fixed tilt.
+            if (unit.status === "HOLD" && block.tagRotate) {
+              tag.style.transform = `rotate(${block.tagRotate}deg)`;
+            }
             cell.appendChild(tag);
           }
 

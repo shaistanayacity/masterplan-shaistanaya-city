@@ -107,7 +107,7 @@ def label_sequence(n, skip=frozenset({4})):
 def make_block(block_id, cluster, box_px, count, direction, type_key,
                 available=None, hold=None, hold_label="SHOW UNIT",
                 hold_labels=None, overrides=None, street="", skip_four=False,
-                skip_numbers=None):
+                skip_numbers=None, tag_rotate_deg=None):
     """
     direction: 'rtl' (01 at right, N at left) | 'ltr' (01 at left)
                 'btt' (01 at bottom, N at top) | 'ttb' (01 at top)
@@ -120,6 +120,10 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
     skip_numbers: set of specific numbers to skip instead of just {4} -- implies
     skip_four's behavior, just with a custom skip set (e.g. {4, 14, 24} for a block
     whose real lots skip every number containing a 4)
+    tag_rotate_deg: rotate the HOLD/"SU" tag by this many degrees to match a block
+    that sits on a tilted/diagonal row of the source image (e.g. E3, which slopes
+    along the diagonal boundary road) -- doesn't affect the SOLD stamp, which keeps
+    its own fixed stylistic tilt everywhere on the site.
     """
     available = available or set()
     hold = hold or set()
@@ -164,6 +168,7 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
         "box": pct_box(*box_px),
         "orientation": orientation,
         "street": street,
+        "tagRotate": tag_rotate_deg,
         "units": units,
     }
 
@@ -264,6 +269,9 @@ BLOCKS.append(make_block(
     # atasnya (baris biru, bukan bagian E3) -- sampling piksel gambar sumber menunjukkan
     # baris kuning E3 baru mulai di y=914, jadi warna kuning & tag SOLD-nya numpuk ke
     # baris atas yang bukan miliknya. Diperbaiki jadi 914-1001 (pas di baris kuningnya).
+    # tag_rotate_deg: E3 sits on the diagonal boundary road, sloping ~-7deg (measured
+    # from the source image's own row boundary line), so its "SU" tag is rotated to
+    # match instead of sitting axis-aligned against a visibly tilted cell.
     "E3", "sierra", (895, 914, 1365, 1001), 11, "rtl", skip_four=True,
     type_key="BIANCA_GARDEN",
     available={1, 3, 5, 6, 11, 12},
@@ -271,6 +279,7 @@ BLOCKS.append(make_block(
     overrides={1: "BIANCA_DELUXE_HOOK", 7: "BIANCA_DELUXE", 8: "BIANCA_DELUXE",
                9: "BIANCA_DELUXE", 10: "BIANCA_DELUXE", 11: "BIANCA_DELUXE", 12: "BIANCA_DELUXE"},
     street="JL. SIERRA E3",
+    tag_rotate_deg=-7,
 ))
 
 # Masjid An-Nur -- community facility building between E11/F3 and the C2 road grid.
