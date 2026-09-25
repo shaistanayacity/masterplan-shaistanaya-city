@@ -115,17 +115,18 @@ body {
 }
 .stage__inner.is-panning { cursor: grabbing; }
 
-/* Transformed (translate + scale) as one unit by the pan/zoom controller --
-   both the raster background photo and the SVG overlay stay perfectly in
-   sync since they're siblings inside this wrapper, sized identically. The
-   wrapper's own layout size (and therefore .stage__inner's clipping
-   viewport) is unaffected by the transform, since CSS transforms never
-   change layout/box size -- only paint position -- which is exactly the
-   "fixed viewport, scrollable/zoomable content" behavior pan/zoom needs. */
+/* Resized (real width/height, not a CSS transform scale) and translated as one unit
+   by the pan/zoom controller -- both the raster background photo and the SVG
+   overlay stay perfectly in sync since they're siblings sized relative to this
+   wrapper. Zoom deliberately isn't done via `transform: scale()`: on mobile
+   Chromium/WebKit a transform-scaled layer can get rasterized into a bitmap
+   cached at the scale it was promoted at, so the SVG's vector shapes went
+   blurry after a pinch/wheel-zoom until something else forced a repaint.
+   Resizing the actual box makes the browser paint the SVG at its true target
+   resolution every time. No `will-change: transform` here for the same reason
+   -- it invites exactly that kind of premature layer promotion/caching. */
 .zoom-target {
   position: relative;
-  transform-origin: 0 0;
-  will-change: transform;
 }
 
 .mp-image {

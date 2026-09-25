@@ -20,6 +20,15 @@
   // keep the same relative size they always had -- just vector-sharp now.
   const VB = IMG_W / 1100;
 
+  // .stage__inner never had an explicit height -- it simply grew to fit its content
+  // (the image), which was harmless while zoom was a paint-only CSS transform. Now
+  // that pan/zoom resizes .zoom-target's real box (see initPanZoom), .stage__inner
+  // MUST have a size of its own, independent of that child, or it would grow right
+  // along with it every time we zoom in -- a runaway feedback loop, since each
+  // zoom step would read back its own already-enlarged height as the "base" size
+  // for the next one. Pinning the aspect ratio keeps it a true fixed viewport.
+  stageInner.style.aspectRatio = IMG_W + " / " + IMG_H;
+
   function svgEl(tag, attrs) {
     const el = document.createElementNS(SVG_NS, tag);
     if (attrs) {
@@ -279,18 +288,29 @@
   }
 
   // ---------- Pan & zoom ----------
-  // Transforms .zoom-target (the raster image + SVG overlay together, kept in sync
-  // since both are siblings sized identically inside it) with translate+scale.
-  // .stage__inner clips it (overflow:hidden) at its own untransformed layout size,
-  // which acts as the fixed viewport -- CSS transforms never change layout size, so
-  // that viewport stays put while the content visually pans/zooms inside it.
+  // Zoom is applied by literally resizing .zoom-target (its width/height in real CSS
+  // px, = the viewport's natural size * scale) rather than a CSS `transform: scale()`.
+  // A transform-based scale was tried first and looked fine at rest, but on mobile
+  // Chromium/WebKit the browser rasterizes a transform-scaled layer into a cached
+  // bitmap sized for the scale at the time it was promoted, and doesn't always
+  // re-rasterize it at the new (sharper) resolution until something else forces a
+  // repaint -- which is exactly why the SOLD stamps stayed blurry after a zoom
+  // gesture until the user tapped one. Resizing the actual box instead makes the
+  // browser lay out and paint the SVG's vector shapes at their true target
+  // resolution every time, no repaint-trigger workaround needed. Only position
+  // (translate) still goes through the transform, which is cheap and never blurs.
+  // .stage__inner clips the oversized content (overflow:hidden) at its own fixed
+  // layout size (unaffected by a child growing past it), acting as the viewport.
   function initPanZoom() {
     const MIN_SCALE = 1;
     const MAX_SCALE = 6;
     let scale = 1, tx = 0, ty = 0;
 
     function applyTransform() {
-      zoomTarget.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+      const baseW = stageInner.clientWidth, baseH = stageInner.clientHeight;
+      zoomTarget.style.width = (baseW * scale) + "px";
+      zoomTarget.style.height = (baseH * scale) + "px";
+      zoomTarget.style.transform = `translate(${tx}px, ${ty}px)`;
     }
 
     function clamp() {
@@ -440,6 +460,10 @@
         e.preventDefault();
       }
     }, true);
+
+    // Establish explicit sizing up front (identical to the natural 100%-width layout
+    // at scale 1) so the very first zoom doesn't jump between implicit and explicit sizing.
+    applyTransform();
   }
 
   function openFacilityPopup(fac) {
