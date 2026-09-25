@@ -114,39 +114,6 @@
     });
   }
 
-  // ---------- Bold block-name labels (F1, B1, C1, ...) ----------
-  // The block name printed on the source image is thin and easy to miss, so this
-  // draws a bold copy on top, centered over each block's own footprint (merged
-  // across every block-object sharing that id, e.g. E1's 5 stacked single-unit
-  // rows). Ruko's individual lots ("A-01".."A-21") are excluded -- the real "A"
-  // label is printed once for the whole row, not per lot.
-  function renderBlockLabels() {
-    const bboxById = new Map();
-    data.blocks.forEach((block) => {
-      if (/^A-\d+$/.test(block.id)) return;
-      const { left, top, width, height } = block.box;
-      const right = left + width;
-      const bottom = top + height;
-      const cur = bboxById.get(block.id);
-      if (!cur) {
-        bboxById.set(block.id, { left, top, right, bottom });
-      } else {
-        cur.left = Math.min(cur.left, left);
-        cur.top = Math.min(cur.top, top);
-        cur.right = Math.max(cur.right, right);
-        cur.bottom = Math.max(cur.bottom, bottom);
-      }
-    });
-    bboxById.forEach((box, id) => {
-      const label = document.createElement("span");
-      label.className = "mp-block-label";
-      label.textContent = id;
-      label.style.left = (box.left + box.right) / 2 + "%";
-      label.style.top = (box.top + box.bottom) / 2 + "%";
-      overlay.appendChild(label);
-    });
-  }
-
   // ---------- Facility markers (mosque, etc.) ----------
   function renderFacilities() {
     (data.facilities || []).forEach((fac) => {
@@ -281,7 +248,6 @@
   }
 
   renderBlocks();
-  renderBlockLabels();
   renderFacilities();
   renderLegend();
 })();
