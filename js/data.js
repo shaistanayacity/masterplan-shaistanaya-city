@@ -4207,6 +4207,19 @@ const MASTERPLAN_DATA = {
         "height": 2.197
       },
       "clipPath": null
+    },
+    {
+      "id": "GERBANG_SIERRA",
+      "name": "Cluster Sierra",
+      "desc": "Gerbang Cluster Sierra",
+      "render": "assets/renders/gerbang-sierra.jpg",
+      "box": {
+        "left": 53.633,
+        "top": 37.827,
+        "width": 7.056,
+        "height": 1.603
+      },
+      "clipPath": null
     }
   ]
 };

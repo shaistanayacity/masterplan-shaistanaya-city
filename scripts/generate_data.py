@@ -313,6 +313,16 @@ FACILITIES.append(make_facility(
     render="assets/renders/kids-playground.jpg",
 ))
 
+# Cluster Sierra gate -- the red/tan hatched "ROW 14" crossing-pattern icon between
+# E1/E2 and the B2 tahap1 column, previously mistaken for a plain pedestrian-crossing
+# marker. It's actually the cluster entrance gate symbol.
+FACILITIES.append(make_facility(
+    "GERBANG_SIERRA", "Cluster Sierra",
+    box_px=(1277, 1274, 1445, 1328),
+    desc="Gerbang Cluster Sierra",
+    render="assets/renders/gerbang-sierra.jpg",
+))
+
 BLOCKS.append(make_block(
     # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
     # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang Show Unit;
