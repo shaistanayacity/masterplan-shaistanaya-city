@@ -3472,8 +3472,8 @@ const MASTERPLAN_DATA = {
           "price": null,
           "render": null,
           "color": "#c2beb8",
-          "status": "TERSEDIA",
-          "statusLabel": null
+          "status": "HOLD",
+          "statusLabel": "BELUM DIJUAL"
         },
         {
           "no": "02",
@@ -3484,8 +3484,8 @@ const MASTERPLAN_DATA = {
           "price": null,
           "render": null,
           "color": "#c2beb8",
-          "status": "TERSEDIA",
-          "statusLabel": null
+          "status": "HOLD",
+          "statusLabel": "BELUM DIJUAL"
         },
         {
           "no": "03",
@@ -3496,8 +3496,8 @@ const MASTERPLAN_DATA = {
           "price": null,
           "render": null,
           "color": "#c2beb8",
-          "status": "TERSEDIA",
-          "statusLabel": null
+          "status": "HOLD",
+          "statusLabel": "BELUM DIJUAL"
         },
         {
           "no": "05",
