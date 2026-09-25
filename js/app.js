@@ -139,7 +139,7 @@
       upRender.removeAttribute("src");
     }
 
-    upType.textContent = fac.desc || "";
+    upType.hidden = true;
     upAddr.hidden = true;
     upPrices.innerHTML = "";
 
@@ -154,6 +154,7 @@
     upStatus.hidden = false;
     upAddr.hidden = false;
     upCluster.hidden = false;
+    upType.hidden = false;
 
     if (unit.render) {
       upRender.src = unit.render;

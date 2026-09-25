@@ -198,7 +198,7 @@ def make_single_unit_block(block_id, cluster, box_px, type_key, status, no="01",
         }],
     }
 
-def make_facility(facility_id, name, box_px, polygon_px=None, desc="", render=None):
+def make_facility(facility_id, name, box_px, polygon_px=None, render=None):
     """A clickable community-facility marker (mosque, clubhouse, etc.) -- has no
     price/LB/LT/status, just a name + optional photo popup. polygon_px works exactly
     like make_single_unit_block's: full-image pixel corners, re-expressed as a
@@ -215,7 +215,6 @@ def make_facility(facility_id, name, box_px, polygon_px=None, desc="", render=No
     return {
         "id": facility_id,
         "name": name,
-        "desc": desc,
         "render": render,
         "box": pct_box(*box_px),
         "clipPath": clip_path,
@@ -279,7 +278,6 @@ FACILITIES.append(make_facility(
         (1265, 1875), (1260, 1898), (1223, 1893), (1192, 1907),
         (1182, 1896), (1183, 1865),
     ],
-    desc="Luas bangunan 298,74 m²",
     render="assets/renders/masjid-an-nur.jpg",
 ))
 
@@ -289,7 +287,6 @@ FACILITIES.append(make_facility(
 FACILITIES.append(make_facility(
     "LAPANGAN", "Basketball Court",
     box_px=(827, 2822, 867, 2989),
-    desc="Lapangan basket warga",
     render="assets/renders/basketball-court.jpg",
 ))
 
@@ -299,7 +296,6 @@ FACILITIES.append(make_facility(
 FACILITIES.append(make_facility(
     "GYM", "Outdoor Gym & Barbeque Pit",
     box_px=(1543, 1246, 1638, 1331),
-    desc="Area olahraga outdoor & barbeque pit warga",
     render="assets/renders/outdoor-gym.jpg",
 ))
 
@@ -309,7 +305,6 @@ FACILITIES.append(make_facility(
 FACILITIES.append(make_facility(
     "PLAYGROUND", "Kids Playground",
     box_px=(1545, 2456, 1638, 2530),
-    desc="Taman bermain anak warga",
     render="assets/renders/kids-playground.jpg",
 ))
 

@@ -4086,7 +4086,6 @@ const MASTERPLAN_DATA = {
     {
       "id": "MASJID",
       "name": "Masjid An-Nur Shaistanaya City",
-      "desc": "Luas bangunan 298,74 m²",
       "render": "assets/renders/masjid-an-nur.jpg",
       "box": {
         "left": 49.601,
@@ -4172,7 +4171,6 @@ const MASTERPLAN_DATA = {
     {
       "id": "LAPANGAN",
       "name": "Basketball Court",
-      "desc": "Lapangan basket warga",
       "render": "assets/renders/basketball-court.jpg",
       "box": {
         "left": 34.733,
@@ -4185,7 +4183,6 @@ const MASTERPLAN_DATA = {
     {
       "id": "GYM",
       "name": "Outdoor Gym & Barbeque Pit",
-      "desc": "Area olahraga outdoor & barbeque pit warga",
       "render": "assets/renders/outdoor-gym.jpg",
       "box": {
         "left": 64.805,
@@ -4198,7 +4195,6 @@ const MASTERPLAN_DATA = {
     {
       "id": "PLAYGROUND",
       "name": "Kids Playground",
-      "desc": "Taman bermain anak warga",
       "render": "assets/renders/kids-playground.jpg",
       "box": {
         "left": 64.889,
@@ -4211,7 +4207,6 @@ const MASTERPLAN_DATA = {
     {
       "id": "GERBANG_SIERRA",
       "name": "Gate Cluster Sierra",
-      "desc": "",
       "render": "assets/renders/gerbang-sierra.jpg",
       "box": {
         "left": 53.633,
@@ -4224,7 +4219,6 @@ const MASTERPLAN_DATA = {
     {
       "id": "GERBANG_MONTANA",
       "name": "Gate Cluster Montana",
-      "desc": "",
       "render": "assets/renders/gerbang-montana.jpg",
       "box": {
         "left": 54.431,
