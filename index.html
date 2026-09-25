@@ -26,8 +26,15 @@
   <main class="stage" id="stage">
     <div class="stage__scroll">
       <div class="stage__inner" id="stage-inner">
-        <img id="mp-image" class="mp-image" src="assets/masterplan.jpg" alt="Master Plan Shaistanaya City" draggable="false" />
-        <div class="mp-overlay" id="mp-overlay"></div>
+        <div class="zoom-target" id="zoom-target">
+          <img id="mp-image" class="mp-image" src="assets/masterplan.jpg" alt="Master Plan Shaistanaya City" draggable="false" />
+          <svg id="mp-overlay" class="mp-overlay" viewBox="0 0 2381 3368" preserveAspectRatio="none"></svg>
+        </div>
+        <div class="zoom-controls" id="zoom-controls">
+          <button type="button" id="zoom-in" aria-label="Perbesar">+</button>
+          <button type="button" id="zoom-out" aria-label="Perkecil">&minus;</button>
+          <button type="button" id="zoom-reset" aria-label="Reset tampilan">&#8634;</button>
+        </div>
       </div>
     </div>
 

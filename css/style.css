@@ -106,6 +106,26 @@ body {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  /* We drive pan/pinch-zoom ourselves via Pointer Events (see js/app.js) --
+     touch-action:none stops the browser's own touch scroll/pinch-zoom from
+     fighting our JS for the same gesture. */
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+.stage__inner.is-panning { cursor: grabbing; }
+
+/* Transformed (translate + scale) as one unit by the pan/zoom controller --
+   both the raster background photo and the SVG overlay stay perfectly in
+   sync since they're siblings inside this wrapper, sized identically. The
+   wrapper's own layout size (and therefore .stage__inner's clipping
+   viewport) is unaffected by the transform, since CSS transforms never
+   change layout/box size -- only paint position -- which is exactly the
+   "fixed viewport, scrollable/zoomable content" behavior pan/zoom needs. */
+.zoom-target {
+  position: relative;
+  transform-origin: 0 0;
+  will-change: transform;
 }
 
 .mp-image {
@@ -113,134 +133,119 @@ body {
   width: 100%;
   height: auto;
   user-select: none;
+  pointer-events: none;
 }
 
+/* Real SVG overlay (viewBox = the source image's native pixel size) instead of
+   an HTML div positioned with percentages -- unit boxes/tags/numbers are now
+   vector shapes that stay crisp at any zoom level instead of the old
+   percentage-positioned HTML overlay, which was fine unzoomed but never
+   needed to render sharp at 4-6x magnification before. */
 .mp-overlay {
   position: absolute;
   inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.mp-block {
-  position: absolute;
-  display: flex;
+.mp-unit { cursor: pointer; }
+
+.mp-unit__cell {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 2.2;
+  transition: filter 0.12s ease;
 }
 
-.mp-block[data-orientation="col"] {
-  flex-direction: column;
-}
-
-.mp-unit {
-  position: relative;
-  flex: 1 1 0;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.08);
-  transition: filter 0.12s ease, transform 0.12s ease;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  justify-content: center;
-}
-
-.mp-unit:hover {
+.mp-unit:hover .mp-unit__cell {
   filter: brightness(1.35) saturate(1.2);
-  z-index: 5;
 }
 
 .mp-unit__no {
-  font-size: 6.5px;
+  font-size: 14px;
   font-weight: 700;
-  color: rgba(20, 20, 20, 0.75);
+  fill: rgba(20, 20, 20, 0.75);
   pointer-events: none;
-  line-height: 1;
+  text-anchor: middle;
+  dominant-baseline: central;
 }
 
 .mp-unit--sold .mp-unit__no { display: none; }
 .mp-unit--hold .mp-unit__no { display: none; }
 
-.mp-unit__tag {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.mp-unit__tag,
+.mp-unit__tag--img {
   pointer-events: none;
+}
+
+.mp-unit__tag-bg {
+  /* Hold/"Show Unit" badge fill -- the SOLD stamp is its own image asset
+     (assets/sold-tag.svg) and doesn't use this class. */
+  fill: rgba(180, 120, 6, 0.92);
+}
+
+.mp-unit__tag-text {
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.02em;
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.mp-unit--sold .mp-unit__tag {
-  /* Badge (not filling the cell) -- the cell's own background is now the
-     unit's type color (set inline per-unit from data), and the point of this
-     redesign is to keep that color visible with a SOLD marker on top, like
-     the reference master plan's small "terjual" dot -- just sized up a
-     little from the original small badge per feedback. */
-  width: 80%;
-  height: 60%;
-  align-self: center;
-}
-/* Stamped "SOLD" image asset instead of rendered text -- reads clearly at any
-   size, including the very small unit cells on mobile, where 5-6px CSS text
-   got too thin/cramped to read. */
-.mp-unit__tag--img {
-  /* SVG (not a raster crop of the reference sticker) -- a bitmap downscaled to
-     these very small cell sizes (some units render at under 20px) aliased
-     unpredictably, making "SOLD" garble into noise on some cells depending on
-     sub-pixel alignment. A vector redraw of the same tilted-stamp design (bold
-     white "SOLD" on a red rounded rect, drop shadow, transparent margins)
-     stays crisp at any size. */
-  background-image: url("../assets/sold-tag.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  /* "contain" (not stretched to 100% 100%) -- the source has a fixed aspect
-     ratio, and stretching it to fill narrow/tall cells would squash the text.
-     No background-color fallback here (unlike the old flat design): the
-     stamp's own background is transparent outside the tilted rect, so the
-     unit's type color underneath shows through around it, same as the
-     reference sticker sitting on top of a colored lot. */
-  background-size: contain;
-}
-
-.mp-unit--hold .mp-unit__tag {
-  font-size: 5px;
-  background: rgba(180, 120, 6, 0.92);
-  width: 55%;
-  height: 40%;
-  border-radius: 2px;
+  fill: #fff;
+  text-anchor: middle;
+  dominant-baseline: central;
 }
 
 /* "Belum Dijual" units: fully inert, no overlay/number/popup -- reads exactly like an
    untouched part of the source drawing (e.g. E2), not a marked, clickable unit. */
-.mp-unit--unreleased {
-  background: transparent;
-  border-color: transparent;
+.mp-unit--unreleased .mp-unit__cell {
+  fill: transparent;
+  stroke: transparent;
 }
-.mp-unit--unreleased:hover { filter: none; }
-.mp-unit--unreleased .mp-unit__no { display: none; }
-.mp-unit--unreleased .mp-unit__tag { display: none; }
-
-.mp-block[data-orientation="row"] .mp-unit { border-top: none; border-bottom: none; }
-.mp-block[data-orientation="col"] .mp-unit { border-left: none; border-right: none; }
+.mp-unit--unreleased:hover .mp-unit__cell { filter: none; }
 
 /* Community facility marker (mosque, etc.) -- transparent by default so the printed
    building label/roofline on the base image stays readable, with a soft gold highlight
-   on hover/tap to show it's clickable. clip-path (set inline from data) follows the
-   building's real footprint, not its bounding box. */
+   on hover/tap to show it's clickable. Rendered as a real polygon (from data's
+   clipPath points) when the building's footprint is irregular, or a plain rect
+   otherwise -- not a masked rectangle. */
 .mp-facility {
-  position: absolute;
   cursor: pointer;
-  background: rgba(216, 180, 106, 0);
-  transition: background 0.12s ease, filter 0.12s ease;
+  fill: rgba(216, 180, 106, 0);
+  transition: fill 0.12s ease, filter 0.12s ease;
 }
 .mp-facility:hover,
 .mp-facility:active {
-  background: rgba(216, 180, 106, 0.32);
+  fill: rgba(216, 180, 106, 0.32);
   filter: brightness(1.1);
 }
+
+/* Zoom controls (+/-/reset), floating over the bottom-right corner of the map. */
+.zoom-controls {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zoom-controls button {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel-bg);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+.zoom-controls button:active { transform: scale(0.94); }
+.zoom-controls #zoom-reset { font-size: 15px; }
 
 /* Legend panel */
 .legend-panel {
@@ -462,19 +467,13 @@ body {
     align-items: stretch;
   }
 
-  /* The map has ~260 small clickable units -- shrinking it to the viewport width
-     makes them untappable. Instead give it a sane minimum size and let the user
-     pan it horizontally (pinch-zoom still works natively on top of this). */
+  /* The map has ~260 small clickable units -- too small to tap reliably at full-width
+     on a phone. Our own pinch-to-zoom (js/app.js) handles that now, so the map just
+     fills the viewport width and the user pinches/double-tap-drags in to tap a unit,
+     instead of the old forced-min-width + horizontal-scroll workaround. */
   .stage__inner {
-    min-width: 640px;
     max-width: none;
-    border-radius: var(--radius) 0 0 var(--radius);
-  }
-  .stage__scroll {
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-right: 12px;
+    border-radius: var(--radius);
   }
 
   .legend-panel {
