@@ -632,7 +632,9 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 C1",
 ))
 BLOCKS.append(make_block(
-    "D1", "tahap1", (1555, 2530, 1632, 3228), 16, "ttb",
+    # Revisi (25 Sep 2026): dikonfirmasi owner -- D1 nomornya 1-19 tapi skip "04" dan
+    # "14", jadi 17 unit fisik, bukan 16 rata 1-16 (sama seperti D2).
+    "D1", "tahap1", (1555, 2530, 1632, 3228), 17, "ttb", skip_numbers={4, 14},
     type_key="TAHAP1", street="JL. TAHAP 1 D1",
 ))
 

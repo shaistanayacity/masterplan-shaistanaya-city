@@ -3984,7 +3984,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "04",
+          "no": "05",
           "cell": 3,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -3996,7 +3996,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "05",
+          "no": "06",
           "cell": 4,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4008,7 +4008,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "06",
+          "no": "07",
           "cell": 5,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4020,7 +4020,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "07",
+          "no": "08",
           "cell": 6,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4032,7 +4032,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "08",
+          "no": "09",
           "cell": 7,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4044,7 +4044,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "09",
+          "no": "10",
           "cell": 8,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4056,7 +4056,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "10",
+          "no": "11",
           "cell": 9,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4068,7 +4068,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "11",
+          "no": "12",
           "cell": 10,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4080,7 +4080,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "12",
+          "no": "13",
           "cell": 11,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4092,7 +4092,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "13",
+          "no": "15",
           "cell": 12,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4104,7 +4104,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "14",
+          "no": "16",
           "cell": 13,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4116,7 +4116,7 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "15",
+          "no": "17",
           "cell": 14,
           "type": "Kavling Tahap 1",
           "lb": null,
@@ -4128,8 +4128,20 @@ const MASTERPLAN_DATA = {
           "statusLabel": null
         },
         {
-          "no": "16",
+          "no": "18",
           "cell": 15,
+          "type": "Kavling Tahap 1",
+          "lb": null,
+          "lt": null,
+          "price": null,
+          "render": null,
+          "color": "#c2beb8",
+          "status": "SOLD",
+          "statusLabel": null
+        },
+        {
+          "no": "19",
+          "cell": 16,
           "type": "Kavling Tahap 1",
           "lb": null,
           "lt": null,
