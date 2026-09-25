@@ -3456,9 +3456,9 @@ const MASTERPLAN_DATA = {
       "cluster": "tahap1",
       "box": {
         "left": 65.309,
-        "top": 25.089,
+        "top": 24.733,
         "width": 3.234,
-        "height": 12.708
+        "height": 11.936
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 B1",
