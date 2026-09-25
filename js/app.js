@@ -49,6 +49,56 @@
       .join(" ");
   }
 
+  // Shared gradient/shadow defs for the SOLD stamp (added once, referenced by every
+  // SOLD tag via url(#...)) -- see createSoldTag() for why this replaced an <image>
+  // pointing at assets/sold-tag.svg.
+  function ensureSoldDefs() {
+    if (overlay.querySelector("#soldFill")) return;
+    const defs = svgEl("defs");
+    const grad = svgEl("linearGradient", { id: "soldFill", x1: "0%", y1: "0%", x2: "100%", y2: "100%" });
+    grad.appendChild(svgEl("stop", { offset: "0%", "stop-color": "#ee3a35" }));
+    grad.appendChild(svgEl("stop", { offset: "100%", "stop-color": "#c8171c" }));
+    defs.appendChild(grad);
+    const filter = svgEl("filter", { id: "soldShadow", x: "-30%", y: "-30%", width: "160%", height: "160%" });
+    filter.appendChild(svgEl("feDropShadow", {
+      dx: "4", dy: "6", stdDeviation: "6", "flood-color": "#000000", "flood-opacity": "0.35",
+    }));
+    defs.appendChild(filter);
+    overlay.appendChild(defs);
+  }
+
+  // The SOLD stamp (tilted red badge, white "SOLD" text) as real inline SVG shapes,
+  // mirroring assets/sold-tag.svg's own markup (viewBox 0 0 400 242) instead of
+  // loading it via <image href="...">. An <image> referencing an external SVG gets
+  // rasterized once by the browser at its initial displayed size, so it looked crisp
+  // at rest but went blurry once zoomed in via our CSS transform -- native shapes in
+  // the same SVG document stay vector and redraw sharp at any zoom.
+  function createSoldTag(cx, cy, tagW, tagH) {
+    const scale = Math.min(tagW / 400, tagH / 242);
+    const ox = (cx - tagW / 2) + (tagW - 400 * scale) / 2;
+    const oy = (cy - tagH / 2) + (tagH - 242 * scale) / 2;
+    const g = svgEl("g", {
+      class: "mp-unit__tag mp-unit__tag--img",
+      transform: `translate(${ox.toFixed(2)} ${oy.toFixed(2)}) scale(${scale.toFixed(4)})`,
+    });
+    const shadowG = svgEl("g", { filter: "url(#soldShadow)" });
+    const tiltG = svgEl("g", { transform: "rotate(-12 200 121)" });
+    tiltG.appendChild(svgEl("rect", {
+      x: "35", y: "71", width: "330", height: "100", rx: "18",
+      fill: "url(#soldFill)", stroke: "#ffffff", "stroke-width": "6",
+    }));
+    const text = svgEl("text", {
+      x: "200", y: "141", "text-anchor": "middle",
+      "font-family": "Arial, Helvetica, sans-serif", "font-weight": "800",
+      "font-size": "66", fill: "#ffffff", "letter-spacing": "2",
+    });
+    text.textContent = "SOLD";
+    tiltG.appendChild(text);
+    shadowG.appendChild(tiltG);
+    g.appendChild(shadowG);
+    return g;
+  }
+
   const popup = document.getElementById("unit-popup");
   const popupBackdrop = document.getElementById("unit-popup-backdrop");
   const popupClose = document.getElementById("unit-popup-close");
@@ -84,6 +134,7 @@
 
   // ---------- Render unit overlays (real SVG shapes, sharp at any zoom) ----------
   function renderBlocks() {
+    ensureSoldDefs();
     data.blocks.forEach((block) => {
       const box = pxBox(block.box);
       const units = block.units.slice().sort((a, b) => a.cell - b.cell);
@@ -162,20 +213,12 @@
 
         if (unit.status === "SOLD" || (unit.status === "HOLD" && !isUnreleased)) {
           if (unit.status === "SOLD") {
-            // Stamped SVG image asset (bold, crisp at any size) instead of rendered
-            // text -- badge sized at 80%x60% of the cell, not filling it, so the
-            // cell's own type color still shows around it (same as the reference
-            // master plan's small "terjual" sticker sitting on a colored lot).
+            // Native vector stamp (bold, crisp at any zoom) instead of rendered text
+            // or an <image> reference -- badge sized at 80%x60% of the cell, not
+            // filling it, so the cell's own type color still shows around it (same
+            // as the reference master plan's small "terjual" sticker on a colored lot).
             const tagW = bb.width * 0.8, tagH = bb.height * 0.6;
-            const img = svgEl("image", {
-              class: "mp-unit__tag mp-unit__tag--img",
-              x: (cx - tagW / 2).toFixed(2), y: (cy - tagH / 2).toFixed(2),
-              width: tagW.toFixed(2), height: tagH.toFixed(2),
-              preserveAspectRatio: "xMidYMid meet",
-              href: "assets/sold-tag.svg",
-            });
-            img.setAttributeNS("http://www.w3.org/1999/xlink", "href", "assets/sold-tag.svg");
-            g.appendChild(img);
+            g.appendChild(createSoldTag(cx, cy, tagW, tagH));
           } else {
             // Hold/"Show Unit" units keep the short text label since there's no
             // equivalent stamp asset.
