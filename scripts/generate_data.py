@@ -91,21 +91,23 @@ TYPES = {
 def unit_no(n):
     return f"{n:02d}"
 
-def label_sequence(n):
-    """First n positive integers, skipping 4 -- no block in this project has a unit
-    numbered 4 (numbering goes ...,03,05,...). Confirmed by the owner for the blocks
-    that pass skip_four=True to make_block()."""
+def label_sequence(n, skip=frozenset({4})):
+    """First n positive integers, skipping any number in `skip` -- defaults to just 4
+    (no block in this project has a unit numbered 4, numbering goes ...,03,05,...).
+    Some blocks (e.g. C2) skip every number containing a 4 -- pass skip_numbers to
+    make_block() for those instead of the plain skip_four=True shorthand."""
     seq = []
     k = 1
     while len(seq) < n:
-        if k != 4:
+        if k not in skip:
             seq.append(k)
         k += 1
     return seq
 
 def make_block(block_id, cluster, box_px, count, direction, type_key,
                 available=None, hold=None, hold_label="SHOW UNIT",
-                hold_labels=None, overrides=None, street="", skip_four=False):
+                hold_labels=None, overrides=None, street="", skip_four=False,
+                skip_numbers=None):
     """
     direction: 'rtl' (01 at right, N at left) | 'ltr' (01 at left)
                 'btt' (01 at bottom, N at top) | 'ttb' (01 at top)
@@ -114,14 +116,22 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
     hold_label: default popup label for any HOLD unit in this block
     hold_labels: {unit_no: label} to override hold_label for specific units
     overrides: {unit_no: type_key} for hook units with special price
-    skip_four: use label_sequence() instead of a plain 1..count run
+    skip_four: use label_sequence() (skipping just "4") instead of a plain 1..count run
+    skip_numbers: set of specific numbers to skip instead of just {4} -- implies
+    skip_four's behavior, just with a custom skip set (e.g. {4, 14, 24} for a block
+    whose real lots skip every number containing a 4)
     """
     available = available or set()
     hold = hold or set()
     hold_labels = hold_labels or {}
     overrides = overrides or {}
     orientation = "row" if direction in ("rtl", "ltr") else "col"
-    order = label_sequence(count) if skip_four else list(range(1, count + 1))
+    if skip_numbers:
+        order = label_sequence(count, skip_numbers)
+    elif skip_four:
+        order = label_sequence(count)
+    else:
+        order = list(range(1, count + 1))
     if direction in ("rtl", "btt"):
         order = list(reversed(order))  # cell 0 (visually first/left-or-top) gets the highest number
 
@@ -583,7 +593,10 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 B2",
 ))
 BLOCKS.append(make_block(
-    "C2", "tahap1", (1374, 1340, 1474, 2430), 26, "ttb",
+    # Revisi (25 Sep 2026): dikonfirmasi owner -- C2 nomornya 1-30 tapi skip semua
+    # angka yang mengandung "4" (04, 14, 24 gak ada), jadi 27 unit fisik, bukan 26
+    # rata 1-26.
+    "C2", "tahap1", (1374, 1340, 1474, 2430), 27, "ttb", skip_numbers={4, 14, 24},
     type_key="TAHAP1", street="JL. TAHAP 1 C2",
 ))
 BLOCKS.append(make_block(
