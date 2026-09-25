@@ -71,8 +71,12 @@
           // Fill with the unit's own type color (matching the legend) instead of a
           // flat status tint, so the site plan reads by type/cluster like the
           // reference master plan -- status is shown via the small SOLD/Show Unit
-          // tag on top, not by recoloring the whole cell.
-          if (!isUnreleased && unit.color) {
+          // tag on top, not by recoloring the whole cell. Skipped for "tahap1" --
+          // those are plain land kavling with no house type/legend color to show,
+          // so tinting them grey didn't convey anything and just looked like an
+          // arbitrary mark on the still-available units (e.g. B1 01-03). Left plain
+          // white instead, matching the untouched/hold look.
+          if (!isUnreleased && unit.color && block.cluster !== "tahap1") {
             cell.style.background = hexToRgba(unit.color, 0.62);
           }
 

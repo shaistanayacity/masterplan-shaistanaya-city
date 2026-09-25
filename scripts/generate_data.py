@@ -600,13 +600,14 @@ BLOCKS.append(make_block(
 ))
 BLOCKS.append(make_block(
     # Revisi (25 Sep 2026): B1 sebenarnya 8 unit (01,02,03,05,06,07,08,09 -- skip
-    # "04"), bukan 5 rata. Dikonfirmasi owner: 01,02,03,09 masih TERSEDIA (putih,
-    # tanpa tanda di gambar sumber), 05,06,07,08 SOLD (ada titik merah di gambar
-    # sumber). Box juga dikoreksi (833-1235, dari 845-1273) -- baris bawahnya
-    # kepanjangan ~25px dari batas asli, jadi tag makin lama makin geser dari
-    # garis unitnya (pola yang sama seperti bug F1/F2 sebelumnya).
+    # "04"), bukan 5 rata. Dikonfirmasi owner: 01,02,03 masih TERSEDIA, 05,06,07,08
+    # SOLD (ada titik merah di gambar sumber), dan 09 (dikira TERSEDIA di revisi
+    # sebelumnya, ternyata SOLD juga -- dikoreksi owner). Box juga dikoreksi
+    # (833-1235, dari 845-1273) -- baris bawahnya kepanjangan ~25px dari batas asli,
+    # jadi tag makin lama makin geser dari garis unitnya (pola yang sama seperti bug
+    # F1/F2 sebelumnya).
     "B1", "tahap1", (1555, 833, 1632, 1235), 8, "ttb", skip_four=True,
-    available={1, 2, 3, 9},
+    available={1, 2, 3},
     type_key="TAHAP1", street="JL. TAHAP 1 B1",
 ))
 BLOCKS.append(make_block(

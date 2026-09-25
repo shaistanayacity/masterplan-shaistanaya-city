@@ -3556,7 +3556,7 @@ const MASTERPLAN_DATA = {
           "price": null,
           "render": null,
           "color": "#c2beb8",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null
         }
       ]
