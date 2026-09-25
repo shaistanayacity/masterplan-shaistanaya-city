@@ -311,7 +311,6 @@ body {
 .dot--sold { background: var(--sold); }
 .dot--hold { background: var(--hold); }
 .dot--unreleased { background: #ffffff; border: 1px solid rgba(255,255,255,0.4); }
-.dot--ready { background: var(--ready); }
 
 /* Unit popup */
 .unit-popup__backdrop {
