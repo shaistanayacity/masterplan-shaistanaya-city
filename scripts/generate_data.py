@@ -545,7 +545,11 @@ RUKO_MAIN_ENTRIES = [(_bbox(poly), poly) for poly in RUKO_MAIN_POLYGONS]
 # tag height, but once the SOLD tag was made taller (90%) the red box visibly
 # overflowed into that empty area. Confirmed by sampling the source image's fill
 # color column-by-column: the taupe lot color only starts at y=750.
-CORNER_RIGHT_BOX = (1565, 750, 1635, 834)
+# Top y changed again (25 Sep 2026) to 653 per owner request: the dashed-outline
+# area above the taupe fill (between the road edge and y=750) is part of this
+# lot too (e.g. a carport/canopy setback), so the clickable box now covers it as
+# well instead of stopping at the plain color fill.
+CORNER_RIGHT_BOX = (1565, 653, 1635, 834)
 crx1, cry1, crx2, cry2 = CORNER_RIGHT_BOX
 crxm = (crx1 + crx2) // 2
 CORNER_RIGHT_ENTRIES = [((crxm, cry1, crx2, cry2), None), ((crx1, cry1, crxm, cry2), None)]  # "01","02"

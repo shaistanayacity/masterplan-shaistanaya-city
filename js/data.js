@@ -2090,9 +2090,9 @@ const MASTERPLAN_DATA = {
       "cluster": "ruko",
       "box": {
         "left": 67.199,
-        "top": 22.268,
+        "top": 19.388,
         "width": 1.47,
-        "height": 2.494
+        "height": 5.374
       },
       "orientation": "row",
       "street": "JL. RUKO A",
@@ -2117,9 +2117,9 @@ const MASTERPLAN_DATA = {
       "cluster": "ruko",
       "box": {
         "left": 65.729,
-        "top": 22.268,
+        "top": 19.388,
         "width": 1.47,
-        "height": 2.494
+        "height": 5.374
       },
       "orientation": "row",
       "street": "JL. RUKO A",
