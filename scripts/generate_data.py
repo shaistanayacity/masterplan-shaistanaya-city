@@ -623,7 +623,10 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 B1",
 ))
 BLOCKS.append(make_block(
-    "C1", "tahap1", (1555, 1328, 1632, 2458), 27, "ttb",
+    # Revisi (25 Sep 2026): dikonfirmasi owner -- C1 nomornya 1-31 tapi skip semua
+    # angka yang mengandung "4" (04, 14, 24 gak ada), jadi 28 unit fisik, bukan 27
+    # rata 1-27.
+    "C1", "tahap1", (1555, 1328, 1632, 2458), 28, "ttb", skip_numbers={4, 14, 24},
     type_key="TAHAP1", street="JL. TAHAP 1 C1",
 ))
 BLOCKS.append(make_block(
