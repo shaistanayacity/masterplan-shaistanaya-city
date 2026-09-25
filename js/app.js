@@ -80,7 +80,11 @@
             cell.style.background = hexToRgba(unit.color, 0.62);
           }
 
-          if (!isUnreleased) {
+          // Tahap 1 kavling already print their own lot number on the base image, so
+          // our overlay number is redundant -- and per owner feedback, the
+          // still-available ones (e.g. B1 01-03) should look as blank as an
+          // unreleased cell instead of drawing attention with a duplicate number.
+          if (!isUnreleased && block.cluster !== "tahap1") {
             const noSpan = document.createElement("span");
             noSpan.className = "mp-unit__no";
             noSpan.textContent = unit.no;
