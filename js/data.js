@@ -3251,8 +3251,8 @@ const MASTERPLAN_DATA = {
       "box": {
         "left": 59.723,
         "top": 75.238,
-        "width": 2.226,
-        "height": 19.448
+        "width": 3.948,
+        "height": 18.973
       },
       "orientation": "col",
       "street": "JL. TAHAP 1 D2",

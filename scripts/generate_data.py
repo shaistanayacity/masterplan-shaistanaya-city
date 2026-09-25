@@ -584,7 +584,11 @@ BLOCKS.append(make_block(
     type_key="TAHAP1", street="JL. TAHAP 1 C2",
 ))
 BLOCKS.append(make_block(
-    "D2", "tahap1", (1422, 2534, 1475, 3189), 16, "ttb",
+    # Revisi (25 Sep 2026): per permintaan owner, ukuran tiap kotak unit disamakan
+    # persis dengan F2-01 (3,948% x 1,186% dari gambar) -- bukan hasil sampling batas
+    # lot asli seperti blok lain. Sengaja TIDAK mengikuti garis lot sebenarnya di
+    # gambar sumber untuk blok ini.
+    "D2", "tahap1", (1422, 2534, 1516, 3173), 16, "ttb",
     type_key="TAHAP1", street="JL. TAHAP 1 D2",
 ))
 BLOCKS.append(make_block(
