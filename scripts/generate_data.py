@@ -283,6 +283,16 @@ FACILITIES.append(make_facility(
     render="assets/renders/masjid-an-nur.jpg",
 ))
 
+# Basketball court -- the narrow "LAPANGAN" green strip between F11/F12 and the west
+# perimeter hedge. Already a plain axis-aligned rectangle on the source image, so no
+# clip-path polygon is needed here (unlike the mosque's irregular footprint).
+FACILITIES.append(make_facility(
+    "LAPANGAN", "Basketball Court",
+    box_px=(827, 2822, 867, 2989),
+    desc="Lapangan basket warga",
+    render="assets/renders/basketball-court.jpg",
+))
+
 BLOCKS.append(make_block(
     # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
     # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang Show Unit;

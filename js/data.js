@@ -4168,6 +4168,19 @@ const MASTERPLAN_DATA = {
           1.46
         ]
       ]
+    },
+    {
+      "id": "LAPANGAN",
+      "name": "Basketball Court",
+      "desc": "Lapangan basket warga",
+      "render": "assets/renders/basketball-court.jpg",
+      "box": {
+        "left": 34.733,
+        "top": 83.789,
+        "width": 1.68,
+        "height": 4.958
+      },
+      "clipPath": null
     }
   ]
 };
