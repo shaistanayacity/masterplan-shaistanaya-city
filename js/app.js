@@ -116,7 +116,6 @@
   const upStatus = document.getElementById("up-status");
   const upType = document.getElementById("up-type");
   const upAddr = document.getElementById("up-addr");
-  const upPrices = document.getElementById("up-prices");
   const upRender = document.getElementById("up-render");
 
   const CLUSTER_LABEL = {
@@ -125,11 +124,6 @@
     ruko: "Ruko (Sold Out)",
     tahap1: "Tahap 1 (Sold Out)",
   };
-
-  function fmtRupiah(n) {
-    if (n === null || n === undefined) return null;
-    return "Rp" + n.toLocaleString("id-ID");
-  }
 
   function fmtLT(v) {
     return (typeof v === "number" && v % 1 !== 0) ? v.toFixed(1).replace(".", ",") : v;
@@ -482,7 +476,6 @@
 
     upType.hidden = true;
     upAddr.hidden = true;
-    upPrices.innerHTML = "";
 
     popup.hidden = false;
     popupBackdrop.hidden = false;
@@ -521,28 +514,6 @@
       ? `${unit.type} · LT ${fmtLT(unit.lt)} m²`
       : unit.type;
     upAddr.textContent = `${block.street || ("Blok " + block.id)} No. ${unit.no} — Shaistanaya City`;
-
-    upPrices.innerHTML = "";
-    if (unit.price) {
-      const box = document.createElement("div");
-      box.className = "price-box";
-      box.innerHTML = `<div class="price-box__label">Harga Jual</div><div class="price-box__value">${fmtRupiah(unit.price)}</div>`;
-      upPrices.appendChild(box);
-      const note = document.createElement("div");
-      note.className = "price-box__note";
-      note.textContent = "Harga list sebelum diskon — periode " + (data.periode || "");
-      upPrices.appendChild(note);
-    } else if (unit.status === "SOLD") {
-      const note = document.createElement("div");
-      note.className = "price-box__note";
-      note.textContent = "Unit ini sudah terjual.";
-      upPrices.appendChild(note);
-    } else {
-      const note = document.createElement("div");
-      note.className = "price-box__note";
-      note.textContent = "Hubungi tim sales kami untuk info harga terbaru.";
-      upPrices.appendChild(note);
-    }
 
     popup.hidden = false;
     popupBackdrop.hidden = false;
