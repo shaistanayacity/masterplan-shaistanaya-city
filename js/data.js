@@ -3249,7 +3249,7 @@ const MASTERPLAN_DATA = {
       "id": "D2",
       "cluster": "tahap1",
       "box": {
-        "left": 59.723,
+        "left": 58.001,
         "top": 75.238,
         "width": 3.948,
         "height": 18.973
