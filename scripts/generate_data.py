@@ -293,6 +293,23 @@ FACILITIES.append(make_facility(
     render="assets/renders/basketball-court.jpg",
 ))
 
+# Outdoor gym & BBQ pit -- small red fan-shaped rubber-floor icon (matches the render's
+# red flooring) tucked next to the B1 tahap1 column near ROW 14. Traced the same way as
+# the mosque: color-threshold contour of the red icon itself, isolated from the
+# neighboring grey lot and road pixels.
+FACILITIES.append(make_facility(
+    "GYM", "Outdoor Gym & Barbeque Pit",
+    box_px=(1558, 1259, 1595, 1314),
+    polygon_px=[
+        (1565, 1259), (1562, 1262), (1562, 1281), (1558, 1283),
+        (1562, 1286), (1562, 1314), (1576, 1314), (1583, 1305),
+        (1591, 1302), (1595, 1283), (1591, 1277), (1591, 1272),
+        (1582, 1270), (1582, 1262),
+    ],
+    desc="Area olahraga outdoor & barbeque pit warga",
+    render="assets/renders/outdoor-gym.jpg",
+))
+
 BLOCKS.append(make_block(
     # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
     # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang Show Unit;
