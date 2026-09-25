@@ -322,6 +322,14 @@ FACILITIES.append(make_facility(
     render="assets/renders/gerbang-sierra.jpg",
 ))
 
+# Cluster Montana gate -- the tan+red-striped "ROW 14" icon near F1/F2, between the
+# C2/D2 tahap1 columns further down. Same shape family as the Sierra gate.
+FACILITIES.append(make_facility(
+    "GERBANG_MONTANA", "Gate Cluster Montana",
+    box_px=(1296, 2433, 1463, 2529),
+    render="assets/renders/gerbang-montana.jpg",
+))
+
 BLOCKS.append(make_block(
     # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
     # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang Show Unit;

@@ -4220,6 +4220,19 @@ const MASTERPLAN_DATA = {
         "height": 1.603
       },
       "clipPath": null
+    },
+    {
+      "id": "GERBANG_MONTANA",
+      "name": "Gate Cluster Montana",
+      "desc": "",
+      "render": "assets/renders/gerbang-montana.jpg",
+      "box": {
+        "left": 54.431,
+        "top": 72.239,
+        "width": 7.014,
+        "height": 2.85
+      },
+      "clipPath": null
     }
   ]
 };
