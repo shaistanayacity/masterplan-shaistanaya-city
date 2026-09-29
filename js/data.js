@@ -4321,6 +4321,18 @@ const MASTERPLAN_DATA = {
         "height": 2.85
       },
       "clipPath": null
+    },
+    {
+      "id": "GERBANG_UTAMA",
+      "name": "Gerbang Utama Shaistanaya City",
+      "render": "assets/renders/entrance.jpg",
+      "box": {
+        "left": 60.437,
+        "top": 19.181,
+        "width": 4.83,
+        "height": 1.455
+      },
+      "clipPath": null
     }
   ]
 };

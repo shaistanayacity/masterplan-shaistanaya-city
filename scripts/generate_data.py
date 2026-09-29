@@ -344,6 +344,16 @@ FACILITIES.append(make_facility(
     render="assets/renders/gerbang-montana.jpg",
 ))
 
+# Main project entrance -- the small green rounded tab at ROW 19, right where the
+# entrance driveway meets the road between the two Ruko halves (A1/A2 on the right,
+# A3/A5 on the left). Box padded generously beyond the icon's own tiny pixel footprint
+# (~47x13px at native res) so it stays tappable on mobile.
+FACILITIES.append(make_facility(
+    "GERBANG_UTAMA", "Gerbang Utama Shaistanaya City",
+    box_px=(1439, 646, 1554, 695),
+    render="assets/renders/entrance.jpg",
+))
+
 BLOCKS.append(make_block(
     # Revisi (2 Sep 2026, dikoreksi lagi): E7 dan E8 sebelumnya kegabung jadi satu blok --
     # sekarang dipisah. E7 BUKAN blok yang sudah terjual habis: cuma unit 05 yang Show Unit;
