@@ -185,13 +185,17 @@
       const n = units.length;
 
       units.forEach((unit, i) => {
+        // A unit's own clipPath (per-unit -- e.g. E3, a tilted row split into tilted
+        // sub-quads) takes priority; a single-unit block's clipPath (e.g. Ruko, one
+        // polygon = one block = one unit) is the fallback for blocks that set it at
+        // the block level instead. Either way its true shape is a polygon, not a
+        // slice of the bounding box.
+        const clipPath = unit.clipPath || block.clipPath;
+
         // Divide the block's box into `n` equal cells along its main axis -- same
-        // split the old flexbox layout did, just computed in viewBox px now. Blocks
-        // with a clipPath (single precisely-placed lots, e.g. the tilted Ruko row)
-        // have exactly one unit, whose true shape is the polygon itself, not a slice
-        // of the bounding box.
+        // split the old flexbox layout did, just computed in viewBox px now.
         let cellBox = null;
-        if (!block.clipPath) {
+        if (!clipPath) {
           if (block.orientation === "col") {
             const h = box.height / n;
             cellBox = { left: box.left, top: box.top + i * h, width: box.width, height: h };
@@ -214,10 +218,10 @@
         g.appendChild(titleEl);
 
         let cell;
-        if (block.clipPath) {
+        if (clipPath) {
           cell = svgEl("polygon", {
             class: "mp-unit__cell",
-            points: clipPathToPoints(block.clipPath, box),
+            points: clipPathToPoints(clipPath, box),
           });
         } else {
           cell = svgEl("rect", {
@@ -239,17 +243,16 @@
         }
         g.appendChild(cell);
 
-        // Where labels sit/tilt: a polygon cell (e.g. the tilted Ruko row) gets its
-        // rotation computed straight from its own true shape (getLabelTransform), so
-        // its number/SOLD/SU labels read parallel to the lot's long side instead of
-        // sitting axis-aligned against a slanted cell. A plain rectangular cell has
-        // no polygon to derive an angle from, so it falls back to the block's own
-        // manually-measured block.tagRotate (e.g. E3, which sits on a visibly tilted
-        // diagonal boundary road) -- 0 for every other (already-upright) block, so
-        // nothing there changes.
+        // Where labels sit/tilt: a polygon cell (e.g. the tilted Ruko row, or E3's own
+        // per-unit sub-quads) gets its rotation computed straight from its own true
+        // shape (getLabelTransform), so its number/SOLD/SU labels read parallel to the
+        // lot's long side instead of sitting axis-aligned against a slanted cell. A
+        // plain rectangular cell has no polygon to derive an angle from, so it falls
+        // back to the block's own manually-measured block.tagRotate -- 0 for every
+        // block that doesn't set it, so nothing there changes.
         let labelCx, labelCy, labelAngle, labelW, labelH;
-        if (block.clipPath) {
-          const t = getLabelTransform(clipPathToAbsPoints(block.clipPath, box));
+        if (clipPath) {
+          const t = getLabelTransform(clipPathToAbsPoints(clipPath, box));
           labelCx = t.cx; labelCy = t.cy; labelAngle = t.angle;
           labelW = t.width; labelH = t.height;
         } else {

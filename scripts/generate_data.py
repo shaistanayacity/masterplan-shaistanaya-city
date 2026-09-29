@@ -104,10 +104,38 @@ def label_sequence(n, skip=frozenset({4})):
         k += 1
     return seq
 
+def _lerp(p0, p1, t):
+    return (p0[0] + (p1[0] - p0[0]) * t, p0[1] + (p1[1] - p0[1]) * t)
+
+def _subdivide_quad(quad, n):
+    """quad: [top_left, top_right, bottom_right, bottom_left] (full-image pixel corners).
+    Splits it into n equal-width sub-quadrilaterals left-to-right by interpolating along
+    the top edge (top_left -> top_right) and bottom edge (bottom_left -> bottom_right) --
+    the general version of an even row/column split, but for a row that's a tilted
+    quadrilateral (a road-facing block sloped like E3) instead of an axis-aligned box."""
+    tl, tr, br, bl = quad
+    subs = []
+    for i in range(n):
+        f0, f1 = i / n, (i + 1) / n
+        top0, top1 = _lerp(tl, tr, f0), _lerp(tl, tr, f1)
+        bot0, bot1 = _lerp(bl, br, f0), _lerp(bl, br, f1)
+        subs.append([top0, top1, bot1, bot0])
+    return subs
+
+def _quad_bbox(quad):
+    xs = [p[0] for p in quad]
+    ys = [p[1] for p in quad]
+    return (min(xs), min(ys), max(xs), max(ys))
+
+def _quad_to_clip_path(quad, bbox):
+    bx1, by1, bx2, by2 = bbox
+    bw, bh = (bx2 - bx1), (by2 - by1)
+    return [(round((x - bx1) / bw * 100, 2), round((y - by1) / bh * 100, 2)) for x, y in quad]
+
 def make_block(block_id, cluster, box_px, count, direction, type_key,
                 available=None, hold=None, hold_label="SHOW UNIT",
                 hold_labels=None, overrides=None, street="", skip_four=False,
-                skip_numbers=None, tag_rotate_deg=None):
+                skip_numbers=None, tag_rotate_deg=None, quad_px=None):
     """
     direction: 'rtl' (01 at right, N at left) | 'ltr' (01 at left)
                 'btt' (01 at bottom, N at top) | 'ttb' (01 at top)
@@ -120,10 +148,15 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
     skip_numbers: set of specific numbers to skip instead of just {4} -- implies
     skip_four's behavior, just with a custom skip set (e.g. {4, 14, 24} for a block
     whose real lots skip every number containing a 4)
-    tag_rotate_deg: rotate the HOLD/"SU" tag by this many degrees to match a block
-    that sits on a tilted/diagonal row of the source image (e.g. E3, which slopes
-    along the diagonal boundary road) -- doesn't affect the SOLD stamp, which keeps
-    its own fixed stylistic tilt everywhere on the site.
+    tag_rotate_deg: rotate the HOLD/"SU" tag and SOLD stamp by this many degrees to
+    match a block that sits on a tilted/diagonal row of the source image (e.g. E3).
+    quad_px: optional [top_left, top_right, bottom_right, bottom_left] pixel corners
+    for a row that's a tilted quadrilateral rather than an axis-aligned box_px (e.g.
+    E3, which sits on the sloped boundary road) -- when given, box_px is ignored (pass
+    the quad's own bounding box, or anything, for clarity) and each unit gets its own
+    clipPath (a sub-quad from evenly splitting quad_px left-to-right), so the colored
+    cell/SOLD stamp/number follow the row's true tilt instead of an axis-aligned slice
+    that over/undershoots the real lot boundary above and below.
     """
     available = available or set()
     hold = hold or set()
@@ -138,6 +171,12 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
         order = list(range(1, count + 1))
     if direction in ("rtl", "btt"):
         order = list(reversed(order))  # cell 0 (visually first/left-or-top) gets the highest number
+
+    quad_bbox = None
+    sub_quads = None
+    if quad_px:
+        quad_bbox = _quad_bbox(quad_px)
+        sub_quads = _subdivide_quad(quad_px, count)
 
     units = []
     for cell_index, n in enumerate(order):
@@ -160,12 +199,13 @@ def make_block(block_id, cluster, box_px, count, direction, type_key,
             "color": t["color"],
             "status": status,
             "statusLabel": hold_labels.get(n, hold_label) if status == "HOLD" else None,
+            "clipPath": _quad_to_clip_path(sub_quads[cell_index], quad_bbox) if sub_quads else None,
         })
 
     return {
         "id": block_id,
         "cluster": cluster,
-        "box": pct_box(*box_px),
+        "box": pct_box(*quad_bbox) if quad_bbox else pct_box(*box_px),
         "orientation": orientation,
         "street": street,
         "tagRotate": tag_rotate_deg,
@@ -265,21 +305,23 @@ for no, ry1, ry2, tkey in E1_ROWS:
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): tersedia sisa 12,11,09/RC,06,05,03,01 -- lainnya SOLD.
     # No unit "04" in this block either -- 11 real lots, not 12.
-    # Revisi (25 Sep 2026): top-y sebelumnya (868) kepotong masuk ke baris blok "A" di
-    # atasnya (baris biru, bukan bagian E3) -- sampling piksel gambar sumber menunjukkan
-    # baris kuning E3 baru mulai di y=914, jadi warna kuning & tag SOLD-nya numpuk ke
-    # baris atas yang bukan miliknya. Diperbaiki jadi 914-1001 (pas di baris kuningnya).
-    # tag_rotate_deg: E3 sits on the diagonal boundary road, sloping ~-7deg (measured
-    # from the source image's own row boundary line), so its "SU" tag is rotated to
-    # match instead of sitting axis-aligned against a visibly tilted cell.
-    "E3", "sierra", (895, 914, 1365, 1001), 11, "rtl", skip_four=True,
+    # Revisi (29 Sep 2026): the row's own top/bottom boundary was an axis-aligned box
+    # (914-1001), an approximation loose enough that colored cells and rotated
+    # SOLD/SU labels visibly spilled above/below the row's real (tilted) printed
+    # boundary. Replaced with quad_px -- the row's true 4 corners, sampled by fitting
+    # a line through the yellow fill's top and bottom edge across the row's width
+    # (robust to the printed text/icons inside it) -- so each unit gets its own
+    # tilted sub-quad (like the Ruko row) instead of a straight slice of a box.
+    # tag_rotate_deg is no longer needed here -- make_block derives each unit's own
+    # label angle straight from its quad now, same mechanism as Ruko.
+    "E3", "sierra", None, 11, "rtl", skip_four=True,
     type_key="BIANCA_GARDEN",
     available={1, 3, 5, 6, 11, 12},
     hold={9},
     overrides={1: "BIANCA_DELUXE_HOOK", 7: "BIANCA_DELUXE", 8: "BIANCA_DELUXE",
                9: "BIANCA_DELUXE", 10: "BIANCA_DELUXE", 11: "BIANCA_DELUXE", 12: "BIANCA_DELUXE"},
     street="JL. SIERRA E3",
-    tag_rotate_deg=-7,
+    quad_px=[(895, 943.1), (1365, 872.6), (1365, 924.0), (895, 987.5)],
 ))
 
 # Masjid An-Nur -- community facility building between E11/F3 and the C2 road grid.
