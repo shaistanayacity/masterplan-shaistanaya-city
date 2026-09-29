@@ -321,7 +321,11 @@ BLOCKS.append(make_block(
     overrides={1: "BIANCA_DELUXE_HOOK", 7: "BIANCA_DELUXE", 8: "BIANCA_DELUXE",
                9: "BIANCA_DELUXE", 10: "BIANCA_DELUXE", 11: "BIANCA_DELUXE", 12: "BIANCA_DELUXE"},
     street="JL. SIERRA E3",
-    quad_px=[(895, 943.1), (1365, 872.6), (1365, 924.0), (895, 987.5)],
+    # Extended ~8px beyond the fitted yellow-fill edges (top up, bottom down) -- the
+    # color-fit stopped just short of the true printed border line since the dark
+    # border pixels themselves don't match the yellow color threshold, undershooting
+    # the real cell boundary slightly on both edges.
+    quad_px=[(895, 935.1), (1365, 864.6), (1365, 932.0), (895, 995.5)],
 ))
 
 # Masjid An-Nur -- community facility building between E11/F3 and the C2 road grid.
