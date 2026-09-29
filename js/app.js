@@ -221,7 +221,20 @@
             // filling it, so the cell's own type color still shows around it (same
             // as the reference master plan's small "terjual" sticker on a colored lot).
             const tagW = bb.width * 0.8, tagH = bb.height * 0.6;
-            g.appendChild(createSoldTag(cx, cy, tagW, tagH));
+            const soldTag = createSoldTag(cx, cy, tagW, tagH);
+            // Some blocks (e.g. E3) sit on the diagonal boundary road, visibly
+            // tilted -- rotate the SOLD stamp to match too, like the Ruko row's
+            // own polygon-shaped cells already read as tilted.
+            if (block.tagRotate) {
+              // Prepended (not appended) -- it must be the outermost transform, applied
+              // in the same absolute cell-center coordinates as cx/cy, not inside the
+              // already-scaled/translated local space createSoldTag() set up.
+              soldTag.setAttribute(
+                "transform",
+                `rotate(${block.tagRotate} ${cx.toFixed(2)} ${cy.toFixed(2)}) ` + soldTag.getAttribute("transform")
+              );
+            }
+            g.appendChild(soldTag);
           } else {
             // Hold/"Show Unit" units keep the short text label since there's no
             // equivalent stamp asset.
