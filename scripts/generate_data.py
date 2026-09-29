@@ -632,7 +632,10 @@ CORNER_RIGHT_ENTRIES = [((crxm, cry1, crx2, cry2), None), ((crx1, cry1, crxm, cr
 # Top y (783) fixed 21 Sep 2026, same reason as CORNER_RIGHT_BOX above -- was 735,
 # the lot's actual color fill only starts at y=783 (confirmed by color sampling,
 # and matches the adjacent main-row polygon's own top y values closely).
-CORNER_LEFT_BOX = (1364, 783, 1430, 850)
+# Bottom y (865) fixed 29 Sep 2026: was 850, which left a thin uncovered strip above
+# the lot's own printed border line -- sampling the source image shows the true dark
+# border line sits at y=864-866 (confirmed at two separate x columns), not 850.
+CORNER_LEFT_BOX = (1364, 783, 1430, 865)
 clx1, cly1, clx2, cly2 = CORNER_LEFT_BOX
 clxm = (clx1 + clx2) // 2
 CORNER_LEFT_ENTRIES = [((clxm, cly1, clx2, cly2), None), ((clx1, cly1, clxm, cly2), None)]  # "03","05"

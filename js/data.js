@@ -2487,7 +2487,7 @@ const MASTERPLAN_DATA = {
         "left": 58.673,
         "top": 23.248,
         "width": 1.386,
-        "height": 1.989
+        "height": 2.435
       },
       "orientation": "row",
       "street": "JL. RUKO A",
@@ -2514,7 +2514,7 @@ const MASTERPLAN_DATA = {
         "left": 57.287,
         "top": 23.248,
         "width": 1.386,
-        "height": 1.989
+        "height": 2.435
       },
       "orientation": "row",
       "street": "JL. RUKO A",
