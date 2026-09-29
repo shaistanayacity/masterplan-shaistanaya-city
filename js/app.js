@@ -47,15 +47,56 @@
   }
 
   // clipPath points are stored as % of the block/facility's own box (not the whole
-  // image) -- re-expressed here as absolute viewBox pixel coordinates for a <polygon>.
+  // image) -- re-expressed here as absolute viewBox pixel coordinates.
+  function clipPathToAbsPoints(clipPath, box) {
+    return clipPath.map(([px, py]) => [
+      box.left + (px / 100) * box.width,
+      box.top + (py / 100) * box.height,
+    ]);
+  }
+
   function clipPathToPoints(clipPath, box) {
-    return clipPath
-      .map(([px, py]) => {
-        const x = box.left + (px / 100) * box.width;
-        const y = box.top + (py / 100) * box.height;
-        return x.toFixed(2) + "," + y.toFixed(2);
-      })
+    return clipPathToAbsPoints(clipPath, box)
+      .map(([x, y]) => x.toFixed(2) + "," + y.toFixed(2))
       .join(" ");
+  }
+
+  // Where a label (unit number, SOLD stamp, "SU" badge) should sit and how it should
+  // tilt, derived straight from a cell's own true shape instead of a hardcoded angle:
+  //  - cx/cy: the polygon's centroid (exact for these lots, since cv2.minAreaRect
+  //    always produces a parallelogram, whose vertex average IS its centroid).
+  //  - angle: whichever pair of parallel edges reads closest to horizontal -- the
+  //    direction text in a left-to-right row of lots should follow. NOT simply the
+  //    polygon's longer side: a narrow-frontage, deep lot (e.g. Ruko, ~5m wide x 12m
+  //    deep) has its LONGER edge running front-to-back, perpendicular to the row, so
+  //    picking "longest" there would orient labels sideways. Flipped 180 deg when it
+  //    would otherwise print upside down.
+  //  - width/height: the chosen edge's length ("along the row") and its neighbor's
+  //    ("into the lot") -- the polygon's own rotated-frame size, smaller than its
+  //    axis-aligned bounding box, so labels sized off these stay inside the tilted
+  //    shape instead of the larger box.
+  function getLabelTransform(points) {
+    let sx = 0, sy = 0;
+    points.forEach(([x, y]) => { sx += x; sy += y; });
+    const cx = sx / points.length, cy = sy / points.length;
+
+    const edges = points.map((p, i) => {
+      const q = points[(i + 1) % points.length];
+      const dx = q[0] - p[0], dy = q[1] - p[1];
+      let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+      if (angle > 90) angle -= 180;
+      else if (angle < -90) angle += 180;
+      return { len: Math.hypot(dx, dy), angle };
+    });
+    let best = 0;
+    edges.forEach((e, i) => { if (Math.abs(e.angle) < Math.abs(edges[best].angle)) best = i; });
+
+    return {
+      cx, cy,
+      angle: edges[best].angle,
+      width: edges[best].len,
+      height: edges[(best + 1) % edges.length].len,
+    };
   }
 
   // Shared gradient/shadow defs for the SOLD stamp (added once, referenced by every
@@ -198,8 +239,28 @@
         }
         g.appendChild(cell);
 
-        const cx = bb.left + bb.width / 2;
-        const cy = bb.top + bb.height / 2;
+        // Where labels sit/tilt: a polygon cell (e.g. the tilted Ruko row) gets its
+        // rotation computed straight from its own true shape (getLabelTransform), so
+        // its number/SOLD/SU labels read parallel to the lot's long side instead of
+        // sitting axis-aligned against a slanted cell. A plain rectangular cell has
+        // no polygon to derive an angle from, so it falls back to the block's own
+        // manually-measured block.tagRotate (e.g. E3, which sits on a visibly tilted
+        // diagonal boundary road) -- 0 for every other (already-upright) block, so
+        // nothing there changes.
+        let labelCx, labelCy, labelAngle, labelW, labelH;
+        if (block.clipPath) {
+          const t = getLabelTransform(clipPathToAbsPoints(block.clipPath, box));
+          labelCx = t.cx; labelCy = t.cy; labelAngle = t.angle;
+          labelW = t.width; labelH = t.height;
+        } else {
+          labelCx = bb.left + bb.width / 2;
+          labelCy = bb.top + bb.height / 2;
+          labelAngle = block.tagRotate || 0;
+          labelW = bb.width; labelH = bb.height;
+        }
+        const rotateAttr = labelAngle
+          ? `rotate(${labelAngle.toFixed(2)} ${labelCx.toFixed(2)} ${labelCy.toFixed(2)})`
+          : null;
 
         // Tahap 1 kavling already print their own lot number on the base image, so
         // our overlay number is redundant -- and per owner feedback, the
@@ -208,8 +269,9 @@
         if (!isUnreleased && block.cluster !== "tahap1") {
           const noText = svgEl("text", {
             class: "mp-unit__no",
-            x: cx.toFixed(2), y: cy.toFixed(2),
+            x: labelCx.toFixed(2), y: labelCy.toFixed(2),
           });
+          if (rotateAttr) noText.setAttribute("transform", rotateAttr);
           noText.textContent = unit.no;
           g.appendChild(noText);
         }
@@ -220,43 +282,32 @@
             // or an <image> reference -- badge sized at 80%x60% of the cell, not
             // filling it, so the cell's own type color still shows around it (same
             // as the reference master plan's small "terjual" sticker on a colored lot).
-            const tagW = bb.width * 0.8, tagH = bb.height * 0.6;
-            const soldTag = createSoldTag(cx, cy, tagW, tagH);
-            // Some blocks (e.g. E3) sit on the diagonal boundary road, visibly
-            // tilted -- rotate the SOLD stamp to match too, like the Ruko row's
-            // own polygon-shaped cells already read as tilted.
-            if (block.tagRotate) {
+            const tagW = labelW * 0.8, tagH = labelH * 0.6;
+            const soldTag = createSoldTag(labelCx, labelCy, tagW, tagH);
+            if (rotateAttr) {
               // Prepended (not appended) -- it must be the outermost transform, applied
-              // in the same absolute cell-center coordinates as cx/cy, not inside the
-              // already-scaled/translated local space createSoldTag() set up.
-              soldTag.setAttribute(
-                "transform",
-                `rotate(${block.tagRotate} ${cx.toFixed(2)} ${cy.toFixed(2)}) ` + soldTag.getAttribute("transform")
-              );
+              // in the same absolute cell-center coordinates as labelCx/labelCy, not
+              // inside the already-scaled/translated local space createSoldTag() set up.
+              soldTag.setAttribute("transform", rotateAttr + " " + soldTag.getAttribute("transform"));
             }
             g.appendChild(soldTag);
           } else {
             // Hold/"Show Unit" units keep the short text label since there's no
             // equivalent stamp asset.
-            const tagW = bb.width * 0.62, tagH = bb.height * 0.26;
+            const tagW = labelW * 0.62, tagH = labelH * 0.26;
             const tagG = svgEl("g", { class: "mp-unit__tag" });
             tagG.appendChild(svgEl("rect", {
               class: "mp-unit__tag-bg",
-              x: (cx - tagW / 2).toFixed(2), y: (cy - tagH / 2).toFixed(2),
+              x: (labelCx - tagW / 2).toFixed(2), y: (labelCy - tagH / 2).toFixed(2),
               width: tagW.toFixed(2), height: tagH.toFixed(2), rx: (2 * VB).toFixed(2),
             }));
             const tagText = svgEl("text", {
               class: "mp-unit__tag-text",
-              x: cx.toFixed(2), y: cy.toFixed(2),
+              x: labelCx.toFixed(2), y: labelCy.toFixed(2),
             });
             tagText.textContent = "SU";
             tagG.appendChild(tagText);
-            // Some blocks (e.g. E3) sit on the diagonal boundary road, visibly
-            // tilted -- rotate the "SU" tag to match instead of sitting axis-aligned
-            // against a slanted cell. Doesn't touch the SOLD stamp's own fixed tilt.
-            if (block.tagRotate) {
-              tagG.setAttribute("transform", `rotate(${block.tagRotate} ${cx.toFixed(2)} ${cy.toFixed(2)})`);
-            }
+            if (rotateAttr) tagG.setAttribute("transform", rotateAttr);
             g.appendChild(tagG);
           }
         }
