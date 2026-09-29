@@ -238,7 +238,7 @@
           } else {
             // Hold/"Show Unit" units keep the short text label since there's no
             // equivalent stamp asset.
-            const tagW = bb.width * 0.55, tagH = bb.height * 0.4;
+            const tagW = bb.width * 0.62, tagH = bb.height * 0.26;
             const tagG = svgEl("g", { class: "mp-unit__tag" });
             tagG.appendChild(svgEl("rect", {
               class: "mp-unit__tag-bg",
