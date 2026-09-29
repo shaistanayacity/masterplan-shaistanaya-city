@@ -321,13 +321,11 @@ BLOCKS.append(make_block(
     overrides={1: "BIANCA_DELUXE_HOOK", 7: "BIANCA_DELUXE", 8: "BIANCA_DELUXE",
                9: "BIANCA_DELUXE", 10: "BIANCA_DELUXE", 11: "BIANCA_DELUXE", 12: "BIANCA_DELUXE"},
     street="JL. SIERRA E3",
-    # Bottom edge re-fit (29 Sep 2026, still short after the first +8px nudge): the
-    # yellow tint only covers each lot's house pad, not the paler carport/driveway
-    # strip in front of it before the road -- so fitting "where yellow ends" always
-    # undershot the true bottom boundary regardless of padding. Re-measured by
-    # scanning down each column for the actual grey-road transition instead (past
-    # that pale foreground strip), which is the row's real bottom edge.
-    quad_px=[(895, 935.1), (1365, 864.6), (1365, 966.8), (895, 1020.8)],
+    # Bottom edge dialed back (29 Sep 2026): the grey-road-transition fit above
+    # overshot the other way, spilling past the true border into the road. The real
+    # boundary sits between "where yellow ends" (undershoots) and "where the road
+    # starts" (overshoots) -- split the difference between those two measurements.
+    quad_px=[(895, 935.1), (1365, 864.6), (1365, 949.4), (895, 1008.2)],
 ))
 
 # Masjid An-Nur -- community facility building between E11/F3 and the C2 road grid.
