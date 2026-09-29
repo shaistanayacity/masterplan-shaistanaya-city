@@ -353,6 +353,15 @@ body {
 }
 .unit-popup__render[hidden] { display: none; }
 
+/* Facility photos (gates, masjid, gym, etc.) are wide architectural renders, not
+   portrait house shots -- "top" (tuned for keeping a roofline in frame above) can crop
+   out their whole point. The main entrance render specifically has its "SHAISTANAYA
+   CITY" signage sitting in the lower-middle third, invisible under the default top
+   crop -- center it instead so the signage/shopfronts stay in frame. */
+.unit-popup__render--facility {
+  object-position: center;
+}
+
 .unit-popup__close {
   position: absolute;
   top: 10px;

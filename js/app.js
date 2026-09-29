@@ -541,6 +541,7 @@
       upRender.src = fac.render;
       upRender.alt = fac.name;
       upRender.hidden = false;
+      upRender.classList.add("unit-popup__render--facility");
     } else {
       upRender.hidden = true;
       upRender.removeAttribute("src");
@@ -566,6 +567,7 @@
       upRender.src = unit.render;
       upRender.alt = unit.type;
       upRender.hidden = false;
+      upRender.classList.remove("unit-popup__render--facility");
     } else {
       upRender.hidden = true;
       upRender.removeAttribute("src");
