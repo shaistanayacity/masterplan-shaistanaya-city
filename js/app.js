@@ -414,7 +414,12 @@
       applyTransform();
     });
 
+    // Plain wheel scrolls the PAGE like normal -- only Ctrl/Cmd+wheel (also how
+    // browsers report trackpad pinch-zoom) zooms the map. Previously every wheel
+    // tick over the map was captured for zoom, so hovering the map (which covers
+    // most of the page) made it impossible to scroll the page with the mouse wheel.
     stageInner.addEventListener("wheel", (e) => {
+      if (!e.ctrlKey && !e.metaKey) return;
       e.preventDefault();
       const factor = Math.pow(1.0015, -e.deltaY);
       zoomAt(e.clientX, e.clientY, factor);
