@@ -543,9 +543,10 @@ BLOCKS.append(make_block(
 BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): F12 01 masih tersedia (tambahan dari 02, 05, 07). 8 lots -- unit
     # 09 di ujung kiri (sebelah LAPANGAN), sama seperti F11 (bukan hook, LT 72).
+    # Revisi (9 Okt 2026): unit 07 terjual -- dikeluarkan dari available.
     "F12", "montana", (868, 2900, 1220, 2988), 8, "rtl", skip_four=True,
     type_key="GWEN",
-    available={1, 2, 5, 7},
+    available={1, 2, 5},
     overrides={1: "GWEN_HOOK"},
     street="JL. MONTANA F12",
 ))

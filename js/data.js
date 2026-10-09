@@ -2143,7 +2143,7 @@ const MASTERPLAN_DATA = {
           "price": 660000000,
           "render": "assets/renders/gwen.jpg",
           "color": "#f472b6",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         },
