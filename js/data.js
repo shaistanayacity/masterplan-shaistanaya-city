@@ -2236,7 +2236,7 @@ const MASTERPLAN_DATA = {
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
           "color": "#f472b6",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         },
@@ -2420,7 +2420,7 @@ const MASTERPLAN_DATA = {
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
           "color": "#f472b6",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         }
