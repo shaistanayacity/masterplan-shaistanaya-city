@@ -16,9 +16,26 @@
 
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
+  /* Layered background: a soft gold glow centered behind where the map card
+     sits, a dimmer green glow lower-left for depth, a faint grid texture for
+     tactility, over the base dark gradient -- replaces the old flat var(--bg)
+     fill so the empty space around the card isn't a dead, featureless void. */
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 900px 560px at 50% 280px, rgba(216, 180, 106, 0.10), transparent 70%),
+    radial-gradient(ellipse 700px 700px at 8% 85%, rgba(52, 211, 153, 0.06), transparent 65%),
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px, transparent 1px
+    ),
+    linear-gradient(
+      90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px
+    ),
+    linear-gradient(180deg, #121810, #0c110d 55%, #0a0e0b);
+  background-size: auto, auto, 42px 42px, 42px 42px, auto;
+  background-attachment: fixed, fixed, fixed, fixed, fixed;
+  background-repeat: no-repeat, no-repeat, repeat, repeat, no-repeat;
 }
 
 .topbar {
@@ -105,7 +122,10 @@ body {
   line-height: 0;
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(216, 180, 106, 0.18),
+    0 0 80px rgba(216, 180, 106, 0.08);
   /* We drive pan/pinch-zoom ourselves via Pointer Events (see js/app.js). This
      starts as pan-y (a finger dragging the map at rest scrolls the PAGE
      normally, since there's nothing to pan yet at 1x) and js/app.js switches it
@@ -258,13 +278,14 @@ body {
   left: 20px;
   bottom: 20px;
   background: var(--panel-bg);
-  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(216, 180, 106, 0.22);
   border-radius: var(--radius);
   padding: 14px 16px;
   display: flex;
   gap: 26px;
   z-index: 30;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
   max-width: calc(100vw - 40px);
   overflow-x: auto;
 }
