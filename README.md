@@ -170,7 +170,7 @@ sumber (`tools_masterplan.pdf`/`tools_masterplan_1.pdf`), bukan digeneralisir pe
 
 - **ANGELINE** (F6/F7/F8): unit tengah LT **90** (sebelumnya salah pakai
   133). Ujung kanan tiap blok (unit 01) LT **133,1** (tipe `ANGELINE_HOOK`).
-  Ujung kiri beda-beda per blok: F6 unit 08 = **124,1**, F7 unit 10 =
+  Ujung kiri beda-beda per blok: F6 unit 08 = **140,6**, F7 unit 10 =
   **79,9**, F8 unit 10 = **77** — masing-masing dapat entri TYPES sendiri
   (`ANGELINE_HOOK_F6/F7/F8`).
 - **F8 ternyata 9 unit**, bukan 8 — ada unit "10" di ujung kiri yang
