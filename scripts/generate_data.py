@@ -56,7 +56,7 @@ TYPES = {
     "ANGELINE":        dict(name="ANGELINE",         cluster="montana", lb=45, lt=90,  price=None,        color="#86efac", render="assets/renders/angeline.jpg"),
     "ANGELINE_HOOK":   dict(name="ANGELINE (Hook)",  cluster="montana", lb=45, lt=133.1, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     # Ujung kiri F6/F7/F8 masing-masing punya LT unik (bukan hook yang sama seperti unit 01).
-    "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=124.1, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
+    "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=140.6, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     "ANGELINE_HOOK_F7": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=79.9,  price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     "ANGELINE_HOOK_F8": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=77,    price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     # Render BIANCA sama untuk Garden dan Deluxe -- bedanya cuma hook atau bukan
@@ -481,7 +481,7 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Ujung kiri (unit 08) LT 124,1, ujung kanan (unit 01) LT 133,1 -- keduanya hook,
+    # Ujung kiri (unit 08) LT 140,6, ujung kanan (unit 01) LT 133,1 -- keduanya hook,
     # beda ukuran, sebelumnya dua-duanya salah dianggap unit reguler biasa.
     "F6", "montana", (879, 2162, 1212, 2264), 7, "rtl", skip_four=True,
     type_key="ANGELINE",

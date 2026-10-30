@@ -1412,7 +1412,7 @@ const MASTERPLAN_DATA = {
           "cell": 0,
           "type": "ANGELINE (Hook)",
           "lb": 45,
-          "lt": 124.1,
+          "lt": 140.6,
           "price": 950000000,
           "render": "assets/renders/angeline-hook.jpg",
           "color": "#86efac",
