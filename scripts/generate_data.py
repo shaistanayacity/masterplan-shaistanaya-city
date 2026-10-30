@@ -511,21 +511,23 @@ BLOCKS.append(make_block(
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F9 tersedia 08,07,06,05,03,01/RC -- lainnya (02) SOLD. 7 lots.
     # Ujung kiri (unit 08) LT 112,1, ujung kanan (unit 01) LT 106,1 -- dua ukuran hook beda.
+    # Gambar dasar baru: hanya 02 & 01 yang GWEN, sisanya (08..03) NEW GWEN.
     "F9", "montana", (886, 2599, 1219, 2685), 7, "rtl", skip_four=True,
-    type_key="GWEN",
+    type_key="NEW_GWEN",
     available={3, 5, 6, 7, 8},
     hold={1},
-    overrides={1: "GWEN_HOOK", 8: "GWEN_HOOK8"},
+    overrides={1: "GWEN_HOOK", 2: "GWEN", 8: "NEW_GWEN_HOOK8"},
     street="JL. MONTANA F9",
 ))
 
 BLOCKS.append(make_block(
     # unit_stock.pdf (1 Sep 2026): F10 tersedia 08,07,06,05,03,02,01 -- semua 7 lot tersedia.
     # Sama seperti F9: ujung kiri (08) LT 112,1, ujung kanan (01) LT 106,1.
+    # Gambar dasar baru: seluruh F10 sekarang NEW GWEN.
     "F10", "montana", (886, 2678, 1219, 2763), 7, "rtl", skip_four=True,
-    type_key="GWEN",
+    type_key="NEW_GWEN",
     available={1, 2, 3, 5, 6, 7, 8},
-    overrides={1: "GWEN_HOOK", 8: "GWEN_HOOK8"},
+    overrides={1: "NEW_GWEN_HOOK1", 8: "NEW_GWEN_HOOK8"},
     street="JL. MONTANA F10",
 ))
 
