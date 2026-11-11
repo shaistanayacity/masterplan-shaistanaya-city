@@ -782,7 +782,7 @@ const MASTERPLAN_DATA = {
           "price": 1010000000,
           "render": "assets/renders/arnica.jpg",
           "color": "#d8b4a0",
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null,
           "clipPath": null
         },
@@ -862,7 +862,7 @@ const MASTERPLAN_DATA = {
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
           "color": "#f87171",
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null,
           "clipPath": null
         },
@@ -968,7 +968,7 @@ const MASTERPLAN_DATA = {
           "price": 795000000,
           "render": "assets/renders/darlene.jpg",
           "color": "#f87171",
-          "status": "SOLD",
+          "status": "TERSEDIA",
           "statusLabel": null,
           "clipPath": null
         },
@@ -1269,7 +1269,7 @@ const MASTERPLAN_DATA = {
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
           "color": "#fb923c",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         },
