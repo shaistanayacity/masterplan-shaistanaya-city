@@ -1336,7 +1336,7 @@ const MASTERPLAN_DATA = {
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
           "color": "#fb923c",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         },
@@ -1375,7 +1375,7 @@ const MASTERPLAN_DATA = {
           "price": 675000000,
           "render": "assets/renders/darlene.jpg",
           "color": "#fb923c",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         },
