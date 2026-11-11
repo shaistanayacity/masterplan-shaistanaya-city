@@ -56,7 +56,7 @@ TYPES = {
     "ANGELINE":        dict(name="ANGELINE",         cluster="montana", lb=45, lt=90,  price=None,        color="#86efac", render="assets/renders/angeline.jpg"),
     "ANGELINE_HOOK":   dict(name="ANGELINE (Hook)",  cluster="montana", lb=45, lt=133.1, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     # Ujung kiri F6/F7/F8 masing-masing punya LT unik (bukan hook yang sama seperti unit 01).
-    "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=124.1, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
+    "ANGELINE_HOOK_F6": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=140.6, price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     "ANGELINE_HOOK_F7": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=79.9,  price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     "ANGELINE_HOOK_F8": dict(name="ANGELINE (Hook)", cluster="montana", lb=45, lt=77,    price=950_000_000, color="#86efac", render="assets/renders/angeline-hook.jpg"),
     # Render BIANCA sama untuk Garden dan Deluxe -- bedanya cuma hook atau bukan
@@ -472,16 +472,16 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Revisi (1 Sep 2026): F5 tersedia sisa 08, 06, 03, 02 -- lainnya SOLD. 7 lots.
+    # Revisi: F5 tersedia sisa 08, 03 -- lainnya SOLD (06 & 02 terjual). 7 lots.
     "F5", "montana", (879, 2079, 1212, 2160), 7, "rtl", skip_four=True,
     type_key="NEW_GWEN",
-    available={2, 3, 6, 8},
+    available={3, 8},
     overrides={1: "NEW_GWEN_HOOK1", 8: "NEW_GWEN_HOOK8"},
     street="JL. MONTANA F5",
 ))
 
 BLOCKS.append(make_block(
-    # Ujung kiri (unit 08) LT 124,1, ujung kanan (unit 01) LT 133,1 -- keduanya hook,
+    # Ujung kiri (unit 08) LT 140,6, ujung kanan (unit 01) LT 133,1 -- keduanya hook,
     # beda ukuran, sebelumnya dua-duanya salah dianggap unit reguler biasa.
     "F6", "montana", (879, 2162, 1212, 2264), 7, "rtl", skip_four=True,
     type_key="ANGELINE",
