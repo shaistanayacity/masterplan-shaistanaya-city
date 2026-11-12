@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virtual Survey — Shaistanaya City</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+<link rel="stylesheet" href="vendor/pannellum.css" />
+<link rel="stylesheet" href="survey.css" />
+</head>
+<body>
+  <header class="bar">
+    <a class="bar__back" href="../index.html">← Master Plan</a>
+    <div class="bar__title"><span>Virtual Survey</span><strong id="unit-name"></strong></div>
+    <button class="bar__toggle" id="panel-toggle" type="button">Denah</button>
+  </header>
+
+  <main class="layout">
+    <section class="viewer">
+      <div id="pano"></div>
+      <div class="viewer__scene" id="scene-title" aria-live="polite"></div>
+    </section>
+
+    <aside class="panel" id="panel">
+      <div class="floors" id="floors" role="tablist" aria-label="Pilih lantai"></div>
+      <div class="plan" id="plan">
+        <img id="plan-img" alt="Denah lantai" />
+        <div id="plan-dots"></div>
+      </div>
+      <div class="info">
+        <h2 id="floor-name"></h2>
+        <dl class="specs" id="specs"></dl>
+        <h3>Ringkasan Unit</h3>
+        <dl class="specs specs--summary" id="summary"></dl>
+        <h3>Ruangan</h3>
+        <div class="rooms" id="rooms"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="vendor/pannellum.js"></script>
+  <script src="data.js"></script>
+  <script src="survey.js"></script>
+</body>
+</html>
