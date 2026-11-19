@@ -316,7 +316,7 @@ BLOCKS.append(make_block(
     # label angle straight from its quad now, same mechanism as Ruko.
     "E3", "sierra", None, 11, "rtl", skip_four=True,
     type_key="BIANCA_GARDEN",
-    available={1, 3, 5, 6, 11, 12},
+    available={1, 3, 5, 6, 11},
     hold={9},
     overrides={1: "BIANCA_DELUXE_HOOK", 7: "BIANCA_DELUXE", 8: "BIANCA_DELUXE",
                9: "BIANCA_DELUXE", 10: "BIANCA_DELUXE", 11: "BIANCA_DELUXE", 12: "BIANCA_DELUXE"},
@@ -475,7 +475,7 @@ BLOCKS.append(make_block(
     # Revisi: F5 tersedia sisa 08, 03 -- lainnya SOLD (06 & 02 terjual). 7 lots.
     "F5", "montana", (879, 2079, 1212, 2160), 7, "rtl", skip_four=True,
     type_key="NEW_GWEN",
-    available={3, 8},
+    available={3},
     overrides={1: "NEW_GWEN_HOOK1", 8: "NEW_GWEN_HOOK8"},
     street="JL. MONTANA F5",
 ))
@@ -548,7 +548,7 @@ BLOCKS.append(make_block(
     # Revisi (9 Okt 2026): unit 07 terjual -- dikeluarkan dari available.
     "F12", "montana", (868, 2900, 1220, 2988), 8, "rtl", skip_four=True,
     type_key="GWEN",
-    available={1, 2, 5},
+    available={2, 5},
     overrides={1: "GWEN_HOOK"},
     street="JL. MONTANA F12",
 ))
