@@ -227,7 +227,7 @@ const MASTERPLAN_DATA = {
           "price": 880000000,
           "render": "assets/renders/bianca.jpg",
           "color": "#fde68a",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": [
             [
@@ -1310,7 +1310,7 @@ const MASTERPLAN_DATA = {
           "price": 880000000,
           "render": "assets/renders/new-gwen-hook.jpg",
           "color": "#fb923c",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         },
@@ -2208,7 +2208,7 @@ const MASTERPLAN_DATA = {
           "price": 800000000,
           "render": "assets/renders/gwen-hook.jpg",
           "color": "#f472b6",
-          "status": "TERSEDIA",
+          "status": "SOLD",
           "statusLabel": null,
           "clipPath": null
         }
