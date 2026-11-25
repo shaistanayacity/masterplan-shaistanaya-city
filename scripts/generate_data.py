@@ -467,7 +467,7 @@ BLOCKS.append(make_block(
     # Revisi (1 Sep 2026): F3 tersedia sisa 06, 05, 02 -- lainnya SOLD. 7 lots, no unit "04".
     "F3", "montana", (903, 1936, 1192, 2017), 7, "rtl", skip_four=True,
     type_key="NEW_GWEN",
-    available={2, 5, 6},
+    available={5},
     street="JL. MONTANA F3",
 ))
 
