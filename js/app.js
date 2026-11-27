@@ -159,6 +159,81 @@
   const upAddr = document.getElementById("up-addr");
   const upRender = document.getElementById("up-render");
 
+  const upView3d = document.getElementById("up-view3d");
+  const houseView = document.getElementById("house-view");
+  const hvBody = document.getElementById("hv-body");
+  const hvCode = document.getElementById("hv-code");
+  const hvType = document.getElementById("hv-type");
+  let currentUnitView = null;
+
+  function findHouseView(typeName) {
+    const views = window.HOUSE_VIEWS || {};
+    const t = String(typeName || "").toUpperCase();
+    let best = null;
+    Object.keys(views).forEach((k) => {
+      if (t.startsWith(k.toUpperCase()) && (!best || k.length > best.length)) best = k;
+    });
+    return best ? views[best] : null;
+  }
+
+  let modelViewerLoaded = false;
+  function loadModelViewer() {
+    if (modelViewerLoaded) return;
+    modelViewerLoaded = true;
+    const sc = document.createElement("script");
+    sc.type = "module";
+    sc.src = "https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js";
+    document.head.appendChild(sc);
+  }
+
+  function openHouseView() {
+    if (!currentUnitView) return;
+    const { code, unit } = currentUnitView;
+    const cfg = findHouseView(unit.type);
+    const url = cfg && cfg.url;
+    hvCode.textContent = code;
+    hvType.textContent = unit.type;
+    hvBody.innerHTML = "";
+    if (url && /\.(glb|gltf)(\?|#|$)/i.test(url)) {
+      loadModelViewer();
+      const mv = document.createElement("model-viewer");
+      mv.setAttribute("src", url);
+      mv.setAttribute("camera-controls", "");
+      mv.setAttribute("auto-rotate", "");
+      mv.setAttribute("shadow-intensity", "1");
+      mv.setAttribute("alt", "Model 3D " + unit.type);
+      hvBody.appendChild(mv);
+    } else if (url) {
+      const f = document.createElement("iframe");
+      f.src = url;
+      f.title = "Tampilan 3D " + unit.type;
+      f.allow = "fullscreen; xr-spatial-tracking; accelerometer; gyroscope; autoplay";
+      f.allowFullscreen = true;
+      hvBody.appendChild(f);
+    } else if (unit.render) {
+      const img = document.createElement("img");
+      img.className = "house-view__photo";
+      img.src = unit.render;
+      img.alt = unit.type;
+      hvBody.appendChild(img);
+      const note = document.createElement("div");
+      note.className = "house-view__note";
+      note.textContent = "Model 3D belum tersedia — menampilkan foto render.";
+      hvBody.appendChild(note);
+    } else {
+      hvBody.textContent = "Tampilan 3D belum tersedia untuk tipe ini.";
+    }
+    houseView.hidden = false;
+  }
+
+  function closeHouseView() {
+    houseView.hidden = true;
+    hvBody.innerHTML = ""; // hentikan iframe/model
+  }
+
+  upView3d.addEventListener("click", openHouseView);
+  document.getElementById("hv-close").addEventListener("click", closeHouseView);
+
   const CLUSTER_LABEL = {
     montana: "Cluster Montana",
     sierra: "Cluster Sierra",
@@ -541,6 +616,8 @@
   }
 
   function openFacilityPopup(fac) {
+    upView3d.hidden = true;
+    currentUnitView = null;
     upCode.textContent = fac.name;
     upCluster.hidden = true;
     upStatus.hidden = true;
@@ -566,6 +643,8 @@
   function openPopup(block, unit) {
     const code = `SC-${block.id}-${unit.no}`;
     upCode.textContent = code;
+    currentUnitView = { code, unit };
+    upView3d.hidden = !(unit.render || (findHouseView(unit.type) || {}).url);
     upStatus.hidden = false;
     upAddr.hidden = false;
     upCluster.hidden = false;
@@ -609,7 +688,9 @@
   popupClose.addEventListener("click", closePopup);
   popupBackdrop.addEventListener("click", closePopup);
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closePopup();
+    if (e.key === "Escape") {
+      if (!houseView.hidden) closeHouseView(); else closePopup();
+    }
   });
 
   // ---------- Legend ----------
