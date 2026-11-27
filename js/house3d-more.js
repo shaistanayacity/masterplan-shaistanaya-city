@@ -294,7 +294,7 @@ function slateGround(mirror, glow) {
       c.fillStyle = "#74777f"; c.fillRect(X(.105), Y(.6), X(.37), Y(.145) - Y(.6));              // lis luar kusen
       c.fillStyle = "#1f2127"; c.fillRect(X(.118), Y(.587), X(.344), Y(.158) - Y(.587));        // kusen gelap
     } else {
-      const panes = [[.13, .284], [.296, .45]], rows = [[.437, .575], [.17, .425]];
+      const panes = [[.13, .284], [.296, .45]], rows = [[.17, .575]];
       panes.forEach(([u0, u1]) => rows.forEach(([v0, v1]) => {
         const gr = c.createLinearGradient(0, Y(v1), 0, Y(v0)); gr.addColorStop(0, "#ffe6b0"); gr.addColorStop(1, "#e9a95a");
         c.fillStyle = gr; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v0) - Y(v1));
@@ -304,7 +304,6 @@ function slateGround(mirror, glow) {
     if (!glow) {
       c.fillStyle = "#1f2127";                                                                    // sekat kaca
       c.fillRect(X(.284), Y(.587), X(.012), Y(.158) - Y(.587));
-      c.fillRect(X(.13), Y(.432), X(.32), Y(.425) - Y(.432));
     }
   });
 }
