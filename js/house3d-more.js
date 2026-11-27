@@ -240,9 +240,13 @@ export function addCornerWing(row, o) {
 //  ATAP SLATE (GWEN / NEW GWEN / DARLENE / ANGELINE): atap miring ke depan, sirip putih,
 //  jendela atas di bawah kanopi, porch putih berlengkung berpasangan.
 // =====================================================================================
-const SW = 6, SG = .72, SU = .38, SR = .52, SD = 12;   // lebar, lantai bawah, pita jendela atas, tinggi atap (satuan W)
+const SW = 6, SD = 12;
+// Proporsi per tipe (satuan = lebar rumah), diukur dari foto render masing-masing:
+// G = lantai bawah, U = pita jendela atas, R = tinggi atap dari tepi bawah sampai bubungan.
+const SPARAMS = { gwen: { G: .75, U: .39, R: .53 }, angeline: { G: .75, U: .40, R: .59 }, darlene: { G: .70, U: .34, R: .555 } };
 
 function slateUpper(style, mirror, glow) {
+  const SU = SPARAMS[style].U;
   const cw = 768, ch = Math.round(cw * SU);
   const X = (u) => u * cw, Y = (v) => (1 - v / SU) * ch;
   return canvasTex(cw, ch, (c) => {
@@ -254,7 +258,7 @@ function slateUpper(style, mirror, glow) {
       angeline: { frame: [.2, .86], glass: [.37, .69], louv: [[.22, .37], [.69, .84]] },
       darlene:  { frame: [.16, .92], glass: null, louv: [[.18, .9]] },
     }[style];
-    const v0 = .02, v1 = .3;
+    const v0 = .02, v1 = SU - .08;
     if (!glow) {
       c.fillStyle = "#4b4e57"; c.fillRect(X(cfg.frame[0]), Y(v1 + .03), X(cfg.frame[1] - cfg.frame[0]), Y(v0 - .01) - Y(v1 + .03));
     }
@@ -278,7 +282,8 @@ function slateUpper(style, mirror, glow) {
     });
   });
 }
-function slateGround(mirror, glow) {
+function slateGround(style, mirror, glow) {
+  const SG = SPARAMS[style].G;
   const cw = 768, ch = Math.round(cw * SG);
   const X = (u) => u * cw, Y = (v) => (1 - v / SG) * ch;
   const archPath = (c, u0, u1, v0, v1) => {
@@ -308,7 +313,8 @@ function slateGround(mirror, glow) {
   });
 }
 
-function porchMat() {                                      // satu blok putih untuk dua porch bersebelahan (A + B)
+function porchMat(style) {
+  const SG = SPARAMS[style].G;                                      // satu blok putih untuk dua porch bersebelahan (A + B)
   const pw = .84, ph = SG * .95, cw = 640, ch = Math.round(cw * ph / pw);
   const X = (u) => u * cw, Y = (v) => (1 - v / ph) * ch;
   const arch = (c, u0, u1, v0, v1) => { const r = (u1 - u0) / 2 * cw, cx = X((u0 + u1) / 2), top = Y(v1) + r; c.beginPath(); c.moveTo(X(u0), Y(v0)); c.lineTo(X(u0), top); c.arc(cx, top, r, Math.PI, 0); c.lineTo(X(u1), Y(v0)); c.closePath(); };
@@ -328,6 +334,7 @@ function porchMat() {                                      // satu blok putih un
 
 function buildSlate(style, opts = {}) {
   const g = new THREE.Group();
+  const { G: SG, U: SU, R: SR } = SPARAMS[style];
   const W = SW, D = SD, gh = SG * W, uh = SU * W, rise = SR * W;
   const yEave = gh + uh, yRidge = yEave + rise, sRidge = 4.4, backDrop = 3.2;
   const white = mk(0xe9eaf1, .8), slateTex = canvasTex(256, 256, (c, w, h) => {
@@ -337,7 +344,7 @@ function buildSlate(style, opts = {}) {
   slateTex.wrapS = slateTex.wrapT = THREE.RepeatWrapping; slateTex.repeat.set(4, 3);
   const slate = new THREE.MeshStandardMaterial({ map: slateTex, roughness: .55 });
   const upA = litMat([slateUpper(style, false, false), slateUpper(style, false, true)]), upB = litMat([slateUpper(style, true, false), slateUpper(style, true, true)]);
-  const grA = litMat([slateGround(false, false), slateGround(false, true)]), grB = litMat([slateGround(true, false), slateGround(true, true)]);
+  const grA = litMat([slateGround(style, false, false), slateGround(style, false, true)]), grB = litMat([slateGround(style, true, false), slateGround(style, true, true)]);
   const front = new THREE.PlaneGeometry(W, uh), grGeo = new THREE.PlaneGeometry(W, gh);
   const slopeLen = Math.hypot(sRidge + .4, rise);
   const slopeAng = Math.atan2(rise, sRidge + .4);
@@ -357,7 +364,7 @@ function buildSlate(style, opts = {}) {
     // porch putih menjorok + atap datar: satu blok untuk pasangan A+B (dibuat di unit A)
     if (!mirror) {
       u.add(box(W * .84, gh * .95, 1.3, white, W, gh * .475, .65));
-      const pf = new THREE.Mesh(new THREE.PlaneGeometry(W * .84, gh * .95), porchMat()); pf.position.set(W, gh * .475, 1.32); u.add(pf);
+      const pf = new THREE.Mesh(new THREE.PlaneGeometry(W * .84, gh * .95), porchMat(style)); pf.position.set(W, gh * .475, 1.32); u.add(pf);
       u.add(box(W * .86, .14, 1.45, mk(0x62656e), W, gh * .97, .72));
     }
     // atap miring depan (slate) + belakang
