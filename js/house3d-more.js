@@ -291,14 +291,19 @@ function slateGround(mirror, glow) {
     if (!glow) {
       for (let v = 0; v < SG; v += .036) { c.fillStyle = Math.round(v / .036) % 2 ? "#664a39" : "#7b5c46"; c.fillRect(0, Y(v + .036), cw, Y(v) - Y(v + .036) - 1); }
       c.fillStyle = "#6e7077"; c.fillRect(0, Y(.03), cw, Y(0) - Y(.03));
-      c.fillStyle = "#4b4e57"; c.fillRect(X(.13) - 6, Y(.58) - 6, X(.32) + 12, Y(.17) - Y(.58) + 12);   // jendela
+      c.fillStyle = "#74777f"; c.fillRect(X(.105), Y(.6), X(.37), Y(.145) - Y(.6));              // lis luar kusen
+      c.fillStyle = "#1f2127"; c.fillRect(X(.118), Y(.587), X(.344), Y(.158) - Y(.587));        // kusen gelap
     } else {
-      const gr = c.createLinearGradient(0, Y(.6), 0, Y(.15)); gr.addColorStop(0, "#ffe0a2"); gr.addColorStop(1, "#eeb766");
-      c.fillStyle = gr; c.fillRect(X(.13), Y(.58), X(.32), Y(.17) - Y(.58));
-      c.fillStyle = "#ffe9b8"; c.fillRect(X(.15), Y(.56), X(.05), Y(.22) - Y(.56));
+      const panes = [[.13, .284], [.296, .45]], rows = [[.17, .575]];
+      panes.forEach(([u0, u1]) => rows.forEach(([v0, v1]) => {
+        const gr = c.createLinearGradient(0, Y(v1), 0, Y(v0)); gr.addColorStop(0, "#ffe6b0"); gr.addColorStop(1, "#e9a95a");
+        c.fillStyle = gr; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v0) - Y(v1));
+        c.fillStyle = "rgba(190,120,50,.35)"; c.fillRect(X(u0), Y(v1), X(.018), Y(v0) - Y(v1)); c.fillRect(X(u1 - .018), Y(v1), X(.018), Y(v0) - Y(v1));   // tirai
+      }));
     }
     if (!glow) {
-      c.strokeStyle = "#2b2d33"; c.lineWidth = 2; c.beginPath(); c.moveTo(X(.29), Y(.58)); c.lineTo(X(.29), Y(.17)); c.stroke();
+      c.fillStyle = "#1f2127";                                                                    // sekat kaca
+      c.fillRect(X(.284), Y(.587), X(.012), Y(.158) - Y(.587));
     }
   });
 }
