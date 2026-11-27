@@ -222,6 +222,21 @@ di entri `TYPES` yang sesuai di `scripts/generate_data.py`, lalu jalankan
 ulang generator-nya. Tipe tanpa field `render` (default) popup-nya tetap
 tampil seperti biasa tanpa foto.
 
+## Tampilan 3D rumah (tautan ke aplikasi lain)
+
+Popup unit punya tombol **"Lihat Tampilan 3D"** yang membuka overlay layar penuh
+(peta digelapkan + blur). Isinya diatur per **tipe** di `js/models.js`
+(`window.HOUSE_VIEWS`), tanpa perlu generate ulang data:
+
+- `url` berisi link embed dari aplikasi lain (Sketchfab, Spline, Matterport,
+  Kuula, dll.) -> dibuka di iframe.
+- `url` berakhiran `.glb`/`.gltf` (file di `assets/models/` atau URL https) ->
+  ditampilkan dengan `<model-viewer>` (bisa diputar/zoom).
+- `url: "builtin:<nama>"` (arnica, arnica-hook, bianca, bianca-hook, gwen, gwen-hook, darlene, darlene-hook, angeline, angeline-hook, ruko) -> model 3D buatan sendiri (`js/house3d.js`, Three.js lokal di `js/vendor/`), bisa diputar & di-zoom. Perlu dibuka lewat server (bukan file://); kalau gagal, jatuh ke foto render.
+- `url: null` -> sementara menampilkan foto render tipe itu (melayang).
+
+Kunci memakai awalan nama tipe, jadi `"ANGELINE"` juga berlaku untuk varian Hook.
+
 ## Mengedit data
 
 `js/data.js` adalah file yang di-generate. Untuk mengubah data (status unit,

@@ -66,10 +66,23 @@
     </div>
     <div class="unit-popup__type" id="up-type">—</div>
     <div class="unit-popup__addr" id="up-addr">—</div>
+    <button class="unit-popup__view3d" id="up-view3d" type="button" hidden>Lihat Tampilan 3D</button>
   </div>
   <div class="unit-popup__backdrop" id="unit-popup-backdrop" hidden></div>
 
+  <div class="house-view" id="house-view" hidden role="dialog" aria-modal="true" aria-label="Tampilan 3D rumah">
+    <div class="house-view__bar">
+      <div>
+        <div class="house-view__code" id="hv-code">—</div>
+        <div class="house-view__type" id="hv-type">—</div>
+      </div>
+      <button class="house-view__close" id="hv-close" type="button" aria-label="Tutup">&times;</button>
+    </div>
+    <div class="house-view__body" id="hv-body"></div>
+  </div>
+
   <script src="js/data.js"></script>
+  <script src="js/models.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
