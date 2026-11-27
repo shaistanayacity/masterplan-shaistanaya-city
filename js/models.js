@@ -29,4 +29,12 @@ window.HOUSE_VIEWS = {
   "ARNICA POOL (HOOK)":    { url: "builtin:arnica-hook" },
   "ARNICA (E8)":           { url: "builtin:arnica-hook" },
   "RUKO":                  { url: "builtin:ruko" },
+  // Fasilitas umum (dicocokkan dengan awal nama fasilitas di data)
+  "MASJID AN-NUR":         { url: "builtin:masjid" },
+  "BASKETBALL COURT":      { url: "builtin:basket" },
+  "OUTDOOR GYM":           { url: "builtin:gym" },
+  "KIDS PLAYGROUND":       { url: "builtin:play" },
+  "GATE CLUSTER SIERRA":   { url: "builtin:sierra" },
+  "GATE CLUSTER MONTANA":  { url: "builtin:montana" },
+  "GERBANG UTAMA":         { url: "builtin:entrance" },
 };

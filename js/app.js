@@ -193,7 +193,7 @@
     const cfg = findHouseView(unit.type);
     const url = cfg && cfg.url;
     hvCode.textContent = code;
-    hvType.textContent = unit.type;
+    hvType.textContent = unit.facility ? "Fasilitas umum" : unit.type;
     hvBody.innerHTML = "";
     if (url && url.indexOf("builtin:") === 0) {
       const showPhoto = () => {
@@ -635,8 +635,8 @@
   }
 
   function openFacilityPopup(fac) {
-    upView3d.hidden = true;
-    currentUnitView = null;
+    currentUnitView = { code: fac.name, unit: { type: fac.name, render: fac.render, facility: true } };
+    upView3d.hidden = !(findHouseView(fac.name) || {}).url;
     upCode.textContent = fac.name;
     upCluster.hidden = true;
     upStatus.hidden = true;

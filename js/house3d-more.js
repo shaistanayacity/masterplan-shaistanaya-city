@@ -3,35 +3,64 @@
 import * as THREE from "./vendor/three.module.js";
 import { canvasTex, drawMirrored, litMat, box } from "./house3d.js";
 
-const mk = (c, r = 1, extra = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: r, ...extra });
+export const mk = (c, r = 1, extra = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: r, ...extra });
 
 // ---------- lingkungan bersama ----------
-function car(x, z, col, len = 4.6, hh = 1.35, rotY = 0) {
+export function car(x, z, col, len = 4.6, hh = 1.35, rotY = 0) {
   const c = new THREE.Group();
+  const paint = new THREE.MeshStandardMaterial({ color: col, metalness: .55, roughness: .28 });
   const sp = new THREE.Shape();
-  [[0, .3], [0, .78], [.9, .88], [1.5, hh], [len - 1.5, hh], [len - .8, .88], [len, .8], [len, .3]].forEach(([a, b], i) => i ? sp.lineTo(a, b) : sp.moveTo(a, b));
-  const body = new THREE.Mesh(new THREE.ExtrudeGeometry(sp, { depth: 1.8, bevelEnabled: false }), new THREE.MeshStandardMaterial({ color: col, metalness: .5, roughness: .3 }));
-  body.position.set(-len / 2, 0, -.9); c.add(body);
+  [[0, .32], [0, .72], [.35, .8], [.95, .88], [1.55, hh], [len - 1.5, hh], [len - .75, .88], [len - .2, .82], [len, .72], [len, .32]].forEach(([a2, b2], i) => i ? sp.lineTo(a2, b2) : sp.moveTo(a2, b2));
+  const body = new THREE.Mesh(new THREE.ExtrudeGeometry(sp, { depth: 1.7, bevelEnabled: true, bevelThickness: .08, bevelSize: .08, bevelSegments: 2 }), paint);
+  body.position.set(-len / 2, 0, -.85); c.add(body);
   const gs = new THREE.Shape();
-  [[1.55, .9], [1.65, hh - .06], [len - 1.65, hh - .06], [len - 1.05, .9]].forEach(([a, b], i) => i ? gs.lineTo(a, b) : gs.moveTo(a, b));
-  const gl = new THREE.Mesh(new THREE.ExtrudeGeometry(gs, { depth: 1.84, bevelEnabled: false }), new THREE.MeshStandardMaterial({ color: 0x141a24, metalness: .7, roughness: .15 }));
-  gl.position.set(-len / 2, 0, -.92); c.add(gl);
-  [[.95, .9], [len - .95, .9], [.95, -.9], [len - .95, -.9]].forEach(([a, b]) => {
-    const w = new THREE.Mesh(new THREE.CylinderGeometry(.34, .34, .25, 18), mk(0x0e0e0f)); w.rotation.x = Math.PI / 2;
-    w.position.set(a - len / 2, .34, b); c.add(w);
+  [[1.6, .92], [1.68, hh - .05], [len - 1.68, hh - .05], [len - 1.05, .92]].forEach(([a2, b2], i) => i ? gs.lineTo(a2, b2) : gs.moveTo(a2, b2));
+  const glass = new THREE.MeshStandardMaterial({ color: 0x131a24, metalness: .7, roughness: .12 });
+  const gl = new THREE.Mesh(new THREE.ExtrudeGeometry(gs, { depth: 1.76, bevelEnabled: false }), glass); gl.position.set(-len / 2, 0, -.88); c.add(gl);
+  const pillar = new THREE.Mesh(new THREE.BoxGeometry(.1, hh - .95, 1.8), paint); pillar.position.set(0, (hh + .92) / 2 - .02, 0); c.add(pillar);
+  const tire = new THREE.MeshStandardMaterial({ color: 0x0e0e0f, roughness: .9 }), rimM = new THREE.MeshStandardMaterial({ color: 0xc7cbd2, metalness: .8, roughness: .3 });
+  [[.95, .86], [len - .95, .86], [.95, -.86], [len - .95, -.86]].forEach(([a2, b2]) => {
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(.34, .34, .26, 20), tire); w.rotation.x = Math.PI / 2; w.position.set(a2 - len / 2, .34, b2); c.add(w);
+    const r = new THREE.Mesh(new THREE.CylinderGeometry(.2, .2, .28, 12), rimM); r.rotation.x = Math.PI / 2; r.position.set(a2 - len / 2, .34, b2); c.add(r);
   });
+  const lampW = new THREE.MeshStandardMaterial({ color: 0xfff6d8, emissive: 0xfff0c0, emissiveIntensity: .8 }), lampR = new THREE.MeshStandardMaterial({ color: 0xc0202a, emissive: 0xc01820, emissiveIntensity: .7 });
+  [-.6, .6].forEach((zz) => { const hl = new THREE.Mesh(new THREE.BoxGeometry(.1, .14, .4), lampW); hl.position.set(-len / 2 - .06, .66, zz); c.add(hl); const tl = new THREE.Mesh(new THREE.BoxGeometry(.1, .14, .4), lampR); tl.position.set(len / 2 + .06, .68, zz); c.add(tl); });
+  const trim = new THREE.MeshStandardMaterial({ color: 0x1b1b1e, roughness: .6 });
+  const gr = new THREE.Mesh(new THREE.BoxGeometry(.06, .16, .9), trim); gr.position.set(-len / 2 - .08, .55, 0); c.add(gr);
+  const bump = new THREE.Mesh(new THREE.BoxGeometry(.12, .16, 1.7), trim); bump.position.set(len / 2 + .08, .4, 0); c.add(bump);
+  const plate = new THREE.Mesh(new THREE.BoxGeometry(.04, .14, .4), new THREE.MeshStandardMaterial({ color: 0xf2f2f2 })); plate.position.set(-len / 2 - .09, .38, 0); c.add(plate);
+  [-.95, .95].forEach((zz) => { const m = new THREE.Mesh(new THREE.BoxGeometry(.2, .12, .1), paint); m.position.set(-len / 2 + 1.55, 1.0, zz); c.add(m); });
   c.traverse((o) => { o.castShadow = true; });
   c.position.set(x, 0, z); c.rotation.y = rotY; return c;
 }
-function person(x, z, shirt, h = 1.75, pants = 0x2a2d3a) {
-  const p = new THREE.Group();
-  const leg = new THREE.Mesh(new THREE.CylinderGeometry(.13, .11, h * .5, 8), mk(pants)); leg.position.y = h * .25; p.add(leg);
-  const tor = new THREE.Mesh(new THREE.CylinderGeometry(.19, .16, h * .32, 10), mk(shirt)); tor.position.y = h * .66; p.add(tor);
-  const hd = new THREE.Mesh(new THREE.SphereGeometry(.12, 12, 10), mk(0xd9a98a)); hd.position.y = h * .9; p.add(hd);
-  p.traverse((o) => { o.castShadow = true; }); p.position.set(x, 0, z); return p;
+export function person(x, z, shirt, h = 1.75, pants = 0x2a2d3a, o = {}) {
+  const p = new THREE.Group(), skin = o.skin || 0xd9a98a, k = h / 1.75;
+  const M2 = (c) => new THREE.MeshStandardMaterial({ color: c, roughness: .85 });
+  const legL = h * .48, sw = o.sit ? 0 : (o.walk ? .28 : .06);
+  [-1, 1].forEach((sd) => {
+    const lg = new THREE.Group(); lg.position.set(0, legL, sd * .09 * k);
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(.07 * k, .06 * k, legL, 8), M2(o.skirt ? skin : pants)); leg.position.y = -legL / 2; lg.add(leg);
+    const shoe = new THREE.Mesh(new THREE.BoxGeometry(.2 * k, .06 * k, .09 * k), M2(o.shoe || 0x222226)); shoe.position.set(.05 * k, -legL + .02, 0); lg.add(shoe);
+    if (o.sit) { lg.rotation.z = -Math.PI / 2 + .2; lg.position.y = legL * .52; } else lg.rotation.z = sd * sw;
+    p.add(lg);
+  });
+  const tor = new THREE.Mesh(new THREE.CylinderGeometry(.17 * k, .14 * k, h * .33, 10), M2(shirt)); tor.position.y = h * (o.sit ? .54 : .65); p.add(tor);
+  if (o.skirt) { const sk = new THREE.Mesh(new THREE.CylinderGeometry(.14 * k, .24 * k, legL * .8, 12), M2(o.skirt)); sk.position.y = legL * .75; p.add(sk); }
+  [-1, 1].forEach((sd) => {
+    const ar = new THREE.Group(); ar.position.set(0, h * (o.sit ? .66 : .78), sd * .2 * k);
+    const arm = new THREE.Mesh(new THREE.CylinderGeometry(.045 * k, .04 * k, h * .3, 8), M2(o.sleeve || shirt)); arm.position.y = -h * .15; ar.add(arm);
+    const hand = new THREE.Mesh(new THREE.SphereGeometry(.045 * k, 8, 6), M2(skin)); hand.position.y = -h * .31; ar.add(hand);
+    ar.rotation.z = -sd * (o.walk ? .1 : 0) + (o.armUp && sd === 1 ? 2.6 : 0); ar.rotation.x = sd * .12;
+    p.add(ar);
+  });
+  const hd = new THREE.Mesh(new THREE.SphereGeometry(.11 * k, 12, 10), M2(skin)); hd.position.y = h * (o.sit ? .8 : .92); p.add(hd);
+  const hr = new THREE.Mesh(new THREE.SphereGeometry(.118 * k, 12, 8, 0, Math.PI * 2, 0, Math.PI * .55), M2(o.hair === undefined ? 0x2a2420 : o.hair)); hr.position.y = hd.position.y + .01; hr.rotation.x = -.25; p.add(hr);
+  if (o.hijab) { const hj = new THREE.Mesh(new THREE.SphereGeometry(.125 * k, 12, 10), M2(o.hijab)); hj.position.y = hd.position.y; hj.scale.y = 1.15; p.add(hj); }
+  p.traverse((q) => { q.castShadow = true; });
+  p.position.set(x, o.sit ? -h * .18 : 0, z); p.rotation.y = o.rot || 0; return p;
 }
-function bush(g, x, z, col, r) { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(r, 1), mk(col)); b.position.set(x, r * .8, z); b.castShadow = true; g.add(b); }
-function tree(g, x, z, h = 7) {
+export function bush(g, x, z, col, r) { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(r, 1), mk(col)); b.position.set(x, r * .8, z); b.castShadow = true; g.add(b); }
+export function tree(g, x, z, h = 7) {
   const t = new THREE.Group();
   const tr = new THREE.Mesh(new THREE.CylinderGeometry(.07, .12, h, 8), mk(0x5b4636)); tr.position.y = h / 2; t.add(tr);
   for (let k = 0; k < 16; k++) {
@@ -40,7 +69,7 @@ function tree(g, x, z, h = 7) {
   }
   t.position.set(x, 0, z); g.add(t);
 }
-function environment(g, o) {
+export function environment(g, o) {
   const { x0, x1, cars = [], people = [], bg = 0x2f5a35, roadZ = 9.5, lawn = null, flowers = true } = o;
   const w = x1 - x0, cx = (x0 + x1) / 2;
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(240, 240), mk(0x6b8f4a)); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; g.add(ground);
@@ -65,7 +94,7 @@ function environment(g, o) {
     b.position.set(cx - 48 + k * 6.4, 8 + (k % 3) * 2, -26 - (k % 2) * 5); g.add(b);
   }
 }
-const planks = (c, w, h, y0, y1, a = "#54463d", b1 = "#4b3e36", b2 = "#5d4e44", step = 14) => {
+export const planks = (c, w, h, y0, y1, a = "#54463d", b1 = "#4b3e36", b2 = "#5d4e44", step = 14) => {
   c.fillStyle = a; c.fillRect(0, y0, w, y1 - y0);
   for (let y = y0, i = 0; y < y1; y += step, i++) { c.fillStyle = i % 2 ? b1 : b2; c.fillRect(0, y, w, step - 1); }
 };
