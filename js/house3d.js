@@ -2,8 +2,9 @@
 // url "builtin:<nama>" di js/models.js. Setiap model = fungsi yang mengembalikan THREE.Group.
 import * as THREE from "./vendor/three.module.js";
 import { OrbitControls } from "./vendor/OrbitControls.js";
+import { EXTRA_MODELS, addCornerWing } from "./house3d-more.js";
 
-function canvasTex(w, h, draw) {
+export function canvasTex(w, h, draw) {
   const c = document.createElement("canvas");
   c.width = w; c.height = h;
   draw(c.getContext("2d"), w, h);
@@ -19,7 +20,7 @@ function canvasTex(w, h, draw) {
 const W = 6, G = .6, H1 = .91, RISE = .5, T = H1 + RISE;     // G: tinggi lantai bawah, H1: tinggi dinding atas
 const D = 13;
 
-function drawMirrored(c, w, mirror) { if (mirror) { c.translate(w, 0); c.scale(-1, 1); } }
+export function drawMirrored(c, w, mirror) { if (mirror) { c.translate(w, 0); c.scale(-1, 1); } }
 
 function upperTextures(mirror) {
   const cw = 768, ch = Math.round(cw * T);
@@ -109,15 +110,15 @@ function recessTextures() {
   return [mk(false), mk(true)];
 }
 
-function litMat(pair) {
+export function litMat(pair) {
   return new THREE.MeshStandardMaterial({ map: pair[0], emissive: 0xffffff, emissiveMap: pair[1], emissiveIntensity: .9, roughness: .85 });
 }
-function box(w, h, d, mat, x, y, z, cast = true) {
+export function box(w, h, d, mat, x, y, z, cast = true) {
   const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
   m.position.set(x, y, z); m.castShadow = cast; m.receiveShadow = true; return m;
 }
 
-function buildArnica() {
+function buildArnica(opts = {}) {
   const g = new THREE.Group();
   const gh = G * W, h1 = H1 * W, rise = RISE * W, topH = T * W;       // meter
   const sideMat = new THREE.MeshStandardMaterial({ color: 0xcfd3e0, roughness: .85 });
@@ -189,16 +190,18 @@ function buildArnica() {
     return s;
   }
   const spW = .42 * W, blockW = spW + 2 * W;
-  const total = 2 * blockW + .12 * W;
+  const hook = !!opts.hook;
+  let total = (hook ? blockW + spW + W : 2 * blockW) + .12 * W;
   const row = new THREE.Group();
-  for (let k = 0; k < 2; k++) {
+  for (let k = 0; k < (hook ? 1 : 2); k++) {
     row.add(spacer(k * blockW));
     row.add(pair(k * blockW + spW));
   }
-  const endPil = spacer(2 * blockW);                                                  // pilaster penutup kanan (tanpa dinding dalam)
-  endPil.children.splice(2);
+  if (hook) { row.add(spacer(blockW)); row.add(unit(blockW + spW, false)); }
+  const endPil = spacer(hook ? blockW + spW + W : 2 * blockW);                         // pilaster penutup kanan (tanpa dinding dalam)
   endPil.children.length = 2;
   row.add(endPil);
+  if (hook) { addCornerWing(row, { x: total, W, gh, h1, D, sideMat, roofMat, upper: true }); total += 5; }
   row.position.x = -total / 2;
   g.add(row);
 
@@ -233,7 +236,8 @@ function buildArnica() {
     c.traverse((o) => { o.castShadow = true; });
     c.position.set(x, 0, z); return c;
   };
-  g.add(car(gx + 4.6, 3.5, 0x181a20), car(gx + 20.7, 3.4, 0xd9b13f, 3.9, 1.3), car(gx + 25.3, 3.6, 0x1c1e22, 4.8, 1.5), car(gx + 30.3, 3.5, 0xb9bec7));
+  if (hook) g.add(car(gx + 4.6, 3.5, 0x181a20), car(gx + 9.8, 3.4, 0xd9b13f, 3.9, 1.3), car(gx + 14.6, 3.6, 0xc9ced6, 4.6));
+  else g.add(car(gx + 4.6, 3.5, 0x181a20), car(gx + 20.7, 3.4, 0xd9b13f, 3.9, 1.3), car(gx + 25.3, 3.6, 0x1c1e22, 4.8, 1.5), car(gx + 30.3, 3.5, 0xb9bec7));
 
   // orang
   const person = (x, z, shirt, h = 1.75, pants = 0x2a2d3a) => {
@@ -267,7 +271,8 @@ function buildArnica() {
   return g;
 }
 
-const MODELS = { arnica: { build: buildArnica, target: [0, 5.5, 0], pos: [-10, 3.2, 40] } };
+const MODELS = { arnica: { build: buildArnica, target: [0, 5.5, 0], pos: [-10, 3.2, 40] },
+  "arnica-hook": { build: () => buildArnica({ hook: true }), target: [3, 5, 0], pos: [26, 4, 36] }, ...EXTRA_MODELS };
 
 export function has(name) { return !!MODELS[name]; }
 

@@ -15,11 +15,18 @@
 //   - "builtin:<nama>" -> model 3D buatan sendiri di js/house3d.js (sekarang: builtin:arnica).
 // Kosongkan (null) kalau belum ada: overlay otomatis menampilkan foto render tipe itu.
 window.HOUSE_VIEWS = {
-  "ANGELINE":   { url: null },
-  "GWEN":       { url: null },
-  "NEW GWEN":   { url: null },
-  "DARLENE":    { url: null },
-  "BIANCA":     { url: null },
-  "ARNICA":     { url: "builtin:arnica" },
-  "RUKO":       { url: null },
+  "ANGELINE":              { url: "builtin:angeline" },
+  "ANGELINE (HOOK)":       { url: "builtin:angeline-hook" },
+  "GWEN":                  { url: "builtin:gwen" },
+  "GWEN (HOOK)":           { url: "builtin:gwen-hook" },
+  "NEW GWEN":              { url: "builtin:darlene" },
+  "NEW GWEN (HOOK)":       { url: "builtin:darlene-hook" },
+  "DARLENE":               { url: "builtin:darlene" },
+  "BIANCA":                { url: "builtin:bianca" },
+  "BIANCA DELUXE (HOOK)":  { url: "builtin:bianca-hook" },
+  "ARNICA":                { url: "builtin:arnica" },
+  "ARNICA GARDEN (HOOK)":  { url: "builtin:arnica-hook" },
+  "ARNICA POOL (HOOK)":    { url: "builtin:arnica-hook" },
+  "ARNICA (E8)":           { url: "builtin:arnica-hook" },
+  "RUKO":                  { url: "builtin:ruko" },
 };
