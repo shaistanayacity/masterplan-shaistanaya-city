@@ -379,23 +379,53 @@ function buildSlate(style, opts = {}) {
     u.add(box(W - .1, .22, .12, white, W / 2, yEave + .08, .42, false));
     return u;
   }
-  const n = opts.hook ? 3 : 4;
-  const row = new THREE.Group();
-  for (let i = 0; i < n; i++) {
-    row.add(unit(i * W, i % 2 === 1));
-    const fin = new THREE.Mesh(finGeo, white); fin.position.set(i * W - .15, 0, 0); fin.castShadow = true; row.add(fin);
+  // Bagian sempit (carport) di sela pasangan rumah: atap turun panjang sampai ke atas dinding lantai bawah,
+  // tanpa jendela, bubungan jauh lebih rendah dari pasangan A+B (diukur dari foto: sekitar 0,14 W).
+  const SB = .45 * W;
+  const yBE = (SG + .04) * W, yBR = (SG + SU + SR - .14) * W, sRb = 3.6, backDropB = 2.6;
+  const profB = new THREE.Shape();
+  [[-.4, 0], [D, 0], [D, yBE - backDropB + .35], [sRb, yBR + .3], [-.4, yBE + .3]].forEach(([s2, y], i) => i ? profB.lineTo(s2, y) : profB.moveTo(s2, y));
+  const finB = new THREE.ExtrudeGeometry(profB, { depth: .3, bevelEnabled: false }); finB.rotateY(Math.PI / 2);
+  const woodTexB = canvasTex(256, 256, (c, w, h) => planks(c, w, h, 0, h, "#7b5c46", "#664a39", "#7b5c46", 18));
+  woodTexB.wrapS = woodTexB.wrapT = THREE.RepeatWrapping; woodTexB.repeat.set(1, 1.6);
+  const woodB = new THREE.MeshStandardMaterial({ map: woodTexB, roughness: .85 });
+  function bay(x0) {
+    const u = new THREE.Group(); u.position.x = x0;
+    u.add(box(SB, yBE, D, white, SB / 2, yBE / 2, -D / 2));
+    const wf = new THREE.Mesh(new THREE.PlaneGeometry(SB, gh), woodB); wf.position.set(SB / 2, gh / 2, .02); u.add(wf);
+    const run = sRb + .4, rise2 = yBR - yBE, len = Math.hypot(run, rise2);
+    const rf = box(SB - .1, .16, len, slate, SB / 2, yBE + rise2 / 2 + .08, -(sRb - .4) / 2);
+    rf.rotation.x = Math.atan2(rise2, run); u.add(rf);
+    const bl = Math.hypot(D - sRb, backDropB);
+    const rb = box(SB - .1, .16, bl, slate, SB / 2, yBR - backDropB / 2 + .08, -(sRb + D) / 2);
+    rb.rotation.x = -Math.atan2(backDropB, D - sRb); u.add(rb);
+    u.add(box(SB - .1, .22, .12, white, SB / 2, yBE + .08, .42, false));
+    return u;
   }
+  const row = new THREE.Group();
+  const seq = opts.hook ? ["S", "A", "B", "S", "A"] : ["S", "A", "B", "S", "A", "B"];
+  let xc = 0;
+  const addFin = (x, geo = finGeo) => { const f = new THREE.Mesh(geo, white); f.position.set(x - .15, 0, 0); f.castShadow = true; row.add(f); };
+  seq.forEach((t, i) => {
+    if (t === "S") { if (i === 0) addFin(0, finB); row.add(bay(xc)); xc += SB; }
+    else {
+      row.add(unit(xc, t === "B"));
+      if (t === "A") addFin(xc); else addFin(xc);               // sirip di sisi kiri tiap rumah
+      xc += W;
+      if (t === "B") addFin(xc);                                  // sirip kanan B (batas dengan bagian sempit / ujung)
+    }
+  });
+  const xEnd = xc;
   const EX = 3.8;
-  const endFin = new THREE.Mesh(opts.hook ? wallGeo : finGeo, white);
-  endFin.position.set(n * W - .15, 0, 0); endFin.castShadow = true; row.add(endFin);
-  let total = n * W;
+  if (opts.hook) addFin(xEnd, wallGeo);
+  let total = xEnd;
   if (opts.hook) {
     // unit pojok melebar: dinding kayu lantai bawah + dinding putih polos di atas, atap slate menerus,
     // dinding samping putih besar mengikuti kemiringan atap
     const woodTex = canvasTex(256, 256, (c, w, h) => planks(c, w, h, 0, h, "#7b5c46", "#664a39", "#7b5c46", 18));
     woodTex.wrapS = woodTex.wrapT = THREE.RepeatWrapping; woodTex.repeat.set(2, 1.2);
     const wood = new THREE.MeshStandardMaterial({ map: woodTex, roughness: .85 });
-    const x0 = n * W, cxx = x0 + EX / 2;
+    const x0 = xEnd, cxx = x0 + EX / 2;
     row.add(box(EX, yEave, D, white, cxx, yEave / 2, -D / 2));
     const wf = new THREE.Mesh(new THREE.PlaneGeometry(EX, gh), wood); wf.position.set(cxx, gh / 2, .02); row.add(wf);
     row.add(box(EX, .12, 1.0, mk(0x62656e), cxx, gh * .97, .5));
@@ -415,14 +445,14 @@ function buildSlate(style, opts = {}) {
   }
   row.position.x = -total / 2; g.add(row);
   const gx = -total / 2;
-  const hookCars = [[gx + 3.6, 3.7, 0xd8dce4], [gx + 9.8, 3.6, 0x16181d]];
-  const rowCars = [[gx + 3.6, 3.5, 0xf2f3f5, 4.7, 1.5], [gx + 17.5, 3.5, 0x1c1e22, 4.6, 1.5], [gx + 23.4, 3.5, 0xb8bcc4, 4.5, 1.4]];
+  const hookCars = [[gx + 3.2, 3.6, 0xf2f3f5, 4.7, 1.5], [gx + 20.5, 3.6, 0x16181d, 4.6, 1.5]];
+  const rowCars = [[gx + 3.2, 3.5, 0xf2f3f5, 4.7, 1.5], [gx + 20.5, 3.5, 0x1c1e22, 4.6, 1.5], [gx + 26.8, 3.5, 0xb8bcc4, 4.5, 1.4]];
   environment(g, {
     x0: gx, x1: gx + total, cars: opts.hook ? hookCars : rowCars,
-    people: opts.hook ? [[gx + total - 2.5, 7.2, 0xefece4, 1.7, 0xefece4], [gx + total - 1.6, 7.1, 0x777b86]] : [[gx + 11.2, 4.7, 0xd8c7b0, 1.7, 0xd8c7b0], [gx + 12.6, 4.6, 0xe3dccf]],
-    lawn: { x: gx + (opts.hook ? total - 9 : 14.5), z: 6.2, w: opts.hook ? 18 : 11, d: opts.hook ? 5.5 : 2.4 },
+    people: opts.hook ? [[gx + total - 2.5, 7.2, 0xefece4, 1.7, 0xefece4], [gx + total - 1.6, 7.1, 0x777b86]] : [[gx + 9.9, 4.7, 0xd8c7b0, 1.7, 0xd8c7b0], [gx + 11.3, 4.6, 0xe3dccf]],
+    lawn: { x: gx + (opts.hook ? total - 9 : 9.5), z: 6.2, w: opts.hook ? 18 : 9, d: opts.hook ? 5.5 : 2.4 },
   });
-  if (!opts.hook) { for (let k = 0; k < 6; k++) bush(g, gx + 10 + k * 1.4, 5.0 + (k % 2) * .4, k % 2 ? 0x3f8a3a : 0x5a9a42, .55 + (k % 3) * .1); }
+  if (!opts.hook) { for (let k = 0; k < 6; k++) bush(g, gx + 6 + k * 1.4, 5.0 + (k % 2) * .4, k % 2 ? 0x3f8a3a : 0x5a9a42, .55 + (k % 3) * .1); }
   else { for (let k = 0; k < 10; k++) bush(g, gx + total - 16 + k * 1.3, 5.3, k % 2 ? 0x3f8a3a : 0x5a9a42, .6); }
   return g;
 }
@@ -486,11 +516,11 @@ function buildRuko() {
 export const EXTRA_MODELS = {
   bianca:         { build: () => buildBianca(), target: [0, 5.5, 0], pos: [-8, 3, 36] },
   "bianca-hook":  { build: () => buildBianca({ hook: true }), target: [3, 5, 0], pos: [28, 4, 36] },
-  gwen:           { build: () => buildSlate("gwen"), target: [0, 4.5, 0], pos: [-8, 3, 40] },
+  gwen:           { build: () => buildSlate("gwen"), target: [0, 4.5, 0], pos: [-8, 3, 46] },
   "gwen-hook":    { build: () => buildSlate("gwen", { hook: true }), target: [3, 4.5, 0], pos: [26, 4, 34] },
-  angeline:       { build: () => buildSlate("angeline"), target: [0, 4.5, 0], pos: [-8, 3, 40] },
+  angeline:       { build: () => buildSlate("angeline"), target: [0, 4.5, 0], pos: [-8, 3, 46] },
   "angeline-hook": { build: () => buildSlate("angeline", { hook: true }), target: [3, 4.5, 0], pos: [26, 4, 34] },
-  darlene:        { build: () => buildSlate("darlene"), target: [0, 4.5, 0], pos: [-8, 3, 40] },
+  darlene:        { build: () => buildSlate("darlene"), target: [0, 4.5, 0], pos: [-8, 3, 46] },
   "darlene-hook": { build: () => buildSlate("darlene", { hook: true }), target: [3, 4.5, 0], pos: [26, 4, 34] },
   ruko:           { build: () => buildRuko(), target: [0, 5, 0], pos: [-6, 3.5, 36] },
 };
