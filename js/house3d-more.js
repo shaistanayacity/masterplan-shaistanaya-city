@@ -3,10 +3,10 @@
 import * as THREE from "./vendor/three.module.js";
 import { canvasTex, drawMirrored, litMat, box } from "./house3d.js";
 
-const mk = (c, r = 1, extra = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: r, ...extra });
+export const mk = (c, r = 1, extra = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: r, ...extra });
 
 // ---------- lingkungan bersama ----------
-function car(x, z, col, len = 4.6, hh = 1.35, rotY = 0) {
+export function car(x, z, col, len = 4.6, hh = 1.35, rotY = 0) {
   const c = new THREE.Group();
   const sp = new THREE.Shape();
   [[0, .3], [0, .78], [.9, .88], [1.5, hh], [len - 1.5, hh], [len - .8, .88], [len, .8], [len, .3]].forEach(([a, b], i) => i ? sp.lineTo(a, b) : sp.moveTo(a, b));
@@ -23,15 +23,15 @@ function car(x, z, col, len = 4.6, hh = 1.35, rotY = 0) {
   c.traverse((o) => { o.castShadow = true; });
   c.position.set(x, 0, z); c.rotation.y = rotY; return c;
 }
-function person(x, z, shirt, h = 1.75, pants = 0x2a2d3a) {
+export function person(x, z, shirt, h = 1.75, pants = 0x2a2d3a) {
   const p = new THREE.Group();
   const leg = new THREE.Mesh(new THREE.CylinderGeometry(.13, .11, h * .5, 8), mk(pants)); leg.position.y = h * .25; p.add(leg);
   const tor = new THREE.Mesh(new THREE.CylinderGeometry(.19, .16, h * .32, 10), mk(shirt)); tor.position.y = h * .66; p.add(tor);
   const hd = new THREE.Mesh(new THREE.SphereGeometry(.12, 12, 10), mk(0xd9a98a)); hd.position.y = h * .9; p.add(hd);
   p.traverse((o) => { o.castShadow = true; }); p.position.set(x, 0, z); return p;
 }
-function bush(g, x, z, col, r) { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(r, 1), mk(col)); b.position.set(x, r * .8, z); b.castShadow = true; g.add(b); }
-function tree(g, x, z, h = 7) {
+export function bush(g, x, z, col, r) { const b = new THREE.Mesh(new THREE.IcosahedronGeometry(r, 1), mk(col)); b.position.set(x, r * .8, z); b.castShadow = true; g.add(b); }
+export function tree(g, x, z, h = 7) {
   const t = new THREE.Group();
   const tr = new THREE.Mesh(new THREE.CylinderGeometry(.07, .12, h, 8), mk(0x5b4636)); tr.position.y = h / 2; t.add(tr);
   for (let k = 0; k < 16; k++) {
@@ -40,7 +40,7 @@ function tree(g, x, z, h = 7) {
   }
   t.position.set(x, 0, z); g.add(t);
 }
-function environment(g, o) {
+export function environment(g, o) {
   const { x0, x1, cars = [], people = [], bg = 0x2f5a35, roadZ = 9.5, lawn = null, flowers = true } = o;
   const w = x1 - x0, cx = (x0 + x1) / 2;
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(240, 240), mk(0x6b8f4a)); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; g.add(ground);
@@ -65,7 +65,7 @@ function environment(g, o) {
     b.position.set(cx - 48 + k * 6.4, 8 + (k % 3) * 2, -26 - (k % 2) * 5); g.add(b);
   }
 }
-const planks = (c, w, h, y0, y1, a = "#54463d", b1 = "#4b3e36", b2 = "#5d4e44", step = 14) => {
+export const planks = (c, w, h, y0, y1, a = "#54463d", b1 = "#4b3e36", b2 = "#5d4e44", step = 14) => {
   c.fillStyle = a; c.fillRect(0, y0, w, y1 - y0);
   for (let y = y0, i = 0; y < y1; y += step, i++) { c.fillStyle = i % 2 ? b1 : b2; c.fillRect(0, y, w, step - 1); }
 };

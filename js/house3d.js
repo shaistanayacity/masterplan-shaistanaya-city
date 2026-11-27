@@ -3,6 +3,7 @@
 import * as THREE from "./vendor/three.module.js";
 import { OrbitControls } from "./vendor/OrbitControls.js";
 import { EXTRA_MODELS, addCornerWing } from "./house3d-more.js";
+import { FASUM_MODELS } from "./house3d-fasum.js";
 
 export function canvasTex(w, h, draw) {
   const c = document.createElement("canvas");
@@ -272,14 +273,14 @@ function buildArnica(opts = {}) {
 }
 
 const MODELS = { arnica: { build: buildArnica, target: [0, 5.5, 0], pos: [-10, 3.2, 40] },
-  "arnica-hook": { build: () => buildArnica({ hook: true }), target: [3, 5, 0], pos: [26, 4, 36] }, ...EXTRA_MODELS };
+  "arnica-hook": { build: () => buildArnica({ hook: true }), target: [3, 5, 0], pos: [26, 4, 36] }, ...EXTRA_MODELS, ...FASUM_MODELS };
 
 export function has(name) { return !!MODELS[name]; }
 
 export function mount(el, name) {
   const def = MODELS[name];
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x9bbbd8);
+  scene.background = new THREE.Color(def.sky || 0x9bbbd8);
   scene.add(new THREE.HemisphereLight(0xeaf3ff, 0x8aa070, 1.6));
   const sun = new THREE.DirectionalLight(0xfff1d6, 2.4);
   sun.position.set(22, 30, 36); sun.castShadow = true;
@@ -303,7 +304,7 @@ export function mount(el, name) {
   controls.enableDamping = true;
   controls.autoRotate = false;
   controls.maxPolarAngle = Math.PI / 2 - .03;
-  controls.minDistance = 8; controls.maxDistance = 70;
+  controls.minDistance = 8; controls.maxDistance = 130;
   controls.addEventListener("start", () => { controls.autoRotate = false; });
 
   const resize = () => {
