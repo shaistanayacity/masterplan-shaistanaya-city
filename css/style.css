@@ -526,3 +526,20 @@ body {
   color: rgba(255,255,255,.7); font-size: 12px;
 }
 @keyframes hv-float { 50% { transform: translateY(-10px); } }
+
+/* ---------- Interior 3D ---------- */
+.house-view__tabs { display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.14); }
+.house-view__tabs[hidden] { display: none; }
+.hv-tab { border: 0; border-radius: 999px; padding: 8px 16px; font: inherit; font-size: 13px; font-weight: 600; color: #fff; background: transparent; cursor: pointer; }
+.hv-tab.is-on { background: #fff; color: #000; }
+.hv-rooms { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 0 12px; pointer-events: none; }
+.hv-room { pointer-events: auto; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 13px; font-weight: 600; color: #fff; background: rgba(0,0,0,.55); backdrop-filter: blur(4px); cursor: pointer; }
+.hv-room.is-on { background: #fff; color: #000; }
+.hv-photos { position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 6px; max-width: 120px; }
+.hv-photos__cap { color: #fff; font-size: 11px; text-shadow: 0 1px 3px rgba(0,0,0,.8); text-align: right; }
+.hv-photos img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 2px solid #fff; cursor: zoom-in; box-shadow: 0 4px 14px rgba(0,0,0,.4); }
+.hv-hint { position: absolute; left: 12px; top: 12px; color: #fff; font-size: 12px; text-shadow: 0 1px 3px rgba(0,0,0,.8); pointer-events: none; }
+.hv-lightbox { position: fixed; inset: 0; z-index: 1100; background: rgba(0,0,0,.9); display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+.hv-lightbox[hidden] { display: none; }
+.hv-lightbox img { max-width: 96vw; max-height: 92vh; object-fit: contain; }
+@media (max-width: 600px) { .hv-hint { display: none; } .hv-photos img { width: 84px; height: 56px; } .hv-room { padding: 6px 10px; font-size: 12px; } .hv-tab { padding: 7px 12px; } }

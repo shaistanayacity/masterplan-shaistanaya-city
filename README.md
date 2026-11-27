@@ -237,6 +237,16 @@ Popup unit punya tombol **"Lihat Tampilan 3D"** yang membuka overlay layar penuh
 
 Kunci memakai awalan nama tipe, jadi `"ANGELINE"` juga berlaku untuk varian Hook.
 
+## Interior 3D (New Gwen)
+
+Untuk tipe yang punya interior (`window.HOUSE_INTERIORS` di `js/models.js`, sekarang **NEW GWEN** dan **NEW GWEN (Hook)**),
+overlay 3D punya dua tab: **Tampak Luar** dan **Interior**. Interior (`js/interior-newgwen.js`) adalah ruangan 3D yang bisa
+dilihat sekeliling dengan menggeser, dengan tombol pindah ruangan (Ruang Tamu, Makan, Kamar Anak, Kamar Utama, Kamar Mandi,
+Dapur) dan foto asli unit contoh F5-08 per ruangan (`assets/interior/new-gwen/`, dibuka besar saat diketuk).
+
+Denah dan perabot dibuat dari 14 foto unit contoh; ukuran ruang (5,4 x 9,0 m) adalah perkiraan. Untuk menambah interior tipe
+lain: buat modul baru dengan pola yang sama, lalu daftarkan di `HOUSE_INTERIORS`.
+
 ## Mengedit data
 
 `js/data.js` adalah file yang di-generate. Untuk mengubah data (status unit,
