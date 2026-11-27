@@ -232,6 +232,7 @@ Popup unit punya tombol **"Lihat Tampilan 3D"** yang membuka overlay layar penuh
   Kuula, dll.) -> dibuka di iframe.
 - `url` berakhiran `.glb`/`.gltf` (file di `assets/models/` atau URL https) ->
   ditampilkan dengan `<model-viewer>` (bisa diputar/zoom).
+- `url: "builtin:arnica"` -> model 3D buatan sendiri (`js/house3d.js`, Three.js lokal di `js/vendor/`), bisa diputar & di-zoom. Perlu dibuka lewat server (bukan file://); kalau gagal, jatuh ke foto render.
 - `url: null` -> sementara menampilkan foto render tipe itu (melayang).
 
 Kunci memakai awalan nama tipe, jadi `"ANGELINE"` juga berlaku untuk varian Hook.

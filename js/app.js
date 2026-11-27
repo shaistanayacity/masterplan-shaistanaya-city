@@ -165,6 +165,7 @@
   const hvCode = document.getElementById("hv-code");
   const hvType = document.getElementById("hv-type");
   let currentUnitView = null;
+  let disposeHouse = null;
 
   function findHouseView(typeName) {
     const views = window.HOUSE_VIEWS || {};
@@ -194,7 +195,24 @@
     hvCode.textContent = code;
     hvType.textContent = unit.type;
     hvBody.innerHTML = "";
-    if (url && /\.(glb|gltf)(\?|#|$)/i.test(url)) {
+    if (url && url.indexOf("builtin:") === 0) {
+      const showPhoto = () => {
+        hvBody.innerHTML = "";
+        if (unit.render) {
+          const img = document.createElement("img");
+          img.className = "house-view__photo"; img.src = unit.render; img.alt = unit.type;
+          hvBody.appendChild(img);
+        }
+      };
+      import("./house3d.js").then((m) => {
+        if (houseView.hidden) return;
+        disposeHouse = m.mount(hvBody, url.slice(8));
+        const note = document.createElement("div");
+        note.className = "house-view__note";
+        note.textContent = "Geser untuk memutar · cubit/scroll untuk zoom";
+        hvBody.appendChild(note);
+      }).catch(showPhoto);
+    } else if (url && /\.(glb|gltf)(\?|#|$)/i.test(url)) {
       loadModelViewer();
       const mv = document.createElement("model-viewer");
       mv.setAttribute("src", url);
@@ -228,6 +246,7 @@
 
   function closeHouseView() {
     houseView.hidden = true;
+    if (disposeHouse) { disposeHouse(); disposeHouse = null; }
     hvBody.innerHTML = ""; // hentikan iframe/model
   }
 

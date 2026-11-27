@@ -12,6 +12,7 @@
 //       Matterport: https://my.matterport.com/show/?m=<ID>
 //   - File model langsung berakhiran .glb / .gltf (di-host di repo ini, mis.
 //     "assets/models/angeline.glb", atau URL https), ditampilkan dengan <model-viewer>.
+//   - "builtin:<nama>" -> model 3D buatan sendiri di js/house3d.js (sekarang: builtin:arnica).
 // Kosongkan (null) kalau belum ada: overlay otomatis menampilkan foto render tipe itu.
 window.HOUSE_VIEWS = {
   "ANGELINE":   { url: null },
@@ -19,6 +20,6 @@ window.HOUSE_VIEWS = {
   "NEW GWEN":   { url: null },
   "DARLENE":    { url: null },
   "BIANCA":     { url: null },
-  "ARNICA":     { url: null },
+  "ARNICA":     { url: "builtin:arnica" },
   "RUKO":       { url: null },
 };
