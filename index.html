@@ -76,10 +76,16 @@
         <div class="house-view__code" id="hv-code">—</div>
         <div class="house-view__type" id="hv-type">—</div>
       </div>
+      <div class="house-view__tabs" id="hv-tabs" hidden>
+        <button type="button" class="hv-tab is-on" data-mode="luar">Tampak Luar</button>
+        <button type="button" class="hv-tab" data-mode="dalam">Interior</button>
+      </div>
       <button class="house-view__close" id="hv-close" type="button" aria-label="Tutup">&times;</button>
     </div>
     <div class="house-view__body" id="hv-body"></div>
   </div>
+
+  <div class="hv-lightbox" id="hv-lightbox" hidden><img id="hv-lightbox-img" alt="Foto unit contoh" /></div>
 
   <script src="js/data.js"></script>
   <script src="js/models.js"></script>

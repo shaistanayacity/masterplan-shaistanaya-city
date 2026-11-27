@@ -187,9 +187,50 @@
     document.head.appendChild(sc);
   }
 
-  function openHouseView() {
+  const hvTabs = document.getElementById("hv-tabs");
+  const hvLightbox = document.getElementById("hv-lightbox");
+  hvLightbox.addEventListener("click", () => { hvLightbox.hidden = true; });
+  function findInterior(typeName) {
+    const v = window.HOUSE_INTERIORS || {}; const t = String(typeName || "").toUpperCase(); let best = null;
+    Object.keys(v).forEach((k) => { if (t.startsWith(k.toUpperCase()) && (!best || k.length > best.length)) best = k; });
+    return best ? v[best] : null;
+  }
+  function showInterior(cfg) {
+    if (disposeHouse) { disposeHouse(); disposeHouse = null; }
+    hvBody.innerHTML = "";
+    import("./interior-newgwen.js").then((m) => {
+      if (houseView.hidden) return;
+      const rooms = document.createElement("div"); rooms.className = "hv-rooms";
+      const photos = document.createElement("div"); photos.className = "hv-photos";
+      const hint = document.createElement("div"); hint.className = "hv-hint"; hint.textContent = "Geser untuk melihat sekeliling · scroll/cubit untuk zoom";
+      let viewer = null;
+      const onRoom = (r) => {
+        rooms.querySelectorAll(".hv-room").forEach((b) => b.classList.toggle("is-on", b.dataset.key === r.key));
+        photos.innerHTML = "";
+        const cap = document.createElement("div"); cap.className = "hv-photos__cap"; cap.textContent = (cfg.source || "Foto asli") + " (ketuk untuk perbesar)"; photos.appendChild(cap);
+        r.photos.forEach((n) => { const im = document.createElement("img"); im.src = cfg.photos + n + ".jpg"; im.alt = r.label; im.loading = "lazy"; im.addEventListener("click", () => { document.getElementById("hv-lightbox-img").src = im.src; hvLightbox.hidden = false; }); photos.appendChild(im); });
+      };
+      viewer = m.mountInterior(hvBody, onRoom);
+      m.ROOMS.forEach((r) => { const b = document.createElement("button"); b.type = "button"; b.className = "hv-room"; b.dataset.key = r.key; b.textContent = r.label; b.addEventListener("click", () => viewer.goTo(r.key)); rooms.appendChild(b); });
+      hvBody.appendChild(rooms); hvBody.appendChild(photos); hvBody.appendChild(hint);
+      onRoom(m.ROOMS[0]); rooms.querySelector(".hv-room").classList.add("is-on");
+      disposeHouse = viewer.dispose;
+    }).catch(() => { hvBody.textContent = "Interior 3D gagal dimuat."; });
+  }
+  hvTabs.addEventListener("click", (e) => {
+    const b = e.target.closest(".hv-tab"); if (!b || !currentUnitView) return;
+    hvTabs.querySelectorAll(".hv-tab").forEach((x) => x.classList.toggle("is-on", x === b));
+    if (b.dataset.mode === "dalam") showInterior(findInterior(currentUnitView.unit.type)); else openHouseView(true);
+  });
+
+  function openHouseView(keepTabs) {
     if (!currentUnitView) return;
     const { code, unit } = currentUnitView;
+    if (keepTabs !== true) {
+      const ic = unit.facility ? null : findInterior(unit.type);
+      hvTabs.hidden = !ic; hvTabs.querySelectorAll(".hv-tab").forEach((x) => x.classList.toggle("is-on", x.dataset.mode === "luar"));
+    }
+    if (disposeHouse) { disposeHouse(); disposeHouse = null; }
     const cfg = findHouseView(unit.type);
     const url = cfg && cfg.url;
     hvCode.textContent = code;
@@ -250,7 +291,7 @@
     hvBody.innerHTML = ""; // hentikan iframe/model
   }
 
-  upView3d.addEventListener("click", openHouseView);
+  upView3d.addEventListener("click", () => openHouseView());
   document.getElementById("hv-close").addEventListener("click", closeHouseView);
 
   const CLUSTER_LABEL = {

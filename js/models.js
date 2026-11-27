@@ -38,3 +38,9 @@ window.HOUSE_VIEWS = {
   "GATE CLUSTER MONTANA":  { url: "builtin:montana" },
   "GERBANG UTAMA":         { url: "builtin:entrance" },
 };
+
+// Interior 3D per tipe (tab "Interior" di overlay). `photos` = folder foto asli unit contoh untuk galeri per ruangan.
+// Interior New Gwen dibuat dari foto unit contoh F5-08 (New Gwen Hook); dipakai juga untuk New Gwen biasa sebagai perkiraan.
+window.HOUSE_INTERIORS = {
+  "NEW GWEN": { module: "newgwen", photos: "assets/interior/new-gwen/", source: "Foto unit contoh F5-08" },
+};
