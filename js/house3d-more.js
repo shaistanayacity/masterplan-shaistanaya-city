@@ -240,87 +240,127 @@ export function addCornerWing(row, o) {
 //  ATAP SLATE (GWEN / NEW GWEN / DARLENE / ANGELINE): atap miring ke depan, sirip putih,
 //  jendela atas di bawah kanopi, porch putih berlengkung berpasangan.
 // =====================================================================================
-const SW = 6, SG = .72, SU = .38, SR = .52, SD = 12;   // lebar, lantai bawah, pita jendela atas, tinggi atap (satuan W)
+const SW = 6, SD = 12;
+// Proporsi per tipe (satuan = lebar rumah), diukur dari foto render masing-masing:
+// G = lantai bawah, U = pita jendela atas, R = tinggi atap dari tepi bawah sampai bubungan.
+const SPARAMS = { gwen: { G: .75, U: .39, R: .53 }, angeline: { G: .75, U: .40, R: .59 }, darlene: { G: .70, U: .34, R: .555 }, newgwen: { G: .70, U: .34, R: .555 } };
+
+// ---- konfigurasi fasad per tipe (u = fraksi lebar rumah A, v = satuan W; diukur dari foto render) ----
+const UPPER = {
+  gwen:     { frame: [.15, .88], parts: [["slat", .18, .45], ["glass", .46, .84, 3, 1]] },
+  angeline: { frame: [.15, .96], parts: [["slat", .17, .31], ["glass", .32, .79, 4, 3], ["slat", .81, .95]] },
+  darlene:  { frame: [.12, .90], parts: [["louv", .14, .27, .010, .012], ["louv", .27, .76, .014, .0065], ["louv", .76, .89, .010, .012]] },
+  newgwen:  { frame: [.12, .90], parts: [["louv", .14, .89, .0105, .0075]] },
+};
+const GWIN = {   // jendela lantai bawah: lis luar, daun-daun, rentang v (dari tanah)
+  gwen:     { out: [.10, .52], leaves: [[.13, .28, "pane"], [.33, .48, "tall"]], mull: [.28, .33], v: [.106, .60] },
+  angeline: { out: [.29, .51], leaves: [[.33, .405, "tall"], [.415, .48, "tall"]], mull: [.405, .415], v: [.083, .60] },
+  darlene:  { out: [.06, .58], leaves: [[.08, .23, "grid"], [.27, .56, "tall"]], mull: [.23, .27], v: [.10, .54] },
+  newgwen:  { out: [.10, .50], leaves: [[.13, .29, "tall"], [.31, .47, "tall"]], mull: [.29, .31], v: [.12, .56] },
+};
+const WOOD = {   // papan kayu lantai bawah: tinggi papan (W), warna dua selang-seling, lis
+  gwen:     { step: .07,  a: "#7b5a42", b: "#6b4d38" },
+  angeline: { step: .072, a: "#6f5442", b: "#5d463a" },
+  darlene:  { step: .066, a: "#7a5640", b: "#69493a" },
+  newgwen:  { step: .066, a: "#8c6c50", b: "#7a5c43" },
+};
+const PORCH = {  // rim lengkung, garis panel di muka porch, gagang pintu
+  gwen:     { rim: "#82858c", rimW: .014, seams: false, handle: false },
+  angeline: { rim: "#9a9da5", rimW: .014, seams: true,  handle: false },
+  darlene:  { rim: "#6b6e75", rimW: .010, seams: true,  handle: true },
+  newgwen:  { rim: "#51545c", rimW: .030, seams: false, handle: true },
+};
 
 function slateUpper(style, mirror, glow) {
+  const SU = SPARAMS[style].U, cfg = UPPER[style];
   const cw = 768, ch = Math.round(cw * SU);
   const X = (u) => u * cw, Y = (v) => (1 - v / SU) * ch;
   return canvasTex(cw, ch, (c) => {
     drawMirrored(c, cw, mirror);
     c.fillStyle = glow ? "#000" : "#e8e9f0"; c.fillRect(0, 0, cw, ch);
-    // jendela: [x0,x1] area bingkai, kaca, kisi-kisi
-    const cfg = {
-      gwen:     { frame: [.16, .88], glass: [.46, .84], louv: [[.18, .45]] },
-      angeline: { frame: [.2, .86], glass: [.37, .69], louv: [[.22, .37], [.69, .84]] },
-      darlene:  { frame: [.16, .92], glass: null, louv: [[.18, .9]] },
-    }[style];
-    const v0 = .02, v1 = .3;
-    if (!glow) {
-      c.fillStyle = "#4b4e57"; c.fillRect(X(cfg.frame[0]), Y(v1 + .03), X(cfg.frame[1] - cfg.frame[0]), Y(v0 - .01) - Y(v1 + .03));
-    }
-    const warm = (u0, u1, bright) => {
-      const gr = c.createLinearGradient(0, Y(v1), 0, Y(v0)); gr.addColorStop(0, "#ffe9b8"); gr.addColorStop(1, "#f2b968");
-      c.fillStyle = gr; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v0) - Y(v1));
-    };
-    if (cfg.glass) {
-      warm(cfg.glass[0], cfg.glass[1]);
-      c.strokeStyle = glow ? "#1c1d22" : "#2b2d33"; c.lineWidth = 3;
-      const [a, b] = cfg.glass; for (let i = 0; i <= 3; i++) { const u = a + (b - a) * i / 3; c.beginPath(); c.moveTo(X(u), Y(v1)); c.lineTo(X(u), Y(v0)); c.stroke(); }
-      for (let i = 0; i <= 2; i++) { const v = v0 + (v1 - v0) * i / 2; c.beginPath(); c.moveTo(X(a), Y(v)); c.lineTo(X(b), Y(v)); c.stroke(); }
-    }
-    cfg.louv.forEach(([a, b]) => {
-      if (style === "darlene") warm(a, b);
-      for (let u = a; u < b; u += .018) {
-        c.fillStyle = glow ? (style === "darlene" ? "#2a1f12" : "#000") : "#3a3d45";
-        c.fillRect(X(u), Y(v1), X(.009), Y(v0) - Y(v1));
+    const v0 = .02, v1 = SU - .08, [f0, f1] = cfg.frame;
+    const warmBG = cfg.parts.some((p) => p[0] === "louv");
+    if (!glow) { c.fillStyle = "#4b4e57"; c.fillRect(X(f0), Y(v1 + .03), X(f1 - f0), Y(v0 - .01) - Y(v1 + .03)); }
+    const warm = (u0, u1) => { const gr = c.createLinearGradient(0, Y(v1), 0, Y(v0)); gr.addColorStop(0, "#ffe9b8"); gr.addColorStop(1, "#f2b968"); c.fillStyle = gr; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v0) - Y(v1)); };
+    if (!glow) { c.fillStyle = "#b9bccb"; c.fillRect(X(f0) - 4, Y(v0 - .01), X(f1 - f0) + 8, 7); }          // ambang jendela
+    cfg.parts.forEach(([t, u0, u1, a, b]) => {
+      if (t === "glass") {
+        warm(u0, u1);
+        if (glow) {                                                                                     // lampu gantung
+          c.fillStyle = "rgba(170,100,40,.55)"; const mx = (u0 + u1) / 2;
+          c.fillRect(X(mx) - 1.5, Y(v1), 3, Y(v1 - .06) - Y(v1));
+          for (let k = -2; k <= 2; k++) c.fillRect(X(mx + k * .028) - 5, Y(v1 - .1 - Math.abs(k) * .008), 10, Y(v1 - .14) - Y(v1 - .1) + 4);
+        }
+        c.strokeStyle = glow ? "#1c1d22" : "#26282e"; c.lineWidth = 4;
+        for (let i = 0; i <= a; i++) { const u = u0 + (u1 - u0) * i / a; c.beginPath(); c.moveTo(X(u), Y(v1)); c.lineTo(X(u), Y(v0)); c.stroke(); }
+        for (let i = 0; i <= b; i++) { const v = v0 + (v1 - v0) * i / b; c.beginPath(); c.moveTo(X(u0), Y(v)); c.lineTo(X(u1), Y(v)); c.stroke(); }
+      } else if (t === "slat") {                                                                         // kisi-kisi abu (tanpa cahaya di baliknya)
+        if (!glow) {
+          c.fillStyle = "#4b4e57"; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v0) - Y(v1));
+          for (let u = u0 + .006; u < u1 - .008; u += .026) { c.fillStyle = "#858892"; c.fillRect(X(u), Y(v1), X(.014), Y(v0) - Y(v1)); }
+        }
+      } else {                                                                                           // kisi tipis dengan cahaya hangat di sela
+        if (glow) warm(u0, u1);
+        for (let u = u0; u < u1; u += a) { c.fillStyle = glow ? "#2a1f12" : "#3a3d45"; c.fillRect(X(u), Y(v1), X(b), Y(v0) - Y(v1)); }
+        if (glow) { c.fillStyle = "rgba(60,35,10,.55)"; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v1 - .035) - Y(v1)); }   // bayangan atas
       }
-      if (!glow && style !== "darlene") { c.fillStyle = "#4b4e57"; c.globalAlpha = .6; c.fillRect(X(a), Y(v1), X(b - a), Y(v0) - Y(v1)); c.globalAlpha = 1; }
+    });
+    void warmBG;
+  });
+}
+function slateGround(style, mirror, glow) {
+  const SG = SPARAMS[style].G, wd = WOOD[style], gw = GWIN[style];
+  const cw = 768, ch = Math.round(cw * SG);
+  const X = (u) => u * cw, Y = (v) => (1 - v / SG) * ch;
+  return canvasTex(cw, ch, (c) => {
+    drawMirrored(c, cw, mirror);
+    c.fillStyle = glow ? "#000" : wd.b; c.fillRect(0, 0, cw, ch);
+    const [v0, v1] = gw.v;
+    if (!glow) {
+      for (let v = 0, i = 0; v < SG; v += wd.step, i++) { c.fillStyle = i % 2 ? wd.b : wd.a; c.fillRect(0, Y(v + wd.step), cw, Y(v) - Y(v + wd.step) - 1.5); }
+      c.fillStyle = "#6e7077"; c.fillRect(0, Y(.03), cw, Y(0) - Y(.03));
+      const [o0, o1] = gw.out;                                                                           // lis luar abu tua
+      c.fillStyle = "#5c5f67"; c.fillRect(X(o0), Y(v1 + .03), X(o1 - o0), Y(v0 - .02) - Y(v1 + .03));
+      c.fillStyle = "#c9ccd6"; c.fillRect(X(gw.mull[0]), Y(v1 + .01), X(gw.mull[1] - gw.mull[0]), Y(v0 - .005) - Y(v1 + .01));   // tiang tengah muda
+    }
+    gw.leaves.forEach(([u0, u1, kind]) => {
+      if (!glow) { c.fillStyle = "#16181d"; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v0) - Y(v1)); }
+      const fx = .008, ix0 = u0 + fx, ix1 = u1 - fx, iv1 = v1 - .014, iv0 = v0 + .014;
+      if (glow) {
+        const gr = c.createLinearGradient(0, Y(iv1), 0, Y(iv0)); gr.addColorStop(0, "#ffe6b0"); gr.addColorStop(1, "#e9a95a");
+        c.fillStyle = gr; c.fillRect(X(ix0), Y(iv1), X(ix1 - ix0), Y(iv0) - Y(iv1));
+        c.fillStyle = "rgba(190,120,50,.4)"; c.fillRect(X(ix0), Y(iv1), X(.012), Y(iv0) - Y(iv1)); c.fillRect(X(ix1 - .012), Y(iv1), X(.012), Y(iv0) - Y(iv1));
+        if (kind === "grid") { c.strokeStyle = "#1c1d22"; c.lineWidth = 3; for (let i = 1; i < 3; i++) { const u = ix0 + (ix1 - ix0) * i / 3; c.beginPath(); c.moveTo(X(u), Y(iv1)); c.lineTo(X(u), Y(iv0)); c.stroke(); }
+          for (let i = 1; i < 6; i++) { const v = iv0 + (iv1 - iv0) * i / 6; c.beginPath(); c.moveTo(X(ix0), Y(v)); c.lineTo(X(ix1), Y(v)); c.stroke(); } }
+      }
     });
   });
 }
-function slateGround(mirror, glow) {
-  const cw = 768, ch = Math.round(cw * SG);
-  const X = (u) => u * cw, Y = (v) => (1 - v / SG) * ch;
-  const archPath = (c, u0, u1, v0, v1) => {
-    const r = (u1 - u0) / 2 * cw, cx = X((u0 + u1) / 2), top = Y(v1) + r;
-    c.beginPath(); c.moveTo(X(u0), Y(v0)); c.lineTo(X(u0), top); c.arc(cx, top, r, Math.PI, 0); c.lineTo(X(u1), Y(v0)); c.closePath();
-  };
-  return canvasTex(cw, ch, (c) => {
-    drawMirrored(c, cw, mirror);
-    c.fillStyle = glow ? "#000" : "#6e5240"; c.fillRect(0, 0, cw, ch);
-    if (!glow) {
-      for (let v = 0; v < SG; v += .036) { c.fillStyle = Math.round(v / .036) % 2 ? "#664a39" : "#7b5c46"; c.fillRect(0, Y(v + .036), cw, Y(v) - Y(v + .036) - 1); }
-      c.fillStyle = "#6e7077"; c.fillRect(0, Y(.03), cw, Y(0) - Y(.03));
-      c.fillStyle = "#74777f"; c.fillRect(X(.105), Y(.6), X(.37), Y(.145) - Y(.6));              // lis luar kusen
-      c.fillStyle = "#1f2127"; c.fillRect(X(.118), Y(.587), X(.344), Y(.158) - Y(.587));        // kusen gelap
-    } else {
-      const panes = [[.13, .284], [.296, .45]], rows = [[.17, .575]];
-      panes.forEach(([u0, u1]) => rows.forEach(([v0, v1]) => {
-        const gr = c.createLinearGradient(0, Y(v1), 0, Y(v0)); gr.addColorStop(0, "#ffe6b0"); gr.addColorStop(1, "#e9a95a");
-        c.fillStyle = gr; c.fillRect(X(u0), Y(v1), X(u1 - u0), Y(v0) - Y(v1));
-        c.fillStyle = "rgba(190,120,50,.35)"; c.fillRect(X(u0), Y(v1), X(.018), Y(v0) - Y(v1)); c.fillRect(X(u1 - .018), Y(v1), X(.018), Y(v0) - Y(v1));   // tirai
-      }));
-    }
-    if (!glow) {
-      c.fillStyle = "#1f2127";                                                                    // sekat kaca
-      c.fillRect(X(.284), Y(.587), X(.012), Y(.158) - Y(.587));
-    }
-  });
-}
 
-function porchMat() {                                      // satu blok putih untuk dua porch bersebelahan (A + B)
+function porchMat(style) {                                  // satu blok putih untuk dua porch bersebelahan (A + B)
+  const SG = SPARAMS[style].G, cfgP = PORCH[style], wd = WOOD[style];
   const pw = .84, ph = SG * .95, cw = 640, ch = Math.round(cw * ph / pw);
   const X = (u) => u * cw, Y = (v) => (1 - v / ph) * ch;
   const arch = (c, u0, u1, v0, v1) => { const r = (u1 - u0) / 2 * cw, cx = X((u0 + u1) / 2), top = Y(v1) + r; c.beginPath(); c.moveTo(X(u0), Y(v0)); c.lineTo(X(u0), top); c.arc(cx, top, r, Math.PI, 0); c.lineTo(X(u1), Y(v0)); c.closePath(); };
   const t = (glow) => canvasTex(cw, ch, (c) => {
     c.fillStyle = glow ? "#000" : "#e9eaf1"; c.fillRect(0, 0, cw, ch);
+    if (!glow && cfgP.seams) {                              // garis panel di muka porch (tidak melintang di tengah)
+      c.strokeStyle = "#c2c5d2"; c.lineWidth = 2;
+      [[.0, .07], [.775, .84]].forEach(([a0, a1]) => { for (let v = .08; v < ph - .02; v += .105) { c.beginPath(); c.moveTo(X(a0), Y(v)); c.lineTo(X(a1), Y(v)); c.stroke(); } });
+    }
     [[.07, .35], [.49, .77]].forEach(([a0, a1]) => {
+      const rw = cfgP.rimW;
+      if (!glow) { arch(c, a0 - rw, a1 + rw, .02, .555 + rw); c.fillStyle = cfgP.rim; c.fill(); }
       const gr = c.createLinearGradient(0, Y(.55), 0, Y(.02)); gr.addColorStop(0, "#ffe2b0"); gr.addColorStop(1, "#d99a5a");
       arch(c, a0, a1, .02, .55); c.fillStyle = glow ? "#e8b878" : gr; c.fill();
-      c.save(); arch(c, a0 + .03, a1 - .03, .02, .5); c.clip(); c.fillStyle = glow ? "#2c1a0e" : "#7d5636"; c.fillRect(0, 0, cw, ch);
-      c.strokeStyle = glow ? "#1a0f08" : "#684528"; c.lineWidth = 2;
-      for (let u = a0 + .04; u < a1 - .03; u += .03) { c.beginPath(); c.moveTo(X(u), 0); c.lineTo(X(u), ch); c.stroke(); }
+      // daun pintu kayu: papan mendatar, di sisi kiri lengkung
+      const d0 = a0 + .035, d1 = a0 + .165;
+      c.save(); c.beginPath(); c.rect(X(d0), Y(.48), X(d1 - d0), Y(.02) - Y(.48)); c.clip();
+      c.fillStyle = glow ? "#2c1a0e" : wd.a; c.fillRect(0, 0, cw, ch);
+      c.strokeStyle = glow ? "#1a0f08" : wd.b; c.lineWidth = 2;
+      for (let v = .05; v < .48; v += .055) { c.beginPath(); c.moveTo(X(d0), Y(v)); c.lineTo(X(d1), Y(v)); c.stroke(); }
       c.restore();
+      if (!glow && cfgP.handle) { c.fillStyle = "#c9ccd2"; c.fillRect(X(d1) - 9, Y(.27), 4, 22); }
     });
   });
   return litMat([t(false), t(true)]);
@@ -328,6 +368,7 @@ function porchMat() {                                      // satu blok putih un
 
 function buildSlate(style, opts = {}) {
   const g = new THREE.Group();
+  const { G: SG, U: SU, R: SR } = SPARAMS[style];
   const W = SW, D = SD, gh = SG * W, uh = SU * W, rise = SR * W;
   const yEave = gh + uh, yRidge = yEave + rise, sRidge = 4.4, backDrop = 3.2;
   const white = mk(0xe9eaf1, .8), slateTex = canvasTex(256, 256, (c, w, h) => {
@@ -337,7 +378,7 @@ function buildSlate(style, opts = {}) {
   slateTex.wrapS = slateTex.wrapT = THREE.RepeatWrapping; slateTex.repeat.set(4, 3);
   const slate = new THREE.MeshStandardMaterial({ map: slateTex, roughness: .55 });
   const upA = litMat([slateUpper(style, false, false), slateUpper(style, false, true)]), upB = litMat([slateUpper(style, true, false), slateUpper(style, true, true)]);
-  const grA = litMat([slateGround(false, false), slateGround(false, true)]), grB = litMat([slateGround(true, false), slateGround(true, true)]);
+  const grA = litMat([slateGround(style, false, false), slateGround(style, false, true)]), grB = litMat([slateGround(style, true, false), slateGround(style, true, true)]);
   const front = new THREE.PlaneGeometry(W, uh), grGeo = new THREE.PlaneGeometry(W, gh);
   const slopeLen = Math.hypot(sRidge + .4, rise);
   const slopeAng = Math.atan2(rise, sRidge + .4);
@@ -357,7 +398,7 @@ function buildSlate(style, opts = {}) {
     // porch putih menjorok + atap datar: satu blok untuk pasangan A+B (dibuat di unit A)
     if (!mirror) {
       u.add(box(W * .84, gh * .95, 1.3, white, W, gh * .475, .65));
-      const pf = new THREE.Mesh(new THREE.PlaneGeometry(W * .84, gh * .95), porchMat()); pf.position.set(W, gh * .475, 1.32); u.add(pf);
+      const pf = new THREE.Mesh(new THREE.PlaneGeometry(W * .84, gh * .95), porchMat(style)); pf.position.set(W, gh * .475, 1.32); u.add(pf);
       u.add(box(W * .86, .14, 1.45, mk(0x62656e), W, gh * .97, .72));
     }
     // atap miring depan (slate) + belakang
@@ -372,23 +413,53 @@ function buildSlate(style, opts = {}) {
     u.add(box(W - .1, .22, .12, white, W / 2, yEave + .08, .42, false));
     return u;
   }
-  const n = opts.hook ? 3 : 4;
-  const row = new THREE.Group();
-  for (let i = 0; i < n; i++) {
-    row.add(unit(i * W, i % 2 === 1));
-    const fin = new THREE.Mesh(finGeo, white); fin.position.set(i * W - .15, 0, 0); fin.castShadow = true; row.add(fin);
+  // Bagian sempit (carport) di sela pasangan rumah: atap turun panjang sampai ke atas dinding lantai bawah,
+  // tanpa jendela, bubungan jauh lebih rendah dari pasangan A+B (diukur dari foto: sekitar 0,14 W).
+  const SB = .45 * W;
+  const yBE = (SG + .04) * W, yBR = (SG + SU + SR - .14) * W, sRb = 3.6, backDropB = 2.6;
+  const profB = new THREE.Shape();
+  [[-.4, 0], [D, 0], [D, yBE - backDropB + .35], [sRb, yBR + .3], [-.4, yBE + .3]].forEach(([s2, y], i) => i ? profB.lineTo(s2, y) : profB.moveTo(s2, y));
+  const finB = new THREE.ExtrudeGeometry(profB, { depth: .3, bevelEnabled: false }); finB.rotateY(Math.PI / 2);
+  const woodTexB = canvasTex(256, 256, (c, w, h) => planks(c, w, h, 0, h, WOOD[style].a, WOOD[style].b, WOOD[style].a, Math.round(WOOD[style].step * 256 / 1.4)));
+  woodTexB.wrapS = woodTexB.wrapT = THREE.RepeatWrapping; woodTexB.repeat.set(1, 1.6);
+  const woodB = new THREE.MeshStandardMaterial({ map: woodTexB, roughness: .85 });
+  function bay(x0) {
+    const u = new THREE.Group(); u.position.x = x0;
+    u.add(box(SB, yBE, D, white, SB / 2, yBE / 2, -D / 2));
+    const wf = new THREE.Mesh(new THREE.PlaneGeometry(SB, gh), woodB); wf.position.set(SB / 2, gh / 2, .02); u.add(wf);
+    const run = sRb + .4, rise2 = yBR - yBE, len = Math.hypot(run, rise2);
+    const rf = box(SB - .1, .16, len, slate, SB / 2, yBE + rise2 / 2 + .08, -(sRb - .4) / 2);
+    rf.rotation.x = Math.atan2(rise2, run); u.add(rf);
+    const bl = Math.hypot(D - sRb, backDropB);
+    const rb = box(SB - .1, .16, bl, slate, SB / 2, yBR - backDropB / 2 + .08, -(sRb + D) / 2);
+    rb.rotation.x = -Math.atan2(backDropB, D - sRb); u.add(rb);
+    u.add(box(SB - .1, .22, .12, white, SB / 2, yBE + .08, .42, false));
+    return u;
   }
+  const row = new THREE.Group();
+  const seq = opts.hook ? ["S", "A", "B", "S", "A"] : ["S", "A", "B", "S", "A", "B"];
+  let xc = 0;
+  const addFin = (x, geo = finGeo) => { const f = new THREE.Mesh(geo, white); f.position.set(x - .15, 0, 0); f.castShadow = true; row.add(f); };
+  seq.forEach((t, i) => {
+    if (t === "S") { if (i === 0) addFin(0, finB); row.add(bay(xc)); xc += SB; }
+    else {
+      row.add(unit(xc, t === "B"));
+      if (t === "A") addFin(xc); else addFin(xc);               // sirip di sisi kiri tiap rumah
+      xc += W;
+      if (t === "B") addFin(xc);                                  // sirip kanan B (batas dengan bagian sempit / ujung)
+    }
+  });
+  const xEnd = xc;
   const EX = 3.8;
-  const endFin = new THREE.Mesh(opts.hook ? wallGeo : finGeo, white);
-  endFin.position.set(n * W - .15, 0, 0); endFin.castShadow = true; row.add(endFin);
-  let total = n * W;
+  if (opts.hook) addFin(xEnd, wallGeo);
+  let total = xEnd;
   if (opts.hook) {
     // unit pojok melebar: dinding kayu lantai bawah + dinding putih polos di atas, atap slate menerus,
     // dinding samping putih besar mengikuti kemiringan atap
-    const woodTex = canvasTex(256, 256, (c, w, h) => planks(c, w, h, 0, h, "#7b5c46", "#664a39", "#7b5c46", 18));
+    const woodTex = canvasTex(256, 256, (c, w, h) => planks(c, w, h, 0, h, WOOD[style].a, WOOD[style].b, WOOD[style].a, Math.round(WOOD[style].step * 256 / 1.4)));
     woodTex.wrapS = woodTex.wrapT = THREE.RepeatWrapping; woodTex.repeat.set(2, 1.2);
     const wood = new THREE.MeshStandardMaterial({ map: woodTex, roughness: .85 });
-    const x0 = n * W, cxx = x0 + EX / 2;
+    const x0 = xEnd, cxx = x0 + EX / 2;
     row.add(box(EX, yEave, D, white, cxx, yEave / 2, -D / 2));
     const wf = new THREE.Mesh(new THREE.PlaneGeometry(EX, gh), wood); wf.position.set(cxx, gh / 2, .02); row.add(wf);
     row.add(box(EX, .12, 1.0, mk(0x62656e), cxx, gh * .97, .5));
@@ -408,14 +479,14 @@ function buildSlate(style, opts = {}) {
   }
   row.position.x = -total / 2; g.add(row);
   const gx = -total / 2;
-  const hookCars = [[gx + 3.6, 3.7, 0xd8dce4], [gx + 9.8, 3.6, 0x16181d]];
-  const rowCars = [[gx + 3.6, 3.5, 0xf2f3f5, 4.7, 1.5], [gx + 17.5, 3.5, 0x1c1e22, 4.6, 1.5], [gx + 23.4, 3.5, 0xb8bcc4, 4.5, 1.4]];
+  const hookCars = [[gx + 3.2, 3.6, 0xf2f3f5, 4.7, 1.5], [gx + 20.5, 3.6, 0x16181d, 4.6, 1.5]];
+  const rowCars = [[gx + 3.2, 3.5, 0xf2f3f5, 4.7, 1.5], [gx + 20.5, 3.5, 0x1c1e22, 4.6, 1.5], [gx + 26.8, 3.5, 0xb8bcc4, 4.5, 1.4]];
   environment(g, {
     x0: gx, x1: gx + total, cars: opts.hook ? hookCars : rowCars,
-    people: opts.hook ? [[gx + total - 2.5, 7.2, 0xefece4, 1.7, 0xefece4], [gx + total - 1.6, 7.1, 0x777b86]] : [[gx + 11.2, 4.7, 0xd8c7b0, 1.7, 0xd8c7b0], [gx + 12.6, 4.6, 0xe3dccf]],
-    lawn: { x: gx + (opts.hook ? total - 9 : 14.5), z: 6.2, w: opts.hook ? 18 : 11, d: opts.hook ? 5.5 : 2.4 },
+    people: opts.hook ? [[gx + total - 2.5, 7.2, 0xefece4, 1.7, 0xefece4], [gx + total - 1.6, 7.1, 0x777b86]] : [[gx + 9.9, 4.7, 0xd8c7b0, 1.7, 0xd8c7b0], [gx + 11.3, 4.6, 0xe3dccf]],
+    lawn: { x: gx + (opts.hook ? total - 9 : 9.5), z: 6.2, w: opts.hook ? 18 : 9, d: opts.hook ? 5.5 : 2.4 },
   });
-  if (!opts.hook) { for (let k = 0; k < 6; k++) bush(g, gx + 10 + k * 1.4, 5.0 + (k % 2) * .4, k % 2 ? 0x3f8a3a : 0x5a9a42, .55 + (k % 3) * .1); }
+  if (!opts.hook) { for (let k = 0; k < 6; k++) bush(g, gx + 6 + k * 1.4, 5.0 + (k % 2) * .4, k % 2 ? 0x3f8a3a : 0x5a9a42, .55 + (k % 3) * .1); }
   else { for (let k = 0; k < 10; k++) bush(g, gx + total - 16 + k * 1.3, 5.3, k % 2 ? 0x3f8a3a : 0x5a9a42, .6); }
   return g;
 }
@@ -479,11 +550,13 @@ function buildRuko() {
 export const EXTRA_MODELS = {
   bianca:         { build: () => buildBianca(), target: [0, 5.5, 0], pos: [-8, 3, 36] },
   "bianca-hook":  { build: () => buildBianca({ hook: true }), target: [3, 5, 0], pos: [28, 4, 36] },
-  gwen:           { build: () => buildSlate("gwen"), target: [0, 4.5, 0], pos: [-8, 3, 40] },
+  gwen:           { build: () => buildSlate("gwen"), target: [0, 4.5, 0], pos: [-8, 3, 46] },
   "gwen-hook":    { build: () => buildSlate("gwen", { hook: true }), target: [3, 4.5, 0], pos: [26, 4, 34] },
-  angeline:       { build: () => buildSlate("angeline"), target: [0, 4.5, 0], pos: [-8, 3, 40] },
+  angeline:       { build: () => buildSlate("angeline"), target: [0, 4.5, 0], pos: [-8, 3, 46] },
   "angeline-hook": { build: () => buildSlate("angeline", { hook: true }), target: [3, 4.5, 0], pos: [26, 4, 34] },
-  darlene:        { build: () => buildSlate("darlene"), target: [0, 4.5, 0], pos: [-8, 3, 40] },
+  darlene:        { build: () => buildSlate("darlene"), target: [0, 4.5, 0], pos: [-8, 3, 46] },
+  newgwen:        { build: () => buildSlate("newgwen"), target: [0, 4.5, 0], pos: [-8, 3, 46] },
+  "newgwen-hook": { build: () => buildSlate("newgwen", { hook: true }), target: [3, 4.5, 0], pos: [26, 4, 34] },
   "darlene-hook": { build: () => buildSlate("darlene", { hook: true }), target: [3, 4.5, 0], pos: [26, 4, 34] },
   ruko:           { build: () => buildRuko(), target: [0, 5, 0], pos: [-6, 3.5, 36] },
 };
