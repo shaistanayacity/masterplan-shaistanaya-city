@@ -303,18 +303,20 @@ function slateGround(mirror, glow) {
   });
 }
 
-function porchMat() {
-  const pw = .42, ph = SG * .95, cw = 320, ch = Math.round(cw * ph / pw);
+function porchMat() {                                      // satu blok putih untuk dua porch bersebelahan (A + B)
+  const pw = .84, ph = SG * .95, cw = 640, ch = Math.round(cw * ph / pw);
   const X = (u) => u * cw, Y = (v) => (1 - v / ph) * ch;
   const arch = (c, u0, u1, v0, v1) => { const r = (u1 - u0) / 2 * cw, cx = X((u0 + u1) / 2), top = Y(v1) + r; c.beginPath(); c.moveTo(X(u0), Y(v0)); c.lineTo(X(u0), top); c.arc(cx, top, r, Math.PI, 0); c.lineTo(X(u1), Y(v0)); c.closePath(); };
   const t = (glow) => canvasTex(cw, ch, (c) => {
     c.fillStyle = glow ? "#000" : "#e9eaf1"; c.fillRect(0, 0, cw, ch);
-    if (!glow) { c.fillStyle = "#b9bccb"; c.fillRect(0, 0, X(.02), ch); c.fillRect(X(pw - .02), 0, X(.02), ch); }
-    const gr = c.createLinearGradient(0, Y(.55), 0, Y(.02)); gr.addColorStop(0, "#ffe2b0"); gr.addColorStop(1, "#d99a5a");
-    arch(c, .07, .35, .02, .55); c.fillStyle = glow ? "#ffcf8e" : gr; c.fill();
-    c.save(); arch(c, .1, .3, .02, .5); c.clip(); c.fillStyle = glow ? "#8a4f20" : "#a8744a"; c.fillRect(0, 0, cw, ch);
-    c.strokeStyle = glow ? "#5a3210" : "#8a5c39"; c.lineWidth = 2; for (let u = .11; u < .3; u += .03) { c.beginPath(); c.moveTo(X(u), 0); c.lineTo(X(u), ch); c.stroke(); }
-    c.restore();
+    [[.07, .35], [.49, .77]].forEach(([a0, a1]) => {
+      const gr = c.createLinearGradient(0, Y(.55), 0, Y(.02)); gr.addColorStop(0, "#ffe2b0"); gr.addColorStop(1, "#d99a5a");
+      arch(c, a0, a1, .02, .55); c.fillStyle = glow ? "#e8b878" : gr; c.fill();
+      c.save(); arch(c, a0 + .03, a1 - .03, .02, .5); c.clip(); c.fillStyle = glow ? "#2c1a0e" : "#7d5636"; c.fillRect(0, 0, cw, ch);
+      c.strokeStyle = glow ? "#1a0f08" : "#684528"; c.lineWidth = 2;
+      for (let u = a0 + .04; u < a1 - .03; u += .03) { c.beginPath(); c.moveTo(X(u), 0); c.lineTo(X(u), ch); c.stroke(); }
+      c.restore();
+    });
   });
   return litMat([t(false), t(true)]);
 }
@@ -347,11 +349,12 @@ function buildSlate(style, opts = {}) {
     const fg = new THREE.Mesh(grGeo, mirror ? grB : grA); fg.position.set(W / 2, gh / 2, .02); u.add(fg);
     u.add(box(W, uh, D, white, W / 2, gh + uh / 2, -D / 2));
     const fu = new THREE.Mesh(front, mirror ? upB : upA); fu.position.set(W / 2, gh + uh / 2, .02); u.add(fu);
-    // porch putih menjorok + atap datar
-    const px = mirror ? W * .21 : W * .79;
-    u.add(box(W * .42, gh * .95, 1.3, white, px, gh * .475, .65));
-    const pf = new THREE.Mesh(new THREE.PlaneGeometry(W * .42, gh * .95), porchMat()); pf.position.set(px, gh * .475, 1.32); u.add(pf);
-    u.add(box(W * .44, .14, 1.45, mk(0x62656e), px, gh * .97, .72));
+    // porch putih menjorok + atap datar: satu blok untuk pasangan A+B (dibuat di unit A)
+    if (!mirror) {
+      u.add(box(W * .84, gh * .95, 1.3, white, W, gh * .475, .65));
+      const pf = new THREE.Mesh(new THREE.PlaneGeometry(W * .84, gh * .95), porchMat()); pf.position.set(W, gh * .475, 1.32); u.add(pf);
+      u.add(box(W * .86, .14, 1.45, mk(0x62656e), W, gh * .97, .72));
+    }
     // atap miring depan (slate) + belakang
     const rf = box(slopeLen, .16, W - .1, slate, 0, 0, 0);
     rf.geometry = new THREE.BoxGeometry(W - .1, .16, slopeLen);
