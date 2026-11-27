@@ -472,10 +472,10 @@ BLOCKS.append(make_block(
 ))
 
 BLOCKS.append(make_block(
-    # Revisi: F5 tersedia sisa 08, 03 -- lainnya SOLD (06 & 02 terjual). 7 lots.
+    # Revisi: F5 semua SOLD (03 terakhir terjual). 7 lots.
     "F5", "montana", (879, 2079, 1212, 2160), 7, "rtl", skip_four=True,
     type_key="NEW_GWEN",
-    available={3},
+    available=set(),
     overrides={1: "NEW_GWEN_HOOK1", 8: "NEW_GWEN_HOOK8"},
     street="JL. MONTANA F5",
 ))
